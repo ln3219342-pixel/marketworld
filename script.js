@@ -8,7 +8,7 @@ const PRODUCTS = [
   // ELECTRONICS – GLOBAL
   {
     id: 1,
-    name: "Apple AirPods Pro (2nd Gen)",
+    name: "Apple AirPods Pro 3 Wireless Earbuds",
     description: "Active noise cancellation, Transparency mode, Adaptive Audio. Up to 30 hours battery life. MagSafe charging case.",
     price: "$189",
     originalPrice: "$249",
@@ -18,8 +18,9 @@ const PRODUCTS = [
     retailer: "Amazon",
     badge: "HOT DEAL",
     badgeClass: "",
-    image: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/dp/B0BDHWDR12",
+    image: "https://m.media-amazon.com/images/I/61o7EzoRpBL._AC_UY218_.jpg",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
   {
@@ -35,7 +36,8 @@ const PRODUCTS = [
     badge: "TRENDING",
     badgeClass: "badge-trending",
     image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Samsung+Galaxy+S24+Ultra",
+    affiliateLink: "https://amzn.to/3YXJZQZ",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
   {
@@ -51,7 +53,8 @@ const PRODUCTS = [
     badge: "NEW",
     badgeClass: "badge-new",
     image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.apple.com/macbook-air/",
+    affiliateLink: "https://amzn.to/4nfnJkL",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: false
   },
   {
@@ -67,7 +70,8 @@ const PRODUCTS = [
     badge: "BEST OFFER",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Sony+WH-1000XM5",
+    affiliateLink: "https://amzn.to/4nfnJkL",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: false, trending: true
   },
   {
@@ -83,7 +87,8 @@ const PRODUCTS = [
     badge: "HOT DEAL",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Samsung+65+4K+QLED+TV",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: false
   },
   {
@@ -99,7 +104,8 @@ const PRODUCTS = [
     badge: "",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Kindle+Paperwhite",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: false, trending: false
   },
 
@@ -117,7 +123,8 @@ const PRODUCTS = [
     badge: "HOT DEAL",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.flipkart.com/search?q=boat+rockerz+450",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
   {
@@ -133,7 +140,8 @@ const PRODUCTS = [
     badge: "TRENDING",
     badgeClass: "badge-trending",
     image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.flipkart.com/search?q=realme+narzo+70+pro",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
 
@@ -151,7 +159,8 @@ const PRODUCTS = [
     badge: "BEST OFFER",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Levi%27s+511+Slim+Jeans",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: false, trending: true
   },
   {
@@ -167,7 +176,8 @@ const PRODUCTS = [
     badge: "TRENDING",
     badgeClass: "badge-trending",
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Nike+Air+Max+270",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
   {
@@ -183,7 +193,8 @@ const PRODUCTS = [
     badge: "HOT DEAL",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Ray-Ban+Aviator+Classic",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: false
   },
 
@@ -201,7 +212,8 @@ const PRODUCTS = [
     badge: "LOCAL PICK",
     badgeClass: "badge-new",
     image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.fabindia.com/",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: false, trending: false
   },
 
@@ -219,7 +231,8 @@ const PRODUCTS = [
     badge: "BEST SELLER",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Instant+Pot+Duo+7-in-1",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
   {
@@ -235,7 +248,8 @@ const PRODUCTS = [
     badge: "PREMIUM",
     badgeClass: "badge-new",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Dyson+V15+Detect",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: false, trending: true
   },
   {
@@ -251,7 +265,8 @@ const PRODUCTS = [
     badge: "",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.ikea.com/us/en/search/?q=kallax",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: false, trending: false
   },
 
@@ -269,7 +284,8 @@ const PRODUCTS = [
     badge: "LOCAL DEAL",
     badgeClass: "badge-new",
     image: "https://images.unsplash.com/photo-1461088945293-0c17689e48ac?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.in/s?k=Prestige+Mixer+Grinder",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
 
@@ -287,7 +303,8 @@ const PRODUCTS = [
     badge: "LUXURY PICK",
     badgeClass: "badge-new",
     image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Dyson+Airwrap",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
   {
@@ -303,7 +320,8 @@ const PRODUCTS = [
     badge: "BEST OFFER",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=CeraVe+Moisturizing+Cream",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: false, trending: true
   },
 
@@ -321,7 +339,8 @@ const PRODUCTS = [
     badge: "TRENDING",
     badgeClass: "badge-trending",
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Garmin+Forerunner+255",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
   {
@@ -337,7 +356,8 @@ const PRODUCTS = [
     badge: "HOT DEAL",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.com/s?k=Adidas+Ultraboost+23",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: true
   },
 
@@ -355,7 +375,8 @@ const PRODUCTS = [
     badge: "LOCAL PICK",
     badgeClass: "badge-new",
     image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.in/s?k=Yonex+Nanoray+7+Badminton",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: false, trending: true
   },
   {
@@ -371,7 +392,8 @@ const PRODUCTS = [
     badge: "BEST OFFER",
     badgeClass: "",
     image: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=400&h=300&fit=crop",
-    affiliateLink: "https://www.amazon.in/s?k=Boldfit+Whey+Protein",
+    affiliateLink: "https://amzn.to/4ngi34j",
+    flipkartLink: "https://fktr.in/0ZEKcS0",
     featured: true, trending: false
   }
 ];
@@ -383,21 +405,37 @@ function createProductCard(product, delay = 0) {
       <div class="product-image-wrap">
         <img src="${product.image}" alt="${product.name}" loading="lazy" />
         ${product.badge ? `<span class="product-badge ${product.badgeClass || ''}">${product.badge}</span>` : ''}
-        <span class="product-scope">${product.scope === 'global' ? '🌍' : '🇮🇳'}</span>
+
+        <span class="product-scope">
+          ${product.scope === 'global' ? '🌍' : '🇮🇳'}
+        </span>
       </div>
+
       <div class="product-body">
-        <div class="product-category">${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</div>
+        <div class="product-category">
+          ${product.category.charAt(0).toUpperCase() + product.category.slice(1)}
+        </div>
+
         <h3 class="product-title">${product.name}</h3>
         <p class="product-desc">${product.description}</p>
+
         <div class="product-pricing">
           <span class="product-price">${product.price}</span>
           ${product.originalPrice ? `<span class="product-original">${product.originalPrice}</span>` : ''}
           ${product.discount ? `<span class="product-discount">${product.discount}</span>` : ''}
         </div>
       </div>
+
       <div class="product-footer">
-        <button class="btn-deal" onclick="event.stopPropagation(); goToCheckout(${product.id})">Check Deal</button>
-        <button class="btn-quick" onclick="event.stopPropagation(); openAffiliateLink(${product.id})" title="Go directly to retailer">🔗</button>
+        <div class="buy-buttons">
+          <button onclick="event.stopPropagation(); openAmazon(${product.id})" class="amazon-btn">
+            Amazon
+          </button>
+
+          <button onclick="event.stopPropagation(); openFlipkart(${product.id})" class="flipkart-btn">
+            Flipkart
+          </button>
+        </div>
       </div>
     </div>
   `;
@@ -407,11 +445,15 @@ function goToCheckout(id) {
   window.location.href = `checkout.html?id=${id}`;
 }
 
-function openAffiliateLink(id) {
+function openAmazon(id) {
   const product = PRODUCTS.find(p => p.id === id);
   if (product) window.open(product.affiliateLink, '_blank');
 }
 
+function openFlipkart(id) {
+  const product = PRODUCTS.find(p => p.id === id);
+  if (product) window.open(product.flipkartLink, '_blank');
+}
 // ── HEADER ───────────────────────────────────────────────────
 function initHeader() {
   // Scroll shadow
