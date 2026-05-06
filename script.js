@@ -1,5 +1,5 @@
 /* ============================================================
-   GLOBALMARKET – script.js
+   marketworld – script.js
    Product data, rendering, search, filters, interactions
    ============================================================ */
 
