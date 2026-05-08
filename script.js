@@ -8,19 +8,19 @@ const PRODUCTS = [
   // ELECTRONICS – GLOBAL
   {
     id: 1,
-    name: "Apple AirPods Pro 3 Wireless Earbuds",
-    description: "Active noise cancellation, Transparency mode, Adaptive Audio. Up to 30 hours battery life. MagSafe charging case.",
-    price: "$189",
-    originalPrice: "$249",
-    discount: "24% OFF",
+    name: "Boult Astra Neo Truly Wireless Bluetooth Earbuds",
+    description: "GOBOULT Astra Neo earbuds with 70H battery, deep bass, ENC mic, fast charging, and low latency gaming mode.",
+    price: "₹981",
+    originalPrice: "₹3499",
+    discount: "72% OFF",
     category: "electronics",
     scope: "global",
-    retailer: "Amazon",
+    retailer: "Amazon & Flipkart",
     badge: "HOT DEAL",
     badgeClass: "",
-    image: "https://m.media-amazon.com/images/I/61o7EzoRpBL._AC_UY218_.jpg",
-    affiliateLink: "https://amzn.to/4ngi34j",
-    flipkartLink: "https://fktr.in/0ZEKcS0",
+    image: "https://m.media-amazon.com/images/I/61wdIp45PqL._SL1440_.jpg",
+    affiliateLink: "https://amzn.to/42r7EsX",
+    flipkartLink: "https://www.flipkart.com/goboult-astra-neo-70hrs-playtime-4-mic-enc-bt-5-4-comfort-grip-case-bluetooth/p/itm6c2a88c0cfbce?pid=ACCGXY5FVH2HXK5E&marketplace=FLIPKART&lid=LSTACCGXY5FVH2HXK5EOVWQUB&q=goboult+astra+neo&fm=organic&pageUID=1778247483642",
     featured: true, trending: true
   },
   {
@@ -398,6 +398,7 @@ const PRODUCTS = [
   }
 ];
 
+// ── UTILITIES ────────────────────────────────────────────────
 // ── UTILITIES ────────────────────────────────────────────────
 function createProductCard(product, delay = 0) {
   return `

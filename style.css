@@ -936,16 +936,20 @@ h1, h2, h3, h4 { font-family: 'Syne', sans-serif; line-height: 1.15; }
   box-shadow: var(--shadow);
   border: 1px solid var(--gray-200);
 }
-.checkout-product-image-wrap {
+..checkout-product-image-wrap {
   position: relative;
   height: 280px;
   background: var(--gray-100);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .checkout-product-image-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 .checkout-badge {
   position: absolute;
