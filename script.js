@@ -397,51 +397,267 @@ const PRODUCTS = [
     featured: true, trending: false
   }
 ];
+localStorage.setItem("allProducts", JSON.stringify(PRODUCTS));
+// ── UTILITIES ────────────────────────────────────────────────
+// ── UTILITIES ────────────────────────────────────────────────
+function getWishlist() {
+  return JSON.parse(localStorage.getItem('wishlist') || '[]');
+}
 
-// ── UTILITIES ────────────────────────────────────────────────
-// ── UTILITIES ────────────────────────────────────────────────
-function createProductCard(product, delay = 0) {
+function saveWishlist(list) {
+  localStorage.setItem('wishlist', JSON.stringify(list));
+}
+function isInWishlist(id) {
+  const list = getWishlist();
+  return list.includes(id);
+}
+
+function toggleWishlist(id) {
+  let list = getWishlist();
+
+  const index = list.indexOf(id);
+
+  if (index !== -1) {
+    list.splice(index, 1);
+    showToast('💔 Removed from Wishlist', 'error');
+  } else {
+    list.push(id);
+    showToast('❤️ Added to Wishlist!', 'success');
+  }
+
+  saveWishlist(list);
+  updateWishlistCount();
+
+  return list.includes(id);
+}
+function updateWishlistCount() {
+
+  const count = getWishlist().length;
+
+  document.querySelectorAll('#navWishCount').forEach(el => {
+    el.textContent = count;
+  });
+
+}
+
+// ---- TOAST ----
+let toastTimer;
+function showToast(msg, type = 'success') {
+  let toast = document.getElementById('mw-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'mw-toast';
+    toast.className = 'toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.className = `toast ${type} show`;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ---- RENDER PRODUCT CARD ----
+function renderProductCard(product, small = false) {
+  const inWL = isInWishlist(product.id);
   return `
-    <div class="product-card" style="animation-delay:${delay}s" onclick="goToCheckout(${product.id})">
-      <div class="product-image-wrap">
-        <img src="${product.image}" alt="${product.name}" loading="lazy" />
-        ${product.badge ? `<span class="product-badge ${product.badgeClass || ''}">${product.badge}</span>` : ''}
-
-        <span class="product-scope">
-          ${product.scope === 'global' ? '🌍' : '🇮🇳'}
-        </span>
+    <div class="product-card fade-in" data-id="${product.id}">
+      <div class="product-img-wrap">
+        <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x220/16213e/FF4B2B?text=MarketWorld'">
+        <button class="wishlist-heart ${inWL ? 'active' : ''}" onclick="handleWishlistToggle(${product.id}, this)" title="Add to Wishlist">
+          ${inWL ? '❤️' : '🤍'}
+        </button>
+        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
       </div>
-
-      <div class="product-body">
-        <div class="product-category">
-          ${product.category.charAt(0).toUpperCase() + product.category.slice(1)}
-        </div>
-
+      <div class="product-info">
+        <div class="product-category">${product.category}</div>
         <h3 class="product-title">${product.name}</h3>
         <p class="product-desc">${product.description}</p>
-
-        <div class="product-pricing">
-          <span class="product-price">${product.price}</span>
-          ${product.originalPrice ? `<span class="product-original">${product.originalPrice}</span>` : ''}
-          ${product.discount ? `<span class="product-discount">${product.discount}</span>` : ''}
+        <div class="product-rating">
+          <span class="stars">${getStars(product.rating)}</span>
+          <span class="rating-count">${product.rating} (${product.reviews.toLocaleString()})</span>
         </div>
-      </div>
-
-      <div class="product-footer">
-        <div class="buy-buttons">
-          <button onclick="event.stopPropagation(); openAmazon(${product.id})" class="amazon-btn">
-            Amazon
-          </button>
-
-          <button onclick="event.stopPropagation(); openFlipkart(${product.id})" class="flipkart-btn">
-            Flipkart
-          </button>
+        <div class="product-price-row">
+          <span class="product-price">₹${product.price.toLocaleString()}</span>
+          <span class="product-price-original">₹${product.originalPrice.toLocaleString()}</span>
+          <span class="product-discount">${product.discount}% OFF</span>
+        </div>
+        <div class="product-buy-btns">
+          <a href="${product.amazonLink}" target="_blank" rel="noopener" class="btn btn-amazon">🛒 Amazon</a>
+          <a href="${product.flipkartLink}" target="_blank" rel="noopener" class="btn btn-flipkart">🏪 Flipkart</a>
         </div>
       </div>
     </div>
   `;
 }
 
+function getStars(rating) {
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
+  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+}
+
+// ---- WISHLIST TOGGLE HANDLER ----
+function handleWishlistToggle(id, btn) {
+  const inWL = toggleWishlist(id);
+
+  btn.classList.toggle('active', inWL);
+  btn.innerHTML = inWL ? '❤️' : '🤍';
+}
+function checkEmptyWishlist() {
+  const grid = document.getElementById('wishlist-grid');
+  if (!grid) return;
+  if (grid.children.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state" style="grid-column:1/-1">
+        <div class="empty-icon">💔</div>
+        <h3>Your Wishlist is Empty</h3>
+        <p>Save products you love to compare and buy later</p>
+        <a href="products.html" class="btn btn-primary">Browse Products</a>
+      </div>
+    `;
+  }
+}
+// ---- NAVBAR SETUP ----
+function setupNavbar() {
+  updateWishlistCount();
+  
+  // Active link highlighting
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === path || (path === '' && href === 'index.html')) {
+      a.classList.add('active');
+    }
+  });
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-menu');
+  if (ham && menu) {
+    ham.addEventListener('click', () => {
+      menu.classList.toggle('open');
+      ham.classList.toggle('open');
+    });
+  }
+}
+
+// ---- SEARCH FILTER ----
+function setupSearch(inputId, gridId) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  input.addEventListener('input', (e) => {
+    const q = e.target.value.toLowerCase().trim();
+    document.querySelectorAll(`#${gridId} .product-card`).forEach(card => {
+      const id = parseInt(card.dataset.id);
+      const product = PRODUCTS.find(p => p.id === id);
+      if (!product) return;
+      const match = product.name.toLowerCase().includes(q) ||
+                    product.category.toLowerCase().includes(q) ||
+                    product.description.toLowerCase().includes(q);
+      card.style.display = match ? '' : 'none';
+    });
+  });
+}
+
+// ---- CATEGORY FILTER ----
+function setupCategoryFilter() {
+  const btns = document.querySelectorAll('.cat-btn');
+  if (!btns.length) return;
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      document.querySelectorAll('#products-grid .product-card').forEach(card => {
+        const id = parseInt(card.dataset.id);
+        const product = PRODUCTS.find(p => p.id === id);
+        card.style.display = (cat === 'all' || product?.category === cat) ? '' : 'none';
+      });
+    });
+  });
+}
+
+// ---- ON PAGE LOAD ----
+document.addEventListener('DOMContentLoaded', () => {
+  setupNavbar();
+});
+function createProductCard(product, delay = 0) {
+  const inWL = isInWishlist(product.id);
+
+  return `
+    <div class="product-card" style="animation-delay:${delay}s">
+
+      <div class="product-image-wrap">
+        <img 
+          src="${product.image}" 
+          alt="${product.name}" 
+          loading="lazy"
+          onerror="this.src='https://via.placeholder.com/400x220?text=Image+Not+Found'"
+        />
+
+        <!-- Wishlist Heart -->
+        <button 
+          class="wishlist-heart ${inWL ? 'active' : ''}"
+          onclick="event.stopPropagation(); handleWishlistToggle(${product.id}, this)"
+        >
+          ${inWL ? '❤️' : '🤍'}
+        </button>
+
+        ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+      </div>
+
+      <div class="product-body" onclick="goToCheckout(${product.id})">
+
+        <div class="product-category">
+          ${product.category}
+        </div>
+
+        <h3 class="product-title">
+          ${product.name}
+        </h3>
+
+        <p class="product-desc">
+          ${product.description}
+        </p>
+
+        <div class="product-pricing">
+          <span class="product-price">${product.price}</span>
+
+          ${product.originalPrice ? `
+            <span class="product-original">${product.originalPrice}</span>
+          ` : ''}
+
+          ${product.discount ? `
+            <span class="product-discount">${product.discount}</span>
+          ` : ''}
+        </div>
+
+      </div>
+
+      <div class="product-footer">
+        <div class="buy-buttons">
+
+          <button 
+            onclick="event.stopPropagation(); openAmazon(${product.id})" 
+            class="amazon-btn"
+          >
+            Amazon
+          </button>
+
+          <button 
+            onclick="event.stopPropagation(); openFlipkart(${product.id})" 
+            class="flipkart-btn"
+          >
+            Flipkart
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+  `;
+}
 function goToCheckout(id) {
   window.location.href = `checkout.html?id=${id}`;
 }
@@ -631,7 +847,6 @@ function parsePrice(priceStr) {
 // ── INIT ─────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
-
   // Homepage
   if (document.getElementById('topDealsGrid')) {
     renderHomepage();
@@ -661,3 +876,18 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 });
+function updateWishlistUI() {
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+  document.querySelectorAll(".wishlist-btn").forEach(btn => {
+    const id = parseInt(btn.getAttribute("data-id"));
+
+    const exists = wishlist.find(p => p.id === id);
+
+    if (exists) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
+}
