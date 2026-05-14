@@ -256,6 +256,37 @@
     .card { padding: 36px 26px 30px; }
     h1 { font-size: 20px; }
   }
+ #toast{
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+
+  background: rgba(20,20,30,.95);
+  color: #fff;
+
+  padding: 14px 22px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  opacity: 0;
+
+  transition: all .35s ease;
+
+  z-index: 99999;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+#toast.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 </style>
 </head>
 <body>
@@ -378,7 +409,21 @@
       }, 1500);
     }
   });
+  function showToast(message){
+
+  const toast = document.getElementById("toast");
+
+  toast.innerText = message;
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+
+}
 </script>
+
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
@@ -414,11 +459,13 @@ window.loginWithGoogle = async () => {
 
     const result = await signInWithPopup(auth, provider);
 
-    alert("✅ Welcome " + result.user.displayName);
-
+    showToast("✅ Welcome " + result.user.displayName);
+setTimeout(() => {
+  window.location.href = "index.html";
+}, 1000);
   } catch (error) {
 
-    alert(error.message);
+    showToast(error.message);
 
   }
 
@@ -437,16 +484,19 @@ window.loginWithEmail = async () => {
     const userCredential =
       await signInWithEmailAndPassword(auth, email, password);
 
-    alert("✅ Login Success");
-
+    showToast("✅ Login Success");
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1000);
   } catch (error) {
 
-    alert(error.message);
+    showToast(error.message);
 
   }
 
 };
 
 </script>
+<div id="toast"></div>
 </body>
 </html>
