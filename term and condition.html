@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service — Marketworld</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy-900: #050d1a;
+      --navy-800: #0a1628;
+      --navy-700: #0f1f38;
+      --navy-600: #162847;
+      --navy-500: #1e3557;
+      --amber: #f5a623;
+      --amber-light: #ffc84a;
+      --amber-glow: rgba(245,166,35,0.15);
+      --amber-border: rgba(245,166,35,0.3);
+      --white: #ffffff;
+      --gray-100: #e8edf5;
+      --gray-300: #b0bcd4;
+      --gray-500: #7a8aa8;
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.07);
+      --card-hover: rgba(245,166,35,0.06);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy-900);
+      color: var(--gray-300);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── BACKGROUND TEXTURE ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(245,166,35,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(30,53,87,0.6) 0%, transparent 60%),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 40px,
+          rgba(255,255,255,0.012) 40px,
+          rgba(255,255,255,0.012) 41px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 5%;
+      background: rgba(5,13,26,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--amber); }
+
+    .nav-badge {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--amber);
+      background: var(--amber-glow);
+      border: 1px solid var(--amber-border);
+      padding: 5px 14px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 100px 5% 70px;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      background: var(--amber-glow);
+      border: 1px solid var(--amber-border);
+      padding: 7px 20px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+      animation: fadeDown 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      animation: fadeDown 0.7s 0.1s ease both;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--amber) 0%, var(--amber-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: var(--gray-500);
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+      animation: fadeDown 0.7s 0.2s ease both;
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 36px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 0.83rem;
+      color: var(--gray-500);
+      animation: fadeDown 0.7s 0.3s ease both;
+    }
+
+    .hero-meta svg { color: var(--amber); flex-shrink: 0; }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+      padding: 0 5%;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber-border), transparent);
+    }
+
+    .divider-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 10px var(--amber);
+    }
+
+    /* ─── CONTENT ─── */
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 5% 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ─── CARD ─── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 36px 40px;
+      transition: background 0.35s ease, border-color 0.35s ease, transform 0.3s ease, box-shadow 0.35s ease;
+      cursor: default;
+    }
+
+    .card:hover {
+      background: var(--card-hover);
+      border-color: var(--amber-border);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,166,35,0.1);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card-icon {
+      width: 46px; height: 46px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--amber-glow);
+      border: 1px solid var(--amber-border);
+      border-radius: 12px;
+      font-size: 1.3rem;
+    }
+
+    .card-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+
+    .card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: -0.3px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--gray-300);
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--gray-300);
+    }
+
+    .card ul li::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ─── HIGHLIGHT BOX ─── */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(245,166,35,0.1), rgba(245,166,35,0.04));
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 18px;
+      font-size: 0.88rem;
+      color: var(--gray-100);
+      line-height: 1.7;
+    }
+
+    .highlight-box strong { color: var(--amber); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--card-border);
+      background: rgba(5,13,26,0.6);
+      backdrop-filter: blur(10px);
+      padding: 32px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .footer-logo span { color: var(--amber); }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--amber); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      animation: cardIn 0.5s ease both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.12s; }
+    .card:nth-child(3) { animation-delay: 0.18s; }
+    .card:nth-child(4) { animation-delay: 0.24s; }
+    .card:nth-child(5) { animation-delay: 0.30s; }
+    .card:nth-child(6) { animation-delay: 0.36s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .card { padding: 26px 22px; }
+      .hero { padding: 70px 5% 50px; }
+      .hero h1 { letter-spacing: -1px; }
+      footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Market<span>world</span></div>
+    <div class="nav-badge">Legal Document</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">📋 Legal &amp; Policy</div>
+    <h1>Terms of <span>Service</span></h1>
+    <p class="hero-sub">Please read these terms carefully before using Marketworld. By accessing our platform, you agree to be bound by these conditions.</p>
+    <div class="hero-meta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Last updated: January 1, 2026 &nbsp;·&nbsp; Effective immediately
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-dot"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- 1. Acceptance -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">✅</div>
+        <div>
+          <div class="card-num">Section 01</div>
+          <h2>Acceptance of Terms</h2>
+        </div>
+      </div>
+      <p>By accessing or using Marketworld in any way — including browsing, registering, purchasing, or simply visiting — you confirm that you have read, understood, and agree to be legally bound by these Terms of Service and our Privacy Policy.</p>
+      <div class="highlight-box">
+        <strong>Important:</strong> If you do not agree with any part of these terms, you must immediately discontinue use of our platform. Continued use constitutes full acceptance of all terms stated herein.
+      </div>
+    </div>
+
+    <!-- 2. User Responsibilities -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">👤</div>
+        <div>
+          <div class="card-num">Section 02</div>
+          <h2>User Responsibilities</h2>
+        </div>
+      </div>
+      <p>As a user of Marketworld, you are solely responsible for your activity on the platform. You agree to the following responsibilities:</p>
+      <ul>
+        <li>Provide accurate, current, and complete information during registration and purchases.</li>
+        <li>Maintain the confidentiality of your account credentials and notify us immediately of any unauthorized access.</li>
+        <li>Not engage in fraudulent, abusive, or harmful behavior toward other users, sellers, or Marketworld staff.</li>
+        <li>Comply with all applicable local, national, and international laws and regulations while using our platform.</li>
+        <li>Not attempt to reverse-engineer, scrape, or misuse any part of the Marketworld infrastructure.</li>
+      </ul>
+    </div>
+
+    <!-- 3. Use of Website -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🌐</div>
+        <div>
+          <div class="card-num">Section 03</div>
+          <h2>Use of Website</h2>
+        </div>
+      </div>
+      <p>Marketworld grants you a limited, non-exclusive, non-transferable license to access and use our website for personal, non-commercial shopping purposes only. The following uses are strictly prohibited:</p>
+      <ul>
+        <li>Reproducing, distributing, or commercially exploiting any content from this website without prior written consent.</li>
+        <li>Using automated bots, scrapers, or crawlers to extract data from Marketworld.</li>
+        <li>Posting or transmitting any content that is unlawful, defamatory, threatening, or obscene.</li>
+        <li>Attempting to gain unauthorized access to any portion of our systems or databases.</li>
+        <li>Interfering with the proper functioning of the website or its associated servers.</li>
+      </ul>
+    </div>
+
+    <!-- 4. Affiliate & Third-Party -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🔗</div>
+        <div>
+          <div class="card-num">Section 04</div>
+          <h2>Affiliate &amp; Third-Party Links</h2>
+        </div>
+      </div>
+      <p>Marketworld participates in affiliate programs including, but not limited to, Amazon Associates and Flipkart Affiliate Program. This means we may earn a commission when you click on certain product links and make a purchase — at no additional cost to you.</p>
+      <ul>
+        <li>All affiliate product links are clearly identified and redirect to third-party platforms (Amazon, Flipkart, etc.).</li>
+        <li>Marketworld does not control the content, pricing, availability, or policies of third-party websites.</li>
+        <li>Your purchase on third-party platforms is governed entirely by their respective terms and privacy policies.</li>
+        <li>We are not responsible for any disputes arising from third-party transactions or product issues.</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>Transparency Note:</strong> Our affiliate relationships never influence editorial decisions. All product recommendations are made independently based on value and quality.
+      </div>
+    </div>
+
+    <!-- 5. Limitations of Liability -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">⚖️</div>
+        <div>
+          <div class="card-num">Section 05</div>
+          <h2>Limitations of Liability</h2>
+        </div>
+      </div>
+      <p>To the maximum extent permitted by applicable law, Marketworld and its affiliates, officers, employees, and partners shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from:</p>
+      <ul>
+        <li>Your use of or inability to access the Marketworld website or its content.</li>
+        <li>Unauthorized access to your personal data or account due to your own negligence.</li>
+        <li>Any errors, inaccuracies, or omissions in product descriptions or pricing information.</li>
+        <li>Any third-party transactions, disputes, or product-related issues on affiliate platforms.</li>
+        <li>Service interruptions, technical failures, or security breaches beyond our reasonable control.</li>
+      </ul>
+    </div>
+
+    <!-- 6. Changes to Terms -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon">🔄</div>
+        <div>
+          <div class="card-num">Section 06</div>
+          <h2>Changes to Terms</h2>
+        </div>
+      </div>
+      <p>Marketworld reserves the right to update, modify, or replace any part of these Terms of Service at any time. Changes will be effective immediately upon posting to this page, and we will update the "Last Updated" date accordingly.</p>
+      <ul>
+        <li>We may notify registered users of significant changes via email or an in-platform notification.</li>
+        <li>Your continued use of Marketworld after any changes constitutes your acceptance of the revised terms.</li>
+        <li>It is your responsibility to review these terms periodically to stay informed of any updates.</li>
+      </ul>
+      <div class="highlight-box">
+        <strong>Questions?</strong> If you have any concerns about these Terms of Service, please contact us at <strong>legal@marketworld.com</strong> — we're happy to help clarify.
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Market<span>world</span></div>
+    <div class="footer-copy">© 2026 Marketworld — All rights reserved</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Refund Policy</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>

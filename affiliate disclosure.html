@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Disclosure — Marketworld</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#060a18',
+                            900: '#0a0f1e',
+                            800: '#0f1629',
+                            700: '#151d35',
+                            600: '#1a2440',
+                        },
+                        gold: {
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        syne: ['Syne', 'sans-serif'],
+                        dm: ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: #060a18; color: #d1d5db; overflow-x: hidden; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0f1e; }
+        ::-webkit-scrollbar-thumb { background: #f59e0b33; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #f59e0b66; }
+
+        /* Glow Orb */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(15, 22, 41, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(245, 158, 11, 0.08);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.25);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px -15px rgba(245, 158, 11, 0.12), 0 0 0 1px rgba(245, 158, 11, 0.1);
+        }
+
+        /* Icon Container */
+        .icon-wrap {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            transition: all 0.4s ease;
+        }
+        .glass-card:hover .icon-wrap {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0.1));
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+        }
+
+        /* Hero gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Fade in animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger children */
+        .stagger-children .fade-up:nth-child(1) { transition-delay: 0.05s; }
+        .stagger-children .fade-up:nth-child(2) { transition-delay: 0.15s; }
+        .stagger-children .fade-up:nth-child(3) { transition-delay: 0.25s; }
+        .stagger-children .fade-up:nth-child(4) { transition-delay: 0.35s; }
+        .stagger-children .fade-up:nth-child(5) { transition-delay: 0.45s; }
+
+        /* Divider line */
+        .gold-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.3), transparent);
+        }
+
+        /* Pulse dot */
+        .pulse-dot {
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+        }
+
+        /* Hero line animation */
+        .hero-line {
+            width: 0;
+            transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
+        }
+        .hero-line.visible {
+            width: 80px;
+        }
+
+        /* Badge */
+        .trust-badge {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.03));
+            border: 1px solid rgba(245, 158, 11, 0.15);
+        }
+
+        /* Footer subtle border */
+        .footer-border {
+            border-top: 1px solid rgba(245, 158, 11, 0.08);
+        }
+
+        /* Noise texture overlay */
+        .noise-overlay::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Grid pattern */
+        .grid-pattern {
+            background-image: linear-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+    </style>
+</head>
+<body class="noise-overlay grid-pattern relative">
+
+    <!-- Background Glow Orbs -->
+    <div class="glow-orb w-[500px] h-[500px] bg-gold-500 top-[-100px] left-[-150px] fixed" style="z-index:0;"></div>
+    <div class="glow-orb w-[400px] h-[400px] bg-gold-600 top-[50%] right-[-100px] fixed" style="z-index:0;"></div>
+    <div class="glow-orb w-[300px] h-[300px] bg-amber-700 bottom-[-50px] left-[30%] fixed" style="z-index:0;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-gold-500/5" style="background: rgba(6, 10, 24, 0.8); backdrop-filter: blur(16px);">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16 md:h-20">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg group-hover:shadow-gold-500/20">
+                    <iconify-icon icon="lucide:store" class="text-navy-950 text-lg"></iconify-icon>
+                </div>
+                <span class="font-syne font-bold text-xl text-white tracking-tight">Market<span class="gradient-text">world</span></span>
+            </a>
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-sm text-gray-400 hover:text-gold-400 transition-colors duration-300">Home</a>
+                <a href="#" class="text-sm text-gray-400 hover:text-gold-400 transition-colors duration-300">Categories</a>
+                <a href="#" class="text-sm text-gray-400 hover:text-gold-400 transition-colors duration-300">Deals</a>
+                <a href="#" class="text-sm text-gold-400 font-medium">Affiliate Disclosure</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-400 hover:text-gold-400 transition-colors">
+                <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-gold-500/5 px-6 py-4 space-y-3" style="background: rgba(6, 10, 24, 0.95); backdrop-filter: blur(16px);">
+            <a href="#" class="block text-sm text-gray-400 hover:text-gold-400 py-2 transition-colors">Home</a>
+            <a href="#" class="block text-sm text-gray-400 hover:text-gold-400 py-2 transition-colors">Categories</a>
+            <a href="#" class="block text-sm text-gray-400 hover:text-gold-400 py-2 transition-colors">Deals</a>
+            <a href="#" class="block text-sm text-gold-400 font-medium py-2">Affiliate Disclosure</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-28 md:pt-36 pb-20 px-6 md:px-10">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Hero Section -->
+            <section class="text-center mb-20 md:mb-28 fade-up">
+                <!-- Trust Badge -->
+                <div class="inline-flex items-center gap-2.5 trust-badge rounded-full px-5 py-2 mb-8">
+                    <span class="w-2 h-2 rounded-full bg-gold-400 pulse-dot"></span>
+                    <span class="text-xs font-dm font-medium text-gold-400 uppercase tracking-[0.2em]">Full Transparency</span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="font-syne font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[0.9] tracking-tighter mb-6">
+                    Affiliate<br>
+                    <span class="gradient-text">Disclosure</span>
+                </h1>
+
+                <!-- Animated Line -->
+                <div class="flex justify-center mb-8">
+                    <div class="hero-line h-[2px] bg-gradient-to-r from-gold-400 to-gold-600 rounded-full"></div>
+                </div>
+
+                <!-- Subtitle -->
+                <p class="font-dm text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    Transparency is important to us — here's how we earn.
+                    <br class="hidden sm:block">
+                    No hidden agendas, just honest recommendations.
+                </p>
+
+                <!-- Last Updated -->
+                <div class="mt-8 inline-flex items-center gap-2 text-xs text-gray-500">
+                    <iconify-icon icon="lucide:clock" class="text-gold-500/50"></iconify-icon>
+                    Last updated: January 15, 2026
+                </div>
+            </section>
+
+            <!-- Gold Divider -->
+            <div class="gold-divider mb-16 md:mb-24"></div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 stagger-children mb-16 md:mb-24">
+
+                <!-- Card 1: What is Affiliate Marketing -->
+                <div class="glass-card rounded-2xl p-8 md:p-10 fade-up">
+                    <div class="icon-wrap w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <iconify-icon icon="lucide:link-2" class="text-gold-400 text-2xl"></iconify-icon>
+                    </div>
+                    <h2 class="font-syne font-bold text-xl md:text-2xl text-white mb-4 tracking-tight">
+                        What is Affiliate Marketing?
+                    </h2>
+                    <p class="font-dm text-sm md:text-base text-gray-400 leading-relaxed">
+                        Affiliate marketing is a way for us to earn a small commission when you purchase products through our links. We carefully curate and recommend products we genuinely believe in — and when you buy through our referrals, the retailer pays us a fee at absolutely no extra cost to you.
+                    </p>
+                    <div class="mt-6 flex items-center gap-2 text-gold-500/60 text-xs font-medium uppercase tracking-widest">
+                        <iconify-icon icon="lucide:info" class="text-sm"></iconify-icon>
+                        The Basics
+                    </div>
+                </div>
+
+                <!-- Card 2: How We Earn Commissions -->
+                <div class="glass-card rounded-2xl p-8 md:p-10 fade-up">
+                    <div class="icon-wrap w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <iconify-icon icon="lucide:trending-up" class="text-gold-400 text-2xl"></iconify-icon>
+                    </div>
+                    <h2 class="font-syne font-bold text-xl md:text-2xl text-white mb-4 tracking-tight">
+                        How We Earn Commissions
+                    </h2>
+                    <p class="font-dm text-sm md:text-base text-gray-400 leading-relaxed">
+                        When you click on a product link on Marketworld and make a purchase, we may receive a small percentage of the sale. This commission comes directly from the retailer's marketing budget — it is never added to your price. Think of it as a "thank you" from the brand for sending a customer their way.
+                    </p>
+                    <div class="mt-6 flex items-center gap-2 text-gold-500/60 text-xs font-medium uppercase tracking-widest">
+                        <iconify-icon icon="lucide:zap" class="text-sm"></iconify-icon>
+                        Simple Process
+                    </div>
+                </div>
+
+                <!-- Card 3: Amazon & Flipkart Partnerships — Full Width -->
+                <div class="glass-card rounded-2xl p-8 md:p-10 md:col-span-2 fade-up">
+                    <div class="flex flex-col md:flex-row md:items-start gap-8">
+                        <div class="flex-shrink-0">
+                            <div class="icon-wrap w-14 h-14 rounded-xl flex items-center justify-center">
+                                <iconify-icon icon="lucide:shopping-bag" class="text-gold-400 text-2xl"></iconify-icon>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h2 class="font-syne font-bold text-xl md:text-2xl text-white mb-4 tracking-tight">
+                                Amazon & Flipkart Partnerships
+                            </h2>
+                            <p class="font-dm text-sm md:text-base text-gray-400 leading-relaxed mb-6">
+                                Marketworld is a participant in the <strong class="text-gray-300 font-medium">Amazon Associates Program</strong>, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.in and Amazon.com. We are also part of the <strong class="text-gray-300 font-medium">Flipkart Affiliate Program</strong>. These partnerships allow us to curate the best deals and products from India's most trusted e-commerce platforms and present them to you in an organized, easy-to-browse format.
+                            </p>
+                            <!-- Partner Logos Row -->
+                            <div class="flex flex-wrap items-center gap-4">
+                                <div class="flex items-center gap-2.5 bg-navy-800/80 border border-gold-500/10 rounded-lg px-4 py-2.5">
+                                    <iconify-icon icon="simple-icons:amazon" class="text-gold-400 text-lg"></iconify-icon>
+                                    <span class="text-xs font-dm font-medium text-gray-300">Amazon Associates</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-navy-800/80 border border-gold-500/10 rounded-lg px-4 py-2.5">
+                                    <iconify-icon icon="lucide:package" class="text-gold-400 text-lg"></iconify-icon>
+                                    <span class="text-xs font-dm font-medium text-gray-300">Flipkart Affiliate</span>
+                                </div>
+                                <div class="flex items-center gap-2.5 bg-navy-800/80 border border-gold-500/10 rounded-lg px-4 py-2.5">
+                                    <iconify-icon icon="lucide:plus" class="text-gold-400/50 text-sm"></iconify-icon>
+                                    <span class="text-xs font-dm font-medium text-gray-500">Other Partners</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: No Extra Cost to Users -->
+                <div class="glass-card rounded-2xl p-8 md:p-10 fade-up">
+                    <div class="icon-wrap w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <iconify-icon icon="lucide:shield-check" class="text-gold-400 text-2xl"></iconify-icon>
+                    </div>
+                    <h2 class="font-syne font-bold text-xl md:text-2xl text-white mb-4 tracking-tight">
+                        No Extra Cost to You
+                    </h2>
+                    <p class="font-dm text-sm md:text-base text-gray-400 leading-relaxed">
+                        This is the most important part: <strong class="text-gray-300 font-medium">you never pay a single rupee extra</strong>. The price you see on Amazon, Flipkart, or any other platform is exactly what you pay. Our commission is built into the retailer's pricing structure, not yours. You get the same deal — sometimes even better ones we've negotiated — and we get a small referral fee. Everyone wins.
+                    </p>
+                    <div class="mt-6 flex items-center gap-2 text-emerald-400/70 text-xs font-medium uppercase tracking-widest">
+                        <iconify-icon icon="lucide:check-circle" class="text-sm"></iconify-icon>
+                        Zero Extra Cost
+                    </div>
+                </div>
+
+                <!-- Card 5: Our Transparency Commitment -->
+                <div class="glass-card rounded-2xl p-8 md:p-10 fade-up">
+                    <div class="icon-wrap w-14 h-14 rounded-xl flex items-center justify-center mb-6">
+                        <iconify-icon icon="lucide:heart-handshake" class="text-gold-400 text-2xl"></iconify-icon>
+                    </div>
+                    <h2 class="font-syne font-bold text-xl md:text-2xl text-white mb-4 tracking-tight">
+                        Our Transparency Commitment
+                    </h2>
+                    <p class="font-dm text-sm md:text-base text-gray-400 leading-relaxed">
+                        We will never recommend a product just because it pays a higher commission. Our editorial integrity comes first. Every product listed on Marketworld goes through a quality check — we look at reviews, ratings, value for money, and real user feedback before it makes it to our pages. If we wouldn't buy it ourselves, we won't recommend it to you.
+                    </p>
+                    <div class="mt-6 flex items-center gap-2 text-gold-500/60 text-xs font-medium uppercase tracking-widest">
+                        <iconify-icon icon="lucide:award" class="text-sm"></iconify-icon>
+                        Integrity First
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gold Divider -->
+            <div class="gold-divider mb-16 md:mb-24"></div>
+
+            <!-- Bottom Summary Section -->
+            <section class="fade-up mb-16 md:mb-24">
+                <div class="glass-card rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+                    <!-- Decorative corner glow -->
+                    <div class="absolute -top-20 -right-20 w-40 h-40 bg-gold-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+                    <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-gold-600/8 rounded-full blur-[80px] pointer-events-none"></div>
+
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-gold-400/20 to-gold-600/10 border border-gold-500/20 mb-6">
+                            <iconify-icon icon="lucide:sparkles" class="text-gold-400 text-3xl"></iconify-icon>
+                        </div>
+                        <h2 class="font-syne font-bold text-2xl md:text-3xl text-white mb-4 tracking-tight">
+                            The Bottom Line
+                        </h2>
+                        <p class="font-dm text-sm md:text-base text-gray-400 max-w-2xl mx-auto leading-relaxed mb-8">
+                            When you shop through Marketworld, you're getting curated, honest product recommendations — and the small commission we earn helps us keep this platform running, pay our team, and continue bringing you the best deals. <strong class="text-gray-300">Your trust means everything to us.</strong>
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <a href="#" class="inline-flex items-center gap-2 bg-gradient-to-r from-gold-400 to-gold-600 text-navy-950 font-syne font-semibold text-sm uppercase tracking-widest px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-gold-500/20 hover:scale-105 transition-all duration-300">
+                                <iconify-icon icon="lucide:arrow-left" class="text-base"></iconify-icon>
+                                Back to Shopping
+                            </a>
+                            <a href="#" class="inline-flex items-center gap-2 border border-gold-500/20 text-gold-400 font-syne font-semibold text-sm uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-gold-500/10 hover:border-gold-500/40 transition-all duration-300">
+                                <iconify-icon icon="lucide:mail" class="text-base"></iconify-icon>
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Mini Section -->
+            <section class="mb-16 md:mb-24 fade-up">
+                <div class="text-center mb-10">
+                    <span class="text-xs font-dm font-medium text-gold-500/60 uppercase tracking-[0.2em]">Common Questions</span>
+                    <h2 class="font-syne font-bold text-2xl md:text-3xl text-white mt-3 tracking-tight">Quick FAQ</h2>
+                </div>
+                <div class="space-y-4 max-w-3xl mx-auto">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item glass-card rounded-xl overflow-hidden">
+                        <button class="faq-btn w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                            <span class="font-syne font-semibold text-white text-sm md:text-base pr-4">Do I pay more when I buy through Marketworld?</span>
+                            <iconify-icon icon="lucide:plus" class="faq-icon text-gold-400 text-xl flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="px-6 pb-6 font-dm text-sm text-gray-400 leading-relaxed">
+                                Absolutely not. The price you pay is exactly the same as if you went directly to Amazon or Flipkart. Our affiliate commission comes from the retailer, not from your pocket.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item glass-card rounded-xl overflow-hidden">
+                        <button class="faq-btn w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                            <span class="font-syne font-semibold text-white text-sm md:text-base pr-4">Does the affiliate commission affect your reviews?</span>
+                            <iconify-icon icon="lucide:plus" class="faq-icon text-gold-400 text-xl flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="px-6 pb-6 font-dm text-sm text-gray-400 leading-relaxed">
+                                No. We evaluate products based on quality, value, and real user reviews. Commission rates never influence our recommendations. Our reputation is built on trust, and we take that seriously.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item glass-card rounded-xl overflow-hidden">
+                        <button class="faq-btn w-full flex items-center justify-between p-6 text-left group" onclick="toggleFaq(this)">
+                            <span class="font-syne font-semibold text-white text-sm md:text-base pr-4">What if I return a product?</span>
+                            <iconify-icon icon="lucide:plus" class="faq-icon text-gold-400 text-xl flex-shrink-0 transition-transform duration-300"></iconify-icon>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="px-6 pb-6 font-dm text-sm text-gray-400 leading-relaxed">
+                                If you return a product, we do not earn any commission for that sale. The affiliate fee is only paid on completed, non-refunded purchases. So your return experience is completely unaffected.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 footer-border">
+        <div class="max-w-5xl mx-auto px-6 md:px-10 py-10 md:py-14">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Footer Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center">
+                        <iconify-icon icon="lucide:store" class="text-navy-950 text-sm"></iconify-icon>
+                    </div>
+                    <span class="font-syne font-bold text-lg text-white tracking-tight">Market<span class="gradient-text">world</span></span>
+                </div>
+                <!-- Footer Text -->
+                <p class="font-dm text-xs md:text-sm text-gray-500 text-center md:text-right">
+                    © 2026 Marketworld — Built with transparency and trust.
+                </p>
+            </div>
+            <!-- Footer Links -->
+            <div class="flex flex-wrap items-center justify-center gap-6 mt-8 pt-8 border-t border-gold-500/5">
+                <a href="#" class="text-xs text-gray-500 hover:text-gold-400 transition-colors duration-300">Privacy Policy</a>
+                <span class="text-gray-700">·</span>
+                <a href="#" class="text-xs text-gray-500 hover:text-gold-400 transition-colors duration-300">Terms of Service</a>
+                <span class="text-gray-700">·</span>
+                <a href="#" class="text-xs text-gold-400 font-medium">Affiliate Disclosure</a>
+                <span class="text-gray-700">·</span>
+                <a href="#" class="text-xs text-gray-500 hover:text-gold-400 transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.innerHTML = menuOpen
+                ? '<iconify-icon icon="lucide:x" class="text-2xl"></iconify-icon>'
+                : '<iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>';
+        });
+
+        // FAQ Toggle
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq-item');
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.faq-icon');
+            const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+            // Close all
+            document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
+            document.querySelectorAll('.faq-icon').forEach(i => {
+                i.setAttribute('icon', 'lucide:plus');
+                i.style.transform = 'rotate(0deg)';
+            });
+
+            // Open clicked if was closed
+            if (!isOpen) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.setAttribute('icon', 'lucide:minus');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Intersection Observer for fade-up animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-up elements
+        document.querySelectorAll('.fade-up, .hero-line').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
