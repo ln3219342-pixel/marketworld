@@ -9,7 +9,7 @@ const PRODUCTS = [
   {
     id: 1,
     name: "Boult Astra Neo Truly Wireless Bluetooth Earbuds",
-    description: "GOBOULT Astra Neo earbuds with 70H battery, deep bass, ENC mic, fast charging, and low latency gaming mode.",
+    description: "70H battery, deep bass, ENC mic, fast charging, and low latency gaming mode.",
     price: "₹981",
     originalPrice: "₹3,499",
     discount: "72% OFF",
@@ -26,7 +26,7 @@ const PRODUCTS = [
   {
     id: 2,
     name: "Samsung Galaxy S25 Ultra 5G",
-    description: "AI Smartphone (Titanium Silverblue, 12GB RAM, 256GB Storage), 200MP Camera, S Pen Included, Long Battery Life",
+    description: "AI Smartphone (12GB RAM, 256GB Storage),200MP Camera, Long Battery Life",
     price: "₹99,999",
     originalPrice: "₹1,29,999",
     discount: "23% OFF",
@@ -43,7 +43,7 @@ const PRODUCTS = [
   {
     id: 3,
     name: "Apple 2024 MacBook Air 13",
-    description: "Apple M3 chip, 18-hour battery, Liquid Retina display. Thin, light, and blazing fast. Perfect for creators and students.",
+    description: "Apple M3 chip, 18-hour battery, Liquid Retina display.",
     price: "₹1,24,990",
     originalPrice: "₹1,54,999",
     discount: "-19% OFF",
@@ -60,7 +60,7 @@ const PRODUCTS = [
   {
     id: 4,
     name: "Boat New Launch Rockerz 650 Pro",
-    description: "Touch/Swipe Controls, Dolby Audio, 80Hrs Battery, 2Mics ENx, Fast Charge, App Support, Dual Pair, Bluetooth Over Ear Headphones with Mic (Iris Black)",
+    description: "Touch/Swipe Controls, Dolby Audio, 80Hrs Battery.",
     price: "₹2,499",
     originalPrice: "₹8,990",
     discount: "-72% OFF",
@@ -94,7 +94,7 @@ const PRODUCTS = [
   {
     id: 6,
     name: "ProElite Slim Smart Flip case Cover",
-    description: "Amazon Kindle Paperwhite 11th Generation 6.8 inch 2021, Flowers (Fits Signature Edition Also).",
+    description: "Amazon Kindle Paperwhite 11th Generation 6.8 inch 2021.",
     price: "₹521",
     originalPrice: "₹1,999",
     discount: "-74% OFF",
@@ -130,7 +130,7 @@ const PRODUCTS = [
   {
     id: 8,
     name: "Round Wall Mounter Mirror with Led Light",
-    description: "6x16 Inch Wall-Mounted LED Mirror with Smart Sensor Bathroom Mirror (Round Finish : Polished).",
+    description: "6x16 Inch Wall-Mounted LED Mirror with Smart Sensor.",
     price: "₹1,674",
     originalPrice: "₹3,500",
     discount: "-52% OFF",
@@ -149,7 +149,7 @@ const PRODUCTS = [
   {
     id: 9,
     name: "DEELMO Men’s Stylish Cotton Blend Casual Shirt ",
-    description: "Full Sleeve Button-Down Shirt with Dual Flap Pockets || Comfortable Breathable Fabric || Perfect for Casual Office and Outing Wear.",
+    description: "Full Sleeve Button-Down Shirt with Dual Flap Pockets.",
     price: "₹449",
     originalPrice: "₹2,599",
     discount: "-83% OFF",
@@ -166,7 +166,7 @@ const PRODUCTS = [
   {
     id: 10,
     name: "Bacca Bucci Men Lace Up Basketball Shoe",
-    description: "bacca bucci BALANCER Fashion Sneakers For Men (Blue , 9). Street-ready style meets all-day comfort.",
+    description: "bacca bucci BALANCER Fashion Sneakers(Blue , 9).",
     price: "₹1,424",
     originalPrice: "₹3,499",
     discount: "59% OFF",
@@ -221,7 +221,7 @@ const PRODUCTS = [
   {
     id: 13,
     name: " Electric Pressure Cooker",
-    description: "Nutricook 6 QT | 5.7L Stainless Steel Smart Pot 2, 1000W, 9-in-1 Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Sauté, Sous Vide, Yogurt Maker, Smart Lid, Delay Start, 2 Yr Warranty.",
+    description: "Nutricook 6 QT | 5.7L Stainless Steel Smart Pot 2, 1000W.",
     price: "₹7,999",
     originalPrice: "₹20,999", 
     discount: "-62% OFF",
@@ -238,7 +238,7 @@ const PRODUCTS = [
   {
     id: 14,
     name: "Adiyogi Lord Shiva Painting",
-    description: "3D Painting for Wall Decoration|Adiyogi Paintings for Wall Decoration|Wall Painting for Living Room|Canvas Wall Painting Set of 5 (Design 1, 17x30 inch).",
+    description: "3D Painting for Wall Decoration(Design 1, 17x30 inch).",
     price: "₹299",
     originalPrice: "₹2,399",
     discount: "88% OFF",
@@ -255,7 +255,7 @@ const PRODUCTS = [
   {
     id: 15,
     name: "Metal Storage Shelving Unit",
-    description: "Steel Bootless Rivet Utility Display Rack Garage Shelves, 63 Inches Height(63 X 24 X 12 Inch-H X W X D,Black).",
+    description: "Steel Bootless Display Rack Garage Shelves, 63 Inches(63 X 24 X 12 Inch-H X W X D,Black).",
     price: "₹2,611",
     originalPrice: "₹5,999",
     discount: "56% OFF",
@@ -274,7 +274,7 @@ const PRODUCTS = [
   {
     id: 16,
     name: "Prestige Apex 500 Watt Mixer Grinder",
-    description: "3 Stainless Steel Jars | Super Efficient SS Blades | Black | 2Y Warranty | ISI Certified.",
+    description: "3 Stainless Steel Jars| Black | 2Y Warranty | ISI Certified.",
     price: "₹1,799",
     originalPrice: "₹4,035",
     discount: "55% OFF",
@@ -293,7 +293,7 @@ const PRODUCTS = [
   {
     id: 17,
     name: "Hair Dryer Brush",
-    description: "Professional 4 In 1 One Step Volumizer Hair Dryer For Blow Drying Hot Air Brush.",
+    description: "Professional 4 In 1 One Step Volumizer Hair Dryer.",
     price: "₹499",
     originalPrice: "₹999",
     discount: "50% OFF",
@@ -310,7 +310,7 @@ const PRODUCTS = [
   {
     id: 18,
     name: "CeraVe HA Water Gel",
-    description: "Hyaluronic Acid, Ceramides & Niacinamide for Plumpy hydration|Oil-free gel moisturizer.",
+    description: "Hyaluronic Acid, Oil-free gel moisturizer.",
     price: "₹531",
     originalPrice: "₹559",
     discount: "5% OFF",
@@ -329,7 +329,7 @@ const PRODUCTS = [
   {
     id: 19,
     name: "Strauss Bicycle Air Pump",
-    description: "Needle & Dual Valve | 30 CM Long | Portable Pump with 2 Modes, Ideal for Inflating Bicycle, Swimming Rings |.",
+    description: "Needle & Dual Valve | 30 CM Long.",
     price: "₹225",
     originalPrice: "₹799",
     discount: "72% OFF",
@@ -365,7 +365,7 @@ const PRODUCTS = [
   {
     id: 21,
     name: "Jaspo SLOG Plastic Tennis Cricket Bat ",
-    description: "Full Size Bat (34” X 4.5” inch) for All Age Group (SLOG Cricket BAT) (SLOG).",
+    description: "Full Size Bat (34” X 4.5” inch) for All Age Group (SLOG Cricket BAT).",
     price: "₹329",
     originalPrice: "₹1,199",
     discount: "-73% OFF",
@@ -483,7 +483,7 @@ function renderProductCard(product, small = false) {
         </div>
         <div class="product-buy-btns">
           <a href="${product.amazonLink}" target="_blank" rel="noopener" class="btn btn-amazon">🛒 Amazon</a>
-          <a href="${product.flipkartLink}" target="_blank" rel="noopener" class="btn btn-flipkart">🏪 Flipkart</a>
+          <a href="${product.flipkartLink}" target="_blank" rel="noopener" class="btn btn-flipkart">🛍️ Flipkart</a>
         </div>
       </div>
     </div>
@@ -642,14 +642,14 @@ function createProductCard(product, delay = 0) {
             onclick="event.stopPropagation(); openAmazon(${product.id})" 
             class="amazon-btn"
           >
-            Amazon
+           🛒 Amazon
           </button>
 
           <button 
             onclick="event.stopPropagation(); openFlipkart(${product.id})" 
             class="flipkart-btn"
           >
-            Flipkart
+           🛍️ Flipkart
           </button>
 
         </div>
