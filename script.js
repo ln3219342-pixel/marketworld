@@ -9,7 +9,6 @@ const PRODUCTS = [
   {
     id: 1,
     name: "Boult Astra Neo Truly Wireless Bluetooth Earbuds",
-    description: "70H battery, deep bass, ENC mic, fast charging, and low latency gaming mode.",
     price: "₹981",
     originalPrice: "₹3,499",
     discount: "72% OFF",
@@ -26,7 +25,6 @@ const PRODUCTS = [
   {
     id: 2,
     name: "Samsung Galaxy S25 Ultra 5G",
-    description: "AI Smartphone (12GB RAM, 256GB Storage),200MP Camera, Long Battery Life",
     price: "₹99,999",
     originalPrice: "₹1,29,999",
     discount: "23% OFF",
@@ -43,7 +41,6 @@ const PRODUCTS = [
   {
     id: 3,
     name: "Apple 2024 MacBook Air 13",
-    description: "Apple M3 chip, 18-hour battery, Liquid Retina display.",
     price: "₹1,24,990",
     originalPrice: "₹1,54,999",
     discount: "-19% OFF",
@@ -60,7 +57,6 @@ const PRODUCTS = [
   {
     id: 4,
     name: "Boat New Launch Rockerz 650 Pro",
-    description: "Touch/Swipe Controls, Dolby Audio, 80Hrs Battery.",
     price: "₹2,499",
     originalPrice: "₹8,990",
     discount: "-72% OFF",
@@ -77,7 +73,6 @@ const PRODUCTS = [
   {
     id: 5,
     name: "Lumio Vision 7 ",
-    description: "139 cm (55 inches) 4K Ultra-HD Smart QLED Google TV FTW3-ADSG.",
     price: "₹36,999",
     originalPrice: "₹68,999",
     discount: "-46% OFF",
@@ -94,7 +89,6 @@ const PRODUCTS = [
   {
     id: 6,
     name: "ProElite Slim Smart Flip case Cover",
-    description: "Amazon Kindle Paperwhite 11th Generation 6.8 inch 2021.",
     price: "₹521",
     originalPrice: "₹1,999",
     discount: "-74% OFF",
@@ -113,7 +107,6 @@ const PRODUCTS = [
   {
     id: 7,
     name: "Fastrack Astor FS1 Pro Smart Watch",
-    description: "AMOLED Display, Bluetooth Calling, 100+ Sports Modes.",
     price: "₹2,099",
     originalPrice: "₹4,999",
     discount: "-58% OFF",
@@ -130,7 +123,6 @@ const PRODUCTS = [
   {
     id: 8,
     name: "Round Wall Mounter Mirror with Led Light",
-    description: "6x16 Inch Wall-Mounted LED Mirror with Smart Sensor.",
     price: "₹1,674",
     originalPrice: "₹3,500",
     discount: "-52% OFF",
@@ -149,7 +141,6 @@ const PRODUCTS = [
   {
     id: 9,
     name: "DEELMO Men’s Stylish Cotton Blend Casual Shirt ",
-    description: "Full Sleeve Button-Down Shirt with Dual Flap Pockets.",
     price: "₹449",
     originalPrice: "₹2,599",
     discount: "-83% OFF",
@@ -166,7 +157,6 @@ const PRODUCTS = [
   {
     id: 10,
     name: "Bacca Bucci Men Lace Up Basketball Shoe",
-    description: "bacca bucci BALANCER Fashion Sneakers(Blue , 9).",
     price: "₹1,424",
     originalPrice: "₹3,499",
     discount: "59% OFF",
@@ -183,8 +173,7 @@ const PRODUCTS = [
   {
     id: 11,
     name: "UV Protection Coating Round Sunglasses",
-    description: "Dervin UV Protection Oval Sunglasses (Free Size) (For Men & Women, Black).",
-    price: "₹484",
+        price: "₹484",
     originalPrice: "₹2,499",
     discount: "-81% OFF",
     category: "fashion",
@@ -202,7 +191,6 @@ const PRODUCTS = [
   {
     id: 12,
     name: "Nermosa Women Kurta",
-    description: " Women Embroidery Solid Anarkali Kurta and Pant Set with Dupatta.",
     price: "₹659",
     originalPrice: "₹2,999",
     discount: "78% OFF",
@@ -221,7 +209,6 @@ const PRODUCTS = [
   {
     id: 13,
     name: " Electric Pressure Cooker",
-    description: "Nutricook 6 QT | 5.7L Stainless Steel Smart Pot 2, 1000W.",
     price: "₹7,999",
     originalPrice: "₹20,999", 
     discount: "-62% OFF",
@@ -238,7 +225,6 @@ const PRODUCTS = [
   {
     id: 14,
     name: "Adiyogi Lord Shiva Painting",
-    description: "3D Painting for Wall Decoration(Design 1, 17x30 inch).",
     price: "₹299",
     originalPrice: "₹2,399",
     discount: "88% OFF",
@@ -255,7 +241,6 @@ const PRODUCTS = [
   {
     id: 15,
     name: "Metal Storage Shelving Unit",
-    description: "Steel Bootless Display Rack Garage Shelves, 63 Inches(63 X 24 X 12 Inch-H X W X D,Black).",
     price: "₹2,611",
     originalPrice: "₹5,999",
     discount: "56% OFF",
@@ -274,7 +259,6 @@ const PRODUCTS = [
   {
     id: 16,
     name: "Prestige Apex 500 Watt Mixer Grinder",
-    description: "3 Stainless Steel Jars| Black | 2Y Warranty | ISI Certified.",
     price: "₹1,799",
     originalPrice: "₹4,035",
     discount: "55% OFF",
@@ -293,7 +277,6 @@ const PRODUCTS = [
   {
     id: 17,
     name: "Hair Dryer Brush",
-    description: "Professional 4 In 1 One Step Volumizer Hair Dryer.",
     price: "₹499",
     originalPrice: "₹999",
     discount: "50% OFF",
@@ -310,7 +293,6 @@ const PRODUCTS = [
   {
     id: 18,
     name: "CeraVe HA Water Gel",
-    description: "Hyaluronic Acid, Oil-free gel moisturizer.",
     price: "₹531",
     originalPrice: "₹559",
     discount: "5% OFF",
@@ -329,7 +311,6 @@ const PRODUCTS = [
   {
     id: 19,
     name: "Strauss Bicycle Air Pump",
-    description: "Needle & Dual Valve | 30 CM Long.",
     price: "₹225",
     originalPrice: "₹799",
     discount: "72% OFF",
@@ -346,7 +327,6 @@ const PRODUCTS = [
   {
     id: 20,
     name: "BRUTON EVA Lite Sport Shoes",
-    description: "Running Shoes for Men- White.",
     price: "₹399",
     originalPrice: "₹2,499",
     discount: "-84% OFF",
@@ -365,7 +345,6 @@ const PRODUCTS = [
   {
     id: 21,
     name: "Jaspo SLOG Plastic Tennis Cricket Bat ",
-    description: "Full Size Bat (34” X 4.5” inch) for All Age Group (SLOG Cricket BAT).",
     price: "₹329",
     originalPrice: "₹1,199",
     discount: "-73% OFF",
@@ -382,7 +361,6 @@ const PRODUCTS = [
   {
     id: 22,
     name: "Nutella Hazelnut Spread ",
-    description: " Spread with Cocoa (Labels may vary), 350g.",
     price: "₹399",
     originalPrice: "₹480",
     discount: "-17% OFF",
@@ -617,9 +595,11 @@ function createProductCard(product, delay = 0) {
           ${product.name}
         </h3>
 
-        <p class="product-desc">
-          ${product.description}
-        </p>
+    ${product.description ? `
+  <p class="product-desc">
+    ${product.description}
+  </p>
+` : ''}
 
         <div class="product-pricing">
           <span class="product-price">${product.price}</span>
