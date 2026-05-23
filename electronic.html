@@ -124,7 +124,7 @@
   }
   .nav-btn.primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(108,99,255,.45); }
 
-  .cart-count {
+  .wishlist-count {
     background: var(--accent2); color: #fff;
     font-size: 0.65rem; font-weight: 700;
     padding: 1px 5px; border-radius: 9px; min-width: 18px; text-align: center;
@@ -275,14 +275,26 @@
   }
 
   .card-img-wrap {
-    position: relative; overflow: hidden;
-    background: linear-gradient(135deg, #141620, #1a1e2e);
-    height: 200px; flex-shrink: 0;
-  }
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  height: 220px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px;
+}
+  
   .card-img-wrap img {
-    width: 100%; height: 100%; object-fit: contain;
-    padding: 20px; transition: transform .4s ease;
-  }
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+
+  transition: transform .4s ease;
+}
   .product-card:hover .card-img-wrap img { transform: scale(1.07); }
 
   .badge-row {
@@ -369,11 +381,11 @@
   }
   .btn:active { transform: scale(.97); }
 
-  .btn-cart {
+  .btn-wishlist {
     background: var(--surface2); border: 1.5px solid var(--border2);
     color: var(--text2);
   }
-  .btn-cart:hover { background: rgba(108,99,255,.12); border-color: var(--accent); color: var(--text); }
+  .btn-wishlist:hover { background: rgba(255,77,109,.12); border-color: var(--danger); color: var(--text); }
 
   .btn-buy {
     background: linear-gradient(135deg, var(--accent), #8b83ff);
@@ -467,9 +479,8 @@
       <input type="text" placeholder="Search electronics, brands & more…">
     </div>
     <div class="nav-actions">
-      <a href="#" class="nav-btn">👤 Sign In</a>
-      <a href="#" class="nav-btn">🛒 Cart <span class="cart-count" id="cartCount">0</span></a>
-      <a href="#" class="nav-btn primary">+ Sell</a>
+      <a href="login.html" class="nav-btn">👤 Log In</a>
+      <a href="wishlist.html" class="nav-btn">❤️ Wishlist<span class="wishlist-count" id="wishlistCount">0</span></a>
     </div>
   </div>
 </nav>
@@ -533,94 +544,94 @@
 // ─── DATA ───
 const products = [
   {
-    id:1, cat:'smartphones',
-    img:'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=80',
-    badge:['sale','top'], category:'Smartphones',
-    title:'Samsung Galaxy S24 Ultra 5G',
-    desc:'200MP camera, S Pen, Snapdragon 8 Gen 3, 12GB RAM',
-    price:89999, original:119999, discount:25, rating:4.8, reviews:12840,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:1, cat:'earbuds',
+    img:"https://m.media-amazon.com/images/I/61wdIp45PqL._SL1440_.jpg",
+    badge:['sale',], category:'Earbuds',
+    title:"Boult Astra Truly Wireless Bluetooth Earbuds",
+    desc:'70H Playtime, 40mm Bass Driver, Zen ENC Mic, Type-C Fast Charging, 4EQ Modes, Bluetooth 5.4',
+    price:981, original:3499, discount:72, rating:4.0, reviews:1555,
+    amazon:"https://amzn.to/42r7EsX", flipkart:"https://www.flipkart.com/goboult-astra-neo-70hrs-playtime-4-mic-enc-bt-5-4-comfort-grip-case-bluetooth/p/itm6c2a88c0cfbce?pid=ACCGXY5FVH2HXK5E&marketplace=FLIPKART&lid=LSTACCGXY5FVH2HXK5EOVWQUB&q=goboult+astra+neo&fm=organic&pageUID=1778247483642",
   },
   {
     id:2, cat:'smartphones',
-    img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80',
+    img:"https://m.media-amazon.com/images/I/71tl8pu4fKL._SL1500_.jpg",
     badge:['new'], category:'Smartphones',
-    title:'Apple iPhone 15 Pro Max 256GB',
+    title:"Samsung Galaxy S25 Ultra 5G",
     desc:'A17 Pro chip, Titanium design, 48MP Main + ProRes Video',
-    price:134900, original:159900, discount:16, rating:4.9, reviews:9521,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    price:99999, original:129999, discount:23, rating:4.4, reviews:1160,
+    amazon:"https://amzn.to/4eG1dcX", flipkart:"https://www.flipkart.com/samsung-galaxy-s26-ultra-5g-black-256-gb/p/itmf4799d3841c43?",
   },
   {
-    id:3, cat:'smartphones',
-    img:'https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&q=80',
-    badge:['hot'], category:'Smartphones',
-    title:'OnePlus 12 5G Flowy Emerald',
-    desc:'Snapdragon 8 Gen 3, 50MP Hasselblad, 100W SUPERVOOC',
-    price:64999, original:79999, discount:19, rating:4.7, reviews:7234,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:3, cat:'macbook',
+    img:"https://m.media-amazon.com/images/I/71-D1xCuVwL._SL1500_.jpg",
+    badge:['hot'], category:'macbook',
+    title:"Apple 2024 MacBook Air 13",
+    desc:'M3 chip: 34.46 cm (13.6″) Liquid Retina Display, 16GB Unified Memory, 512GB SSD Storage',
+    price:124990, original:154999, discount:19, rating:4.6, reviews:7104,
+    amazon:"https://amzn.to/4uBhowG", flipkart:"https://www.flipkart.com/apple-macbook-air-m3-8-gb-512-gb-ssd-macos-sonoma-mrxw3hn-a/p/itmb1aa0cc739560?"
   },
   {
     id:4, cat:'laptops',
-    img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',
+    img:"https://m.media-amazon.com/images/I/61-XNG5lPBL._SL1500_.jpg",
     badge:['sale'], category:'Laptops',
-    title:'Apple MacBook Air M3 15"',
-    desc:'Apple M3 chip, 16GB RAM, 512GB SSD, 18h battery life',
-    price:134900, original:154900, discount:13, rating:4.9, reviews:5672,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    title:"Boat New Launch Rockerz 650 Pro",
+    desc:'Touch/Swipe Controls, Dolby Audio, 80Hrs Battery, 2Mics ENx, Fast Charge, App Support, Dual Pair',
+    price:2499, original:8990, discount:72, rating:4.2, reviews:3733,
+    amazon:"https://amzn.to/4d3UwA6", flipkart:"https://www.flipkart.com/boat-rockerz-650-pro-2025-launch-touch-swipe-controls-dolby-audio-80-hrs-battery-bluetooth/p/itmded454eeb49f5?",
   },
   {
-    id:5, cat:'laptops',
-    img:'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=400&q=80',
-    badge:['hot','sale'], category:'Laptops',
-    title:'ASUS ROG Strix G16 Gaming',
-    desc:'Intel i9-13980HX, RTX 4070, 32GB DDR5, 165Hz QHD',
-    price:159999, original:199999, discount:20, rating:4.8, reviews:3410,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:5, cat:'smart qled tv',
+    img:"https://m.media-amazon.com/images/I/71U9W5tUfLL._SL1500_.jpg",
+    badge:['hot','sale'], category:'Smart QLED TV',
+    title:"Lumio Vision 7 ",
+    desc:'Lumio Vision 7 139 cm (55 inches) 4K Ultra-HD Smart QLED Google TV FTW3-ADSG',
+    price:36999, original:68999, discount:46, rating:4.2, reviews:1337,
+    amazon:"https://amzn.to/4d54r8x", flipkart:"https://www.flipkart.com/lumio-vision-7-139-cm-55-inch-qled-ultra-hd-4k-smart-google-tv-4k-hdr-dolby-atmos-over-100-colour-indias-fastest-tv-3gb-ram/p/itma32f5f9af6681?",
   },
   {
-    id:6, cat:'laptops',
-    img:'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&q=80',
-    badge:['new'], category:'Laptops',
-    title:'Dell XPS 15 OLED 2025',
-    desc:'Intel Ultra 9, RTX 4060, 32GB, OLED Touch Display',
-    price:189999, original:219999, discount:14, rating:4.7, reviews:2198,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:6, cat:'smart cover',
+    img:"https://m.media-amazon.com/images/I/81iLwkcj6kL._SL1500_.jpg",
+    badge:['new'], category:'Smart Cover',
+    title:"ProElite Slim Smart Flip case Cover",
+    desc:'Kindle Paperwhite 11th Generation 6.8 inch 2021, Flowers (Fits Signature Edition Also)',
+    price:521, original:1999, discount:74, rating:4.4, reviews:981,
+    amazon: "https://amzn.to/4dzeeUx", flipkart:"https://www.flipkart.com/proelite-flip-cover-amazon-kindle-paperwhite-11th-gen-6-8-inch/p/itm88e355db3f6a9?",
   },
   {
-    id:7, cat:'headphones',
-    img:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80',
-    badge:['top'], category:'Headphones',
-    title:'Sony WH-1000XM5 ANC',
-    desc:'Best-in-class noise cancelling, 30hr battery, LDAC Hi-Res',
-    price:26990, original:34990, discount:23, rating:4.9, reviews:18920,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:7, cat:'smart watch',
+    img:"https://m.media-amazon.com/images/I/71IGrF1UHTL._SL1500_.jpg",
+    badge:['top'], category:'Smart Watch',
+    title:"Fastrack Astor FS1 Pro Smart Watch",
+    desc:'1.97" AMOLED Display, Bluetooth Calling, 100+ Sports Modes, SpO2 & Heart Rate Monitoring, Women',
+    price:2099, original:4999, discount:58, rating:4.1, reviews:1689,
+    amazon:"https://amzn.to/49qg6fQ", flipkart:"https://www.flipkart.com/fastrack-revoltt-pro-1-97-super-amoled-display-aod-working-crown-bt-calling-fast-charge-smartwatch/p/itmc40e5a8e02685?",
   },
   {
-    id:8, cat:'headphones',
-    img:'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&q=80',
-    badge:['sale'], category:'Headphones',
-    title:'Apple AirPods Pro (2nd Gen)',
-    desc:'H2 chip, Adaptive Transparency, USB-C, 6hr ANC',
-    price:24900, original:29900, discount:17, rating:4.8, reviews:24100,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:8, cat:'smart miror',
+    img:"https://m.media-amazon.com/images/I/61e0tli8xAL._SL1024_.jpg",
+    badge:['sale'], category:'smart mirror',
+    title:"Round Wall Mounter Mirror with Led Light",
+    desc:'Led Light for Wash Basin with smart 3 Light Tone (Cool White,Natural White and Warm White)',
+    price:1674, original:3500, discount:52, rating:4.1, reviews:262,
+    amazon:"https://amzn.to/49o2the", flipkart:"https://www.flipkart.com/flipkart-perfect-homes-16x16-inch-wall-mounted-led-mirror-smart-sensor-bathroom-mirror/p/itm1b9cbbf0e7a8c?",
   },
   {
-    id:9, cat:'smartwatches',
-    img:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80',
-    badge:['new','hot'], category:'Smartwatches',
-    title:'Apple Watch Ultra 2 GPS+Cell',
-    desc:'49mm Titanium, Action Button, 3000 nits, 36h battery',
-    price:89900, original:99900, discount:10, rating:4.9, reviews:6230,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:9, cat:'earbuds',
+    img:'https://m.media-amazon.com/images/I/616Z5OlHzhL._SL1500_.jpg',
+    badge:['new'], category:'Earbuds',
+    title:'Plus 60 Truly Wireless Earbuds TWS',
+    desc:' Bluetooth V5.4 | Quad Mics with AI-ENC | 50ms Low Latency Gaming | Gaming Beast for Android & iOS',
+    price:643, original:2999, discount:79, rating:3.2, reviews:359,
+    amazon:'https://amzn.to/4tXt7VH', flipkart:'https://www.flipkart.com/coregenix-plus-60-earbud-tws-enc-highbass-upto-40hrs-playtime-bluetooth-v5-4-quadmics-bluetooth/p/itme8def96f2623a?',
   },
   {
-    id:10, cat:'smartwatches',
-    img:'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400&q=80',
-    badge:['sale'], category:'Smartwatches',
-    title:'Samsung Galaxy Watch 6 Pro',
-    desc:'47mm Sapphire, BP/ECG, Sleep Coach, BioActive sensor',
-    price:34999, original:44999, discount:22, rating:4.7, reviews:8765,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:10, cat:'desktop pc',
+    img:'https://m.media-amazon.com/images/I/619e6Wz7R+L._SL1500_.jpg',
+    badge:['sale'], category:'Desktop PC',
+    title:'KRYNORCXY Desktop PC Gaming',
+    desc:'Core i5 2400 | HD Graphics 2000 | SSD | HDMI & VGA | RGB 4Fan Cabinet | WiFi | Windows 10 Pro | High Performance Business ',
+    price:17999, original:35000, discount:49, rating:5, reviews:865,
+    amazon:'https://amzn.to/4uzGWuM', flipkart:'https://www.flipkart.com/rionix-gaming-core-fire-intel-i5-8-gb-ram-1-hd-onboard-graphics-501-hard-disk-120-ssd-capacity-windows-11-pro-1-graphics-memory-full-tower-ms-office/p/itmcf3af1d1d3bb9?',
   },
   {
     id:11, cat:'speakers',
@@ -698,7 +709,7 @@ const products = [
 
 // ─── STATE ───
 let currentCat = 'all';
-let cartCount = 0;
+let wishlistCount = 0;
 let wishlist = new Set();
 let filteredProducts = [...products];
 
@@ -749,11 +760,6 @@ function renderCard(p) {
         <span class="price-discount">${p.discount}% OFF</span>
       </div>
     </div>
-    <div class="card-actions">
-      <div class="btn-row">
-        <button class="btn btn-cart" onclick="addToCart(event,'${p.title}')">🛒 Add to Cart</button>
-        <button class="btn btn-buy" onclick="buyNow(event,'${p.title}')">⚡ Buy Now</button>
-      </div>
       <div class="btn-row">
         <button class="btn btn-amazon" onclick="openLink(event,'${p.amazon}')">🛒 Amazon</button>
         <button class="btn btn-flipkart" onclick="openLink(event,'${p.flipkart}')">🛍 Flipkart</button>
@@ -797,17 +803,27 @@ document.querySelectorAll('.cat-btn').forEach(btn => {
   });
 });
 
-// ─── CART ───
-function addToCart(e, title) {
+// ─── WISHLIST ───
+function addToWishlist(e, id, title) {
   e.stopPropagation();
-  cartCount++;
-  document.getElementById('cartCount').textContent = cartCount;
-  showToast('🛒', `Added to cart: ${title.substring(0,28)}…`);
+
+  if (!wishlist.has(id)) {
+    wishlist.add(id);
+
+    document.getElementById('wishlistCount').textContent = wishlist.size;
+
+    showToast('❤️', `Added to wishlist: ${title.substring(0,28)}…`);
+  } else {
+    showToast('🤍', 'Already in wishlist');
+  }
+
+  sortProducts();
 }
 
-function buyNow(e, title) {
+function buyNow(e, id) {
   e.stopPropagation();
-  showToast('⚡', `Proceeding to buy: ${title.substring(0,24)}…`);
+  const product = products.find(p => p.id === id);
+  showToast('⚡', `Proceeding to buy: ${product.title.substring(0,24)}…`);
 }
 
 function openLink(e, url) {
@@ -818,6 +834,7 @@ function openLink(e, url) {
 // ─── WISHLIST ───
 function toggleWish(e, id) {
   e.stopPropagation();
+
   if (wishlist.has(id)) {
     wishlist.delete(id);
     showToast('🤍', 'Removed from wishlist');
@@ -825,10 +842,11 @@ function toggleWish(e, id) {
     wishlist.add(id);
     showToast('❤️', 'Added to wishlist!');
   }
-  // re-render to update icon
+
+  document.getElementById('wishlistCount').textContent = wishlist.size;
+
   sortProducts();
 }
-
 // ─── TOAST ───
 function showToast(icon, msg) {
   const tc = document.getElementById('toastContainer');
