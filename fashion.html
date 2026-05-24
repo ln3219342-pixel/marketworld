@@ -484,18 +484,19 @@
 <!-- ─── NAVBAR ──────────────────────────────────── -->
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="#">Market<span>World</span></a>
+    <a class="brand" href="index.html">Market<span>World</span></a>
     <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#" class="active">👕 Fashion</a></li>
-      <li><a href="#">Electronics</a></li>
-      <li><a href="#">Beauty</a></li>
-      <li><a href="#">Offers</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="fashion.html" class="active">👕 Fashion</a></li>
+      <li><a href="electronic.html">Electronics</a></li>
+      <li><a href="beauty.html">Beauty</a></li>
+      <li><a href="">Offers</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="nav-btn">🔍 Search</button>
-      <button class="nav-btn">🛒 Cart <span id="cart-count" style="background:var(--accent);color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700">0</span></button>
-      <button class="nav-btn primary">Sign In</button>
+      
+     <button class="nav-btn primary" onclick="window.location.href='login.html'">
+   Log In
+</button>
     </div>
   </div>
 </nav>
@@ -825,10 +826,10 @@ function renderCard(p) {
       </div>
     </div>
     <div class="card-actions">
-      <button class="action-btn btn-cart" onclick="addCart(this)">🛒 Add to Cart</button>
-      <button class="action-btn btn-buy">⚡ Buy Now</button>
-      <button class="action-btn btn-amazon">🟡 Amazon</button>
-      <button class="action-btn btn-flipkart">🔵 Flipkart</button>
+      
+      
+      <button class="action-btn btn-amazon">🛒 Amazon</button>
+      <button class="action-btn btn-flipkart">🛍️ Flipkart</button>
     </div>
   </div>`;
 }
