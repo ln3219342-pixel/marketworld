@@ -358,6 +358,7 @@ const PRODUCTS = [
     flipkartLink: "https://www.flipkart.com/cloverbyte-slog-heavy-duty-34-x-4-5-inches-full-size-premium-bat-tennis-ball-cricket-kit/p/itmb6ba7a8be7467?",
     featured: false, trending: true
   },
+  
   {
     id: 22,
     name: "Nutella Hazelnut Spread ",
@@ -372,6 +373,22 @@ const PRODUCTS = [
     image: "https://m.media-amazon.com/images/I/517jBIOV3XL._SL1000_.jpg",
     affiliateLink: "https://amzn.to/4dgswIk",
     flipkartLink: "https://www.flipkart.com/nutella-chocolate-hazelnut-spread-350-g/p/itm7139ece0716fc?",
+    featured: true, trending: false
+  },
+  {
+    id: 23,
+    name: "Nivia Football with Ball Pump ",
+    price: "₹428",
+    originalPrice: "₹928",
+    discount: "-54% OFF",
+    category: "sports",
+    scope: "local",
+    retailer: "Amazon & Flipkart",
+    badge: "BEST OFFER",
+    badgeClass: "",
+    image: "https://m.media-amazon.com/images/I/81vhYAl5ccL._SL1500_.jpg",
+    affiliateLink: "https://amzn.to/4v5naqE",
+    flipkartLink: "https://www.flipkart.com/nivia-storm-football-size-5/p/itmf9ghrrzqmcshu?",
     featured: true, trending: false
   }
 ];

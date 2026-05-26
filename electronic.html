@@ -621,13 +621,13 @@ const products = [
     amazon:'https://amzn.to/4uzGWuM', flipkart:'https://www.flipkart.com/rionix-gaming-core-fire-intel-i5-8-gb-ram-1-hd-onboard-graphics-501-hard-disk-120-ssd-capacity-windows-11-pro-1-graphics-memory-full-tower-ms-office/p/itmcf3af1d1d3bb9?',
   },
   {
-    id:11, cat:'speakers',
+    id:11, cat:'Gaming controller',
     img:'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80',
-    badge:['hot'], category:'BT Speakers',
-    title:'JBL Charge 5 Waterproof',
-    desc:'IP67, 20hr playtime, USB-C, Powerbank function',
-    price:12999, original:16999, discount:24, rating:4.7, reviews:15430,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    badge:['hot'], category:'Gaming Controller',
+    title:'Kreo Surge XB Wireless Gaming Controller',
+    desc:' Hall Effect Joysticks & Triggers, Tri-Mode, Turbo Mode, Macro Buttons, RGB, 1000Hz Polling',
+    price:1499, original:3499, discount:57, rating:4.3, reviews:306,
+    amazon:'https://amzn.to/4nQVjrJ', flipkart:'https://www.flipkart.com/kreo-surge-lite-usb-gamepad/p/itmd457098ed0bda?',
   },
   {
     id:12, cat:'speakers',
@@ -802,7 +802,10 @@ function showToast(icon, msg) {
     setTimeout(() => tc.removeChild(t), 400);
   }, 2800);
 }
-
+function openLink(event, url) {
+  event.stopPropagation();
+  window.open(url, '_blank');
+}
 // ─── INIT ───
 renderGrid(products);
 </script>

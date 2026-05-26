@@ -1441,37 +1441,17 @@ img{
     justify-content: center;
 }
 
-/* Hero section mobile */
-@media (max-width:768px){
+/* Mobile Desktop View Fix */
+@media (max-width: 768px){
 
-    .hero{
-        padding: 20px;
-        width: 100%;
+    body{
+        min-width: 1400px;
+        overflow-x: auto;
+        zoom: 0.75;
     }
 
-    .hero h1{
-        font-size: 32px;
-    }
-
-    .hero p{
-        font-size: 15px;
-        line-height: 1.5;
-    }
-
-    .hero-buttons{
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .stats{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-    }
-
-    .products-grid{
-        grid-template-columns: 1fr;
+    .container{
+        width: 1400px;
+        max-width: 1400px;
     }
 }
