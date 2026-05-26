@@ -536,20 +536,20 @@ footer .ft-copy { opacity: .45; font-size: 12px; margin-top: 8px; }
 
 <!-- ── NAVBAR ── -->
 <nav>
-  <a href="#" class="nav-brand">
+  <a href="index.html" class="nav-brand">
     <div class="nav-logo">⚡</div>
     <span class="nav-name">MarketWorld</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#" class="active">Sports</a></li>
-    <li><a href="#">Beauty</a></li>
-    <li><a href="#">Electronics</a></li>
-    <li><a href="#">Deals</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sports.html" class="active">Sports</a></li>
+    <li><a href="beauty.html">Beauty</a></li>
+    <li><a href="electronic.html">Electronics</a></li>
+    <li><a href="">Deals</a></li>
   </ul>
   <div class="nav-actions">
-    <button class="nav-btn">🔍</button>
-    <button class="nav-btn primary" id="cart-btn">🛒 Cart (0)</button>
+   
+    
   </div>
 </nav>
 
@@ -742,7 +742,7 @@ function renderProducts(cat) {
         <span class="card-emoji">${p.emoji}</span>
         <span class="badge-off">${p.badge}</span>
         ${p.trend ? '<span class="badge-trend">🔥 TRENDING</span>' : p.best ? '<span class="badge-trend badge-best">⭐ BEST SELLER</span>' : ''}
-        <button class="wl-btn" onclick="toggleWl(this)">🤍</button>
+       
       </div>
       <div class="card-body">
         <div class="card-cat-tag tag-${p.cat}">${p.brand}</div>
@@ -760,8 +760,8 @@ function renderProducts(cat) {
         </div>
         <div class="card-actions">
           <div class="btn-row">
-            <button class="cbtn cbtn-cart" onclick="addCart(this)">🛒 Add to Cart</button>
-            <button class="cbtn cbtn-buy">⚡ Buy Now</button>
+          
+         
           </div>
           <div class="btn-row">
             <button class="cbtn cbtn-amz">🛍️ Amazon</button>
@@ -773,25 +773,8 @@ function renderProducts(cat) {
   `).join('');
 }
 
-function addCart(btn) {
-  cartCount++;
-  document.getElementById('cart-btn').textContent = `🛒 Cart (${cartCount})`;
-  btn.textContent = '✅ Added!';
-  btn.style.background = 'rgba(0,255,136,.18)';
-  btn.style.color = 'var(--green)';
-  btn.style.borderColor = 'rgba(0,255,136,.4)';
-  setTimeout(() => {
-    btn.textContent = '🛒 Add to Cart';
-    btn.style.background = '';
-    btn.style.color = '';
-    btn.style.borderColor = '';
-  }, 1600);
-}
 
-function toggleWl(btn) {
-  btn.textContent = btn.textContent === '🤍' ? '❤️' : '🤍';
-  btn.style.background = btn.textContent === '❤️' ? 'rgba(255,45,85,.25)' : '';
-}
+
 
 function filterCat(cat) {
   catBtns.forEach(b => b.classList.remove('active'));

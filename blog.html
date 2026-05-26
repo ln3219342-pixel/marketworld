@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market World Blog – Trending Products, Reviews & Deals</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-void: #050508;
+  --bg-dark: #0a0a0f;
+  --bg-card: #0e0e16;
+  --bg-glass: rgba(255,255,255,0.03);
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-glow: rgba(99,179,237,0.3);
+  --cyan: #63b3ed;
+  --cyan-bright: #90cdf4;
+  --gold: #f6ad55;
+  --gold-bright: #fbd38d;
+  --purple: #b794f4;
+  --green: #68d391;
+  --pink: #fc8181;
+  --text-primary: #f0f4f8;
+  --text-secondary: #a0b0c0;
+  --text-muted: #5a6a7a;
+  --glow-cyan: 0 0 20px rgba(99,179,237,0.4), 0 0 60px rgba(99,179,237,0.15);
+  --glow-gold: 0 0 20px rgba(246,173,85,0.4), 0 0 60px rgba(246,173,85,0.15);
+  --glow-purple: 0 0 20px rgba(183,148,244,0.4), 0 0 60px rgba(183,148,244,0.15);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+
+/* ── TYPOGRAPHY ── */
+h1,h2,h3,h4,h5 { font-family: 'Syne', sans-serif; font-weight: 700; }
+
+/* ── UTILITY ── */
+.glow-text-cyan { color: var(--cyan); text-shadow: 0 0 30px rgba(99,179,237,0.6); }
+.glow-text-gold { color: var(--gold); text-shadow: 0 0 30px rgba(246,173,85,0.6); }
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tag-cyan { background: rgba(99,179,237,0.12); color: var(--cyan); border: 1px solid rgba(99,179,237,0.25); }
+.tag-gold { background: rgba(246,173,85,0.12); color: var(--gold); border: 1px solid rgba(246,173,85,0.25); }
+.tag-purple { background: rgba(183,148,244,0.12); color: var(--purple); border: 1px solid rgba(183,148,244,0.25); }
+.tag-green { background: rgba(104,211,145,0.12); color: var(--green); border: 1px solid rgba(104,211,145,0.25); }
+.tag-pink { background: rgba(252,129,129,0.12); color: var(--pink); border: 1px solid rgba(252,129,129,0.25); }
+
+/* ── GLASS CARD ── */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+  border-color: rgba(99,179,237,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,179,237,0.1);
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+}
+.btn-cyan {
+  background: linear-gradient(135deg, var(--cyan), #4299e1);
+  color: #050508;
+  box-shadow: var(--glow-cyan);
+}
+.btn-cyan:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 30px rgba(99,179,237,0.6), 0 0 80px rgba(99,179,237,0.25); }
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), #ed8936);
+  color: #050508;
+  box-shadow: var(--glow-gold);
+}
+.btn-gold:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 30px rgba(246,173,85,0.6), 0 0 80px rgba(246,173,85,0.25); }
+.btn-outline {
+  background: transparent;
+  color: var(--cyan);
+  border: 1px solid rgba(99,179,237,0.4);
+}
+.btn-outline:hover { background: rgba(99,179,237,0.08); border-color: var(--cyan); box-shadow: var(--glow-cyan); }
+.btn-ghost {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.09); color: var(--text-primary); }
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 16px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5,5,8,0.7);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+.navbar.scrolled { background: rgba(5,5,8,0.95); }
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  box-shadow: var(--glow-cyan);
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--cyan); }
+.nav-actions { display: flex; gap: 12px; align-items: center; }
+.nav-search-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 16px;
+  transition: all 0.2s;
+}
+.nav-search-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  width: 24px; height: 2px;
+  background: var(--text-secondary);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 20%, rgba(99,179,237,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(183,148,244,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 30% at 80% 60%, rgba(246,173,85,0.04) 0%, transparent 50%);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(99,179,237,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,179,237,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 70%);
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 8s ease-in-out infinite;
+}
+.hero-orb-1 {
+  width: 300px; height: 300px;
+  background: rgba(99,179,237,0.08);
+  top: 10%; left: 10%;
+  animation-delay: 0s;
+}
+.hero-orb-2 {
+  width: 200px; height: 200px;
+  background: rgba(183,148,244,0.07);
+  bottom: 20%; right: 15%;
+  animation-delay: -3s;
+}
+.hero-orb-3 {
+  width: 150px; height: 150px;
+  background: rgba(246,173,85,0.06);
+  top: 40%; left: 70%;
+  animation-delay: -5s;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0) scale(1); }
+  33% { transform: translateY(-20px) scale(1.05); }
+  66% { transform: translateY(10px) scale(0.97); }
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  background: rgba(99,179,237,0.08);
+  border: 1px solid rgba(99,179,237,0.2);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cyan);
+  margin-bottom: 28px;
+  animation: fadeInDown 0.8s ease forwards;
+}
+.hero-badge::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero-title {
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+.hero-title .line2 {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--text-secondary);
+  font-weight: 300;
+  max-width: 560px;
+  margin: 0 auto 44px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+.hero-search {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto 44px;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+.hero-search input {
+  width: 100%;
+  padding: 18px 60px 18px 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(99,179,237,0.25);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+.hero-search input::placeholder { color: var(--text-muted); }
+.hero-search input:focus {
+  border-color: var(--cyan);
+  box-shadow: var(--glow-cyan), 0 0 0 4px rgba(99,179,237,0.07);
+}
+.hero-search-btn {
+  position: absolute;
+  right: 8px; top: 50%;
+  transform: translateY(-50%);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), #4299e1);
+  border: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: #050508;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+.hero-search-btn:hover { transform: translateY(-50%) scale(1.1); }
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+.hero-stat { text-align: center; }
+.hero-stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.hero-stat-num span { color: var(--cyan); }
+.hero-stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+
+@keyframes fadeInUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+@keyframes fadeInDown { from { opacity:0; transform: translateY(-16px); } to { opacity:1; transform: translateY(0); } }
+
+/* ── SECTION SHARED ── */
+section { padding: 80px 5%; }
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+.section-header { margin-bottom: 48px; }
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99,179,237,0.3), transparent);
+  margin: 0 5%;
+}
+
+/* ── LAYOUT ── */
+.layout-main {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── FEATURED ARTICLE ── */
+.featured-section { background: var(--bg-dark); }
+.featured-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  transition: all 0.35s ease;
+}
+.featured-card:hover {
+  border-color: rgba(99,179,237,0.2);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,179,237,0.1);
+}
+.featured-img-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+}
+.featured-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.featured-card:hover .featured-img-wrap img { transform: scale(1.05); }
+.featured-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(99,179,237,0.15), transparent 60%);
+}
+.featured-badge-wrap {
+  position: absolute;
+  top: 20px; left: 20px;
+}
+.featured-content {
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(14,14,22,0.9) 100%);
+}
+.featured-meta {
+  display: flex; align-items: center; gap: 16px;
+  margin: 16px 0;
+}
+.featured-meta-item {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex; align-items: center; gap: 6px;
+}
+.featured-meta-item svg { opacity: 0.6; }
+.featured-title {
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.featured-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.featured-author {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 28px;
+}
+.author-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; color: #050508;
+}
+.author-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.author-role { font-size: 11px; color: var(--text-muted); }
+
+/* ── CATEGORIES ── */
+.categories-section { padding: 60px 5%; }
+.categories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.cat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-subtle);
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.cat-btn:hover { background: rgba(99,179,237,0.08); border-color: rgba(99,179,237,0.3); color: var(--cyan); transform: translateY(-2px); }
+.cat-btn.active { background: rgba(99,179,237,0.12); border-color: rgba(99,179,237,0.4); color: var(--cyan); }
+.cat-btn .cat-icon { font-size: 16px; }
+.cat-count { font-size: 10px; font-weight: 500; color: var(--text-muted); margin-left: 4px; }
+
+/* ── ARTICLES GRID ── */
+.articles-section { background: var(--bg-dark); padding: 80px 5%; }
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.article-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+.article-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.article-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99,179,237,0.2);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,179,237,0.08);
+}
+.article-card:hover::before { opacity: 1; }
+.article-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.article-card:hover .article-img { transform: scale(1.06); }
+.article-img-wrap { overflow: hidden; position: relative; }
+.article-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(14,14,22,0.6) 0%, transparent 60%);
+}
+.article-body { padding: 20px; }
+.article-tags { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.article-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.article-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.article-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+.article-meta {
+  display: flex; gap: 12px;
+}
+.article-meta span {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex; align-items: center; gap: 4px;
+}
+.read-more-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cyan);
+  text-decoration: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: gap 0.2s;
+}
+.read-more-link:hover { gap: 8px; }
+
+/* ── REVIEWS ── */
+.reviews-section { padding: 80px 5%; }
+.reviews-grid { display: flex; flex-direction: column; gap: 20px; }
+.review-card {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 24px;
+  align-items: start;
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+}
+.review-card:hover {
+  border-color: rgba(246,173,85,0.2);
+  transform: translateX(4px);
+  box-shadow: -4px 0 20px rgba(246,173,85,0.1);
+}
+.review-img-wrap {
+  width: 120px; height: 120px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-dark);
+  flex-shrink: 0;
+}
+.review-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.review-body { flex: 1; }
+.review-product-name {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.review-rating { display: flex; gap: 4px; margin-bottom: 10px; }
+.star { color: var(--gold); font-size: 14px; }
+.star.empty { color: var(--text-muted); }
+.review-summary { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px; }
+.pros-cons { display: flex; gap: 20px; margin-bottom: 16px; }
+.pros, .cons { flex: 1; }
+.pros-cons h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.pros h5 { color: var(--green); }
+.cons h5 { color: var(--pink); }
+.pros-cons li { font-size: 12px; color: var(--text-secondary); list-style: none; padding-left: 14px; position: relative; margin-bottom: 4px; }
+.pros li::before { content: '+'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.cons li::before { content: '−'; position: absolute; left: 0; color: var(--pink); font-weight: 700; }
+.review-actions { display: flex; gap: 10px; flex-direction: column; align-items: flex-end; justify-content: center; }
+.btn-amazon {
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #ff9900, #ff6600);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-amazon:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,153,0,0.4); }
+.btn-flipkart {
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #2874f0, #1a5fcc);
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-flipkart:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(40,116,240,0.4); }
+
+/* ── TIPS ── */
+.tips-section { background: var(--bg-dark); padding: 80px 5%; }
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+.tip-card {
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.tip-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.tip-card:hover::after { transform: scaleX(1); }
+.tip-card:hover { transform: translateY(-4px); border-color: rgba(99,179,237,0.15); }
+.tip-icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+.tip-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+.tip-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ── NEWSLETTER ── */
+.newsletter-section {
+  padding: 80px 5%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.newsletter-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(99,179,237,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 50%, rgba(183,148,244,0.04) 0%, transparent 60%);
+}
+.newsletter-inner {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.newsletter-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  display: block;
+  filter: drop-shadow(0 0 20px rgba(99,179,237,0.5));
+}
+.newsletter-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.newsletter-sub { font-size: 15px; color: var(--text-secondary); margin-bottom: 36px; }
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto 16px;
+}
+.newsletter-input {
+  flex: 1;
+  padding: 16px 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(99,179,237,0.2);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.3s;
+}
+.newsletter-input::placeholder { color: var(--text-muted); }
+.newsletter-input:focus { border-color: var(--cyan); box-shadow: var(--glow-cyan); }
+.newsletter-note { font-size: 12px; color: var(--text-muted); }
+
+/* ── SIDEBAR ── */
+.sidebar { display: flex; flex-direction: column; gap: 24px; }
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.sidebar-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sidebar-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-subtle);
+}
+.trending-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0 6px 8px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.trending-tag:hover { border-color: rgba(99,179,237,0.3); color: var(--cyan); background: rgba(99,179,237,0.05); }
+.sidebar-post {
+  display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start;
+  cursor: pointer;
+}
+.sidebar-post:last-child { margin-bottom: 0; }
+.sidebar-post-img {
+  width: 60px; height: 60px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.sidebar-post-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  transition: color 0.2s;
+}
+.sidebar-post:hover .sidebar-post-title { color: var(--cyan); }
+.sidebar-post-date { font-size: 11px; color: var(--text-muted); }
+.deal-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.deal-item:last-child { border-bottom: none; }
+.deal-name { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+.deal-off {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(104,211,145,0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* ── AFFILIATE DISCLOSURE ── */
+.disclosure-section {
+  padding: 24px 5%;
+  background: rgba(246,173,85,0.04);
+  border-top: 1px solid rgba(246,173,85,0.1);
+  border-bottom: 1px solid rgba(246,173,85,0.1);
+}
+.disclosure-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  justify-content: center;
+}
+.disclosure-icon { font-size: 20px; flex-shrink: 0; }
+.disclosure-text { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.disclosure-text a { color: var(--gold); text-decoration: none; }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--bg-dark);
+  padding: 64px 5% 32px;
+  border-top: 1px solid var(--border-subtle);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.footer-brand {}
+.footer-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.footer-logo-icon {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.footer-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 240px;
+}
+.social-links { display: flex; gap: 10px; }
+.social-link {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.25s;
+}
+.social-link:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); box-shadow: var(--glow-cyan); }
+.footer-col-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--cyan); }
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-subtle);
+}
+.footer-copy { font-size: 12px; color: var(--text-muted); }
+.footer-copy a { color: var(--cyan); text-decoration: none; }
+.footer-badges { display: flex; gap: 12px; }
+.footer-badge {
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--gold));
+  z-index: 9999;
+  transition: width 0.1s;
+  width: 0%;
+  box-shadow: 0 0 10px rgba(99,179,237,0.6);
+}
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  position: fixed;
+  top: 70px; left: 0; right: 0;
+  background: rgba(5,5,8,0.98);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 20px 5%;
+  z-index: 999;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+.mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.mobile-menu a { font-size: 15px; color: var(--text-secondary); text-decoration: none; }
+
+/* ── IMAGE PLACEHOLDERS ── */
+.img-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+  background: linear-gradient(135deg, rgba(99,179,237,0.08), rgba(183,148,244,0.08));
+}
+
+/* ── ANIMATIONS ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .layout-main { grid-template-columns: 1fr; }
+  .sidebar { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: repeat(2, 1fr); }
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-img-wrap { min-height: 260px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero-stats { gap: 24px; }
+  .review-card { grid-template-columns: 1fr; }
+  .review-actions { flex-direction: row; justify-content: flex-start; }
+  .newsletter-form { flex-direction: column; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .sidebar { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+  .articles-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🛒</div>
+    Market World
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Reviews</a></li>
+    <li><a href="#">Deals</a></li>
+    <li><a href="#">Guides</a></li>
+    <li><a href="#">Tech</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="nav-search-btn">🔍</div>
+    <a href="#newsletter" class="btn btn-cyan" style="padding:10px 20px;font-size:13px;">Subscribe</a>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Reviews</a></li>
+    <li><a href="#">Deals</a></li>
+    <li><a href="#">Buying Guides</a></li>
+    <li><a href="#">Tech Gadgets</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ India's #1 Shopping Blog</div>
+    <h1 class="hero-title">
+      Market World<br>
+      <span class="line2">Blog</span>
+    </h1>
+    <p class="hero-sub">Discover trending products, expert shopping guides, in-depth reviews, and the best online deals — all in one place.</p>
+    <div class="hero-search">
+      <input type="text" placeholder="Search articles, reviews, deals..." />
+      <button class="hero-search-btn">🔍</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">500<span>+</span></div>
+        <div class="hero-stat-label">Articles</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">200<span>K+</span></div>
+        <div class="hero-stat-label">Readers</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">50<span>+</span></div>
+        <div class="hero-stat-label">Brands</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED ARTICLE -->
+<section class="featured-section">
+  <div style="max-width:1400px;margin:0 auto;padding:0 0;">
+    <div class="section-header fade-in">
+      <div class="section-label">⚡ Featured Story</div>
+      <h2 class="section-title">Editor's Pick</h2>
+    </div>
+    <div class="featured-card fade-in">
+      <div class="featured-img-wrap">
+        <div class="img-placeholder" style="min-height:420px;background:linear-gradient(135deg,rgba(99,179,237,0.12),rgba(183,148,244,0.12));font-size:80px;">🎧</div>
+        <div class="featured-img-overlay"></div>
+        <div class="featured-badge-wrap">
+          <span class="tag tag-cyan">🔥 Trending</span>
+        </div>
+      </div>
+      <div class="featured-content">
+        <span class="tag tag-purple">Tech Gadgets</span>
+        <div class="featured-meta">
+          <span class="featured-meta-item">📅 May 20, 2026</span>
+          <span class="featured-meta-item">⏱ 8 min read</span>
+          <span class="featured-meta-item">👁 12.4K views</span>
+        </div>
+        <h2 class="featured-title">Best Wireless Earbuds Under ₹2000 in 2026 — Complete Buyer's Guide</h2>
+        <p class="featured-desc">We tested 20+ earbuds across price points to find the absolute best audio experience for your budget. Discover our top picks with detailed sound analysis, battery life tests, and comfort ratings.</p>
+        <div class="featured-author">
+          <div class="author-avatar">RK</div>
+          <div>
+            <div class="author-name">Rahul Kumar</div>
+            <div class="author-role">Senior Tech Editor</div>
+          </div>
+        </div>
+        <a href="#" class="btn btn-cyan">Read Full Guide →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="section-header fade-in">
+      <div class="section-label">📂 Browse By Topic</div>
+      <h2 class="section-title">Blog Categories</h2>
+    </div>
+    <div class="categories-grid fade-in">
+      <a href="#" class="cat-btn active"><span class="cat-icon">💻</span>Tech Gadgets<span class="cat-count">(48)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">🏠</span>Home & Kitchen<span class="cat-count">(35)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">💄</span>Beauty<span class="cat-count">(27)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">👗</span>Fashion<span class="cat-count">(41)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">🎮</span>Gaming<span class="cat-count">(33)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">📱</span>Smart Devices<span class="cat-count">(52)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">🟠</span>Amazon Deals<span class="cat-count">(86)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">🔵</span>Flipkart Offers<span class="cat-count">(74)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">📖</span>Buying Guides<span class="cat-count">(60)</span></a>
+      <a href="#" class="cat-btn"><span class="cat-icon">⭐</span>Product Reviews<span class="cat-count">(95)</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- MAIN CONTENT + SIDEBAR -->
+<section class="articles-section">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="layout-main">
+      <!-- Articles Grid -->
+      <div>
+        <div class="section-header fade-in">
+          <div class="section-label">🔥 Hot Right Now</div>
+          <h2 class="section-title">Trending Articles</h2>
+          <p class="section-sub">Curated picks across tech, home, fashion & more</p>
+        </div>
+        <div class="articles-grid">
+
+          <!-- Card 1 -->
+          <div class="article-card fade-in">
+            <div class="article-img-wrap">
+              <div class="img-placeholder" style="height:200px;font-size:60px;">🎧</div>
+              <div class="article-img-overlay"></div>
+            </div>
+            <div class="article-body">
+              <div class="article-tags">
+                <span class="tag tag-cyan">Tech</span>
+                <span class="tag tag-gold">🔥 Hot</span>
+              </div>
+              <h3 class="article-title">Best Earbuds Under ₹999 — Top 8 Picks Tested</h3>
+              <p class="article-desc">Affordable doesn't mean bad. We found 8 earbuds that deliver punch-above-weight audio quality on a shoestring budget.</p>
+              <div class="article-footer">
+                <div class="article-meta">
+                  <span>📅 May 18</span>
+                  <span>⏱ 6 min</span>
+                </div>
+                <a href="#" class="read-more-link">Read more →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="article-card fade-in">
+            <div class="article-img-wrap">
+              <div class="img-placeholder" style="height:200px;font-size:60px;">🍳</div>
+              <div class="article-img-overlay"></div>
+            </div>
+            <div class="article-body">
+              <div class="article-tags">
+                <span class="tag tag-purple">Home</span>
+                <span class="tag tag-green">New</span>
+              </div>
+              <h3 class="article-title">Top 10 Kitchen Products for Modern Indian Homes</h3>
+              <p class="article-desc">Transform your cooking experience with these smart, stylish, and budget-friendly kitchen essentials loved by home chefs.</p>
+              <div class="article-footer">
+                <div class="article-meta">
+                  <span>📅 May 15</span>
+                  <span>⏱ 7 min</span>
+                </div>
+                <a href="#" class="read-more-link">Read more →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="article-card fade-in">
+            <div class="article-img-wrap">
+              <div class="img-placeholder" style="height:200px;font-size:60px;">⌚</div>
+              <div class="article-img-overlay"></div>
+            </div>
+            <div class="article-body">
+              <div class="article-tags">
+                <span class="tag tag-cyan">Smart Devices</span>
+              </div>
+              <h3 class="article-title">Best Smartwatches in 2026 — All Budgets Covered</h3>
+              <p class="article-desc">From health tracking to AMOLED displays, here's the definitive guide to the best smartwatches you can buy right now in India.</p>
+              <div class="article-footer">
+                <div class="article-meta">
+                  <span>📅 May 12</span>
+                  <span>⏱ 9 min</span>
+                </div>
+                <a href="#" class="read-more-link">Read more →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="article-card fade-in">
+            <div class="article-img-wrap">
+              <div class="img-placeholder" style="height:200px;font-size:60px;">🛒</div>
+              <div class="article-img-overlay"></div>
+            </div>
+            <div class="article-body">
+              <div class="article-tags">
+                <span class="tag tag-gold">Guides</span>
+                <span class="tag tag-purple">Popular</span>
+              </div>
+              <h3 class="article-title">Amazon vs Flipkart — Which Should You Shop On?</h3>
+              <p class="article-desc">A no-BS breakdown of prices, return policies, delivery speeds, and exclusive deals on India's two biggest shopping platforms.</p>
+              <div class="article-footer">
+                <div class="article-meta">
+                  <span>📅 May 10</span>
+                  <span>⏱ 10 min</span>
+                </div>
+                <a href="#" class="read-more-link">Read more →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="article-card fade-in">
+            <div class="article-img-wrap">
+              <div class="img-placeholder" style="height:200px;font-size:60px;">🎮</div>
+              <div class="article-img-overlay"></div>
+            </div>
+            <div class="article-body">
+              <div class="article-tags">
+                <span class="tag tag-pink">Gaming</span>
+              </div>
+              <h3 class="article-title">Ultimate Gaming Accessories Setup Guide 2026</h3>
+              <p class="article-desc">Build your dream gaming battlestation on any budget. Our setup guide covers keyboards, mice, headsets, and desk essentials.</p>
+              <div class="article-footer">
+                <div class="article-meta">
+                  <span>📅 May 8</span>
+                  <span>⏱ 12 min</span>
+                </div>
+                <a href="#" class="read-more-link">Read more →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="article-card fade-in">
+            <div class="article-img-wrap">
+              <div class="img-placeholder" style="height:200px;font-size:60px;">📦</div>
+              <div class="article-img-overlay"></div>
+            </div>
+            <div class="article-body">
+              <div class="article-tags">
+                <span class="tag tag-green">Budget</span>
+                <span class="tag tag-gold">🔥 Hot</span>
+              </div>
+              <h3 class="article-title">Best Budget Gadgets Under ₹1500 — May 2026</h3>
+              <p class="article-desc">Incredible tech doesn't have to cost a fortune. These are the standout value picks this month from Amazon and Flipkart.</p>
+              <div class="article-footer">
+                <div class="article-meta">
+                  <span>📅 May 5</span>
+                  <span>⏱ 5 min</span>
+                </div>
+                <a href="#" class="read-more-link">Read more →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div style="text-align:center;margin-top:40px;">
+          <a href="#" class="btn btn-outline">Load More Articles ↓</a>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <!-- Trending Searches -->
+        <div class="sidebar-card fade-in">
+          <div class="sidebar-title">🔥 Trending Searches</div>
+          <div>
+            <span class="trending-tag">boAt earbuds</span>
+            <span class="trending-tag">realme watch</span>
+            <span class="trending-tag">air purifier</span>
+            <span class="trending-tag">gaming chair</span>
+            <span class="trending-tag">laptop stand</span>
+            <span class="trending-tag">smart bulb</span>
+            <span class="trending-tag">protein powder</span>
+            <span class="trending-tag">USB-C hub</span>
+            <span class="trending-tag">robot vacuum</span>
+          </div>
+        </div>
+
+        <!-- Recent Posts -->
+        <div class="sidebar-card fade-in">
+          <div class="sidebar-title">📰 Recent Posts</div>
+          <div class="sidebar-post">
+            <div class="img-placeholder sidebar-post-img" style="font-size:22px;">🔋</div>
+            <div>
+              <div class="sidebar-post-title">Best Power Banks for Travel 2026</div>
+              <div class="sidebar-post-date">May 22, 2026</div>
+            </div>
+          </div>
+          <div class="sidebar-post">
+            <div class="img-placeholder sidebar-post-img" style="font-size:22px;">👟</div>
+            <div>
+              <div class="sidebar-post-title">Nike vs Adidas Running Shoes — Full Review</div>
+              <div class="sidebar-post-date">May 20, 2026</div>
+            </div>
+          </div>
+          <div class="sidebar-post">
+            <div class="img-placeholder sidebar-post-img" style="font-size:22px;">💡</div>
+            <div>
+              <div class="sidebar-post-title">Best Smart Home Devices for Beginners</div>
+              <div class="sidebar-post-date">May 17, 2026</div>
+            </div>
+          </div>
+          <div class="sidebar-post">
+            <div class="img-placeholder sidebar-post-img" style="font-size:22px;">📷</div>
+            <div>
+              <div class="sidebar-post-title">Top Action Cameras Under ₹10,000</div>
+              <div class="sidebar-post-date">May 14, 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Deals -->
+        <div class="sidebar-card fade-in">
+          <div class="sidebar-title">💸 Top Deals Today</div>
+          <div class="deal-item">
+            <span class="deal-name">boAt Airdopes 141</span>
+            <span class="deal-off">-65%</span>
+          </div>
+          <div class="deal-item">
+            <span class="deal-name">Realme Watch 3</span>
+            <span class="deal-off">-40%</span>
+          </div>
+          <div class="deal-item">
+            <span class="deal-name">Xiaomi Air Purifier</span>
+            <span class="deal-off">-30%</span>
+          </div>
+          <div class="deal-item">
+            <span class="deal-name">Ambrane 20000mAh</span>
+            <span class="deal-off">-50%</span>
+          </div>
+          <div class="deal-item">
+            <span class="deal-name">Samsung T5 SSD</span>
+            <span class="deal-off">-25%</span>
+          </div>
+          <a href="#" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:16px;font-size:13px;">View All Deals →</a>
+        </div>
+
+        <!-- Recommended -->
+        <div class="sidebar-card fade-in">
+          <div class="sidebar-title">⭐ Editor's Picks</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid var(--border-subtle);">
+              <div style="font-size:28px;width:44px;text-align:center;">📱</div>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:2px;">Redmi Note 14 Pro</div>
+                <div style="font-size:11px;color:var(--gold);">★★★★★ <span style="color:var(--text-muted);">Best Value Phone</span></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid var(--border-subtle);">
+              <div style="font-size:28px;width:44px;text-align:center;">🎧</div>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:2px;">Sony WH-1000XM6</div>
+                <div style="font-size:11px;color:var(--gold);">★★★★★ <span style="color:var(--text-muted);">Best ANC Headphones</span></div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,255,255,0.02);border-radius:12px;border:1px solid var(--border-subtle);">
+              <div style="font-size:28px;width:44px;text-align:center;">⌚</div>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:2px;">Apple Watch SE 3</div>
+                <div style="font-size:11px;color:var(--gold);">★★★★☆ <span style="color:var(--text-muted);">Best Smartwatch</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- REVIEWS SECTION -->
+<section class="reviews-section">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="section-header fade-in">
+      <div class="section-label">⭐ Honest Reviews</div>
+      <h2 class="section-title">Popular Product Reviews</h2>
+      <p class="section-sub">In-depth, unbiased reviews with real pros and cons</p>
+    </div>
+    <div class="reviews-grid">
+
+      <!-- Review 1 -->
+      <div class="review-card fade-in">
+        <div class="review-img-wrap">
+          <div class="img-placeholder" style="font-size:50px;background:linear-gradient(135deg,rgba(99,179,237,0.1),rgba(183,148,244,0.1));">🎧</div>
+        </div>
+        <div class="review-body">
+          <span class="tag tag-cyan" style="margin-bottom:10px;display:inline-block;">Tech Gadgets</span>
+          <div class="review-product-name">boAt Airdopes 141 – Wireless Earbuds</div>
+          <div class="review-rating">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+            <span style="font-size:12px;color:var(--text-muted);margin-left:6px;">4.0 / 5 — 2,340 ratings</span>
+          </div>
+          <p class="review-summary">The boAt Airdopes 141 punch way above their price tag. Solid bass response, decent ANC, and a genuinely comfortable fit make these a top pick for budget buyers. Battery life of 42 hours total is best-in-class.</p>
+          <div class="pros-cons">
+            <div class="pros">
+              <h5>Pros</h5>
+              <ul>
+                <li>42hr total battery</li>
+                <li>Comfortable fit</li>
+                <li>Strong bass</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h5>Cons</h5>
+              <ul>
+                <li>Average mic quality</li>
+                <li>No multipoint</li>
+                <li>Plastic build</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="review-actions">
+          <a href="#" class="btn-amazon">🟠 Amazon</a>
+          <a href="#" class="btn-flipkart">🔵 Flipkart</a>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card fade-in">
+        <div class="review-img-wrap">
+          <div class="img-placeholder" style="font-size:50px;background:linear-gradient(135deg,rgba(246,173,85,0.1),rgba(104,211,145,0.1));">⌚</div>
+        </div>
+        <div class="review-body">
+          <span class="tag tag-purple" style="margin-bottom:10px;display:inline-block;">Smart Devices</span>
+          <div class="review-product-name">Realme Watch 3 Pro – GPS Smartwatch</div>
+          <div class="review-rating">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span style="font-size:12px;color:var(--text-muted);margin-left:6px;">4.5 / 5 — 5,100 ratings</span>
+          </div>
+          <p class="review-summary">A feature-packed smartwatch at an unbelievable price. Built-in GPS, 100+ sport modes, SpO2 and heart rate monitoring, and a brilliant AMOLED display. The Realme Watch 3 Pro is the best smartwatch under ₹5000 in India right now.</p>
+          <div class="pros-cons">
+            <div class="pros">
+              <h5>Pros</h5>
+              <ul>
+                <li>Built-in GPS</li>
+                <li>AMOLED display</li>
+                <li>Excellent price</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h5>Cons</h5>
+              <ul>
+                <li>Short battery</li>
+                <li>No ECG sensor</li>
+                <li>Avg app support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="review-actions">
+          <a href="#" class="btn-amazon">🟠 Amazon</a>
+          <a href="#" class="btn-flipkart">🔵 Flipkart</a>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card fade-in">
+        <div class="review-img-wrap">
+          <div class="img-placeholder" style="font-size:50px;background:linear-gradient(135deg,rgba(252,129,129,0.1),rgba(183,148,244,0.1));">🎮</div>
+        </div>
+        <div class="review-body">
+          <span class="tag tag-pink" style="margin-bottom:10px;display:inline-block;">Gaming</span>
+          <div class="review-product-name">Cosmic Byte CB-GK-17 – Mechanical Keyboard</div>
+          <div class="review-rating">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+            <span style="font-size:12px;color:var(--text-muted);margin-left:6px;">4.1 / 5 — 3,800 ratings</span>
+          </div>
+          <p class="review-summary">For under ₹2000, this mechanical keyboard is a revelation. RGB per-key lighting, satisfying blue switches, and a solid aluminum body make this a legitimate gaming upgrade for budget-conscious PC players.</p>
+          <div class="pros-cons">
+            <div class="pros">
+              <h5>Pros</h5>
+              <ul>
+                <li>Per-key RGB</li>
+                <li>Solid build</li>
+                <li>Great typing feel</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h5>Cons</h5>
+              <ul>
+                <li>Loud switches</li>
+                <li>No wireless mode</li>
+                <li>Software bugs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="review-actions">
+          <a href="#" class="btn-amazon">🟠 Amazon</a>
+          <a href="#" class="btn-flipkart">🔵 Flipkart</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- SHOPPING TIPS -->
+<section class="tips-section">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="section-header fade-in">
+      <div class="section-label">💡 Smart Shopping</div>
+      <h2 class="section-title">Shopping Tips & Tricks</h2>
+      <p class="section-sub">Save money and shop smarter every time</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card fade-in">
+        <div class="tip-icon" style="background:rgba(99,179,237,0.1);">🔍</div>
+        <h4>How to Find Best Deals</h4>
+        <p>Use price tracking tools, compare across platforms, and set alerts for your wishlist items to always pay the lowest price possible.</p>
+      </div>
+      <div class="tip-card fade-in">
+        <div class="tip-icon" style="background:rgba(104,211,145,0.1);">🔒</div>
+        <h4>Safe Online Shopping</h4>
+        <p>Always verify the seller's rating, check return policies, use secure payment methods, and shop only on trusted platforms like Amazon and Flipkart.</p>
+      </div>
+      <div class="tip-card fade-in">
+        <div class="tip-icon" style="background:rgba(246,173,85,0.1);">📅</div>
+        <h4>Best Time to Buy</h4>
+        <p>Score the biggest discounts during festive sales (Diwali, Big Billion Days), end-of-season clearances, and flash sales on Monday mornings.</p>
+      </div>
+      <div class="tip-card fade-in">
+        <div class="tip-icon" style="background:rgba(183,148,244,0.1);">🎟️</div>
+        <h4>Coupon Saving Tricks</h4>
+        <p>Stack bank card offers with cashback apps like GPay and PhonePe, and always check for promo codes before checking out to maximize savings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section" id="newsletter">
+  <div class="newsletter-bg"></div>
+  <div class="newsletter-inner">
+    <span class="newsletter-icon">📬</span>
+    <h2 class="newsletter-title">Get Latest Deals &amp; <span class="glow-text-cyan">Shopping Tips</span></h2>
+    <p class="newsletter-sub">Join 200,000+ smart shoppers. Get weekly deal alerts, expert reviews, and exclusive offers directly in your inbox.</p>
+    <div class="newsletter-form">
+      <input class="newsletter-input" type="email" placeholder="Enter your email address...">
+      <button class="btn btn-cyan">Subscribe →</button>
+    </div>
+    <p class="newsletter-note">🔒 No spam, ever. Unsubscribe anytime. We respect your privacy.</p>
+  </div>
+</section>
+
+<!-- AFFILIATE DISCLOSURE -->
+<div class="disclosure-section">
+  <div class="disclosure-inner">
+    <span class="disclosure-icon">⚠️</span>
+    <p class="disclosure-text">
+      <strong style="color:var(--gold);">Affiliate Disclosure:</strong> Market World may earn commissions through affiliate links from <a href="#">Amazon</a> and <a href="#">Flipkart</a>. This comes at no extra cost to you and helps us keep the site running. We only recommend products we genuinely believe in.
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">🛒</div>
+          Market World
+        </div>
+        <p class="footer-desc">India's trusted shopping blog for product reviews, buying guides, deals, and affiliate recommendations from Amazon and Flipkart.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Twitter">𝕏</a>
+          <a href="#" class="social-link" title="Instagram">📸</a>
+          <a href="#" class="social-link" title="YouTube">▶</a>
+          <a href="#" class="social-link" title="Telegram">✈</a>
+          <a href="#" class="social-link" title="Facebook">f</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Product Reviews</a></li>
+          <li><a href="#">Buying Guides</a></li>
+          <li><a href="#">Tech Gadgets</a></li>
+          <li><a href="#">Amazon Deals</a></li>
+          <li><a href="#">Flipkart Offers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Help Center</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Advertise</a></li>
+          <li><a href="#">Write For Us</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Affiliate Disclosure</a></li>
+          <li><a href="#">DMCA Policy</a></li>
+          <li><a href="#">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <a href="#">Market World</a>. All rights reserved. Made with ❤️ in India.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">🟠 Amazon Associate</span>
+        <span class="footer-badge">🔵 Flipkart Partner</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Scroll progress bar ──
+const bar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  bar.style.width = pct + '%';
+});
+
+// ── Navbar scroll effect ──
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Mobile hamburger ──
+const burger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+
+// ── Intersection observer for fade-in ──
+const fades = document.querySelectorAll('.fade-in');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+fades.forEach(el => obs.observe(el));
+
+// ── Category filter ──
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// ── Newsletter form ──
+const newsletterBtn = document.querySelector('.newsletter-form .btn-cyan');
+const newsletterInput = document.querySelector('.newsletter-input');
+newsletterBtn.addEventListener('click', () => {
+  if (newsletterInput.value.includes('@')) {
+    newsletterBtn.textContent = '✓ Subscribed!';
+    newsletterBtn.style.background = 'linear-gradient(135deg, #68d391, #38a169)';
+    newsletterInput.value = '';
+    setTimeout(() => {
+      newsletterBtn.textContent = 'Subscribe →';
+      newsletterBtn.style.background = '';
+    }, 3000);
+  } else {
+    newsletterInput.style.borderColor = '#fc8181';
+    setTimeout(() => newsletterInput.style.borderColor = '', 1500);
+  }
+});
+
+// ── Search bar focus glow ──
+const searchInput = document.querySelector('.hero-search input');
+searchInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && searchInput.value.trim()) {
+    searchInput.value = '';
+    searchInput.placeholder = 'Searching...';
+    setTimeout(() => searchInput.placeholder = 'Search articles, reviews, deals...', 1200);
+  }
+});
+</script>
+</body>
+</html>
