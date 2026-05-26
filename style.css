@@ -1441,17 +1441,82 @@ img{
     justify-content: center;
 }
 
-/* Mobile Desktop View Fix */
-@media (max-width: 768px){
+/* PERFECT MOBILE RESPONSIVE FIX */
+
+@media (max-width:768px){
 
     body{
-        min-width: 1400px;
-        overflow-x: auto;
-        zoom: 0.75;
+        overflow-x: hidden;
     }
 
     .container{
-        width: 1400px;
-        max-width: 1400px;
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Hero */
+    .hero{
+        padding: 25px 15px;
+        text-align: center;
+    }
+
+    .hero h1{
+        font-size: 34px;
+        line-height: 1.2;
+    }
+
+    .hero p{
+        font-size: 15px;
+    }
+
+    /* Buttons */
+    .hero-buttons{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    /* Categories */
+    .categories{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 12px;
+    }
+
+    /* Product Grid */
+    .products-grid{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 15px;
+    }
+
+    /* Product Card */
+    .product-card{
+        width: 100%;
+        padding: 15px;
+    }
+
+    .product-card img{
+        width: 100%;
+        height: auto;
+    }
+
+    /* Product Buttons */
+    .product-buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* About page */
+    .about-content{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Footer */
+    footer{
+        padding: 30px 15px;
     }
 }
