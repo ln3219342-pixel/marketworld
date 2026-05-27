@@ -273,7 +273,6 @@
   .card-img-wrap {
   position: relative;
   overflow: hidden;
-  background: #fff;
   height: 220px;
   flex-shrink: 0;
 
@@ -283,7 +282,13 @@
 
   padding: 15px;
 }
-  
+  .card-img-wrap{
+   background: linear-gradient(135deg,#f8fafc,#eef2ff);
+}
+
+.card-img-wrap img{
+   mix-blend-mode: multiply;
+}
   .card-img-wrap img {
   width: 100%;
   height: 180px;
@@ -639,58 +644,58 @@ const products = [
     amazon:'https://www.amazon.in/EvoFox-Hailstone-Cooling-Semiconductor-Compatible/dp/B0F8J3NLBB/ref=sr_1_1?', flipkart:'https://www.flipkart.com/evofox-hailstone-s-rgb-mobile-cooler-gaming-accessory-kit/p/itm37bbd428c8e3e?',
   },
   {
-    id:13, cat:'gaming',
-    img:'https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=400&q=80',
-    badge:['hot'], category:'Gaming',
-    title:'Sony DualSense Edge Controller',
-    desc:'Replaceable thumbsticks, customizable back buttons, haptic',
-    price:19990, original:24990, discount:20, rating:4.8, reviews:4510,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:13, cat:'power bank',
+    img:'https://m.media-amazon.com/images/I/51sVuyIolqL._SL1200_.jpg',
+    badge:['hot'], category:'Power Bank',
+    title:'pTron Dynamo Power bank',
+    desc:'20W Power Delivery, Built-in Charging Cables, 4 Outputs, Type-C Input/Output Port (Jet Black)',
+    price:1298, original:4599, discount:72, rating:4.1, reviews:96,
+    amazon:'https://amzn.to/4vfVNuf', flipkart:'https://www.flipkart.com/ptron-20000-mah-22-5-w-compact-pocket-size-power-bank/p/itm5032e01081022?',
   },
   {
-    id:14, cat:'gaming',
-    img:'https://images.unsplash.com/photo-1585664811087-47f65abbad64?w=400&q=80',
-    badge:['new'], category:'Gaming',
-    title:'Razer DeathAdder V3 HyperSpeed',
-    desc:'Focus Pro 30K Optical, 90hr battery, 90g lightweight',
-    price:7999, original:9999, discount:20, rating:4.7, reviews:6320,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:14, cat:'metal stand',
+    img:'https://m.media-amazon.com/images/I/51Fbz1L-kjL._SL1280_.jpg',
+    badge:['new'], category:'Metal Stand',
+    title:'Mobile Phone Tripod/Camera Stand ',
+    desc:'Monopod Kit, Adjustable Mobile Clip Holder with Ball Head (Black, Supports Up to 5000 g)',
+    price:399, original:1499, discount:73, rating:5, reviews:60,
+    amazon:'https://amzn.to/4a6KThZ', flipkart:'https://www.flipkart.com/nafa-lightweight-portable-7-feet-long-tripod-stand-adjustable-clip-holder-tripod-clamp/p/itm912d32b4f3338?',
   },
   {
-    id:15, cat:'cameras',
-    img:'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80',
-    badge:['top'], category:'Cameras',
-    title:'Sony Alpha ZV-E10 II Mirrorless',
-    desc:'26MP APS-C, 4K60fps, AI-powered autofocus, vlog optimised',
-    price:74990, original:89990, discount:17, rating:4.8, reviews:3201,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:15, cat:'keyboard',
+    img:'https://m.media-amazon.com/images/I/71ug6f-xjfL._SL1500_.jpg',
+    badge:['top'], category:'keyboard',
+    title:'USB Wired Keyboard, Wired Mouse, Mouse Pad ',
+    desc:'Waterproof, Type A to Type C Converter & 4 Port USB HUB for PC, Laptop, Computer',
+    price:799, original:1999, discount:60, rating:3.4, reviews:54,
+    amazon:'https://amzn.to/4uKX5gE', flipkart:'https://www.flipkart.com/bestor-set-5-combo-usb-wired-keyboard-wire-mouse-mouse-pad-typec-converter-4-port-usb-hub/p/itm1a0cbbf8e7c9b?',
   },
   {
-    id:16, cat:'cameras',
-    img:'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&q=80',
-    badge:['sale'], category:'Cameras',
-    title:'Canon EOS R100 Mirrorless Kit',
-    desc:'24.1MP, Dual Pixel AF II, 4K video, 18-45mm lens kit',
-    price:54990, original:69990, discount:21, rating:4.6, reviews:2890,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:16, cat:'USB adapter',
+    img:'https://m.media-amazon.com/images/I/51Yc2pnODbL._SL1000_.jpg',
+    badge:['sale'], category:'USB Adapter',
+    title:'P-Link UB500 Bluetooth 5.3 Nano USB Adapter ',
+    desc:'Supports Windows 11/10/8.1/7 for Desktop, Laptop, Mouse, Keyboard, Printers, Headsets, Speakers, PS4/ Xbox Controllers.',
+    price:599, original:899, discount:33, rating:4.4, reviews:57811,
+    amazon:'https://amzn.to/3RwRmfT', flipkart:'https://www.flipkart.com/tp-link-ub500-bluetooth-5-3-nano-usb-adapter/p/itm27734017bea58?',
   },
   {
-    id:17, cat:'tablets',
-    img:'https://images.unsplash.com/photo-1544244015-0df4592c5635?w=400&q=80',
-    badge:['new','top'], category:'Tablets',
-    title:'Apple iPad Pro 13" M4 (2024)',
-    desc:'M4 chip, Ultra Retina OLED, 12MP front, Apple Pencil Pro',
-    price:109900, original:134900, discount:19, rating:4.9, reviews:7821,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:17, cat:'CCTV camera',
+    img:'https://m.media-amazon.com/images/I/51yxsjlpk5L._SL1500_.jpg',
+    badge:['new','top'], category:'CCTV Camera',
+    title:'CCTV Camera with Night Vision',
+    desc:'1080P HD Resolution, 30M Range, Motion Detection, Weatherproof',
+    price:1149, original:4399, discount:74, rating:3.9, reviews:378,
+    amazon:'https://amzn.to/49J8LbF', flipkart:'https://www.flipkart.com/favone-mini-ptz-intelligent-camera-2mp-1080-fhd-color-nightvision-360-rotating-smart-security/p/itm2f5bacb89e64d?',
   },
   {
-    id:18, cat:'tablets',
-    img:'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400&q=80',
-    badge:['sale'], category:'Tablets',
-    title:'Samsung Galaxy Tab S9 FE 5G',
-    desc:'10.9" WUXGA, Exynos 1380, 6GB/128GB, IP68, S Pen',
-    price:39999, original:54999, discount:27, rating:4.6, reviews:5430,
-    amazon:'https://amazon.in', flipkart:'https://flipkart.com'
+    id:18, cat:'gAMEpad',
+    img:'https://m.media-amazon.com/images/I/61GPF4Cs+LL._SL1200_.jpg',
+    badge:['sale'], category:'Gamepad',
+    title:'Stealth Black RGB-Reveal Design, Hall Effect Joystick',
+    desc:'Triggers, Mechanical Buttons, 1000Hz Polling Rate, 6-Axis Gyro, Windows Software, 3.5mm Audio Jack, Macro',
+    price:3399, original:5999, discount:43, rating:4.2, reviews:37,
+    amazon:'https://amzn.to/3S4iRxr', flipkart:'https://www.flipkart.com/cosmic-byte-lumora-gamepad/p/itm447d6dcf329bf?',
   }
 ];
 

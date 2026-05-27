@@ -532,11 +532,19 @@ section { padding: 80px 5%; }
   box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,179,237,0.08);
 }
 .article-card:hover::before { opacity: 1; }
-.article-img {
-  width: 100%;
+.article-img-wrap {
   height: 200px;
-  object-fit: cover;
-  transition: transform 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e0e16;
+  overflow: hidden;
+}
+
+.article-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 .article-card:hover .article-img { transform: scale(1.06); }
 .article-img-wrap { overflow: hidden; position: relative; }
@@ -1010,17 +1018,17 @@ section { padding: 80px 5%; }
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
-  <a href="#" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <div class="nav-logo-icon">🛒</div>
     Market World
   </a>
   <ul class="nav-links">
-    <li><a href="#">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="#">Reviews</a></li>
     <li><a href="#">Deals</a></li>
     <li><a href="#">Guides</a></li>
     <li><a href="#">Tech</a></li>
-    <li><a href="#">About</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
   <div class="nav-actions">
     <div class="nav-search-btn">🔍</div>
@@ -1032,12 +1040,12 @@ section { padding: 80px 5%; }
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <ul>
-    <li><a href="#">Home</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="#">Reviews</a></li>
     <li><a href="#">Deals</a></li>
     <li><a href="#">Buying Guides</a></li>
     <li><a href="#">Tech Gadgets</a></li>
-    <li><a href="#">About</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
 </div>
 
@@ -1121,11 +1129,11 @@ section { padding: 80px 5%; }
       <h2 class="section-title">Blog Categories</h2>
     </div>
     <div class="categories-grid fade-in">
-      <a href="#" class="cat-btn active"><span class="cat-icon">💻</span>Tech Gadgets<span class="cat-count">(48)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">🏠</span>Home & Kitchen<span class="cat-count">(35)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">💄</span>Beauty<span class="cat-count">(27)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">👗</span>Fashion<span class="cat-count">(41)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">🎮</span>Gaming<span class="cat-count">(33)</span></a>
+      <a href="electronic.html" class="cat-btn active"><span class="cat-icon">💻</span>Tech Gadgets<span class="cat-count">(48)</span></a>
+      <a href="home&kitchen.html" class="cat-btn"><span class="cat-icon">🏠</span>Home & Kitchen<span class="cat-count">(35)</span></a>
+      <a href="beauty.html" class="cat-btn"><span class="cat-icon">💄</span>Beauty<span class="cat-count">(27)</span></a>
+      <a href="fashion.html" class="cat-btn"><span class="cat-icon">👗</span>Fashion<span class="cat-count">(41)</span></a>
+      <a href="sports.html" class="cat-btn"><span class="cat-icon">🎮</span>Gaming<span class="cat-count">(33)</span></a>
       <a href="#" class="cat-btn"><span class="cat-icon">📱</span>Smart Devices<span class="cat-count">(52)</span></a>
       <a href="#" class="cat-btn"><span class="cat-icon">🟠</span>Amazon Deals<span class="cat-count">(86)</span></a>
       <a href="#" class="cat-btn"><span class="cat-icon">🔵</span>Flipkart Offers<span class="cat-count">(74)</span></a>
@@ -1150,141 +1158,284 @@ section { padding: 80px 5%; }
         </div>
         <div class="articles-grid">
 
-          <!-- Card 1 -->
-          <div class="article-card fade-in">
-            <div class="article-img-wrap">
-              <div class="img-placeholder" style="height:200px;font-size:60px;">🎧</div>
-              <div class="article-img-overlay"></div>
-            </div>
-            <div class="article-body">
-              <div class="article-tags">
-                <span class="tag tag-cyan">Tech</span>
-                <span class="tag tag-gold">🔥 Hot</span>
-              </div>
-              <h3 class="article-title">Best Earbuds Under ₹999 — Top 8 Picks Tested</h3>
-              <p class="article-desc">Affordable doesn't mean bad. We found 8 earbuds that deliver punch-above-weight audio quality on a shoestring budget.</p>
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span>📅 May 18</span>
-                  <span>⏱ 6 min</span>
-                </div>
-                <a href="#" class="read-more-link">Read more →</a>
-              </div>
-            </div>
-          </div>
+         <!-- Card 1 -->
+<div class="article-card fade-in">
+
+  <div class="article-img-wrap">
+    <img src="https://m.media-amazon.com/images/I/61wdIp45PqL._SL1440_.jpg" class="article-img">
+
+    <div class="article-img-overlay"></div>
+  </div>
+
+  <div class="article-body">
+
+    <div class="article-tags">
+      <span class="tag tag-cyan">Earbuds</span>
+      <span class="tag tag-gold">🔥 72% OFF</span>
+    </div>
+
+    <h3 class="article-title">
+      Boult Astra Truly Wireless Bluetooth Earbuds
+    </h3>
+
+    <p class="article-desc">
+      70H Playtime, Zen ENC Mic, Type-C Fast Charging, Bluetooth 5.4
+    </p>
+
+    <div class="article-footer">
+
+      <div class="article-meta">
+        <span>⭐ 4.0</span>
+        <span>1555 Reviews</span>
+      </div>
+
+      <a href="https://amzn.to/42r7EsX"
+         class="read-more-link"
+         target="_blank">
+         Buy Now →
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
 
           <!-- Card 2 -->
-          <div class="article-card fade-in">
-            <div class="article-img-wrap">
-              <div class="img-placeholder" style="height:200px;font-size:60px;">🍳</div>
-              <div class="article-img-overlay"></div>
-            </div>
-            <div class="article-body">
-              <div class="article-tags">
-                <span class="tag tag-purple">Home</span>
-                <span class="tag tag-green">New</span>
-              </div>
-              <h3 class="article-title">Top 10 Kitchen Products for Modern Indian Homes</h3>
-              <p class="article-desc">Transform your cooking experience with these smart, stylish, and budget-friendly kitchen essentials loved by home chefs.</p>
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span>📅 May 15</span>
-                  <span>⏱ 7 min</span>
-                </div>
-                <a href="#" class="read-more-link">Read more →</a>
-              </div>
-            </div>
-          </div>
+<div class="article-card fade-in">
 
+  <div class="article-img-wrap">
+
+    <img src="https://m.media-amazon.com/images/I/71tl8pu4fKL._SL1500_.jpg"
+         class="article-img">
+
+    <div class="article-img-overlay"></div>
+
+  </div>
+
+  <div class="article-body">
+
+    <div class="article-tags">
+      <span class="tag tag-purple">Smartphone</span>
+      <span class="tag tag-green">🆕 New</span>
+    </div>
+
+    <h3 class="article-title">
+      Samsung Galaxy S25 Ultra 5G
+    </h3>
+
+    <p class="article-desc">
+      Titanium design, flagship camera, premium performance & ultra smooth display.
+    </p>
+
+    <div class="article-footer">
+
+      <div class="article-meta">
+        <span>⭐ 4.4</span>
+        <span>1160 Reviews</span>
+      </div>
+
+      <a href="https://amzn.to/4eG1dcX"
+         class="read-more-link"
+         target="_blank">
+
+         Buy Now →
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
           <!-- Card 3 -->
-          <div class="article-card fade-in">
-            <div class="article-img-wrap">
-              <div class="img-placeholder" style="height:200px;font-size:60px;">⌚</div>
-              <div class="article-img-overlay"></div>
-            </div>
-            <div class="article-body">
-              <div class="article-tags">
-                <span class="tag tag-cyan">Smart Devices</span>
-              </div>
-              <h3 class="article-title">Best Smartwatches in 2026 — All Budgets Covered</h3>
-              <p class="article-desc">From health tracking to AMOLED displays, here's the definitive guide to the best smartwatches you can buy right now in India.</p>
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span>📅 May 12</span>
-                  <span>⏱ 9 min</span>
-                </div>
-                <a href="#" class="read-more-link">Read more →</a>
-              </div>
-            </div>
-          </div>
+<div class="article-card fade-in">
 
+  <div class="article-img-wrap">
+
+    <img src="https://m.media-amazon.com/images/I/71IGrF1UHTL._SL1500_.jpg"
+         class="article-img">
+
+    <div class="article-img-overlay"></div>
+
+  </div>
+
+  <div class="article-body">
+
+    <div class="article-tags">
+      <span class="tag tag-cyan">Smart Watch</span>
+      <span class="tag tag-gold">⭐ Top</span>
+    </div>
+
+    <h3 class="article-title">
+      Fastrack Astor FS1 Pro Smart Watch
+    </h3>
+
+    <p class="article-desc">
+      1.97" AMOLED Display, Bluetooth Calling, 100+ Sports Modes, SpO2 & Heart Rate Monitoring.
+    </p>
+
+    <div class="article-footer">
+
+      <div class="article-meta">
+        <span>⭐ 4.1</span>
+        <span>1689 Reviews</span>
+      </div>
+
+      <a href="https://amzn.to/49qg6fQ"
+         class="read-more-link"
+         target="_blank">
+
+         Buy Now →
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
           <!-- Card 4 -->
-          <div class="article-card fade-in">
-            <div class="article-img-wrap">
-              <div class="img-placeholder" style="height:200px;font-size:60px;">🛒</div>
-              <div class="article-img-overlay"></div>
-            </div>
-            <div class="article-body">
-              <div class="article-tags">
-                <span class="tag tag-gold">Guides</span>
-                <span class="tag tag-purple">Popular</span>
-              </div>
-              <h3 class="article-title">Amazon vs Flipkart — Which Should You Shop On?</h3>
-              <p class="article-desc">A no-BS breakdown of prices, return policies, delivery speeds, and exclusive deals on India's two biggest shopping platforms.</p>
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span>📅 May 10</span>
-                  <span>⏱ 10 min</span>
-                </div>
-                <a href="#" class="read-more-link">Read more →</a>
-              </div>
-            </div>
-          </div>
+<div class="article-card fade-in">
 
+  <div class="article-img-wrap">
+
+    <img src="https://m.media-amazon.com/images/I/51sVuyIolqL._SL1200_.jpg"
+         class="article-img">
+
+    <div class="article-img-overlay"></div>
+
+  </div>
+
+  <div class="article-body">
+
+    <div class="article-tags">
+      <span class="tag tag-purple">Power Bank</span>
+      <span class="tag tag-gold">🔥 Hot</span>
+    </div>
+
+    <h3 class="article-title">
+      pTron Dynamo Power Bank
+    </h3>
+
+    <p class="article-desc">
+      20W Power Delivery, Built-in Charging Cables, 4 Outputs, Type-C Input/Output Port.
+    </p>
+
+    <div class="article-footer">
+
+      <div class="article-meta">
+        <span>⭐ 4.1</span>
+        <span>96 Reviews</span>
+      </div>
+
+      <a href="https://amzn.to/4vfVNuf"
+         class="read-more-link"
+         target="_blank">
+
+         Buy Now →
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
           <!-- Card 5 -->
-          <div class="article-card fade-in">
-            <div class="article-img-wrap">
-              <div class="img-placeholder" style="height:200px;font-size:60px;">🎮</div>
-              <div class="article-img-overlay"></div>
-            </div>
-            <div class="article-body">
-              <div class="article-tags">
-                <span class="tag tag-pink">Gaming</span>
-              </div>
-              <h3 class="article-title">Ultimate Gaming Accessories Setup Guide 2026</h3>
-              <p class="article-desc">Build your dream gaming battlestation on any budget. Our setup guide covers keyboards, mice, headsets, and desk essentials.</p>
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span>📅 May 8</span>
-                  <span>⏱ 12 min</span>
-                </div>
-                <a href="#" class="read-more-link">Read more →</a>
-              </div>
-            </div>
-          </div>
+<div class="article-card fade-in">
 
-          <!-- Card 6 -->
-          <div class="article-card fade-in">
-            <div class="article-img-wrap">
-              <div class="img-placeholder" style="height:200px;font-size:60px;">📦</div>
-              <div class="article-img-overlay"></div>
-            </div>
-            <div class="article-body">
-              <div class="article-tags">
-                <span class="tag tag-green">Budget</span>
-                <span class="tag tag-gold">🔥 Hot</span>
-              </div>
-              <h3 class="article-title">Best Budget Gadgets Under ₹1500 — May 2026</h3>
-              <p class="article-desc">Incredible tech doesn't have to cost a fortune. These are the standout value picks this month from Amazon and Flipkart.</p>
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span>📅 May 5</span>
-                  <span>⏱ 5 min</span>
-                </div>
-                <a href="#" class="read-more-link">Read more →</a>
-              </div>
-            </div>
-          </div>
+  <div class="article-img-wrap">
+
+    <img src="https://m.media-amazon.com/images/I/51Yc2pnODbL._SL1000_.jpg"
+         class="article-img">
+
+    <div class="article-img-overlay"></div>
+
+  </div>
+
+  <div class="article-body">
+
+    <div class="article-tags">
+      <span class="tag tag-cyan">USB Adapter</span>
+      <span class="tag tag-gold">🔥 Sale</span>
+    </div>
+
+    <h3 class="article-title">
+      TP-Link UB500 Bluetooth 5.3 Nano USB Adapter
+    </h3>
+
+    <p class="article-desc">
+      Supports Windows 11/10/8.1/7 for Desktop, Laptop, Mouse, Keyboard & Controllers.
+    </p>
+
+    <div class="article-footer">
+
+      <div class="article-meta">
+        <span>⭐ 4.4</span>
+        <span>57k+ Reviews</span>
+      </div>
+
+      <a href="https://amzn.to/3RwRmfT"
+         class="read-more-link"
+         target="_blank">
+
+         Buy Now →
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+       <!-- Card 6 -->
+<div class="article-card fade-in">
+
+  <div class="article-img-wrap">
+
+    <img src="https://m.media-amazon.com/images/I/61GPF4Cs+LL._SL1200_.jpg"
+         class="article-img">
+
+    <div class="article-img-overlay"></div>
+
+  </div>
+
+  <div class="article-body">
+
+    <div class="article-tags">
+      <span class="tag tag-green">Gamepad</span>
+      <span class="tag tag-gold">🔥 Sale</span>
+    </div>
+
+    <h3 class="article-title">
+      Stealth Black RGB-Reveal Design, Hall Effect Joystick
+    </h3>
+
+    <p class="article-desc">
+      Triggers, Mechanical Buttons, 1000Hz Polling Rate, 6-Axis Gyro, Windows Software, 3.5mm Audio Jack, Macro
+    </p>
+
+    <div class="article-footer">
+
+      <div class="article-meta">
+        <span>⭐ 4.2</span>
+        <span>37 Reviews</span>
+      </div>
+
+      <a href="https://amzn.to/3S4iRxr"
+         class="read-more-link"
+         target="_blank">
+
+         Buy Now →
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
 
         </div>
         <div style="text-align:center;margin-top:40px;">
@@ -1615,7 +1766,7 @@ section { padding: 80px 5%; }
       <div>
         <div class="footer-col-title">Quick Links</div>
         <ul class="footer-links">
-          <li><a href="#">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="#">Product Reviews</a></li>
           <li><a href="#">Buying Guides</a></li>
           <li><a href="#">Tech Gadgets</a></li>
@@ -1627,8 +1778,8 @@ section { padding: 80px 5%; }
       <div>
         <div class="footer-col-title">Help Center</div>
         <ul class="footer-links">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
           <li><a href="#">Advertise</a></li>
           <li><a href="#">Write For Us</a></li>
           <li><a href="#">Newsletter</a></li>
@@ -1639,10 +1790,10 @@ section { padding: 80px 5%; }
       <div>
         <div class="footer-col-title">Legal</div>
         <ul class="footer-links">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-          <li><a href="#">Affiliate Disclosure</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="term and condition.html">Terms of Service</a></li>
+          <li><a href="cookie policy.html">Cookie Policy</a></li>
+          <li><a href="affiliate disclosure.html">Affiliate Disclosure</a></li>
           <li><a href="#">DMCA Policy</a></li>
           <li><a href="#">Disclaimer</a></li>
         </ul>
@@ -1650,7 +1801,7 @@ section { padding: 80px 5%; }
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 <a href="#">Market World</a>. All rights reserved. Made with ❤️ in India.</p>
+      <p class="footer-copy">© 2026 <a href="index.html">Market World</a>. All rights reserved. Made with ❤️ in India.</p>
       <div class="footer-badges">
         <span class="footer-badge">🟠 Amazon Associate</span>
         <span class="footer-badge">🔵 Flipkart Partner</span>
