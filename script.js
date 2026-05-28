@@ -205,7 +205,7 @@ const PRODUCTS = [
     featured: false, trending: false
   },
 
-  // HOME & LIVING – GLOBAL
+  // HOME-kitchen – GLOBAL
   {
     id: 13,
     name: " Electric Pressure Cooker",
