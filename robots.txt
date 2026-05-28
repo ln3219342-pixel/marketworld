@@ -1,17 +1,9 @@
-# GlobalMarket Robots.txt
-# Allow search engines to index the affiliate shopping website
-
 User-agent: *
 Allow: /
 
-# Block private or unnecessary folders (optional)
 Disallow: /admin/
 Disallow: /login/
 Disallow: /checkout/
 Disallow: /cart/
 
-# Sitemap location (update if your domain changes)
-Sitemap: https://www.globalmarket.com/sitemap.xml
-
-# Crawl delay (optional for server load control)
-Crawl-delay: 2
+Sitemap: https://marketworld.me/sitemap.xml
