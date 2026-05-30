@@ -133,7 +133,7 @@ const PRODUCTS = [
     badgeClass: "badge-trending",
     image: "https://m.media-amazon.com/images/I/61e0tli8xAL._SL1024_.jpg",
     affiliateLink: "https://amzn.to/49o2the",
-    flipkartLink: "https://www.flipkart.com/flipkart-perfect-homes-16x16-inch-wall-mounted-led-mirror-smart-sensor-bathroom-mirror/p/itm1b9cbbf0e7a8c?",
+    flipkartLink: "https://www.flipkart.com/flipkart-perfect-homes-16x16-inch-wall-mounted-led-mirror-smart-sensor-bathroom/p/itm2c13fd6590550?",
     featured: true, trending: true
   },
 
@@ -201,7 +201,7 @@ const PRODUCTS = [
     badgeClass: "badge-new",
     image: "https://m.media-amazon.com/images/I/71t36fW+BUL._SY741_.jpg",
     affiliateLink: "https://amzn.to/42v2MmB",
-    flipkartLink: "https://www.flipkart.com/klosia-women-kurta-pant-dupatta-set/p/itm1b9cbbf0e7a8c?",
+    flipkartLink: "https://www.flipkart.com/klosia-women-kurta-pant-dupatta-set/p/itmcb22cdf3204d8?pid=ETHHKVNW8FHEP73E&lid=LSTETHHKVNW8FHEP73EDYMNHH&marketplace=FLIPKART&q=https%3A%2F%2Fwww.flipkart.com%2Fklosia-women-kurta-pant-dupatta-set%2Fp%2Fitm1b9cbbf0e7a8c%3F&store=clo%2Fcfv%2Fitg%2Ftys&srno=s_1_29&otracker=search&otracker1=search&fm=Search&iid=ef543140-612e-4be5-90b5-9fa0efcc27c0.ETHHKVNW8FHEP73E.SEARCH&ppt=sp&ppn=sp&ssid=e96jpm9jr40000001780118384948&qH=71fb0b73fea3804e&ov_redirect=true",
     featured: false, trending: false
   },
 
@@ -287,7 +287,7 @@ const PRODUCTS = [
     badgeClass: "badge-new",
     image: "https://m.media-amazon.com/images/I/614BF1fULjS._SL1200_.jpg",
     affiliateLink: "https://amzn.to/4nJPRXX",
-    flipkartLink: "https://www.flipkart.com/jaj-art-hot-air-brush-3-1-hair-dryer-brush-one-step-styler-volumizer-curler-negative-ions-comb-straightener-salon-curly-reduce-frizz-static-pink-black-a-01/p/itm1b9cbbf0e7a8c?",
+    flipkartLink: "https://www.flipkart.com/jaj-art-hot-air-brush-3-1-hair-dryer-brush-one-step-styler-volumizer-curler-negative-ions-comb-straightener-salon-curly-reduce-frizz-static-pink-black-a-01/p/itmfe4916fc4c118?",
     featured: true, trending: true
   },
   {
