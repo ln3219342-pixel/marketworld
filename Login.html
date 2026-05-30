@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — MarketWorld</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c0c0f;
+    --surface: #13131a;
+    --border: rgba(255,255,255,0.07);
+    --border-focus: rgba(255,255,255,0.25);
+    --text: #f0f0f4;
+    --muted: #6b6b80;
+    --accent: #7c6af7;
+    --accent-glow: rgba(124,106,247,0.35);
+    --accent-hover: #9585f9;
+    --error: #f56565;
+    --google: #ffffff;
+  }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Ambient background orbs */
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    pointer-events: none;
+    animation: drift 12s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 520px; height: 520px; background: #7c6af7; top: -140px; left: -160px; animation-duration: 14s; }
+  .orb-2 { width: 380px; height: 380px; background: #f06292; bottom: -100px; right: -80px; animation-duration: 10s; animation-delay: -4s; }
+  .orb-3 { width: 260px; height: 260px; background: #26c6da; top: 40%; left: 60%; animation-duration: 18s; animation-delay: -8s; }
+
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(24px, 16px) scale(1.06); }
+  }
+
+  /* Grid texture overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  /* Card */
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 44px 40px 40px;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.04), 0 32px 64px rgba(0,0,0,.5);
+    animation: rise .6s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes rise {
+    from { opacity:0; transform: translateY(28px) scale(.97); }
+    to   { opacity:1; transform: translateY(0) scale(1); }
+  }
+
+  /* Logo mark */
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 32px;
+  }
+  .logo-icon {
+    width: 34px; height: 34px;
+    background: var(--accent);
+    border-radius: 9px;
+    display: grid; place-items: center;
+    box-shadow: 0 0 18px var(--accent-glow);
+  }
+  .logo-icon svg { width: 18px; height: 18px; fill: #fff; }
+  .logo-name { font-size: 15px; font-weight: 600; letter-spacing: -.2px; color: var(--text); }
+
+  h1 {
+    font-size: 22px; font-weight: 600;
+    letter-spacing: -.4px;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 13.5px; color: var(--muted);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  /* Google button */
+  .btn-google {
+    width: 100%; padding: 11px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    font-size: 13.5px; font-weight: 500;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: background .2s, border-color .2s, transform .15s;
+    margin-bottom: 22px;
+  }
+  .btn-google:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.15); transform: translateY(-1px); }
+  .btn-google:active { transform: translateY(0); }
+  .btn-google svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* Divider */
+  .divider {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 22px;
+    color: var(--muted); font-size: 12px;
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1;
+    height: 1px; background: var(--border);
+  }
+
+  /* Fields */
+  .field { margin-bottom: 16px; }
+  label {
+    display: block;
+    font-size: 12.5px; font-weight: 500;
+    color: var(--muted); margin-bottom: 7px;
+    letter-spacing: .3px;
+  }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%; padding: 11px 14px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    font-size: 13.5px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+  }
+  input:focus {
+    border-color: var(--accent);
+    background: rgba(124,106,247,.06);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+  input.err { border-color: var(--error); box-shadow: 0 0 0 3px rgba(245,101,101,.2); }
+  .err-msg {
+    display: none; font-size: 11.5px; color: var(--error);
+    margin-top: 5px; padding-left: 2px;
+  }
+  .err-msg.show { display: block; }
+
+  /* Password toggle */
+  .eye-btn {
+    position: absolute; right: 12px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    color: var(--muted); cursor: pointer;
+    padding: 2px; display: grid; place-items: center;
+    transition: color .2s;
+  }
+  .eye-btn:hover { color: var(--text); }
+  .eye-btn svg { width: 16px; height: 16px; }
+  input[type="password"], input[type="text"] { padding-right: 40px; }
+
+  /* Row: remember + forgot */
+  .row-check {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  .remember {
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer; font-size: 13px; color: var(--muted);
+    user-select: none;
+  }
+  .remember input[type="checkbox"] { display: none; }
+  .check-box {
+    width: 17px; height: 17px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    display: grid; place-items: center;
+    transition: background .2s, border-color .2s;
+    flex-shrink: 0;
+  }
+  .remember input:checked ~ .check-box {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .check-box svg { width: 10px; height: 10px; stroke: #fff; display: none; }
+  .remember input:checked ~ .check-box svg { display: block; }
+  .forgot {
+    font-size: 13px; color: var(--accent);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .forgot:hover { color: var(--accent-hover); }
+
+  /* Login button */
+  .btn-login {
+    width: 100%; padding: 12px;
+    background: var(--accent);
+    border: none; border-radius: 11px;
+    color: #fff;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px; font-weight: 600;
+    cursor: pointer;
+    letter-spacing: .1px;
+    box-shadow: 0 4px 24px var(--accent-glow);
+    transition: background .2s, transform .15s, box-shadow .2s;
+    position: relative; overflow: hidden;
+  }
+  .btn-login::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(rgba(255,255,255,.12), transparent);
+    pointer-events: none;
+  }
+  .btn-login:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px var(--accent-glow);
+  }
+  .btn-login:active { transform: translateY(0); box-shadow: 0 4px 16px var(--accent-glow); }
+
+  .signup-row {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px; color: var(--muted);
+  }
+  .signup-row a {
+    color: var(--accent); text-decoration: none; font-weight: 500;
+    transition: color .2s;
+  }
+  .signup-row a:hover { color: var(--accent-hover); }
+
+  @media (max-width: 460px) {
+    .card { padding: 36px 26px 30px; }
+    h1 { font-size: 20px; }
+  }
+ #toast{
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+
+  background: rgba(20,20,30,.95);
+  color: #fff;
+
+  padding: 14px 22px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  opacity: 0;
+
+  transition: all .35s ease;
+
+  z-index: 99999;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+
+#toast.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<div class="card">
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 20 20"><path d="M10 2L2 7v6l8 5 8-5V7L10 2z"/></svg>
+    </div>
+    <span class="logo-name">MarketWorld</span>
+  </div>
+
+  <h1>Welcome back</h1>
+  <p class="subtitle">Sign in to continue to your dashboard.</p>
+
+  <!-- Google -->
+  <button class="btn-google" type="button" onclick="loginWithGoogle()">
+    <svg viewBox="0 0 48 48">
+      <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.6 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.5 6.5 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/>
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 16 19 13 24 13c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.5 6.5 29.5 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+      <path fill="#4CAF50" d="M24 44c5.3 0 10.1-2 13.7-5.3l-6.3-5.3C29.5 35.5 26.9 36.5 24 36.5c-5.2 0-9.6-3.3-11.3-8H6.3C9.6 35.7 16.3 44 24 44z"/>
+      <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.3 5.7l6.3 5.3C41.4 35.6 44 30.2 44 24c0-1.3-.1-2.6-.4-3.9z"/>
+    </svg>
+    Continue with Google
+  </button>
+
+  <div class="divider">or sign in with email</div>
+
+  <!-- Form -->
+  <div class="field">
+    <label for="email">Email address</label>
+    <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+    <div class="err-msg" id="email-err">Please enter a valid email.</div>
+  </div>
+
+  <div class="field">
+    <label for="password">Password</label>
+    <div class="input-wrap">
+      <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+      <button class="eye-btn" type="button" id="eye-btn" aria-label="Toggle password">
+        <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+        </svg>
+      </button>
+    </div>
+    <div class="err-msg" id="pw-err">Password cannot be empty.</div>
+  </div>
+
+  <div class="row-check">
+    <label class="remember">
+      <input type="checkbox" id="remember">
+      <span class="check-box">
+        <svg viewBox="0 0 12 12" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="2,6 5,9 10,3"/>
+        </svg>
+      </span>
+      Remember me
+    </label>
+    <a href="#" class="forgot">Forgot password?</a>
+  </div>
+
+<button class="btn-login" id="login-btn" type="button" onclick="loginWithEmail()">Sign in</button>
+
+  <p class="signup-row">No account yet? <a href="#">Create one free</a></p>
+</div>
+
+<script>
+  const emailEl  = document.getElementById('email');
+  const pwEl     = document.getElementById('password');
+  const emailErr = document.getElementById('email-err');
+  const pwErr    = document.getElementById('pw-err');
+  const eyeBtn   = document.getElementById('eye-btn');
+  const eyeIcon  = document.getElementById('eye-icon');
+  let pwVisible  = false;
+
+  // Password toggle
+  eyeBtn.addEventListener('click', () => {
+    pwVisible = !pwVisible;
+    pwEl.type = pwVisible ? 'text' : 'password';
+    eyeIcon.innerHTML = pwVisible
+      ? `<path d="M17.9 17.9A10.6 10.6 0 0 1 12 20C5 20 1 12 1 12a18.5 18.5 0 0 1 3.1-4.8M9.9 4.2A9.8 9.8 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.2 3.5M1 1l22 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`
+      : `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
+  });
+
+  // Clear errors on input
+  emailEl.addEventListener('input', () => { emailEl.classList.remove('err'); emailErr.classList.remove('show'); });
+  pwEl.addEventListener('input',    () => { pwEl.classList.remove('err');    pwErr.classList.remove('show'); });
+
+  // Validate on login click
+  
+  function showToast(message){
+
+  const toast = document.getElementById("toast");
+
+  toast.innerText = message;
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+
+}
+</script>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCJOwemdpVk2Tkt8_1GHmVCgMjwsGP0h1M",
+  authDomain: "marketworld-6f705.firebaseapp.com",
+  projectId: "marketworld-6f705",
+  storageBucket: "marketworld-6f705.firebasestorage.app",
+  messagingSenderId: "210817038456",
+  appId: "1:210817038456:web:42a2a98fbd7cf771d1158d",
+  measurementId: "G-KZQ3GV0123"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const provider = new GoogleAuthProvider();
+
+
+// GOOGLE LOGIN
+window.loginWithGoogle = async () => {
+
+  try {
+
+    const result = await signInWithPopup(auth, provider);
+
+    showToast("✅ Welcome " + result.user.displayName);
+setTimeout(() => {
+  window.location.href = "index.html";
+}, 1000);
+  } catch (error) {
+
+    showToast(error.message);
+
+  }
+
+};
+
+
+// EMAIL LOGIN
+window.loginWithEmail = async () => {
+
+  const email = document.getElementById("email").value;
+
+  const password = document.getElementById("password").value;
+
+  try {
+
+    const userCredential =
+      await signInWithEmailAndPassword(auth, email, password);
+
+    showToast("✅ Login Success");
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1000);
+  } catch (error) {
+
+    showToast(error.message);
+
+  }
+
+};
+
+</script>
+<div id="toast"></div>
+</body>
+</html>

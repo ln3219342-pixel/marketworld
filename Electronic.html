@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MarketWorld – Electronics</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0b0f;
+    --surface: #111318;
+    --surface2: #181b23;
+    --border: #1e2230;
+    --border2: #252a38;
+    --text: #f0f2f8;
+    --text2: #9199b3;
+    --text3: #5a6180;
+    --accent: #6c63ff;
+    --accent2: #ff6b35;
+    --accent3: #00d4aa;
+    --gold: #f5c842;
+    --amazon: #ff9900;
+    --flipkart-blue: #2874f0;
+    --flipkart-yellow: #fb641b;
+    --danger: #ff4d6d;
+    --glow: rgba(108,99,255,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE overlay ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: .5;
+  }
+
+  /* ───── NAVBAR ───── */
+  .navbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,11,15,0.82);
+    backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid var(--border);
+    padding: 0 clamp(16px,4vw,48px);
+  }
+
+  .nav-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; gap: 20px;
+    height: 64px;
+  }
+
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; flex-shrink: 0;
+  }
+
+  .logo-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; box-shadow: 0 0 16px var(--glow);
+    position: relative; overflow: hidden;
+  }
+  .logo-icon::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  }
+
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.25rem; letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #fff 30%, var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  .nav-search {
+    flex: 1; max-width: 480px;
+    position: relative;
+  }
+  .nav-search input {
+    width: 100%; padding: 9px 16px 9px 40px;
+    background: var(--surface2); border: 1px solid var(--border2);
+    border-radius: 10px; color: var(--text); font-family: inherit;
+    font-size: 0.875rem; outline: none; transition: border-color .2s, box-shadow .2s;
+  }
+  .nav-search input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(108,99,255,.12);
+  }
+  .nav-search input::placeholder { color: var(--text3); }
+  .nav-search .search-icon {
+    position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+    color: var(--text3); font-size: 14px; pointer-events: none;
+  }
+
+  .nav-actions {
+    display: flex; align-items: center; gap: 8px; margin-left: auto;
+  }
+  .nav-btn {
+    padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border2);
+    background: var(--surface2); color: var(--text2); font-family: inherit;
+    font-size: 0.8rem; font-weight: 500; cursor: pointer;
+    transition: all .2s; display: flex; align-items: center; gap: 6px;
+    text-decoration: none;
+  }
+  .nav-btn:hover { background: var(--border2); color: var(--text); }
+  .nav-btn.primary {
+    background: linear-gradient(135deg, var(--accent), #8b83ff);
+    border-color: transparent; color: #fff;
+    box-shadow: 0 4px 14px rgba(108,99,255,.35);
+  }
+  .nav-btn.primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(108,99,255,.45); }
+
+ 
+
+  /* ───── HERO BANNER ───── */
+  .hero {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #0d0f1a 0%, #11142b 40%, #0e1620 100%);
+    padding: clamp(40px,6vw,80px) clamp(16px,4vw,48px);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(108,99,255,.2) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: 10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,212,170,.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+    position: relative; z-index: 1;
+  }
+  .hero-text h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem,5vw,3.2rem); font-weight: 800;
+    line-height: 1.1; letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .hero-text h1 span {
+    background: linear-gradient(90deg, var(--accent), var(--accent3));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-text p { color: var(--text2); font-size: 1.05rem; max-width: 480px; line-height: 1.6; }
+  .hero-stats {
+    display: flex; gap: 28px; margin-top: 28px; flex-wrap: wrap;
+  }
+  .hero-stat { display: flex; flex-direction: column; gap: 2px; }
+  .hero-stat strong { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text); }
+  .hero-stat span { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: .5px; }
+  .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .hero-badge {
+    padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+    display: flex; align-items: center; gap: 5px; border: 1px solid;
+  }
+  .hero-badge.a { background: rgba(108,99,255,.1); border-color: rgba(108,99,255,.3); color: #a99fff; }
+  .hero-badge.b { background: rgba(0,212,170,.08); border-color: rgba(0,212,170,.25); color: #44eecc; }
+  .hero-badge.c { background: rgba(255,107,53,.08); border-color: rgba(255,107,53,.25); color: #ff9971; }
+
+  /* ───── CATEGORIES ───── */
+  .categories-section {
+    padding: 28px clamp(16px,4vw,48px);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 64px; z-index: 90;
+  }
+  .categories-inner { max-width: 1400px; margin: 0 auto; }
+  .cat-scroll {
+    display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .cat-scroll::-webkit-scrollbar { display: none; }
+  .cat-btn {
+    flex-shrink: 0;
+    padding: 9px 18px; border-radius: 10px;
+    border: 1.5px solid var(--border2);
+    background: var(--surface2);
+    color: var(--text2); font-family: 'DM Sans', sans-serif;
+    font-size: 0.83rem; font-weight: 500;
+    cursor: pointer; display: flex; align-items: center; gap: 7px;
+    transition: all .25s; white-space: nowrap; position: relative;
+  }
+  .cat-btn:hover {
+    border-color: var(--accent); color: var(--text);
+    background: rgba(108,99,255,.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(108,99,255,.15);
+  }
+  .cat-btn.active {
+    background: linear-gradient(135deg, rgba(108,99,255,.2), rgba(108,99,255,.1));
+    border-color: var(--accent);
+    color: #a99fff; font-weight: 600;
+    box-shadow: 0 0 0 3px rgba(108,99,255,.12), 0 4px 14px rgba(108,99,255,.2);
+  }
+  .cat-btn .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); opacity: 0;
+    position: absolute; top: 6px; right: 6px;
+    transition: opacity .2s;
+  }
+  .cat-btn.active .dot { opacity: 1; }
+
+  /* ───── MAIN CONTENT ───── */
+  .main-content { max-width: 1400px; margin: 0 auto; padding: 40px clamp(16px,4vw,48px) 80px; }
+
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px; flex-wrap: wrap; gap: 12px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.4rem,3vw,2rem); font-weight: 800;
+    letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-subtitle { color: var(--text2); font-size: 0.875rem; margin-top: 4px; }
+  .section-actions { display: flex; gap: 8px; align-items: center; }
+  .sort-select {
+    padding: 8px 12px; background: var(--surface2); border: 1px solid var(--border2);
+    border-radius: 8px; color: var(--text2); font-family: inherit; font-size: 0.82rem;
+    cursor: pointer; outline: none;
+  }
+  .results-count {
+    font-size: 0.82rem; color: var(--text3);
+    background: var(--surface); padding: 8px 12px; border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  /* ───── PRODUCT GRID ───── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    gap: 20px;
+  }
+
+  /* ───── PRODUCT CARD ───── */
+  .product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s, border-color .3s;
+    position: relative;
+    cursor: pointer;
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(0,0,0,.45), 0 0 0 1px rgba(108,99,255,.2);
+    border-color: rgba(108,99,255,.3);
+  }
+
+  .card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px;
+}
+  .card-img-wrap{
+   background: linear-gradient(135deg,#f8fafc,#eef2ff);
+}
+
+.card-img-wrap img{
+   mix-blend-mode: multiply;
+}
+  .card-img-wrap img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+
+  transition: transform .4s ease;
+}
+  .product-card:hover .card-img-wrap img { transform: scale(1.07); }
+
+  .badge-row {
+    position: absolute; top: 10px; left: 10px;
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .badge {
+    padding: 3px 8px; border-radius: 6px;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: .3px;
+    text-transform: uppercase;
+  }
+  .badge.sale { background: var(--danger); color: #fff; }
+  .badge.new { background: var(--accent3); color: #001f18; }
+  .badge.hot { background: var(--accent2); color: #fff; }
+  .badge.top { background: var(--gold); color: #1a1000; }
+
+  
+
+  /* ───── CARD BODY ───── */
+  .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+
+  .card-category {
+    font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .8px; color: var(--accent); opacity: .85;
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.92rem; font-weight: 700; line-height: 1.35;
+    color: var(--text); display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  .card-desc {
+    font-size: 0.78rem; color: var(--text3); line-height: 1.5;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+
+  .card-rating {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .stars { font-size: 0.8rem; letter-spacing: 1px; }
+  .rating-score {
+    font-size: 0.78rem; font-weight: 700; color: var(--gold);
+  }
+  .rating-count { font-size: 0.72rem; color: var(--text3); }
+
+  .card-price {
+    display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+  }
+  .price-current {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.18rem; font-weight: 800; color: var(--text);
+  }
+  .price-original {
+    font-size: 0.82rem; color: var(--text3); text-decoration: line-through;
+  }
+  .price-discount {
+    font-size: 0.75rem; font-weight: 700; color: var(--accent3);
+    background: rgba(0,212,170,.1); padding: 2px 7px; border-radius: 5px;
+  }
+
+  /* ───── CARD BUTTONS ───── */
+  .card-actions { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 8px; }
+
+  .btn-row { display: flex; gap: 8px; }
+
+  .btn {
+    flex: 1; padding: 9px 10px; border-radius: 10px;
+    border: none; font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    transition: all .2s; display: flex; align-items: center;
+    justify-content: center; gap: 5px; white-space: nowrap;
+  }
+  .btn:active { transform: scale(.97); }
+
+  .btn-wishlist {
+    background: var(--surface2); border: 1.5px solid var(--border2);
+    color: var(--text2);
+  }
+  .btn-wishlist:hover { background: rgba(255,77,109,.12); border-color: var(--danger); color: var(--text); }
+
+  .btn-buy {
+    background: linear-gradient(135deg, var(--accent), #8b83ff);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(108,99,255,.3);
+  }
+  .btn-buy:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(108,99,255,.45); filter: brightness(1.08); }
+
+  .btn-amazon {
+    background: #1a1200; border: 1.5px solid #8a5c00;
+    color: var(--amazon); font-size: 0.75rem;
+  }
+  .btn-amazon:hover { background: rgba(255,153,0,.12); border-color: var(--amazon); }
+
+  .btn-flipkart {
+    background: #0a1628; border: 1.5px solid #1a3a6e;
+    color: var(--flipkart-blue); font-size: 0.75rem;
+  }
+  .btn-flipkart:hover { background: rgba(40,116,240,.12); border-color: var(--flipkart-blue); }
+
+  /* ───── TOAST ───── */
+  .toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px; }
+  .toast {
+    padding: 12px 20px; border-radius: 12px;
+    background: var(--surface2); border: 1px solid var(--border2);
+    color: var(--text); font-size: 0.85rem; font-weight: 500;
+    box-shadow: 0 8px 32px rgba(0,0,0,.4);
+    display: flex; align-items: center; gap: 10px;
+    transform: translateX(120%); opacity: 0;
+    transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .35s;
+    max-width: 300px;
+  }
+  .toast.show { transform: translateX(0); opacity: 1; }
+  .toast-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .toast.success { border-color: rgba(0,212,170,.3); }
+  .toast.success .toast-icon { filter: drop-shadow(0 0 6px var(--accent3)); }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 40px clamp(16px,4vw,48px);
+    text-align: center;
+  }
+  .footer-inner { max-width: 1400px; margin: 0 auto; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+  .footer-logo span { background: linear-gradient(90deg, var(--accent), var(--accent3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  footer p { color: var(--text3); font-size: 0.83rem; }
+
+  /* ───── ANIMATIONS ───── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .product-card { animation: fadeUp .5s ease both; }
+  .product-card:nth-child(1) { animation-delay: .05s; }
+  .product-card:nth-child(2) { animation-delay: .1s; }
+  .product-card:nth-child(3) { animation-delay: .15s; }
+  .product-card:nth-child(4) { animation-delay: .2s; }
+  .product-card:nth-child(5) { animation-delay: .25s; }
+  .product-card:nth-child(6) { animation-delay: .3s; }
+  .product-card:nth-child(7) { animation-delay: .35s; }
+  .product-card:nth-child(8) { animation-delay: .4s; }
+  .product-card:nth-child(9) { animation-delay: .45s; }
+  .product-card:nth-child(10) { animation-delay: .5s; }
+  .product-card:nth-child(11) { animation-delay: .55s; }
+  .product-card:nth-child(12) { animation-delay: .6s; }
+
+  /* ───── RESPONSIVE ───── */
+  @media (max-width: 640px) {
+    .nav-search { display: none; }
+    .hero-inner { flex-direction: column; }
+    .hero-text h1 { font-size: 1.8rem; }
+  }
+  @media (max-width: 480px) {
+    .btn { font-size: 0.72rem; padding: 8px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───── NAVBAR ───── -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">⚡</div>
+      <span class="logo-text">MarketWorld</span>
+    </a>
+    <div class="nav-search">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search electronics, brands & more…">
+    </div>
+    <div class="nav-actions">
+      <a href="login.html" class="nav-btn">👤 Log In</a>
+      
+    </div>
+  </div>
+</nav>
+
+<!-- ───── HERO ───── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>📱 <span>Electronics</span><br>Products</h1>
+      <p>Discover top-tier gadgets, cutting-edge tech & unbeatable deals — all in one place.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>2,400+</strong><span>Products</span></div>
+        <div class="hero-stat"><strong>180+</strong><span>Brands</span></div>
+        <div class="hero-stat"><strong>Up to 60%</strong><span>Discount</span></div>
+      </div>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge a">⚡ Fast Delivery</div>
+      <div class="hero-badge b">✅ Genuine Products</div>
+      <div class="hero-badge c">🔄 Easy Returns</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CATEGORIES ───── -->
+
+
+<!-- ───── MAIN ───── -->
+<main class="main-content">
+  <div class="section-header">
+    <div>
+      <div class="section-title">📱 Electronics Products</div>
+      <div class="section-subtitle">Showing <span id="showingCount">0</span> products</div>
+    </div>
+    <div class="section-actions">
+      <span class="results-count" id="resultsCount">0 Results</span>
+      <select class="sort-select" id="sortSelect" onchange="sortProducts()">
+        <option value="featured">Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+        <option value="discount">Best Deals</option>
+      </select>
+    </div>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+</main>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Market<span>World</span></div>
+    <p>© 2025 MarketWorld. All rights reserved. Your trusted electronics destination.</p>
+  </div>
+</footer>
+
+<!-- ───── TOASTS ───── -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ─── DATA ───
+const products = [
+  {
+    id:1, cat:'earbuds',
+    img:"https://m.media-amazon.com/images/I/61wdIp45PqL._SL1440_.jpg",
+    badge:['sale',], category:'Earbuds',
+    title:"Boult Astra Truly Wireless Bluetooth Earbuds",
+    desc:'70H Playtime, 40mm Bass Driver, Zen ENC Mic, Type-C Fast Charging, 4EQ Modes, Bluetooth 5.4',
+    price:981, original:3499, discount:72, rating:4.0, reviews:1555,
+    amazon:"https://amzn.to/42r7EsX", flipkart:"https://www.flipkart.com/goboult-astra-neo-70hrs-playtime-4-mic-enc-bt-5-4-comfort-grip-case-bluetooth/p/itm6c2a88c0cfbce?pid=ACCGXY5FVH2HXK5E&marketplace=FLIPKART&lid=LSTACCGXY5FVH2HXK5EOVWQUB&q=goboult+astra+neo&fm=organic&pageUID=1778247483642",
+  },
+  {
+    id:2, cat:'smartphones',
+    img:"https://m.media-amazon.com/images/I/71tl8pu4fKL._SL1500_.jpg",
+    badge:['new'], category:'Smartphones',
+    title:"Samsung Galaxy S25 Ultra 5G",
+    desc:'A17 Pro chip, Titanium design, 48MP Main + ProRes Video',
+    price:99999, original:129999, discount:23, rating:4.4, reviews:1160,
+    amazon:"https://amzn.to/4eG1dcX", flipkart:"https://www.flipkart.com/samsung-galaxy-s26-ultra-5g-black-256-gb/p/itmf4799d3841c43?",
+  },
+  {
+    id:3, cat:'macbook',
+    img:"https://m.media-amazon.com/images/I/71-D1xCuVwL._SL1500_.jpg",
+    badge:['hot'], category:'macbook',
+    title:"Apple 2024 MacBook Air 13",
+    desc:'M3 chip: 34.46 cm (13.6″) Liquid Retina Display, 16GB Unified Memory, 512GB SSD Storage',
+    price:124990, original:154999, discount:19, rating:4.6, reviews:7104,
+    amazon:"https://amzn.to/4uBhowG", flipkart:"https://www.flipkart.com/apple-macbook-air-m3-8-gb-512-gb-ssd-macos-sonoma-mrxw3hn-a/p/itmb1aa0cc739560?"
+  },
+  {
+    id:4, cat:'laptops',
+    img:"https://m.media-amazon.com/images/I/61-XNG5lPBL._SL1500_.jpg",
+    badge:['sale'], category:'Laptops',
+    title:"Boat New Launch Rockerz 650 Pro",
+    desc:'Touch/Swipe Controls, Dolby Audio, 80Hrs Battery, 2Mics ENx, Fast Charge, App Support, Dual Pair',
+    price:2499, original:8990, discount:72, rating:4.2, reviews:3733,
+    amazon:"https://amzn.to/4d3UwA6", flipkart:"https://www.flipkart.com/boat-rockerz-650-pro-2025-launch-touch-swipe-controls-dolby-audio-80-hrs-battery-bluetooth/p/itmded454eeb49f5?",
+  },
+  {
+    id:5, cat:'smart qled tv',
+    img:"https://m.media-amazon.com/images/I/71U9W5tUfLL._SL1500_.jpg",
+    badge:['hot','sale'], category:'Smart QLED TV',
+    title:"Lumio Vision 7 ",
+    desc:'Lumio Vision 7 139 cm (55 inches) 4K Ultra-HD Smart QLED Google TV FTW3-ADSG',
+    price:36999, original:68999, discount:46, rating:4.2, reviews:1337,
+    amazon:"https://amzn.to/4d54r8x", flipkart:"https://www.flipkart.com/lumio-vision-7-139-cm-55-inch-qled-ultra-hd-4k-smart-google-tv-4k-hdr-dolby-atmos-over-100-colour-indias-fastest-tv-3gb-ram/p/itma32f5f9af6681?",
+  },
+  {
+    id:6, cat:'smart cover',
+    img:"https://m.media-amazon.com/images/I/81iLwkcj6kL._SL1500_.jpg",
+    badge:['new'], category:'Smart Cover',
+    title:"ProElite Slim Smart Flip case Cover",
+    desc:'Kindle Paperwhite 11th Generation 6.8 inch 2021, Flowers (Fits Signature Edition Also)',
+    price:521, original:1999, discount:74, rating:4.4, reviews:981,
+    amazon: "https://amzn.to/4dzeeUx", flipkart:"https://www.flipkart.com/proelite-flip-cover-amazon-kindle-paperwhite-11th-gen-6-8-inch/p/itm88e355db3f6a9?",
+  },
+  {
+    id:7, cat:'smart watch',
+    img:"https://m.media-amazon.com/images/I/71IGrF1UHTL._SL1500_.jpg",
+    badge:['top'], category:'Smart Watch',
+    title:"Fastrack Astor FS1 Pro Smart Watch",
+    desc:'1.97" AMOLED Display, Bluetooth Calling, 100+ Sports Modes, SpO2 & Heart Rate Monitoring, Women',
+    price:2099, original:4999, discount:58, rating:4.1, reviews:1689,
+    amazon:"https://amzn.to/49qg6fQ", flipkart:"https://www.flipkart.com/fastrack-revoltt-pro-1-97-super-amoled-display-aod-working-crown-bt-calling-fast-charge-smartwatch/p/itmc40e5a8e02685?",
+  },
+  {
+    id:8, cat:'smart miror',
+    img:"https://m.media-amazon.com/images/I/61e0tli8xAL._SL1024_.jpg",
+    badge:['sale'], category:'smart mirror',
+    title:"Round Wall Mounter Mirror with Led Light",
+    desc:'Led Light for Wash Basin with smart 3 Light Tone (Cool White,Natural White and Warm White)',
+    price:1674, original:3500, discount:52, rating:4.1, reviews:262,
+    amazon:"https://amzn.to/49o2the", flipkart:"https://www.flipkart.com/flipkart-perfect-homes-16x16-inch-wall-mounted-led-mirror-smart-sensor-bathroom-mirror/p/itm1b9cbbf0e7a8c?",
+  },
+  {
+    id:9, cat:'earbuds',
+    img:'https://m.media-amazon.com/images/I/616Z5OlHzhL._SL1500_.jpg',
+    badge:['new'], category:'Earbuds',
+    title:'Plus 60 Truly Wireless Earbuds TWS',
+    desc:' Bluetooth V5.4 | Quad Mics with AI-ENC | 50ms Low Latency Gaming | Gaming Beast for Android & iOS',
+    price:643, original:2999, discount:79, rating:3.2, reviews:359,
+    amazon:'https://amzn.to/4tXt7VH', flipkart:'https://www.flipkart.com/coregenix-plus-60-earbud-tws-enc-highbass-upto-40hrs-playtime-bluetooth-v5-4-quadmics-bluetooth/p/itme8def96f2623a?',
+  },
+  {
+    id:10, cat:'desktop pc',
+    img:'https://m.media-amazon.com/images/I/619e6Wz7R+L._SL1500_.jpg',
+    badge:['sale'], category:'Desktop PC',
+    title:'KRYNORCXY Desktop PC Gaming',
+    desc:'Core i5 2400 | HD Graphics 2000 | SSD | HDMI & VGA | RGB 4Fan Cabinet | WiFi | Windows 10 Pro | High Performance Business ',
+    price:17999, original:35000, discount:49, rating:5, reviews:865,
+    amazon:'https://amzn.to/4uzGWuM', flipkart:'https://www.flipkart.com/rionix-gaming-core-fire-intel-i5-8-gb-ram-1-hd-onboard-graphics-501-hard-disk-120-ssd-capacity-windows-11-pro-1-graphics-memory-full-tower-ms-office/p/itmcf3af1d1d3bb9?',
+  },
+  {
+    id:11, cat:'Gaming controller',
+    img:'https://m.media-amazon.com/images/I/517iO4y-gEL._SL1500_.jpg',
+    badge:['hot'], category:'Gaming Controller',
+    title:'Kreo Surge XB Wireless Gaming Controller',
+    desc:' Hall Effect Joysticks & Triggers, Tri-Mode, Turbo Mode, Macro Buttons, RGB, 1000Hz Polling',
+    price:1499, original:3499, discount:57, rating:4.3, reviews:306,
+    amazon:'https://amzn.to/4nQVjrJ', flipkart:'https://www.flipkart.com/kreo-surge-lite-usb-gamepad/p/itmd457098ed0bda?',
+  },
+  {
+    id:12, cat:'Gaming Cooler',
+    img:'https://m.media-amazon.com/images/I/61hbYB98B5L._SL1500_.jpg',
+    badge:['top','sale'], category:'Gaming Cooler',
+    title:'Hailstone S Phone Cooler',
+    desc:'15W 3 Level Cooling | 5000 RPM 7-Blade| Clamp Mount | RGB | Semiconductor Tech',
+    price:749, original:1799, discount:58, rating:4, reviews:262,
+    amazon:'https://www.amazon.in/EvoFox-Hailstone-Cooling-Semiconductor-Compatible/dp/B0F8J3NLBB/ref=sr_1_1?', flipkart:'https://www.flipkart.com/evofox-hailstone-s-rgb-mobile-cooler-gaming-accessory-kit/p/itm37bbd428c8e3e?',
+  },
+  {
+    id:13, cat:'power bank',
+    img:'https://m.media-amazon.com/images/I/51sVuyIolqL._SL1200_.jpg',
+    badge:['hot'], category:'Power Bank',
+    title:'pTron Dynamo Power bank',
+    desc:'20W Power Delivery, Built-in Charging Cables, 4 Outputs, Type-C Input/Output Port (Jet Black)',
+    price:1298, original:4599, discount:72, rating:4.1, reviews:96,
+    amazon:'https://amzn.to/4vfVNuf', flipkart:'https://www.flipkart.com/ptron-20000-mah-22-5-w-compact-pocket-size-power-bank/p/itm5032e01081022?',
+  },
+  {
+    id:14, cat:'metal stand',
+    img:'https://m.media-amazon.com/images/I/51Fbz1L-kjL._SL1280_.jpg',
+    badge:['new'], category:'Metal Stand',
+    title:'Mobile Phone Tripod/Camera Stand ',
+    desc:'Monopod Kit, Adjustable Mobile Clip Holder with Ball Head (Black, Supports Up to 5000 g)',
+    price:399, original:1499, discount:73, rating:5, reviews:60,
+    amazon:'https://amzn.to/4a6KThZ', flipkart:'https://www.flipkart.com/nafa-lightweight-portable-7-feet-long-tripod-stand-adjustable-clip-holder-tripod-clamp/p/itm912d32b4f3338?',
+  },
+  {
+    id:15, cat:'keyboard',
+    img:'https://m.media-amazon.com/images/I/71ug6f-xjfL._SL1500_.jpg',
+    badge:['top'], category:'keyboard',
+    title:'USB Wired Keyboard, Wired Mouse, Mouse Pad ',
+    desc:'Waterproof, Type A to Type C Converter & 4 Port USB HUB for PC, Laptop, Computer',
+    price:799, original:1999, discount:60, rating:3.4, reviews:54,
+    amazon:'https://amzn.to/4uKX5gE', flipkart:'https://www.flipkart.com/bestor-set-5-combo-usb-wired-keyboard-wire-mouse-mouse-pad-typec-converter-4port-hub-combo/p/itm8c5fe91be4c2e?pid=LACH8XQQGG2XGGNH&lid=LSTLACH8XQQGG2XGGNH1GFICX&marketplace=FLIPKART&q=https%3A%2F%2Fwww.flipkart.com%2Fbestor-set-5-combo-usb-wired-keyboard-wire-mouse-mouse-pad-typec-converter-4-port-usb-hub%2Fp%2Fitm1a0cbbf8e7c9b%3F&store=6bo%2Fai3&spotlightTagId=default_BestsellerId_6bo%2Fai3&srno=s_1_1&otracker=search&otracker1=search&fm=Search&iid=447e98d3-2c98-4234-8fd2-b6f9dd0413da.LACH8XQQGG2XGGNH.SEARCH&ppt=sp&ppn=sp&ssid=w54m1xdchc0000001780118528912&qH=b3595645fd3fc2e1&ov_redirect=true&ov_redirect=true',
+  },
+  {
+    id:16, cat:'USB adapter',
+    img:'https://m.media-amazon.com/images/I/51Yc2pnODbL._SL1000_.jpg',
+    badge:['sale'], category:'USB Adapter',
+    title:'P-Link UB500 Bluetooth 5.3 Nano USB Adapter ',
+    desc:'Supports Windows 11/10/8.1/7 for Desktop, Laptop, Mouse, Keyboard, Printers, Headsets, Speakers, PS4/ Xbox Controllers.',
+    price:599, original:899, discount:33, rating:4.4, reviews:57811,
+    amazon:'https://amzn.to/3RwRmfT', flipkart:'https://www.flipkart.com/tp-link-ub500-bluetooth-5-3-nano-usb-adapter/p/itm27734017bea58?',
+  },
+  {
+    id:17, cat:'CCTV camera',
+    img:'https://m.media-amazon.com/images/I/51yxsjlpk5L._SL1500_.jpg',
+    badge:['new','top'], category:'CCTV Camera',
+    title:'CCTV Camera with Night Vision',
+    desc:'1080P HD Resolution, 30M Range, Motion Detection, Weatherproof',
+    price:1149, original:4399, discount:74, rating:3.9, reviews:378,
+    amazon:'https://amzn.to/49J8LbF', flipkart:'https://www.flipkart.com/favone-mini-ptz-intelligent-camera-2mp-1080-fhd-color-nightvision-360-rotating-smart-security/p/itm2f5bacb89e64d?',
+  },
+  {
+    id:18, cat:'gAMEpad',
+    img:'https://m.media-amazon.com/images/I/61GPF4Cs+LL._SL1200_.jpg',
+    badge:['sale'], category:'Gamepad',
+    title:'Stealth Black RGB-Reveal Design, Hall Effect Joystick',
+    desc:'Triggers, Mechanical Buttons, 1000Hz Polling Rate, 6-Axis Gyro, Windows Software, 3.5mm Audio Jack, Macro',
+    price:3399, original:5999, discount:43, rating:4.2, reviews:37,
+    amazon:'https://amzn.to/3S4iRxr', flipkart:'https://www.flipkart.com/cosmic-byte-lumora-gamepad/p/itm447d6dcf329bf?',
+  },
+  {
+    id:19, cat:'Hand fan',
+    img:'https://m.media-amazon.com/images/I/61gqCrumpDL._SL1500_.jpg',
+    badge:['sale'], category:'Hand Fan',
+    title:'zebronics Portable Hand Fan',
+    desc:'12h Backup, 3600mAh Rechargeable Battery, 5 Speed Modes, Upto 5.9m/s Airflow, LED Display',
+    price:898, original:1499, discount:40, rating:4.2, reviews:89,
+    amazon:'https://amzn.to/3Q2F6U1', flipkart:'https://www.flipkart.com/zebronics-portable-hand-upto-12h-backup-3600mah-rechargeable-battery-5-speed-modes-zeb-heat-buster-200-usb-fan/p/itm23d43ae354dfd?',
+  },
+  {
+    id:20, cat:'Ring light',
+    img:'https://m.media-amazon.com/images/I/71lR2OEMR+L._SL1500_.jpg',
+    badge:['sale'], category:'Ring Light',
+    title:' Ring Light with Stand',
+    desc:'85 Inch Foldable Tripod, 3 Colour Switch Mode, Ring Light with USB for Studio',
+    price:899, original:2999, discount:70, rating:3.9, reviews:537,
+    amazon:'https://amzn.to/4eaheXC', flipkart:'https://www.flipkart.com/ultradart-professional-12-inch-ring-light-stand-reels-photography-flash/p/itmee057945ac58c?',
+  },
+  {
+    id:21, cat:'smart projector',
+    img:'https://m.media-amazon.com/images/I/71cf5MYIXlL._SL1500_.jpg',
+    badge:['sale'], category:'Smart Projector',
+    title:'Lightbeam Smart Projector',
+    desc:'Android, 1080P& 4K Ultra Support, 3000 Lumens, 720p Native | for Room & Outdoors | All OTT Apps',
+    price:5999, original:14999, discount:60, rating:4.2, reviews:594,
+    amazon:'https://amzn.to/49nR2q0', flipkart:'https://www.flipkart.com/zebronics-zeb-qlp-5-pixaplay-73-3300-lm-portable-720p-native-4k-support-ott-apps-netflix-primevideo-hotstar-200-degrees-rotatable-auto-keystone-miracast-3w-speaker-130-inch-screen-wifi-bt-android-projector/p/itm9f0ab04a0c715?',
+  },
+  {
+    id:22, cat:'printer',
+    img:'https://m.media-amazon.com/images/I/71Jnxn-AN2L._SL1500_.jpg',
+    badge:['sale'], category:'Printer',
+    title:'Ink Efficient Color Printer',
+    desc:'PIXMA E3370 Multi-function WiFi Color Inkjet Printer (Borderless Printing) (Ink Cartridge)',
+    price:6990, original:15990, discount:56, rating:3.8, reviews:689,
+    amazon:'https://amzn.to/4u0SWnS', flipkart:'https://www.flipkart.com/canon-pixma-e3370-multi-function-wifi-color-inkjet-printer-borderless-printing/p/itm2e6c7d964ef40?',
+  },
+  {
+    id:23, cat:'GAMING MONITOR',
+    img:'https://m.media-amazon.com/images/I/71UCE4pNdVL._SL1500_.jpg',
+    badge:['sale'], category:'Gaming Monitor',
+    title:'BenQ MOBIUZ EX251 FHD 220Hz Gaming Monitor',
+    desc:'1ms GtG, AMD FreeSync, DP 1.2, HDMI 2.0, USB Hub, 99% sRGB, Game Optimized Color, 2.5Wx2 Speakers',
+    price:12990, original:19990, discount:35, rating:4.4, reviews:89,
+    amazon:'https://amzn.to/4wY3eYo', flipkart:'https://www.flipkart.com/benq-mobiuz-ex251-63-5-cm-25-inch-full-hd-led-backlit-ips-panel-vesa-display-hdr400-dp-1-2-hdmi-2-0-usb-hub-95-p3-game-optimized-color-2-5wx2-speakers-gaming-monitor-mobiuz-ex251/p/itm651cf8945a362?',
+  },
+  {
+    id:24, cat:'barcode scanner',
+    img:'https://m.media-amazon.com/images/I/51WieZqkB0L._SL1500_.jpg',
+    badge:['sale'], category:'Barcode Scanner',
+    title:'RETSOL LS 450A Laser Barcode Scanner',
+    desc:'Handheld 1D USB Wired Barcode Reader Optical Laser High Speed for Warehouse Supermarket',
+    price:1338, original:5500, discount:76, rating:4.2, reviews:1894,
+    amazon:'https://amzn.to/4vmIYOR', flipkart:'https://www.flipkart.com/retsol-ls450-handheld-laser-barcode-scanner-usb-support-interface/p/itmex9nk7fjhzgnh?',
+  },
+  {
+    id:25, cat:'detector machine',
+    img:'https://m.media-amazon.com/images/I/415tm0sZuhL.jpg',
+    badge:['sale'], category:'Detector Machine',
+    title:'Fake Note Detector Machine',
+    desc:'Checker Counterfeit Currency Detector with Blue UV Lamp and White Light',
+    price:769, original:1499, discount:49, rating:3.5, reviews:39,
+    amazon:'https://amzn.to/4fO1zyw', flipkart:'https://www.flipkart.com/elcons-fnd-green-countertop-counterfeit-currency-detector/p/itm30db1b2cbf102?',
+  }
+];
+
+// ─── STATE ───
+let currentCat = 'all';
+let wishlistCount = 0;
+let wishlist = new Set();
+let filteredProducts = [...products];
+
+// ─── FORMAT PRICE ───
+function fmt(n) {
+  return '₹' + n.toLocaleString('en-IN');
+}
+
+// ─── BADGE HTML ───
+function badgeMap(b) {
+  const labels = { sale:'🔥 Sale', new:'✨ New', hot:'⚡ Hot', top:'👑 Top Pick' };
+  return `<span class="badge ${b}">${labels[b]||b}</span>`;
+}
+
+// ─── STAR RENDER ───
+function stars(r) {
+  const full = Math.floor(r);
+  const half = r % 1 >= 0.5;
+  let s = '⭐'.repeat(full);
+  if (half) s += '✨';
+  return s;
+}
+
+// ─── RENDER CARD ───
+function renderCard(p) {
+  const wish = wishlist.has(p.id);
+  return `
+  <div class="product-card" data-id="${p.id}" data-price="${p.price}" data-rating="${p.rating}" data-discount="${p.discount}">
+    <div class="card-img-wrap">
+      <div class="badge-row">${p.badge.map(badgeMap).join('')}</div>
+      
+      <img src="${p.img}" alt="${p.title}" loading="lazy">
+    </div>
+    <div class="card-body">
+      <div class="card-category">${p.category}</div>
+      <div class="card-title">${p.title}</div>
+      <div class="card-desc">${p.desc}</div>
+      <div class="card-rating">
+        <span class="stars">${stars(p.rating)}</span>
+        <span class="rating-score">${p.rating}</span>
+        <span class="rating-count">(${p.reviews.toLocaleString()})</span>
+      </div>
+      <div class="card-price">
+        <span class="price-current">${fmt(p.price)}</span>
+        <span class="price-original">${fmt(p.original)}</span>
+        <span class="price-discount">${p.discount}% OFF</span>
+      </div>
+    </div>
+      <div class="btn-row">
+        <button class="btn btn-amazon" onclick="openLink(event,'${p.amazon}')">🛒 Amazon</button>
+        <button class="btn btn-flipkart" onclick="openLink(event,'${p.flipkart}')">🛍 Flipkart</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ─── RENDER GRID ───
+function renderGrid(list) {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = list.length ? list.map(renderCard).join('') : '<p style="color:var(--text3);grid-column:1/-1;text-align:center;padding:48px 0;">No products found.</p>';
+  document.getElementById('showingCount').textContent = list.length;
+  document.getElementById('resultsCount').textContent = list.length + ' Results';
+}
+
+// ─── FILTER ───
+function filterByCategory(cat) {
+  currentCat = cat;
+  filteredProducts = cat === 'all' ? [...products] : products.filter(p => p.cat === cat);
+  sortProducts();
+}
+
+// ─── SORT ───
+function sortProducts() {
+  const val = document.getElementById('sortSelect').value;
+  let sorted = [...filteredProducts];
+  if (val === 'price-asc') sorted.sort((a,b) => a.price - b.price);
+  else if (val === 'price-desc') sorted.sort((a,b) => b.price - a.price);
+  else if (val === 'rating') sorted.sort((a,b) => b.rating - a.rating);
+  else if (val === 'discount') sorted.sort((a,b) => b.discount - a.discount);
+  renderGrid(sorted);
+}
+
+// ─── CATEGORY BUTTONS ───
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterByCategory(btn.dataset.cat);
+  });
+});
+
+
+// ─── TOAST ───
+function showToast(icon, msg) {
+  const tc = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = 'toast success';
+  t.innerHTML = `<span class="toast-icon">${icon}</span><span>${msg}</span>`;
+  tc.appendChild(t);
+  requestAnimationFrame(() => { requestAnimationFrame(() => { t.classList.add('show'); }); });
+  setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => tc.removeChild(t), 400);
+  }, 2800);
+}
+function openLink(event, url) {
+  event.stopPropagation();
+  window.open(url, '_blank');
+}
+// ─── INIT ───
+renderGrid(products);
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Checkout – Review your selected product and proceed to the retailer's website via MarketWorld affiliate link." />
+  <title>Checkout – MarketWorld</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-globe">⊕</span>
+      <span class="logo-text">Market<strong>World</strong></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="products.html" class="nav-link">Products</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- AFFILIATE DISCLAIMER BANNER -->
+<div class="checkout-disclaimer-top">
+  <div class="container">
+    <strong>🔗 Affiliate Link Notice:</strong> Clicking "Proceed to Buy" will take you to the retailer's website. MarketWorld does not process payments. All purchases are handled directly by the retailer.
+  </div>
+</div>
+
+<!-- CHECKOUT MAIN -->
+<section class="checkout-section">
+  <div class="container">
+    <div class="checkout-header">
+      <a href="javascript:history.back()" class="back-link">← Back to Products</a>
+      <h1 class="checkout-title">Review Your Deal</h1>
+    </div>
+
+    <div class="checkout-grid">
+
+      <!-- PRODUCT PANEL -->
+      <div class="checkout-product-card" id="checkoutProductCard">
+        <div class="checkout-product-image-wrap">
+          <img id="checkoutImg" src="" alt="Product" />
+          <div class="checkout-badge" id="checkoutBadge"></div>
+        </div>
+        <div class="checkout-product-info">
+          <div class="checkout-category" id="checkoutCategory"></div>
+          <h2 id="checkoutName">Loading...</h2>
+          <p id="checkoutDesc" class="checkout-desc"></p>
+          <div class="checkout-pricing">
+            <span class="checkout-price" id="checkoutPrice"></span>
+            <span class="checkout-original" id="checkoutOriginal"></span>
+            <span class="checkout-savings" id="checkoutSavings"></span>
+          </div>
+          <div class="checkout-retailer" id="checkoutRetailer"></div>
+        </div>
+      </div>
+
+      <!-- DEAL SUMMARY + CTA -->
+      <div class="checkout-summary-card">
+        <h3>Deal Summary</h3>
+        <div class="summary-lines" id="summaryLines">
+          <div class="summary-line"><span>Product</span><span id="sumName">—</span></div>
+          <div class="summary-line"><span>Deal Price</span><span id="sumPrice" class="sum-price">—</span></div>
+          <div class="summary-line"><span>Original Price</span><span id="sumOriginal" class="sum-original">—</span></div>
+          <div class="summary-line sum-total"><span>You Save</span><span id="sumSavings" class="sum-savings">—</span></div>
+        </div>
+
+        <div class="checkout-trust">
+          <div class="trust-item">✅ Verified Affiliate Link</div>
+          <div class="trust-item">🔒 Secure Redirect to Retailer</div>
+          <div class="trust-item">💰 No Extra Cost to You</div>
+          <div class="trust-item">🔄 Retailer's Return Policy Applies</div>
+        </div>
+
+        <button class="btn btn-primary btn-full btn-checkout" id="proceedBtn">
+          <span>Proceed to Buy →</span>
+          <small id="checkoutRetailerLabel">Redirecting to retailer</small>
+        </button>
+
+        <div class="checkout-legal">
+          <strong>⚠ Affiliate Disclosure:</strong> MarketWorld is an affiliate marketing platform. We earn a commission when you purchase via our links at no additional cost to you. We do not process any payments, store payment data, or handle returns. All transactions occur on the retailer's website and are subject to their terms and policies.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MORE DEALS -->
+    <div class="more-deals-section">
+      <h3>You Might Also Like</h3>
+      <div class="products-grid" id="relatedGrid"></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-globe">⊕</span><span class="logo-text">Market<strong>world</strong></span></a>
+        <p>Your one-stop destination for the world's best deals. We compare, curate, and connect you to savings.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Twitter" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="Instagram" class="social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="Index.html">Home</a></li><li><a href="Products.html">Products</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col">
+  <h4>Categories</h4>
+  <ul>
+    <li><a href="Electronic.html">Electronics</a></li>
+    <li><a href="Fashion.html">Fashion</a></li>
+    <li><a href="Home-Kitchen.html">Home-Kitchen</a></li>
+    <li><a href="Sports.html">Sports</a></li>
+    <li><a href="Beauty.html">Beauty</a></li>
+  </ul>
+</div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="Privacy Policy.html">Privacy Policy</a></li><li><a href="Terms and Conditions.html">Terms of Service</a></li><li><a href="Affiliate Disclosure.html">Affiliate Disclosure</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 MarketWorld. All rights reserved. | <em>We earn commissions from qualifying purchases via affiliate links.</em></p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id'));
+  const product = PRODUCTS.find(p => p.id === id);
+
+  if (!product) {
+    document.getElementById('checkoutProductCard').innerHTML = '<div class="no-results"><div class="no-results-icon">😕</div><h3>Product not found</h3><p><a href="products.html">Browse all products</a></p></div>';
+    return;
+  }
+
+  // Fill product details
+  document.title = product.name + ' – Checkout – MarketWorld';
+  document.getElementById('checkoutImg').src = product.image;
+  document.getElementById('checkoutImg').alt = product.name;
+  document.getElementById('checkoutBadge').textContent = product.badge || '';
+  document.getElementById('checkoutCategory').textContent = (product.scope === 'global' ? '🌍 Global' : '🇮🇳 Local') + ' · ' + product.category;
+  document.getElementById('checkoutName').textContent = product.name;
+  document.getElementById('checkoutDesc').textContent = product.description;
+  document.getElementById('checkoutPrice').textContent = product.price;
+  document.getElementById('checkoutOriginal').textContent = product.originalPrice;
+  const saved = product.originalPrice && product.price ? computeSavings(product.originalPrice, product.price) : '';
+  document.getElementById('checkoutSavings').textContent = saved ? 'Save ' + saved : '';
+  document.getElementById('checkoutRetailer').innerHTML = '<span>🏪 Available at: <strong>' + product.retailer + '</strong></span>';
+
+  // Fill summary
+  document.getElementById('sumName').textContent = product.name;
+  document.getElementById('sumPrice').textContent = product.price;
+  document.getElementById('sumOriginal').textContent = product.originalPrice;
+  document.getElementById('sumSavings').textContent = saved || '—';
+  document.getElementById('checkoutRetailerLabel').textContent = 'Redirecting to ' + product.retailer;
+
+  // Proceed to Buy
+  document.getElementById('proceedBtn').addEventListener('click', function() {
+    this.innerHTML = '<span>Opening Retailer...</span><small>Please wait</small>';
+    this.disabled = true;
+    setTimeout(() => {
+      window.open(product.affiliateLink, '_blank');
+      this.innerHTML = '<span>Proceed to Buy →</span><small>Redirecting to ' + product.retailer + '</small>';
+      this.disabled = false;
+    }, 800);
+  });
+
+  // Related products
+  const related = PRODUCTS.filter(p => p.id !== id && (p.category === product.category || p.scope === product.scope)).slice(0, 4);
+  const grid = document.getElementById('relatedGrid');
+  grid.innerHTML = related.map(p => createProductCard(p)).join('');
+});
+
+function computeSavings(original, current) {
+  const o = parseFloat(original.replace(/[^0-9.]/g, ''));
+  const c = parseFloat(current.replace(/[^0-9.]/g, ''));
+  if (!o || !c || o <= c) return '';
+  const symbol = original.includes('₹') ? '₹' : '$';
+  return symbol + (o - c).toFixed(0);
+}
+</script>
+</body>
+</html>

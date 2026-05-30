@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist — MyStore</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --bg: #0c0c0c;
+            --bg-elevated: #161616;
+            --card: #1a1a1a;
+            --card-hover: #222222;
+            --border: #2a2a2a;
+            --fg: #f0f0f0;
+            --fg-muted: #888888;
+            --accent: #e84545;
+            --accent-soft: rgba(232, 69, 69, 0.12);
+            --accent-glow: rgba(232, 69, 69, 0.3);
+            --success: #2ecc71;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --font: 'Outfit', sans-serif;
+            --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+            --shadow-hover: 0 8px 40px rgba(0,0,0,0.6);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--fg);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== Animated Background ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse 600px 400px at 20% 20%, rgba(232, 69, 69, 0.06), transparent),
+                radial-gradient(ellipse 500px 500px at 80% 80%, rgba(232, 140, 69, 0.04), transparent);
+            pointer-events: none;
+            z-index: 0;
+            animation: bgDrift 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgDrift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-30px, -20px) rotate(2deg); }
+        }
+
+        /* ===== Navigation Bar ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(12, 12, 12, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--fg);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-brand .brand-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.6; }
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--fg-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--fg);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .wishlist-count-badge {
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 50px;
+            min-width: 18px;
+            text-align: center;
+            line-height: 1.4;
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--fg);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* ===== Main Content ===== */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px 100px;
+        }
+
+        /* ===== Page Header ===== */
+        .page-header {
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .page-header h1 .heart-icon {
+            color: var(--accent);
+            display: inline-flex;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+        }
+
+        .page-header p {
+            color: var(--fg-muted);
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        .item-count {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ===== Product Grid ===== */
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        /* ===== Product Card ===== */
+        .wishlist-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            animation: cardIn 0.5s ease backwards;
+        }
+
+        .wishlist-card:nth-child(1) { animation-delay: 0.05s; }
+        .wishlist-card:nth-child(2) { animation-delay: 0.1s; }
+        .wishlist-card:nth-child(3) { animation-delay: 0.15s; }
+        .wishlist-card:nth-child(4) { animation-delay: 0.2s; }
+        .wishlist-card:nth-child(5) { animation-delay: 0.25s; }
+        .wishlist-card:nth-child(6) { animation-delay: 0.3s; }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .wishlist-card:hover {
+            background: var(--card-hover);
+            border-color: rgba(232, 69, 69, 0.2);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .wishlist-card:hover .card-image-wrapper img {
+            transform: scale(1.06);
+        }
+
+        /* Image pe overlay gradient */
+        .card-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, var(--card), transparent);
+            pointer-events: none;
+        }
+
+        /* Remove button — card ke upar corner me */
+        .remove-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 5;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .wishlist-card:hover .remove-btn {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Mobile pe hamesha dikhao */
+        @media (max-width: 768px) {
+            .remove-btn {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .remove-btn:hover {
+            background: var(--accent);
+            transform: scale(1.1) !important;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--fg);
+            margin-bottom: 6px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-category {
+            font-size: 0.78rem;
+            color: var(--fg-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--fg);
+        }
+
+        .card-price .currency {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--fg-muted);
+            margin-right: 2px;
+        }
+
+        .move-to-cart-btn {
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--fg);
+            font-family: var(--font);
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .move-to-cart-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        /* ===== Empty State ===== */
+        .empty-state {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .empty-state.visible {
+            display: flex;
+        }
+
+        .empty-heart-wrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .empty-heart-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1px dashed rgba(232, 69, 69, 0.2);
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .empty-heart-wrapper i {
+            color: var(--accent);
+            width: 48px;
+            height: 48px;
+        }
+
+        .empty-state h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: var(--fg-muted);
+            font-size: 1rem;
+            max-width: 400px;
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
+
+        /* ===== Buttons ===== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: var(--radius-sm);
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            font-family: var(--font);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* ===== Toast Notification ===== */
+        .toast-container {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--fg);
+            padding: 14px 20px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font);
+            font-size: 0.88rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            animation: toastIn 0.4s ease, toastOut 0.4s ease 2.2s forwards;
+            pointer-events: auto;
+            backdrop-filter: blur(16px);
+        }
+
+        .toast .toast-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(40px) scale(0.95); }
+            to { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        @keyframes toastOut {
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(40px); }
+        }
+
+        /* ===== Card Remove Animation ===== */
+        .wishlist-card.removing {
+            animation: cardOut 0.4s ease forwards;
+        }
+
+        @keyframes cardOut {
+            to {
+                opacity: 0;
+                transform: scale(0.9) translateY(-10px);
+            }
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--fg-muted);
+            font-size: 0.82rem;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: rgba(12, 12, 12, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 16px;
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-120%);
+                opacity: 0;
+                transition: var(--transition);
+                gap: 4px;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 12px 16px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            main {
+                padding: 32px 16px 80px;
+            }
+
+            .wishlist-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 16px;
+            }
+
+            .toast-container {
+                bottom: 16px;
+                right: 16px;
+                left: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wishlist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .move-to-cart-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 10px;
+            }
+        }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+
+        /* ===== Reduced Motion ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Navigation Bar ===== -->
+    <nav>
+        <div class="nav-inner">
+            <a href="Index.html" class="nav-brand">
+                <span class="brand-dot"></span>
+                MyStore
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu toggle karo">
+                <i data-lucide="menu" style="width:24px;height:24px;"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="Index.html"><i data-lucide="home" style="width:16px;height:16px;"></i> Home</a></li>
+                <li><a href="Index.html#products"><i data-lucide="grid-3x3" style="width:16px;height:16px;"></i> Products</a></li>
+                <li><a href="Wishlist.html" class="active">
+                    <i data-lucide="heart" style="width:16px;height:16px;"></i> Wishlist
+                    <span class="wishlist-count-badge" id="navWishCount">0</span>
+                </a></li>
+                <li><a href="index.html#cart"><i data-lucide="shopping-bag" style="width:16px;height:16px;"></i> Cart</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>
+                <span class="heart-icon"><i data-lucide="heart" style="width:36px;height:36px;fill:var(--accent);"></i></span>
+                My Wishlist
+            </h1>
+            <p>You have <span class="item-count" id="itemCountText">0 items</span> in your wishlist</p>
+        </div>
+
+        <!-- Product Grid — yahi render hoga JS se -->
+        <div class="wishlist-grid" id="wishlistGrid"></div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+            <div class="empty-heart-wrapper">
+                <i data-lucide="heart-off" style="width:48px;height:48px;"></i>
+            </div>
+            <h2>No items in wishlist</h2>
+           <p>Your wishlist is empty. Add your favorite products to see them here.</p>
+            <a href="Index.html" class="btn-primary">
+                <i data-lucide="arrow-left" style="width:18px;height:18px;"></i>
+                Continue Shopping
+            </a>
+        </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+       <p>MyStore &copy; 2025 — All rights reserved.</p>
+    </footer>
+
+    <!-- ===== Toast Container ===== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ===== JavaScript ===== -->
+     <script src="script.js"></script>
+    <script>
+        // =============================================
+        //  DEMO DATA — Agar localStorage me kuch nahi
+        //  toh ye sample products dikhenge
+        // =============================================
+       
+
+        // =============================================
+        //  DOM Elements — Page ke important elements
+        // =============================================
+        const wishlistGrid = document.getElementById('wishlistGrid');
+        const emptyState = document.getElementById('emptyState');
+        const itemCountText = document.getElementById('itemCountText');
+        const navWishCount = document.getElementById('navWishCount');
+        const toastContainer = document.getElementById('toastContainer');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        // =============================================
+        //  MOBILE MENU TOGGLE
+        // =============================================
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Menu ke bahar click karne pe band ho
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('open');
+            }
+        });
+
+        // =============================================
+        //  WISHLIST FUNCTIONS
+        // =============================================
+
+        /**
+         * localStorage se wishlist get karo.
+         * Agar nahi hai toh demo data set kar do (testing ke liye).
+         */
+       
+        /**
+         * Kisi product ko wishlist se remove karo (by ID)
+         */
+       function removeFromWishlist(productId) {
+
+    toggleWishlist(productId);
+
+    const card = document.querySelector(
+      `[data-product-id="${productId}"]`
+    );
+
+    if (card) {
+        card.remove();
+    }
+
+    renderWishlist();
+
+    updateWishlistCount();
+}
+
+        /**
+         * Price ko Indian format me dikhao (₹1,299)
+         */
+        function formatPrice(price) {
+            return '₹' + price.toLocaleString('en-IN');
+        }
+
+        /**
+         // Poora wishlist UI render karo
+         */
+        function renderWishlist() {
+          const wishlistIds = getWishlist();
+const wishlist = wishlistIds.map(id =>
+    PRODUCTS.find(p => p.id === id)
+).filter(Boolean);
+
+            // Count update karo — nav badge + text
+            navWishCount.textContent = wishlist.length;
+            itemCountText.textContent = wishlist.length === 1 ? '1 item' : `${wishlist.length} items`;
+
+            // Agar wishlist empty hai
+            if (wishlist.length === 0) {
+                wishlistGrid.style.display = 'none';
+                emptyState.classList.add('visible');
+                return;
+            }
+
+            // Wishlist me products hain — grid dikhao, empty state chupao
+            wishlistGrid.style.display = 'grid';
+            emptyState.classList.remove('visible');
+
+            // Grid ko khali karo aur naye cards banao
+            wishlistGrid.innerHTML = wishlist.map(product => `
+                <div class="wishlist-card" data-product-id="${product.id}">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                            loading="lazy"
+                            onerror="this.src='https://picsum.photos/seed/fallback${product.id}/600/450.jpg'"
+                        >
+                        <button
+                            class="remove-btn"
+                            onclick="removeFromWishlist(${product.id})"
+                            aria-label="${product.name} ko wishlist se hatao"
+                            title="Wishlist se hatao"
+                        >
+                            <i data-lucide="x" style="width:18px;height:18px;"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-category">${product.category || 'General'}</div>
+                        <div class="card-title">${product.name}</div>
+                        <div class="card-footer">
+                            <div class="card-price">
+                                <span class="currency">₹</span>${product.price.toLocaleString('en-IN')}
+                            </div>
+                            <button class="move-to-cart-btn" onclick="openProductLink(${product.id})">
+                                <i data-lucide="shopping-bag" style="width:14px;height:14px;"></i>
+                                add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Lucide icons ko dobara initialize karo (naye elements ke liye)
+            lucide.createIcons();
+        }
+
+function openProductLink(productId) {
+
+    const product = PRODUCTS.find(p => p.id === productId);
+
+    if (!product) return;
+
+    const link = product.affiliateLink || product.flipkartLink;
+
+    if (link) {
+        window.open(link, "_blank");
+    }
+} /**
+         * Toast notification dikhao
+         */
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i data-lucide="trash-2" class="toast-icon"></i>
+                <span>${message}</span>
+            `;
+            toastContainer.appendChild(toast);
+            lucide.createIcons({ nodes: [toast] });
+
+            // 2.6 second baad toast hata do
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 2600);
+        }
+
+        // =============================================
+        //  PAGE INIT — Jab page load ho
+        // =============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lucide icons initialize karo
+            lucide.createIcons();
+
+            // Wishlist render karo
+            renderWishlist();
+        });
+    </script>
+
+</body>
+</html>
