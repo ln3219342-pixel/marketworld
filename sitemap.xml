@@ -1,4 +1,3 @@
-```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -7,63 +6,63 @@
 </url>
 
 <url>
-<loc>https://marketworld.me/About.html</loc>
+<loc>https://marketworld.me/about.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Affiliate%20Disclosure.html</loc>
+<loc>https://marketworld.me/affiliate-disclosure.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Beauty.html</loc>
+<loc>https://marketworld.me/beauty.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Blog.html</loc>
+<loc>https://marketworld.me/blog.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Checkout.html</loc>
+<loc>https://marketworld.me/checkout.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Contact.html</loc>
+<loc>https://marketworld.me/contact.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Cookie%20Policy.html</loc>
+<loc>https://marketworld.me/cookie-policy.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Electronic.html</loc>
+<loc>https://marketworld.me/electronic.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/FAQ.html</loc>
+<loc>https://marketworld.me/faq.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Fashion.html</loc>
+<loc>https://marketworld.me/fashion.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Help%20Center.html</loc>
+<loc>https://marketworld.me/help-center.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Home-Kitchen.html</loc>
+<loc>https://marketworld.me/home-kitchen.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Login.html</loc>
+<loc>https://marketworld.me/login.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Privacy%20Policy.html</loc>
+<loc>https://marketworld.me/privacy-policy.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Products.html</loc>
+<loc>https://marketworld.me/products.html</loc>
 </url>
 
 <url>
@@ -71,23 +70,15 @@
 </url>
 
 <url>
-<loc>https://marketworld.me/Sports.html</loc>
+<loc>https://marketworld.me/sports.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Terms%20and%20Condition.html</loc>
+<loc>https://marketworld.me/terms-and-condition.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/Wishlist.html</loc>
+<loc>https://marketworld.me/wishlist.html</loc>
 </url>
 
 </urlset>
-```
-
-Isko `sitemap.xml` me paste karo aur purani file replace kar do.
-Phir upload karo:
-
-[Market World Sitemap](https://marketworld.me/sitemap.xml?utm_source=chatgpt.com)
-
-Aur Google Search Console me dubara submit kar dena.
