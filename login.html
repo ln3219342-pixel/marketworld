@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login — Marketworld</title>
+<title>Login — MarketWorld</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -300,7 +300,7 @@
     <div class="logo-icon">
       <svg viewBox="0 0 20 20"><path d="M10 2L2 7v6l8 5 8-5V7L10 2z"/></svg>
     </div>
-    <span class="logo-name">marketworld</span>
+    <span class="logo-name">MarketWorld</span>
   </div>
 
   <h1>Welcome back</h1>
@@ -380,35 +380,7 @@
   pwEl.addEventListener('input',    () => { pwEl.classList.remove('err');    pwErr.classList.remove('show'); });
 
   // Validate on login click
-  document.getElementById('login-btn').addEventListener('click', () => {
-    let ok = true;
-    const emailVal = emailEl.value.trim();
-    const emailRx  = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailRx.test(emailVal)) {
-      emailEl.classList.add('err');
-      emailErr.classList.add('show');
-      ok = false;
-    }
-    if (!pwEl.value) {
-      pwEl.classList.add('err');
-      pwErr.classList.add('show');
-      ok = false;
-    }
-    if (ok) {
-      const btn = document.getElementById('login-btn');
-      btn.textContent = 'Signing in…';
-      btn.disabled = true;
-      btn.style.opacity = '.7';
-      // Simulate async — replace with real auth logic
-      setTimeout(() => {
-        btn.textContent = 'Sign in';
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        alert('✅ Logged in! (Connect your auth backend here)');
-      }, 1500);
-    }
-  });
+  
   function showToast(message){
 
   const toast = document.getElementById("toast");

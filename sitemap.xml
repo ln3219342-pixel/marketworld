@@ -1,3 +1,4 @@
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -6,35 +7,87 @@
 </url>
 
 <url>
-<loc>https://marketworld.me/products.html</loc>
+<loc>https://marketworld.me/About.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/electronic.html</loc>
+<loc>https://marketworld.me/Affiliate%20Disclosure.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/fashion.html</loc>
+<loc>https://marketworld.me/Beauty.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/home-kitchen.html</loc>
+<loc>https://marketworld.me/Blog.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/beauty.html</loc>
+<loc>https://marketworld.me/Checkout.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/sports.html</loc>
+<loc>https://marketworld.me/Contact.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/about.html</loc>
+<loc>https://marketworld.me/Cookie%20Policy.html</loc>
 </url>
 
 <url>
-<loc>https://marketworld.me/contact.html</loc>
+<loc>https://marketworld.me/Electronic.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/FAQ.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Fashion.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Help%20Center.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Home-Kitchen.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Login.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Privacy%20Policy.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Products.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/profile.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Sports.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Terms%20and%20Condition.html</loc>
+</url>
+
+<url>
+<loc>https://marketworld.me/Wishlist.html</loc>
 </url>
 
 </urlset>
+```
+
+Isko `sitemap.xml` me paste karo aur purani file replace kar do.
+Phir upload karo:
+
+[Market World Sitemap](https://marketworld.me/sitemap.xml?utm_source=chatgpt.com)
+
+Aur Google Search Console me dubara submit kar dena.
