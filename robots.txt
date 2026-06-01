@@ -6,4 +6,7 @@ Disallow: /login/
 Disallow: /checkout/
 Disallow: /cart/
 
+Disallow: /*?cat=
+Disallow: /*?search=
+
 Sitemap: https://marketworld.me/sitemap.xml
