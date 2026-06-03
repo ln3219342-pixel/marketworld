@@ -676,13 +676,19 @@ button{
 }
 .badge{
   position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 5px 10px;
+  top: 15px;
+  left: 15px;
+  padding: 6px 12px;
   font-size: 12px;
+  font-weight: 700;
   border-radius: 20px;
-  background: red;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
   color: white;
+  z-index: 5;
+  letter-spacing: 0.5px;
+}
+.product-card{
+  position: relative;
 }
 .product-badge.badge-new { background: var(--green); }
 .product-badge.badge-trending { background: var(--cyan); color: var(--navy); }
