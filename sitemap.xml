@@ -2,10 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://marketworld.me/</loc>
-</url>
-
-<url>
 <loc>https://marketworld.me/about.html</loc>
 </url>
 
@@ -80,5 +76,10 @@
 <url>
 <loc>https://marketworld.me/wishlist.html</loc>
 </url>
-
+<url>
+  <loc>https://marketworld.me/</loc>
+  <lastmod>2026-06-03</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>1.0</priority>
+</url>
 </urlset>
