@@ -472,12 +472,12 @@ function renderProductCard(product, small = false) {
           <span class="rating-count">${product.rating} (${product.reviews.toLocaleString()})</span>
         </div>
         <div class="product-price-row">
-          <span class="product-price">₹${product.price.toLocaleString()}</span>
+          <span class="product-price"><span class="product-price">${product.price}</span></span>
           <span class="product-price-original">₹${product.originalPrice.toLocaleString()}</span>
           <span class="product-discount">${product.discount}% OFF</span>
         </div>
         <div class="product-buy-btns">
-          <a href="${product.amazonLink}" target="_blank" rel="noopener" class="btn btn-amazon">🛒 Amazon</a>
+          <a href="${product.affiliateLink}" target="_blank" rel="noopener" class="btn btn-amazon">🛒 Amazon</a>
           <a href="${product.flipkartLink}" target="_blank" rel="noopener" class="btn btn-flipkart">🛍️ Flipkart</a>
         </div>
       </div>
@@ -731,7 +731,9 @@ function renderHomepage() {
   if (bestOffersEl) {
     const sorted = [...PRODUCTS]
       .filter(p => p.discount)
-      .sort((a, b) => parseInt(b.discount) - parseInt(a.discount))
+      .sort((a, b) => function getDiscountNumber(str) {
+  return parseInt(str?.replace(/[^0-9]/g, '') || 0);
+}- parseInt(a.discount))
       .slice(0, 8);
     bestOffersEl.innerHTML = sorted.map((p, i) => createProductCard(p, i * 0.07)).join('');
   }
@@ -888,3 +890,25 @@ function updateWishlistUI() {
     }
   });
 }
+const topDeals = [
+  { name: "AirPods Pro", price: "$189" },
+  { name: "Samsung TV", price: "$499" },
+  { name: "MacBook Air", price: "$999" }
+];
+
+function loadProducts() {
+  const grid = document.getElementById("topDealsGrid");
+
+  topDeals.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "product-card";
+    div.innerHTML = `
+      <h3>${item.name}</h3>
+      <p>${item.price}</p>
+      <button class="btn btn-primary">Buy Now</button>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+loadProducts();

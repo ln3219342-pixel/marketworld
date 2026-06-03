@@ -448,7 +448,9 @@
     background: #eef4ff;
   }
   .btn-flipkart:hover { background: #d6e8ff; border-color: #1a5fd4; transform: translateY(-1px); }
-
+.card-actions a{
+  text-decoration: none;
+}
   /* ─── EMPTY STATE ────────────────────────────── */
   .empty-state {
     text-align: center;
@@ -553,44 +555,54 @@
 const products = [
   // ── MEN ──
   {
-    id:1, cat:'men', brand:'ZARA MAN', title:'Classic Slim-Fit Oxford Shirt',
-    desc:'Premium cotton, wrinkle-resistant, office-ready',
-    price:1299, orig:2499, disc:48,
-    rating:4.7, reviews:'12.4k',
-    badge:'48% OFF',
-    img:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&q=80'
+    id:1, cat:'men', brand:'AUSK', title:'Half Sleeve T-Shirt',
+    desc:'Retro Cable-Knit Quarter-Zip Polo | Premium Textured Self-Design Fabric | Regular Fit | 4 Colors',
+    price:289, orig:1499, disc:83,
+    rating:3.7, reviews:'93',
+    badge:'83% OFF',
+    img:'https://m.media-amazon.com/images/I/51o3uMcvGSL._SX569_.jpg',
+    amazon:'https://amzn.to/3SaSki4',
+flipkart:'https://www.flipkart.com/kajaru-self-design-men-polo-neck-black-brown-beige-t-shirt/p/itmcd059650bee15?',
   },
   {
-    id:2, cat:'men', brand:'H&M', title:'Stretch Chino Trousers',
-    desc:'Slim fit, all-day comfort, 5 colours available',
-    price:1599, orig:2999, disc:47,
-    rating:4.5, reviews:'9.1k',
-    badge:'47% OFF',
-    img:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&q=80'
+    id:2, cat:'men', brand:'HOKER', title:'Straight Fit Mid Rise Dark Grey Jeans',
+    desc:'HOKER Series Dark Grey Jeans - Loose Fit, Baggy Style - 32W x 32L - Black',
+    price:480, orig:999, disc:52,
+    rating:3.5, reviews:'9',
+    badge:'52% OFF',
+    img:'https://m.media-amazon.com/images/I/61f8ZKHW-IL._SY741_.jpg',
+     amazon:'https://amzn.to/4dZ2rhc',
+flipkart:'https://www.flipkart.com/hoker-straight-fit-men-dark-grey-jeans/p/itm585310bdb8717?',
   },
   {
-    id:3, cat:'men', brand:'LEVIS', title:"Men's 511 Slim Jeans – Midnight Blue",
-    desc:'Stretch denim, mid-rise, tapered leg',
-    price:2299, orig:3999, disc:43,
-    rating:4.8, reviews:'22.7k',
-    badge:'BESTSELLER',
-    img:'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80'
+    id:3, cat:'men', brand:'LEOTUDE', title:"Printed Round Neck Cotton T-Shirt",
+    desc:'Oversized Cottonblend Round Neck Drop Shoulder Printed Men T-Shirt',
+    price:268, orig:1099, disc:76,
+    rating:4.0, reviews:'704',
+    badge:'76% OFF',
+    img:'https://m.media-amazon.com/images/I/51SvquU9CCL.jpg',
+    amazon:'https://amzn.to/49zD1pa',
+flipkart:'https://www.flipkart.com/leotude-printed-men-round-neck-black-t-shirt/p/itme38b85afab184?',
   },
   {
-    id:4, cat:'men', brand:'ROADSTER', title:'Urban Oversized Graphic Tee',
-    desc:'100% cotton, dropped shoulders, street style',
-    price:699, orig:1299, disc:46,
-    rating:4.4, reviews:'6.3k',
-    badge:'46% OFF',
-    img:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80'
+    id:4, cat:'men', brand:'LEOTUDE', title:'Cotton Oversized Fit T-Shirt',
+    desc:'Leotude Men Printed Round Neck Cotton Blend Green T-Shirt',
+    price:268, orig:1099, disc:76,
+    rating:4.0, reviews:'267',
+    badge:'76% OFF',
+    img:'https://m.media-amazon.com/images/I/614YSPaWLCL._SY741_.jpg',
+    amazon:'https://amzn.to/4fhIkNL',
+flipkart:'https://www.flipkart.com/leotude-printed-men-round-neck-green-t-shirt/p/itm78483cd47310a?',
   },
   {
-    id:5, cat:'men', brand:'JACK & JONES', title:'Premium Blazer – Charcoal Grey',
-    desc:'Slim cut, notch lapel, 2-button closure',
-    price:3499, orig:5999, disc:42,
-    rating:4.6, reviews:'4.8k',
-    badge:'42% OFF',
-    img:'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&q=80'
+    id:5, cat:'men', brand:'MEIXN', title:' Loose Fit Mid Rise Light Blue Jeans',
+    desc:'Light Blue Jeans | Baggy Jeans for Men (in, Numeric, 34, Regular, Light Blue)',
+    price:499, orig:2499, disc:80,
+    rating:3.4, reviews:'28323',
+    badge:'80% OFF',
+    img:'https://m.media-amazon.com/images/I/711Bs9URY9L._SY741_.jpg',
+    amazon:'https://amzn.to/4xjdwTo',
+flipkart:'https://www.flipkart.com/meixn-loose-fit-men-light-blue-jeans/p/itm11055a473c723?',
   },
 
   // ── WOMEN ──
@@ -600,15 +612,20 @@ const products = [
     price:1799, orig:3299, disc:45,
     rating:4.9, reviews:'18.2k',
     badge:'45% OFF',
-    img:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
+  
   {
     id:7, cat:'women', brand:'ONLY', title:"Women's High-Waist Skinny Jeans",
     desc:'Power stretch, lifts & shapes, ankle length',
     price:1399, orig:2599, disc:46,
     rating:4.7, reviews:'15.9k',
     badge:'TOP PICK',
-    img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:8, cat:'women', brand:'AND', title:'Linen Co-ord Set – Ivory',
@@ -616,7 +633,9 @@ const products = [
     price:2199, orig:4299, disc:49,
     rating:4.8, reviews:'7.4k',
     badge:'49% OFF',
-    img:'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:9, cat:'women', brand:'VERO MODA', title:'Ribbed Knit Sweater – Blush Pink',
@@ -624,7 +643,9 @@ const products = [
     price:1099, orig:1999, disc:45,
     rating:4.5, reviews:'5.1k',
     badge:'45% OFF',
-    img:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:10, cat:'women', brand:'FOREVER 21', title:'Satin Slip Maxi Skirt',
@@ -633,7 +654,9 @@ const products = [
     rating:4.6, reviews:'8.8k',
     badge:'NEW',
     badgeClass:'new',
-    img:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
 
   // ── KIDS ──
@@ -643,7 +666,9 @@ const products = [
     price:799, orig:1499, disc:47,
     rating:4.8, reviews:'3.2k',
     badge:'47% OFF',
-    img:'https://images.unsplash.com/photo-1518831959646-742c3a14ebf6?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1518831959646-742c3a14ebf6?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:12, cat:'kids', brand:'H&M KIDS', title:'Girls Tiered Ruffle Dress',
@@ -651,7 +676,9 @@ const products = [
     price:699, orig:1299, disc:46,
     rating:4.7, reviews:'2.9k',
     badge:'46% OFF',
-    img:'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:13, cat:'kids', brand:'GAP KIDS', title:'Classic Denim Jacket – Blue',
@@ -659,7 +686,9 @@ const products = [
     price:1299, orig:2499, disc:48,
     rating:4.9, reviews:'4.5k',
     badge:'BESTSELLER',
-    img:'https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:14, cat:'kids', brand:'FIRSTCRY', title:'Unisex Rainbow Hoodie',
@@ -667,7 +696,9 @@ const products = [
     price:549, orig:999, disc:45,
     rating:4.6, reviews:'1.7k',
     badge:'45% OFF',
-    img:'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:15, cat:'kids', brand:'ZARA KIDS', title:'Boys Cargo Shorts – Olive',
@@ -676,33 +707,41 @@ const products = [
     rating:4.5, reviews:'2.1k',
     badge:'NEW',
     badgeClass:'new',
-    img:'https://images.unsplash.com/photo-1600369671870-7f1e91aacd74?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1600369671870-7f1e91aacd74?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
 
   // ── SHOES ──
   {
-    id:16, cat:'shoes', brand:'NIKE', title:'Air Max 270 – Triple White',
-    desc:'Max Air cushioning, breathable mesh upper',
-    price:7999, orig:12995, disc:38,
-    rating:4.9, reviews:'31.4k',
-    badge:'38% OFF',
-    img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80'
+    id:16, cat:'shoes', brand:'ABROS', title:'Trump Running Sports Shoes',
+    desc:'Breathable Upper KPU with Phylon Sole Memory Foam Insole Casual Walking',
+    price:1219, orig:3499, disc:65,
+    rating:4.1, reviews:'2773',
+    badge:'65% OFF',
+    img:'https://m.media-amazon.com/images/I/71yJKELOgQL._SY695_.jpg',
+    amazon:'https://amzn.to/4uNhqSN',
+flipkart:'https://www.flipkart.com/abros-trump-athleisure-cultured-round-toe-shape-quick-on-off-dial-lace-technology-walking-shoes-men/p/itm1f18a4268b745?',
   },
   {
-    id:17, cat:'shoes', brand:'ADIDAS', title:'Ultraboost 24 – Core Black',
-    desc:'Boost cushioning, Primeknit upper, responsive',
-    price:8999, orig:14999, disc:40,
-    rating:4.8, reviews:'19.2k',
-    badge:'40% OFF',
-    img:'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80'
+    id:17, cat:'shoes', brand:'BIG FOX', title:'Mid Top Sneakers',
+    desc:'Street Style Mid Top Sneakers For Men (Black , 8)',
+    price:899, orig:2499, disc:64,
+    rating:4.0, reviews:'19',
+    badge:'64% OFF',
+    img:'https://m.media-amazon.com/images/I/61TfaNbQAFL._SY695_.jpg',
+    amazon:'https://amzn.to/4nYqdOY',
+flipkart:'https://www.flipkart.com/big-fox-street-style-mid-top-sneakers-men/p/itmfd86a348a1932?',
   },
   {
-    id:18, cat:'shoes', brand:'PUMA', title:"Women's Cali Sneakers – Pastel",
-    desc:'Platform sole, retro vibes, streetwear classic',
-    price:4999, orig:7999, disc:38,
-    rating:4.7, reviews:'8.6k',
+    id:18, cat:'shoes', brand:'CAMPUS', title:"Revolt Sneakers",
+    desc:'Casual, Walking, Daily Wear Sneakers for Men | Lightweight Comfortable Sneakers',
+    price:919, orig:2099, disc:68,
+    rating:4.3, reviews:'1875',
     badge:'HOT',
-    img:'https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&q=80'
+    img:'https://rukminim1.flixcart.com/image/1440/1440/xif0q/shoe/w/w/b/-original-imahmd3jhzghmcyh.jpeg?q=90',
+    amazon:'https://amzn.to/4dXaQBI',
+flipkart:'https://www.flipkart.com/campus-revolt-casual-walking-daily-wear-sneakers-men-lightweight-comfortable/p/itm7bf0370ce3159?', 
   },
   {
     id:19, cat:'shoes', brand:'WOODLAND', title:'Genuine Leather Derby Shoes',
@@ -710,7 +749,9 @@ const products = [
     price:3499, orig:5999, disc:42,
     rating:4.6, reviews:'6.3k',
     badge:'42% OFF',
-    img:'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:20, cat:'shoes', brand:'METRO', title:'Block Heel Ankle Boots – Tan',
@@ -718,7 +759,9 @@ const products = [
     price:2299, orig:3999, disc:43,
     rating:4.5, reviews:'4.4k',
     badge:'43% OFF',
-    img:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
 
   // ── ETHNIC ──
@@ -728,7 +771,9 @@ const products = [
     price:1999, orig:3999, disc:50,
     rating:4.9, reviews:'14.1k',
     badge:'50% OFF',
-    img:'https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&q=80',
+     amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:22, cat:'ethnic', brand:'MANYAVAR', title:'Embroidered Sherwani – Ivory Gold',
@@ -736,7 +781,9 @@ const products = [
     price:8999, orig:15999, disc:44,
     rating:4.8, reviews:'3.8k',
     badge:'44% OFF',
-    img:'https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:23, cat:'ethnic', brand:'FABINDIA', title:'Chanderi Silk Saree – Rose Gold',
@@ -744,7 +791,9 @@ const products = [
     price:3499, orig:5999, disc:42,
     rating:4.7, reviews:'9.7k',
     badge:'42% OFF',
-    img:'https://images.unsplash.com/photo-1594938298603-c8148c4b4f8e?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1594938298603-c8148c4b4f8e?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:24, cat:'ethnic', brand:'W FOR WOMAN', title:'Straight Kurta + Palazzo Set',
@@ -752,7 +801,9 @@ const products = [
     price:1299, orig:2499, disc:48,
     rating:4.6, reviews:'11.3k',
     badge:'48% OFF',
-    img:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:25, cat:'ethnic', brand:'ETHNIX', title:"Men's Nehru Jacket – Bottle Green",
@@ -760,7 +811,9 @@ const products = [
     price:2199, orig:3999, disc:45,
     rating:4.7, reviews:'5.2k',
     badge:'45% OFF',
-    img:'https://images.unsplash.com/photo-1594938291221-94f18cbb5660?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1594938291221-94f18cbb5660?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
 
   // ── SUNGLASSES ──
@@ -770,7 +823,9 @@ const products = [
     price:6999, orig:9999, disc:30,
     rating:4.9, reviews:'27.5k',
     badge:'30% OFF',
-    img:'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80',
+     amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:27, cat:'sunglasses', brand:'OAKLEY', title:'Holbrook Prizm™ Sport',
@@ -778,7 +833,9 @@ const products = [
     price:8499, orig:13995, disc:39,
     rating:4.8, reviews:'9.3k',
     badge:'39% OFF',
-    img:'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:28, cat:'sunglasses', brand:'FASTRACK', title:'Oversized Square Frame – Gold',
@@ -786,7 +843,9 @@ const products = [
     price:1299, orig:2499, disc:48,
     rating:4.5, reviews:'6.1k',
     badge:'HOT',
-    img:'https://images.unsplash.com/photo-1473496169904-658ba7574b0d?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1473496169904-658ba7574b0d?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:29, cat:'sunglasses', brand:'CARRERA', title:'Round Retro Sunglasses – Tortoise',
@@ -794,7 +853,9 @@ const products = [
     price:3499, orig:5999, disc:42,
     rating:4.7, reviews:'4.8k',
     badge:'42% OFF',
-    img:'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   },
   {
     id:30, cat:'sunglasses', brand:'FOSSIL', title:'Aviator Pilot – Silver/Blue',
@@ -802,7 +863,9 @@ const products = [
     price:2199, orig:3999, disc:45,
     rating:4.6, reviews:'3.7k',
     badge:'45% OFF',
-    img:'https://images.unsplash.com/photo-1577803645773-f96470509666?w=400&q=80'
+    img:'https://images.unsplash.com/photo-1577803645773-f96470509666?w=400&q=80',
+    amazon:'https://www.amazon.in/',
+flipkart:'https://www.flipkart.com/',
   }
 ];
 
@@ -833,8 +896,13 @@ function renderCard(p) {
     <div class="card-actions">
       
       
-      <button class="action-btn btn-amazon">🛒 Amazon</button>
-      <button class="action-btn btn-flipkart">🛍️ Flipkart</button>
+      <a href="${p.amazon}" target="_blank" class="action-btn btn-amazon">
+  🛒 Amazon
+</a>
+
+<a href="${p.flipkart}" target="_blank" class="action-btn btn-flipkart">
+  🛍️ Flipkart
+</a>
     </div>
   </div>`;
 }
