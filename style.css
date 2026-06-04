@@ -1485,31 +1485,6 @@ img{
     justify-content: center;
 }
 
-/* PERFECT MOBILE RESPONSIVE FIX */
-
-@media(max-width:768px){
-
-  .products-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .hero h1{
-    font-size:28px;
-  }
-
-}
-
-  .product-card {
-    width: 100%;
-  }
-    body{
-        overflow-x: hidden;
-    }
-
-    .container{
-        width: 100%;
-        padding: 15px;
-    }
 
     /* Hero */
     .hero{
@@ -1647,4 +1622,68 @@ img{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+}
+
+
+/* MOBILE RESPONSIVE FIX */
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+@media(min-width:768px){
+  .products-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+/* PRODUCT CARD */
+.product-card {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+/* PRODUCT IMAGE */
+.product-card img,
+.product-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+
+  .products-grid,
+  .product-grid,
+  .deals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .product-card {
+    padding: 12px;
+  }
+
+  .product-title {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .product-price {
+    font-size: 16px;
+  }
+
+  .btn,
+  .amazon-btn,
+  .flipkart-btn {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px;
+  }
 }
