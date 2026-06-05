@@ -7,7 +7,8 @@
 <title>Fashion Collection – MarketWorld | Clothing, Style & Best Deals</title>
 
 <meta name="description" content="Explore Fashion Collection on MarketWorld featuring trendy clothing, accessories, and style products with the best online deals and discounts." />
-
+<link rel="canonical" href="https://marketworld.me/fashion.html">
+<meta name="robots" content="index, follow">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -491,13 +492,13 @@
 <!-- ─── NAVBAR ──────────────────────────────────── -->
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="Index.html">Market<span>World</span></a>
+    <a class="brand" href="index.html">Market<span>World</span></a>
     <ul class="nav-links">
-      <li><a href="Index.html">Home</a></li>
-      <li><a href="Fashion.html" class="active">👕 Fashion</a></li>
-      <li><a href="Electronic.html">Electronics</a></li>
-      <li><a href="Beauty.html">Beauty</a></li>
-      <li><a href="Offers.html">Offers</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="fashion.html" class="active">👕 Fashion</a></li>
+      <li><a href="electronic.html">Electronics</a></li>
+      <li><a href="beauty.html">Beauty</a></li>
+      <li><a href="offers.html">Offers</a></li>
     </ul>
     <div class="nav-actions">
       
@@ -511,10 +512,23 @@
 <!-- ─── HERO ─────────────────────────────────────── -->
 <div class="hero">
   <div class="hero-tag">✦ New Season Arrivals 2025</div>
-  <h1>👕 Fashion Collection</h1>
-  <p>Discover curated styles for every occasion — from everyday casuals to festive elegance.</p>
-</div>
 
+  <h1>👕 Fashion Collection at MarketWorld</h1>
+
+  <p>
+    Discover curated styles for every occasion — from everyday casuals
+    to festive elegance.
+  </p>
+</div>
+<section class="seo-content" style="padding:30px 20px; color:#111; background:#fff;">
+  <h2>Buy Fashion Products Online</h2>
+
+  <p>
+    Explore the latest fashion products including t-shirts,
+    hoodies, shoes, watches, sunglasses, bags, and stylish
+    accessories at MarketWorld.
+  </p>
+</section>
 <!-- ─── CATEGORY BAR ──────────────────────────────── -->
 <div class="category-bar">
   <div class="category-inner">
@@ -1016,7 +1030,7 @@ function renderCard(p) {
     <div class="card-badge ${p.badgeClass||''}">${p.badge}</div>
     
     <div class="card-img">
-      <img src="${p.img}" alt="${p.title}" loading="lazy">
+      <img src="${p.img}" alt="${p.brand} ${p.title}" loading="lazy">
     </div>
     <div class="card-body">
       <div class="card-brand">${p.brand}</div>
