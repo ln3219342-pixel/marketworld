@@ -7,9 +7,14 @@
 <title>Home & Kitchen Collection – MarketWorld | Best Home Deals & Essentials</title>
 
 <meta name="description" content="Explore Home & Kitchen Collection on MarketWorld featuring essential home products, kitchen tools, and the best online deals and discounts." />
-
+<meta property="og:title" content="MarketWorld - Best Online Deals">
+<meta property="og:description" content="Explore best electronics, fashion and home deals online.">
+<meta property="og:image" content="https://marketworld.me/logo.png">
+<meta property="og:url" content="https://marketworld.me">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://marketworld.me/home-kitchen.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
+<meta name="keywords" content="home kitchen products, kitchen accessories, cookware, home decor, MarketWorld, online shopping India">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -405,7 +410,7 @@
         .product-image-wrap {
             position: relative;
             overflow: hidden;
-            aspect-ratio: 4/3;
+            aspect-ratio: 1/1;
             background: #F5F3F0;
         }
         .product-image-wrap img {
@@ -718,20 +723,70 @@
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
             .hero-stats { gap: 20px; }
         }
-        @media (max-width: 600px) {
-            .nav-inner { height: 58px; padding: 0 16px; }
-            .nav-search { display: none; }
-            .mobile-menu-btn { display: flex; }
-            .filter-section { top: 58px; }
-            .hero { padding: 32px 16px 40px; }
-            .hero-stats { flex-wrap: wrap; gap: 16px; }
-            .main { padding: 20px 16px 60px; }
-            .product-grid { grid-template-columns: 1fr; gap: 16px; }
-            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-            .results-info { flex-direction: column; gap: 12px; align-items: flex-start; }
-        }
+      @media (max-width: 600px)  {
+    .nav-inner { height: 58px; padding: 0 16px; }
+    .nav-search { display: none; }
+    .mobile-menu-btn { display: flex; }
+    .filter-section { top: 58px; }
+    .hero { padding: 32px 16px 40px; }
+    .hero-stats { flex-wrap: wrap; gap: 16px; }
+    .main { padding: 20px 16px 60px; }
 
+    .product-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+}
+
+.product-card {
+    border-radius: 12px;
+    width: 100%;
+    min-width: 0;
+}
+
+.product-info {
+    padding: 10px;
+}
+
+.product-title {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.product-desc {
+    font-size: 10px;
+    -webkit-line-clamp: 1;
+}
+
+.product-price {
+    font-size: 15px;
+}
+
+.product-price-original,
+.product-discount,
+.rating-count {
+    font-size: 10px;
+}
+
+.product-image-wrap {
+    aspect-ratio: 1/1;
+}
+
+.btn-platforms {
+    flex-direction: column;
+    gap: 6px;
+}
+
+.btn-amazon,
+.btn-flipkart {
+    width: 100%;
+    font-size: 11px;
+    padding: 8px;
+}
+
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .results-info { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
         /* ── Scrollbar ── */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -811,13 +866,6 @@
 
 <!-- Main Content -->
 <main class="main">
-    <!-- Filters -->
-    <div class="filter-section" id="filterSection">
-        <div class="filter-bar" id="filterBar">
-            
-            </button>
-        </div>
-    </div>
 
     <!-- Results Info -->
     <div class="results-info">
@@ -850,6 +898,7 @@
                     <li><a href="help-center.html">Help Center</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                 </ul>
             </div>
             <div>
@@ -858,7 +907,7 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
                     <li><a href="terms-and-conditions.html">Terms of Use</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
                 </ul>
             </div>
         </div>
@@ -876,41 +925,396 @@
 // ── Product Data ──
 const products = [
     // Kitchen
-    { id: 1, category: 'kitchen', catLabel: 'Kitchen', title: 'Premium Non-Stick Cookware Set', desc: '5-piece set with saucepans, kadhai, and tawa. PFOA-free ceramic coating.', price: 2499, original: 4999, discount: 50, rating: 4.8, reviews: 2340, badge: 'sale', image: 'https://picsum.photos/seed/cookware-set/600/450.jpg' },
-    { id: 2, category: 'kitchen', catLabel: 'Kitchen', title: 'Cast Iron Fry Pan 10"', desc: 'Pre-seasoned heavy-duty pan for perfect searing and frying.', price: 1299, original: 2199, discount: 41, rating: 4.7, reviews: 1856, badge: 'best', image: 'https://picsum.photos/seed/fry-pan-iron/600/450.jpg' },
-    { id: 3, category: 'kitchen', catLabel: 'Kitchen', title: '750W Mixer Grinder 3 Jars', desc: 'Powerful motor with stainless steel jars for wet & dry grinding.', price: 3299, original: 5499, discount: 40, rating: 4.6, reviews: 3120, badge: 'sale', image: 'https://picsum.photos/seed/mixer-grinder/600/450.jpg' },
-    { id: 4, category: 'kitchen', catLabel: 'Kitchen', title: 'Professional Knife Set 6-Piece', desc: 'High-carbon stainless steel blades with ergonomic wooden handle.', price: 1899, original: 3499, discount: 46, rating: 4.9, reviews: 987, badge: 'new', image: 'https://picsum.photos/seed/knife-set-pro/600/450.jpg' },
-
+{
+  id: 1,
+  category: 'kitchen',
+  catLabel: 'Kitchen',
+  title: 'Food Storage Container',
+  desc: 'Leakproof Lid, BPA-Free Grain Storage Jar, Multi Compartment Kitchen Organizer (Pack of 1)',
+  amazon: 'https://amzn.to/4uaBqNT',
+  flipkart: 'https://www.flipkart.com/ktart-100-unbreakable-air-tight-modular-kitchen-plastic-storage-containers-jars-container-serving-set/p/itmb492265f085c7?',
+  price: 269,
+  original: 600,
+  discount: 55,
+  rating: 4.3,
+  reviews: 257,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/71zhoGqVZHL._SL1500_.jpg'
+},  
+{
+  id: 2,
+  category: 'kitchen',
+  catLabel: 'Kitchen',
+  title: 'Wood Serving Tray',
+  desc: '15 x 2 Inch – Round Wooden Decorative Tray with Floral Design ',
+  amazon: 'https://amzn.to/43ckCLD',
+  flipkart: 'https://www.flipkart.com/krimadh-floral-design-coffee-table-tray-tray-serving-set/p/itm0d57d40112cbb?',
+  price: 899,
+  original: 1299,
+  discount: 31,
+  rating: 4.2,
+  reviews: 23,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/61CJQLFgMRL._SL1264_.jpg'
+},  
+{
+  id: 3,
+  category: 'kitchen',
+  catLabel: 'Kitchen',
+  title: 'Stainless Steel Ghee Pot',
+  desc: 'Oil Container with Lid and Spoon, 1 Piece (250 ml)1',
+  amazon: 'https://amzn.to/4xaLdWY',
+  flipkart: 'https://www.flipkart.com/cryzone-stainless-steel-ghee-oil-pot-spoon-kitchen-storage-container-250-ml-serving-set/p/itmf8da614c61d17?',
+  price: 174,
+  original: 251,
+  discount: 31,
+  rating: 3.8,
+  reviews: 114,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/41OtxI7cLBL.jpg'
+},  
+{
+  id: 4,
+  category: 'kitchen',
+  catLabel: 'Kitchen',
+  title: 'Metal Cake Stand with White Tray',
+  desc: 'Gold Finish Base | Elegant Dessert Stand for Cakes, Cupcakes, Pastries & Fruits',
+  amazon: 'https://amzn.to/4o8Qdrd',
+  flipkart: 'https://www.flipkart.com/abc-golden-cake-stand-strong-white-metal-trey-tray-serving-set/p/itmaa8c097178d2a?',
+  price: 359,
+  original: 1999,
+  discount: 82,
+  rating: 3.5,
+  reviews: 20,
+  badge: 'sale',
+  image: 'https://rukminim1.flixcart.com/image/1440/1440/xif0q/serving-set/p/q/z/cakestand01-abc-original-imahmzak9zuugzex.jpeg?q=90'
+}, 
     // Home Decor
-    { id: 5, category: 'decor', catLabel: 'Home Decor', title: 'Minimalist Wall Clock 12"', desc: 'Silent quartz movement with sleek metal frame, no ticking sound.', price: 899, original: 1599, discount: 44, rating: 4.5, reviews: 1450, badge: 'sale', image: 'https://picsum.photos/seed/wall-clock-min/600/450.jpg' },
-    { id: 6, category: 'decor', catLabel: 'Home Decor', title: 'Modern Table Lamp with Shade', desc: 'Warm LED light with fabric shade, adjustable brightness touch control.', price: 1499, original: 2799, discount: 46, rating: 4.7, reviews: 890, badge: 'best', image: 'https://picsum.photos/seed/table-lamp-mod/600/450.jpg' },
-    { id: 7, category: 'decor', catLabel: 'Home Decor', title: 'Handcrafted Ceramic Flower Vase', desc: 'Elegant matte-finish vase, perfect for living room & bedroom decor.', price: 699, original: 1299, discount: 46, rating: 4.4, reviews: 670, badge: 'new', image: 'https://picsum.photos/seed/flower-vase-cer/600/450.jpg' },
-    { id: 8, category: 'decor', catLabel: 'Home Decor', title: 'Fairy String Lights 10m', desc: 'Warm white LED copper wire lights, USB powered, waterproof.', price: 399, original: 799, discount: 50, rating: 4.3, reviews: 4200, badge: 'sale', image: 'https://picsum.photos/seed/fairy-lights-dec/600/450.jpg' },
-
+{
+  id: 5,
+  category: 'decor',
+  catLabel: 'Home Decor',
+  title: 'Wooden Key Holders',
+  desc: 'Wooden Wall Mounted Decorative Key Chain Hanger with 6 Hooks',
+  amazon: 'https://amzn.to/49JyRLz',
+  flipkart: 'https://www.flipkart.com/sndart-home-decor-items-key-holder-wall-mobile-stand-wood/p/itm5f16cb6a518d2?',
+  price: 159,
+  original: 299,
+  discount: 47,
+  rating: 3.5,
+  reviews: 339,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/71NHneCep-L._SL1500_.jpg'
+},
+{
+  id: 6,
+  category: 'decor',
+  catLabel: 'Home Decor',
+  title: 'Wall Hanging',
+  desc: 'Wooden Style Welcome Sign, Farmhouse Door ',
+  amazon: 'https://amzn.to/4dS9Ccu',
+  flipkart: 'https://www.flipkart.com/bzilo-wall-hanging-bless-home-all-enter-design-may-vary-b75/p/itm16fa9bc400882?',
+  price: 137,
+  original: 399,
+  discount: 66,
+  rating: 2.5,
+  reviews: 14,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/61CuRYrLzsL._SL1080_.jpg'
+},
+{
+  id: 7,
+  category: 'decor',
+  catLabel: 'Home Decor',
+  title: ' Lotus Tealight Candle Holder',
+  desc: '7 Inch Lotus Flower Diya Stand, Gold Table Decoration for Diwali',
+  amazon: 'https://amzn.to/4xaPCsY',
+  flipkart: 'https://www.flipkart.com/ratihandicrafts-golden-metal-big-table-lotus-flower-t-light-cast-iron-diya/p/itmd8cb391d459e6?',
+  price: 380,
+  original: 749,
+  discount: 49,
+  rating: 4.2,
+  reviews: 145,
+  badge: 'sale',
+  image: 'https://rukminim1.flixcart.com/image/1440/1440/xif0q/diya/1/f/t/1-golden-metal-big-table-lotus-flower-t-light-rati-decor-7-original-imagtmyrmqjfhgha.jpeg?q=90'
+},
+{
+  id: 8,
+  category: 'decor',
+  catLabel: 'Home Decor',
+  title: '3D Butterfly',
+  desc: 'Wall Stickers Set – Removable DIY Home Decoration ',
+  amazon: 'https://amzn.to/4o7c9mm',
+  flipkart: 'https://www.flipkart.com/ipsit-3d-butterfly-gold-pack-12/p/itm8f4800422a237?',
+  price: 85,
+  original: 659,
+  discount: 87,
+  rating: 4.3,
+  reviews: 8312,
+  badge: 'sale',
+  image: 'https://rukminim1.flixcart.com/image/1440/1440/xif0q/wall-decoration/h/t/i/3d-butterfly-gold-12-wall-decoration-wall-decoration-ipsit-original-imah3k8phavf6wdv.jpeg?q=90'
+},
     // Dinner Set
-    { id: 9, category: 'dinner', catLabel: 'Dinner Set', title: 'Bone China Ceramic Plates 6-Pcs', desc: 'Microwave & dishwasher safe, elegant floral design, chip-resistant.', price: 1799, original: 3299, discount: 45, rating: 4.8, reviews: 1560, badge: 'best', image: 'https://picsum.photos/seed/ceramic-plates/600/450.jpg' },
-    { id: 10, category: 'dinner', catLabel: 'Dinner Set', title: 'Stainless Steel Bowls Set 8-Pcs', desc: 'Mixing & serving bowls with mirror finish, stackable design.', price: 999, original: 1799, discount: 44, rating: 4.6, reviews: 2100, badge: 'sale', image: 'https://picsum.photos/seed/bowls-set-steel/600/450.jpg' },
-    { id: 11, category: 'dinner', catLabel: 'Dinner Set', title: 'Crystal Clear Glass Set 6-Pcs', desc: 'Premium borosilicate glass, heat resistant, perfect for juice & water.', price: 799, original: 1499, discount: 47, rating: 4.5, reviews: 1340, badge: 'new', image: 'https://picsum.photos/seed/glass-set-clear/600/450.jpg' },
-    { id: 12, category: 'dinner', catLabel: 'Dinner Set', title: '21-Piece Complete Dining Collection', desc: 'Full dinner set with plates, bowls, cups, and serving dishes.', price: 4999, original: 8999, discount: 44, rating: 4.9, reviews: 560, badge: 'best', image: 'https://picsum.photos/seed/dining-collection/600/450.jpg' },
-
+{
+  id: 9,
+  category: 'dinner',
+  catLabel: 'Dinner Set',
+  title: 'Melamine Dinner Plates.',
+  desc: 'for Breakfast, Snacks, Lunch (Black Marble-11 Inchs) - 6 Pieces',
+  amazon: 'https://amzn.to/4g7T2GK',
+  flipkart: 'https://www.flipkart.com/ariya-premium-11-flower-pattern-plate-ideal-breakfast-lunch-everyday-meals-dinner/p/itm6438381c2c731?',
+  price: 740,
+  original: 1499,
+  discount: 51,
+  rating: 4.2,
+  reviews: 100,
+  badge: 'best',
+  image: 'https://rukminim1.flixcart.com/image/1440/1440/xif0q/plate-tray-dish/x/v/7/premium-11-flower-pattern-plate-ideal-for-breakfast-lunch-original-imahf57qq2jtayyb.jpeg?q=90'
+},
+{
+  id: 10,
+  category: 'dinner',
+  catLabel: 'Dinner Set',
+  title: '18-Piece Melamine Dinner Set ',
+  desc: 'Contains 6 Full Plates, 6 Bowls and 6 Spoons-for Parties .',
+  amazon: 'https://amzn.to/4e40K1Y',
+  flipkart: 'https://www.flipkart.com/simply-serve-pack-18-melamin-melamine-dinner-set-parties-ideal-picnics-perfect-all-occasion/p/itm04564a7f0378c?',
+  price: 747,
+  original: 1699,
+  discount: 56,
+  rating: 5.0,
+  reviews: 15,
+  badge: 'best',
+  image: 'https://m.media-amazon.com/images/I/81iCziFFJyL._SL1500_.jpg'
+},
+{
+  id: 11,
+  category: 'dinner',
+  catLabel: 'Dinner Set',
+  title: 'RYLAN Blue Dinner Set ',
+  desc: '36 Pieces for Family of 6 | Microwave & Dishwasher Safe',
+  amazon: 'https://amzn.to/4vwrBel',
+  flipkart: 'https://www.flipkart.com/jke-pack-36-plastic-dinner-set-microwave-safe/p/itm4de35500f6567?',
+  price: 854,
+  original: 2000,
+  discount: 57,
+  rating: 3.6,
+  reviews: 748,
+  badge: 'best',
+  image: 'https://rukminim1.flixcart.com/image/1440/1440/xif0q/shopsy-dinner-set/k/c/y/no-na-twinny-original-imahb4g62evjkkz9.jpeg?q=90'
+},
+{
+  id: 12,
+  category: 'dinner',
+  catLabel: 'Dinner Set',
+  title: 'Melamine Dinner Plate Set of 6',
+  desc: 'Microwave & Dishwasher Safe Dinnerware, Full Serving Plate Set for Snacks',
+  amazon: 'https://amzn.to/4e3Aq8b',
+  flipkart: 'https://www.flipkart.com/globenox-12-inch-melamine-dinner-plate-set-4-unbreakable-reusable/p/itm438f204103aed?',
+  price: 492,
+  original: 999,
+  discount: 51,
+  rating: 3.5,
+  reviews: 72,
+  badge: 'best',
+  image: 'https://m.media-amazon.com/images/I/71HR7whKvqL._SL1500_.jpg'
+},
     // Cleaning
-    { id: 13, category: 'cleaning', catLabel: 'Cleaning', title: '360° Spin Mop with Bucket', desc: 'Self-wringing mop with microfiber refill, easy floor cleaning.', price: 1199, original: 2199, discount: 45, rating: 4.4, reviews: 3890, badge: 'sale', image: 'https://picsum.photos/seed/spin-mop-360/600/450.jpg' },
-    { id: 14, category: 'cleaning', catLabel: 'Cleaning', title: 'Multi-Purpose Cleaning Brush Set', desc: '5 brushes for kitchen, bathroom, shoes & crevices. Ergonomic grip.', price: 449, original: 899, discount: 50, rating: 4.3, reviews: 1670, badge: 'sale', image: 'https://picsum.photos/seed/cleaning-brush-set/600/450.jpg' },
-    { id: 15, category: 'cleaning', catLabel: 'Cleaning', title: '1200W Bagless Vacuum Cleaner', desc: 'Cyclonic suction, HEPA filter, multiple attachments for home & car.', price: 5999, original: 10999, discount: 45, rating: 4.6, reviews: 890, badge: 'best', image: 'https://picsum.photos/seed/vacuum-cleaner-hm/600/450.jpg' },
-    { id: 16, category: 'cleaning', catLabel: 'Cleaning', title: 'Woven Storage Basket Set 3-Pcs', desc: 'Handwoven cotton rope baskets for organizing & home decor.', price: 899, original: 1599, discount: 44, rating: 4.5, reviews: 1230, badge: 'new', image: 'https://picsum.photos/seed/storage-basket-wv/600/450.jpg' },
-
+{
+  id: 13,
+  category: 'cleaning',
+  catLabel: 'Cleaning',
+  title: '360 Spin Mop with Bucket360° Microfiber Spin Mop',
+  desc: 'Head Refill with Super Absorbent Cotton Strands',
+  amazon: 'https://amzn.to/3So3iRm',
+  flipkart: 'https://www.flipkart.com/visstora-twist-mop-round-360-cleaning-wet-dry/p/itm428c3a387cdd1?',
+  price: 169,
+  original: 799,
+  discount: 79,
+  rating: 3.4,
+  reviews: 34,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/71inXSfBjmL._SL1254_.jpg'
+},
+{
+  id: 14,
+  category: 'cleaning',
+  catLabel: 'Cleaning',
+  title: 'Scrub Brush with Wiper',
+  desc: 'Long Handle, 180° Rotating Head, Tiles and Kitchen Cleaning, Orange',
+  amazon: 'https://amzn.to/4e11p4j',
+  flipkart: 'https://www.flipkart.com/edicon-2-in-1-floor-scrub-brush-wiper-long-handle-bathroom-tile-cleaning-plastic-silicone-wet-dry/p/itm217326586350b?',
+  price: 199,
+  original: 499,
+  discount: 56,
+  rating: 4.9,
+  reviews: 38,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/514dIyleecL._SL1024_.jpg'
+},
+{
+  id: 15,
+  category: 'cleaning',
+  catLabel: 'Cleaning',
+  title: ' Microfiber Cleaning Cloth',
+  desc: '6 Pack | Kitchen Cleaning Cloths and Wipes | Dusting Cloth',
+  amazon: 'https://amzn.to/4enPgrE',
+  flipkart: 'https://www.flipkart.com/showstopper-cleaning-rag-cleaning-towels-6-color-30cm-x-30cm-wet-dry-microfiber-cloth/p/itmde708b8cbecb0?',
+  price: 115,
+  original: 600,
+  discount: 81,
+  rating: 3.8,
+  reviews: 1513,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/61jr3z2v-NL._SL1100_.jpg'
+},
+{
+  id: 16,
+  category: 'cleaning',
+  catLabel: 'Cleaning',
+  title: 'Colin 500 ml (Pack of 3)',
+  desc: 'Glass and Surface Cleaner Liquid Spray',
+  amazon: 'https://amzn.to/4e2TIdZ',
+  flipkart: 'https://www.flipkart.com/colin-glass-surface-cleaner-liquid-spray-regular/p/itm9daf36a1b6918?',
+  price: 286,
+  original: 360,
+  discount: 21,
+  rating: 4.4,
+  reviews: 11959,
+  badge: 'sale',
+  image: 'https://m.media-amazon.com/images/I/71xvAY7ekCL._SL1500_.jpg'
+},
     // Furniture
-    { id: 17, category: 'furniture', catLabel: 'Furniture', title: 'Ergonomic Office Chair', desc: 'Lumbar support, breathable mesh back, adjustable height & armrest.', price: 7999, original: 14999, discount: 47, rating: 4.7, reviews: 780, badge: 'best', image: 'https://picsum.photos/seed/office-chair-erg/600/450.jpg' },
-    { id: 18, category: 'furniture', catLabel: 'Furniture', title: 'Solid Wood Study Table', desc: 'Sheesham wood, natural finish, built-in drawer & cable management.', price: 6499, original: 11999, discount: 46, rating: 4.8, reviews: 540, badge: 'new', image: 'https://picsum.photos/seed/study-table-wood/600/450.jpg' },
-    { id: 19, category: 'furniture', catLabel: 'Furniture', title: '3-Seater Fabric Sofa', desc: 'Premium cotton upholstery, solid wood frame, plush cushioning.', price: 18999, original: 34999, discount: 46, rating: 4.6, reviews: 320, badge: 'sale', image: 'https://picsum.photos/seed/fabric-sofa-3s/600/450.jpg' },
-    { id: 20, category: 'furniture', catLabel: 'Furniture', title: 'Wall-Mounted Wooden Shelf 3-Tier', desc: 'Floating shelf with hidden brackets, perfect for books & decor.', price: 1999, original: 3499, discount: 43, rating: 4.5, reviews: 1560, badge: 'sale', image: 'https://picsum.photos/seed/wooden-shelf-3t/600/450.jpg' },
+{
+  id: 17,
+  category: 'furniture',
+  catLabel: 'Furniture',
+  title: 'Laptop Bed Tray Table',
+  desc: 'Multifunction Lap Tablet Desk with Cup Holder, for Eating Breakfast',
+  amazon: 'https://amzn.to/4dPBMop',
+  flipkart: 'https://www.flipkart.com/vaynorx-wood-cot-wood-portable-laptop-table/p/itm57965e23f4efc?',
+  price: 413,
+  original: 1999,
+  discount: 79,
+  rating: 4.2,
+  reviews: 30,
+  badge: 'best',
+  image: 'https://rukminim1.flixcart.com/image/1440/1440/xif0q/portable-laptop-table/j/e/z/16-hdf-high-density-fibreboard-wood-cot-vaynorx-26-wood-cot-original-imahmyzfnrzzspyf.jpeg?q=90'
+},
+{
+  id: 18,
+  category: 'furniture',
+  catLabel: 'Furniture',
+  title: ' Wooden Mandir ',
+  desc: 'Traditional Teak-Finish Hindu Puja Temple with Storage Drawer ',
+  amazon: 'https://amzn.to/4acMKC0',
+  flipkart: 'https://www.flipkart.com/temple-handmade-solid-wood-home/p/itm2e8fe87630fe7?',
+  price: 448,
+  original: 1299,
+  discount: 66,
+  rating: 4.3,
+  reviews: 18,
+  badge: 'best',
+  image: 'https://m.media-amazon.com/images/I/61LFYSxeyyL._SL1024_.jpg'
+},
+{
+  id: 19,
+  category: 'furniture',
+  catLabel: 'Furniture',
+  title: 'Inflatable Sofa with Household Air Pump',
+  desc: 'Air Inflatable Sofa Couch Chair with Footstool for Indoor&Outdoor',
+  amazon: 'https://amzn.to/4uS3k2j',
+  flipkart: 'https://www.flipkart.com/brightecom-air-sofas-pvc-3-seater-inflatable-sofa/p/itm9d6adaea37171?',
+  price: 1285,
+  original: 3999,
+  discount: 68,
+  rating: 3.9,
+  reviews: 255,
+  badge: 'best',
+  image: 'https://m.media-amazon.com/images/I/61h99GXanKL._SL1500_.jpg'
+},
+{
+  id: 20,
+  category: 'furniture',
+  catLabel: 'Furniture',
+  title: 'Trendy Round Coffee & Snack Table ',
+  desc: 'mall Room Side Table in Metal Finish Metal Coffee Table ',
+  amazon: 'https://amzn.to/4eaGBHR',
+  flipkart: 'https://www.flipkart.com/craftmakers-trendy-round-coffee-snack-table-small-room-side-metal-finish/p/itm80feabd388431?',
+  price: 2010,
+  original: 4999,
+  discount: 60,
+  rating: 4.1,
+  reviews: 428,
+  badge: 'sale',
+  image: 'https://rukminim1.flixcart.com/image/1440/1440/xif0q/coffee-table/r/d/s/40-marble-40-5-maharaja-style-round-end-table-side-table-for-original-imahmfsyhkwnh4ty.jpeg?q=90'
+},
 
     // Appliances
-    { id: 21, category: 'appliances', catLabel: 'Appliances', title: 'Digital Air Fryer 4.5L', desc: 'Rapid air technology, 8 preset menus, 80% less oil cooking.', price: 4999, original: 8999, discount: 44, rating: 4.8, reviews: 4560, badge: 'best', image: 'https://picsum.photos/seed/air-fryer-dig/600/450.jpg' },
-    { id: 22, category: 'appliances', catLabel: 'Appliances', title: '20L Solo Microwave Oven', desc: 'Express cooking, child lock, auto-cook menus, stainless steel cavity.', price: 5499, original: 8999, discount: 39, rating: 4.5, reviews: 2340, badge: 'sale', image: 'https://picsum.photos/seed/microwave-solo/600/450.jpg' },
-    { id: 23, category: 'appliances', catLabel: 'Appliances', title: 'Electric Kettle 1.8L Steel', desc: 'Rapid boil, auto shut-off, 360° swivel base, BPA-free.', price: 999, original: 1799, discount: 44, rating: 4.6, reviews: 5670, badge: 'sale', image: 'https://picsum.photos/seed/electric-kettle-st/600/450.jpg' },
-    { id: 24, category: 'appliances', catLabel: 'Appliances', title: '1000W Personal Blender', desc: '3 jars for smoothies, chutney & grinding. Stainless steel blades.', price: 2199, original: 3999, discount: 45, rating: 4.4, reviews: 1890, badge: 'new', image: 'https://picsum.photos/seed/blender-personal/600/450.jpg' },
-];
+{
+  id: 21,
+  category: 'appliances',
+  catLabel: 'Appliances',
+  title: 'Galaxy Induction Cook Top',
+  desc: 'Feather Touch Control| Digital Timer| LED Display| Auto shutoff| 2000Watts',
+  amazon: 'https://amzn.to/4acPzD6',
+  flipkart: 'https://www.flipkart.com/greenchef-2000-w-induction-cooktop-touch-panel/p/itm270e9f92c9de3?',
+  price: 2690,
+  original: 3399,
+  discount: 21,
+  rating: 4.8,
+  reviews: 45,
+  badge: 'best',
+  image: 'https://m.media-amazon.com/images/I/61NBBMxeLJL._SL1500_.jpg'
+},
+{
+  id: 22,
+  category: 'appliances',
+  catLabel: 'Appliances',
+  title: 'KENT Crisp Pop Up Toaster 750 Watts',
+  desc: '2 Slice Automatic Pop Up Electric Toaster | 6 Heating Modes',
+  amazon: 'https://amzn.to/4fylOjT',
+  flipkart: 'https://www.flipkart.com/sansui-prima-2-slice-600-w-pop-up-toaster/p/itmf8b311b166697?',
+  price: 949,
+  original: 1999,
+  discount: 53,
+  rating: 4.3,
+  reviews: 1888,
+  badge: 'best',
+  image: 'https://m.media-amazon.com/images/I/51DoOQTdS4L._SL1200_.jpg'
+},
+{
+  id: 23,
+  category: 'appliances',
+  catLabel: 'Appliances',
+  title: 'Super Dlx Juicer Mixer Grinder',
+  desc: 'Up to 750W Max Output Powerful Motor | 4 Jars for Grinding, Mixing',
+  amazon: 'https://amzn.to/43ONmKr',
+  flipkart: 'https://www.flipkart.com/longway-powerful-motor-grinding-mixing-juicing-up-750-w-juicer-mixer-grinder/p/itmbb1d872b675ae?',
+  price: 1499,
+  original: 3899,
+  discount: 63,
+  rating: 4.1,
+  reviews: 233158,
+  badge: 'best',
+  image: 'https://m.media-amazon.com/images/I/71vfrhmJ1SL._SL1500_.jpg'
+},
+{
+  id: 24,
+  category: 'appliances',
+  catLabel: 'Appliances',
+  title: 'ENT Hand Blender Plus Chopper',
+  desc: 'Variable Speed Control | Turbo Switch for Fast Blending & Chopping',
+  amazon: 'https://amzn.to/43ihRbz',
+  flipkart: 'https://www.flipkart.com/kent-450-w-silver-black-chopper-hand-blender/p/itm1351ccc4567d4?',
+  price: 2549,
+  original: 3950,
+  discount: 35,
+  rating: 4.2,
+  reviews: 18553,
+  badge: 'best',
+  image: 'https://m.media-amazon.com/images/I/61d0YF8r63L._SL1500_.jpg'
+},];
 
 // ── State ──
 let cartCount = 0;
@@ -998,24 +1402,23 @@ function renderProducts(category, sortType) {
                         
                     </div>
                     <div class="btn-platforms">
-                        <button class="btn-amazon" onclick="openPlatform('Amazon', '${p.title.replace(/'/g, "\\'")}')">Amazon</button>
-                        <button class="btn-flipkart" onclick="openPlatform('Flipkart', '${p.title.replace(/'/g, "\\'")}')">Flipkart</button>
-                    </div>
+    <button class="btn-amazon"
+    onclick="openPlatform('Amazon', '${p.amazon}', '${p.title.replace(/'/g, "\\'")}')">
+    Amazon
+    </button>
+
+    <button class="btn-flipkart"
+    onclick="openPlatform('Flipkart', '${p.flipkart}', '${p.title.replace(/'/g, "\\'")}')">
+    Flipkart
+    </button>
+</div>
                 </div>
             </div>
         </div>
     `).join('');
 }
 
-// ── Category Filter ──
-document.getElementById('filterBar').addEventListener('click', function(e) {
-    const btn = e.target.closest('.filter-btn');
-    if (!btn) return;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeCategory = btn.dataset.category;
-    renderProducts(activeCategory, document.getElementById('sortSelect').value);
-});
+
 
 // ── Sort ──
 document.getElementById('sortSelect').addEventListener('change', function() {
@@ -1025,8 +1428,16 @@ document.getElementById('sortSelect').addEventListener('change', function() {
 // ── Cart ──
 
 
-function openPlatform(platform, name) {
-    showToast(platform === 'Amazon' ? '🟠' : '🔵', `Opening <strong>${name}</strong> on ${platform}`);
+function openPlatform(platform, link, name) {
+
+    showToast(
+        platform === 'Amazon' ? '🟠' : '🔵',
+        `Opening <strong>${name}</strong> on ${platform}`
+    );
+
+    setTimeout(() => {
+        window.open(link, '_blank');
+    }, 500);
 }
 
 // ── Wishlist ──
@@ -1044,20 +1455,13 @@ function showToast(icon, message) {
     }, 2800);
 }
 
-// ── Navbar Scroll Effect ──
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
-    const filterSection = document.getElementById('filterSection');
+
     if (window.scrollY > 10) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
-    }
-    const filterRect = filterSection.getBoundingClientRect();
-    if (filterRect.top <= 68) {
-        filterSection.classList.add('stuck');
-    } else {
-        filterSection.classList.remove('stuck');
     }
 });
 
