@@ -7,11 +7,19 @@
 <title>Beauty Collection – MarketWorld | Skincare, Makeup & Best Deals</title>
 
 <meta name="description" content="Explore Beauty Collection on MarketWorld featuring skincare, makeup, and trending beauty products with the best online deals and discounts." />
-
+<link rel="canonical" href="https://marketworld.me/beauty.html">
 <meta name="robots" content="index, follow">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"CollectionPage",
+ "name":"Beauty Collection - MarketWorld",
+ "url":"https://marketworld.me/beauty.html",
+ "description":"Beauty, skincare, makeup and perfume products."
+}
+</script>
 <style>
   :root {
     --rose:      #e8547a;
@@ -144,6 +152,7 @@
   }
   .stat-lbl { font-size: 11px; color: var(--muted); font-weight: 500; letter-spacing: .5px; text-transform: uppercase; }
 
+
   /* ─── CATEGORY BUTTONS ────────────────────────────────── */
   .cats-wrap { padding: 36px 5vw 0; }
   .cats {
@@ -172,10 +181,6 @@
     { border-color: var(--plum); color: var(--plum); background: var(--plum-lt); }
   .cat-btn[data-cat="perfumes"]:hover, .cat-btn[data-cat="perfumes"].active
     { border-color: var(--gold); color: var(--gold); background: var(--gold-lt); }
-  .cat-btn[data-cat="nailcare"]:hover, .cat-btn[data-cat="nailcare"].active
-    { border-color: var(--peach); color: var(--peach); background: var(--peach-lt); }
-  .cat-btn[data-cat="bathbody"]:hover, .cat-btn[data-cat="bathbody"].active
-    { border-color: var(--sky); color: var(--sky); background: var(--sky-lt); }
 
   /* ─── SECTION TITLE ───────────────────────────────────── */
   .section-title {
@@ -203,6 +208,17 @@
   }
 
   /* ─── PRODUCT CARD ────────────────────────────────────── */
+  .product-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 15px;
+  transition: transform var(--trans);
+}
+
+.card:hover .product-img{
+  transform: scale(1.08);
+}
   .card {
     background: var(--surface); border-radius: var(--r);
     border: 1px solid var(--border);
@@ -301,6 +317,9 @@
   }
   .btn-buy:hover { opacity: .88; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,84,122,.4); }
 
+  .btn {
+  text-decoration: none;
+}
   .btn-amz {
     background: #fff8ee; color: #c7711a;
     border: 1.5px solid rgba(199,113,26,.2);
@@ -328,7 +347,52 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     display: block; margin-bottom: 8px;
   }
+.footer-seo{
+  max-width: 900px;
+  margin: 20px auto 30px;
+  text-align: center;
+}
 
+.footer-seo h3{
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.footer-seo p{
+  color: rgba(255,255,255,.75);
+  line-height: 1.8;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.footer-links{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links span{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  color: rgba(255,255,255,.85);
+}
+ footer a{
+  color: rgba(255,255,255,.8) !important;
+  text-decoration: none !important;
+  margin: 0 6px;
+  transition: .3s;
+}
+
+footer a:hover{
+  color: #fff !important;
+  opacity: 1;
+}
   /* ─── EMPTY STATE ─────────────────────────────────────── */
   .empty {
     grid-column: 1/-1; text-align: center; padding: 60px 20px;
@@ -380,7 +444,7 @@
 <!-- ─── HERO ────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero-badge">✨ New Season Collection 2025</div>
-  <h1>💖 Beauty Collection</h1>
+  <h1>Beauty Collection</h1>
   <p>Discover premium beauty essentials curated for every skin type, every mood, and every occasion.</p>
   <div class="hero-stats">
     <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Products</span></div>
@@ -398,8 +462,6 @@
     <button class="cat-btn" data-cat="skincare"><span class="emoji">🧴</span> Skincare</button>
     <button class="cat-btn" data-cat="haircare"><span class="emoji">💇</span> Haircare</button>
     <button class="cat-btn" data-cat="perfumes"><span class="emoji">🌸</span> Perfumes</button>
-    <button class="cat-btn" data-cat="nailcare"><span class="emoji">💅</span> Nail Care</button>
-    <button class="cat-btn" data-cat="bathbody"><span class="emoji">🛁</span> Bath & Body</button>
   </div>
 </div>
 
@@ -408,163 +470,679 @@
   <h2 id="section-heading">All Beauty Products</h2>
   <span id="count-badge">20 products</span>
 </div>
+<section style="padding:0 5vw 25px; text-align:center;">
+  <h2 style="font-size:32px; margin-bottom:12px;">
+    Best Beauty Products Online
+  </h2>
 
+  <p style="max-width:800px; margin:auto; color:#666; line-height:1.8;">
+    Discover skincare, makeup, perfumes, and haircare products
+    with top online deals and trending collections in India.
+  </p>
+</section>
 <!-- ─── PRODUCT GRID ──────────────────────────────────────── -->
 <div class="grid" id="product-grid"></div>
 
+
 <!-- ─── FOOTER ────────────────────────────────────────────── -->
+ 
 <footer>
+
   <span class="footer-brand">MarketWorld</span>
-  <div>Beauty | Fashion | Electronics | Home-kitchen</div>
-  <div style="margin-top:8px; opacity:.45; font-size:12px;">© 2025 MarketWorld. All rights reserved. Made with 💖 for beauty lovers.</div>
+
+  <div class="footer-seo">
+    <h3>Best Beauty Products Online in India</h3>
+
+    <p>
+      Explore premium skincare, makeup, haircare,
+      and perfume collections at MarketWorld.
+    </p>
+
+    <div class="footer-links">
+      <span>Makeup</span>
+      <span>Skincare</span>
+      <span>Haircare</span>
+      <span>Perfumes</span>
+    </div>
+  </div>
+
+<div style="margin-top:20px;">
+  <a href="sports.html">Sports</a> |
+  <a href="fashion.html">Fashion</a> |
+  <a href="electronic.html">Electronics</a> |
+  <a href="home-kitchen.html">Home & Kitchen</a>
+</div>
+  <div style="margin-top:8px; opacity:.45; font-size:12px;">
+    © 2025 MarketWorld. All rights reserved.
+  </div>
+
 </footer>
 
 <script>
+  
 // ─── PRODUCT DATA ─────────────────────────────────────────
 const products = [
   // MAKEUP
   {
-    id:1, cat:'makeup', emoji:'💄',
-    brand:'L\'Oréal Paris', title:'Velvet Matte Lipstick',
-    desc:'Long-lasting 24hr color with a luxurious velvet finish.',
-    price:399, was:799, off:50, rating:4.9, reviews:2841, badge:'50% OFF', isNew:false
-  },
+  id:1,
+  cat:'makeup',
+  img:'https://m.media-amazon.com/images/I/51B6KXKHxDL._SL1000_.jpg',
+  brand:'LAKME',
+  title:'Lakme 9 to 5 CC Cream',
+  desc:'3% Niacinamide Complex SPF 30 PA++| 20g',
+  price:273,
+  was:399,
+  off:32,
+  rating:4.3,
+  reviews:82558,
+  badge:'32% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/43SRDN0',
+  flipkart:'https://www.flipkart.com/lakm-9-5-cc-cream-honey-3-niacinamide-complex-spf-30-pa-foundation/p/itm49820099a5c31?'
+},
   {
-    id:2, cat:'makeup', emoji:'🫧',
-    brand:'MAC Cosmetics', title:'Pro Longwear Foundation',
-    desc:'Full-coverage buildable formula for flawless all-day skin.',
-    price:1299, was:1999, off:35, rating:4.8, reviews:1590, badge:'35% OFF', isNew:true
-  },
+  id:2,
+  cat:'makeup',
+  img:'https://rukminim1.flixcart.com/image/1440/1440/xif0q/eye-shadow/y/l/m/20-8-ultra-pigmented-smoky-eyes-mesmereyes-eyeshadow-palette-original-imahjvynh33g8rcv.jpeg?q=90',
+  brand:'MARS',
+  title:'16-Color Eyeshadow Palette ',
+  desc:'Multicolor | Matte Finish | Shimmery Eye Shadow Palette (20.8 G) (02-Multicolor)',
+  price:346,
+  was:399,
+  off:13,
+  rating:4.4,
+  reviews:3605,
+  badge:'13% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4fur8Vo',
+  flipkart:'https://www.flipkart.com/mars-ultra-pigmented-smoky-eyes-mesmereyes-eyeshadow-palette-20-8-g/p/itm6932ad7ff7f77?'
+},
   {
-    id:3, cat:'makeup', emoji:'👁️',
-    brand:'Maybelline', title:'Sky High Mascara',
-    desc:'Volumizing & lengthening mascara for bold, lifted lashes.',
-    price:599, was:899, off:33, rating:4.7, reviews:3210, badge:'33% OFF', isNew:false
-  },
+  id:3,
+  cat:'makeup',
+  img:'https://rukminim1.flixcart.com/image/1440/1440/xif0q/makeup-kit/d/z/9/party-proof-makeup-bundle-matte-primer-to-fixer-spray-coslane-original-imahn74prfhdyqfv.jpeg?q=90',
+  brand:'GELATO BAEUTY',
+  title:'coslane Party Proof Makeup Bundle',
+  desc:'BB Foundation & CC Cream, Primer, & Makeup Fixer (Setting Spray) - Ideal for Face Makeup - Complete Makeup',
+  price:288,
+  was:449,
+  off:38,
+  rating:3.0,
+  reviews:28,
+  badge:'38% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/43mV6Dp',
+  flipkart:'https://www.flipkart.com/coslane-party-proof-makeup-bundle-matte-primer-fixer-spray/p/itmd491f09e185ba?'
+},
   {
-    id:4, cat:'makeup', emoji:'✨',
-    brand:'Lakme', title:'Radiance Compact Powder',
-    desc:'Ultra-fine powder with SPF 20 for a shine-free natural finish.',
-    price:349, was:549, off:36, rating:4.6, reviews:987, badge:'36% OFF', isNew:false
-  },
+  id:4,
+  cat:'makeup',
+  img:'https://m.media-amazon.com/images/I/71hh-W1rJQL._SL1500_.jpg',
+  brand:'HERBS',
+  title:'Herbs Bridal Makeup Kit',
+  desc:'Lip & Cheek Tint|Strobe Cream|Kajal|Sindoor|Eyeshadow Palette|Nail Paint|Serum Foundation',
+  price:885,
+  was:1100,
+  off:20,
+  rating:3.9,
+  reviews:14865,
+  badge:'20% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/3RQA91a',
+  flipkart:'https://www.flipkart.com/just-herbs-bridal-makeup-kit-perfect-gifting-combo-set-women-party/p/itm2e0af12203119?'
+},
 
   // SKINCARE
   {
-    id:5, cat:'skincare', emoji:'🫧',
-    brand:'Cetaphil', title:'Gentle Foam Face Wash',
-    desc:'Soap-free cleanser suitable for sensitive & combination skin.',
-    price:299, was:449, off:33, rating:4.9, reviews:5620, badge:'33% OFF', isNew:false
-  },
+  id:5,
+  cat:'skincare',
+  img:'https://rukminim1.flixcart.com/image/1440/1440/xif0q/face-wash/w/f/q/-original-imahmz7yhnzzxxmn.jpeg?q=90',
+  brand:'JOY UBTAN',
+  title:'Tan Removal Face Wash',
+  desc:'Detans, Removes Dirt & Blemishes for a Natural Glowing Skin',
+  price:135,
+  was:190,
+  off:29,
+  rating:4.3,
+  reviews:2329,
+  badge:'29% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/3S7y9Sa',
+  flipkart:'https://www.flipkart.com/joy-ubtan-tan-removal-natural-glowing-skin-face-wash/p/itme74a60f919250?'
+},
+ {
+  id:6,
+  cat:'skincare',
+  img:'https://m.media-amazon.com/images/I/41GjguHEm4L.jpg',
+  brand:'JOY ',
+  title:'Activated Charcoal Face Wash',
+  desc:'Skin Purifying  For Oily Skin Face Wash (100 ml)',
+  price:135,
+  was:180,
+  off:25,
+  rating:4.2,
+  reviews:52596,
+  badge:'25% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/43iXkDS',
+  flipkart:'https://www.flipkart.com/joy-activated-charcoal-skin-purifying-oily-face-wash/p/itmfbccee1036bae?'
+},
   {
-    id:6, cat:'skincare', emoji:'💧',
-    brand:'The Ordinary', title:'Niacinamide 10% Serum',
-    desc:'Reduces blemishes & pore appearance for clear glowing skin.',
-    price:699, was:999, off:30, rating:4.8, reviews:8430, badge:'30% OFF', isNew:true
-  },
-  {
-    id:7, cat:'skincare', emoji:'🌿',
-    brand:'Neutrogena', title:'Hydro Boost Moisturizer',
-    desc:'Hyaluronic acid gel-cream for long-lasting 24hr hydration.',
-    price:849, was:1299, off:35, rating:4.7, reviews:3980, badge:'35% OFF', isNew:false
-  },
-  {
-    id:8, cat:'skincare', emoji:'☀️',
-    brand:'Minimalist', title:'SPF 50 Sunscreen PA++++',
-    desc:'Lightweight, non-greasy broad-spectrum UVA/UVB protection.',
-    price:399, was:649, off:38, rating:4.9, reviews:12400, badge:'38% OFF', isNew:false
-  },
+  id:7,
+  cat:'skincare',
+  img:'https://m.media-amazon.com/images/I/51BRgY8YPYL._SL1000_.jpg',
+  brand:'PONDS',
+  title:'Pure Detox Face Wash 100 g',
+  desc:'Daily Exfoliating & Brightening Cleanser|| Deep Cleans Oily Skin - With Activated Charcoal',
+  price:202,
+  was:270,
+  off:25,
+  rating:4.4,
+  reviews:25842,
+  badge:'25% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4ohkcgM',
+  flipkart:'https://www.flipkart.com/pond-s-detox-activated-charcoal-face-wash/p/itm88d6766f6d0e2?'
+},
+ {
+  id:8,
+  cat:'skincare',
+  img:'https://m.media-amazon.com/images/I/81Gv9MBCGRL._SL1500_.jpg',
+  brand:'HIMALAYA',
+  title:'Pollution Detox Charcoal Face Wash ',
+  desc:'Charcoal Face Wash (100 ml)',
+  price:176,
+  was:210,
+  off:16,
+  rating:4.1,
+  reviews:358,
+  badge:'16% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4uTSHfB',
+  flipkart:'https://www.flipkart.com/himalaya-pollution-detox-charcoal-face-wash/p/itmc7d86a9676893?'
+},
 
   // HAIRCARE
+ {
+  id:9,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/71DntWlltuL._SL1500_.jpg',
+  brand:'URBANGABRU',
+  title:'Hair Volumizing Powder Wax',
+  desc:'Matte Finish for 24 Hours VOLUMIZERV Strong Hold Hair Volumizer Powder-Wax',
+  price:379,
+  was:399,
+  off:5,
+  rating:3.8,
+  reviews:69594,
+  badge:'5% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/43QBw2t',
+  flipkart:'https://www.flipkart.com/urbangabru-hair-volumizing-powder-wax-strong-hold-matte-finish-24-hours-volumizerv-volumizer-powder-wax/p/itm5ff18b4d6db56?'
+},
   {
-    id:9, cat:'haircare', emoji:'🧴',
-    brand:'Pantene', title:'Repair & Protect Shampoo',
-    desc:'Keratin-infused formula that repairs damage from root to tip.',
-    price:299, was:499, off:40, rating:4.6, reviews:2100, badge:'40% OFF', isNew:false
-  },
-  {
-    id:10, cat:'haircare', emoji:'🌺',
-    brand:'Indulekha', title:'Bringha Hair Oil',
-    desc:'Ayurvedic blend with 18 herbs for dense, healthy hair growth.',
-    price:449, was:699, off:36, rating:4.8, reviews:6700, badge:'36% OFF', isNew:false
-  },
-  {
-    id:11, cat:'haircare', emoji:'🌊',
-    brand:'TRESemmé', title:'Salon Silk Conditioner',
-    desc:'Professional salon-grade deep conditioning for smooth, frizz-free hair.',
-    price:249, was:399, off:38, rating:4.5, reviews:1540, badge:'38% OFF', isNew:true
-  },
-  {
-    id:12, cat:'haircare', emoji:'🍯',
-    brand:'WOW Skin Science', title:'Coconut & Argan Hair Mask',
-    desc:'Intensive repair mask that restores shine and softness in 10 min.',
-    price:549, was:849, off:35, rating:4.7, reviews:3200, badge:'35% OFF', isNew:false
-  },
+  id:10,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/71Y7RGDI70L._SL1200_.jpg',
+  brand:'SESA AAYURVEDA',
+  title:'Hair Oil 200Ml + Ayurvedic Medicinal Shampoo',
+  desc:'Combo Pack Control Hair Fall Nourishes Scalp Help Hair Growth For Men & Women',
+  price:315,
+  was:775,
+  off:34,
+  rating:4.3,
+  reviews:4686,
+  badge:'34% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4x9SYfM',
+  flipkart:'https://www.flipkart.com/sesa-ayurvedic-hair-growth-oil-200ml-anti-hair-fall-shampoo-combo-pack-2/p/itm63465c0df4d53?'
+},
+ {
+  id:11,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/51gOIPvaszL._SL1500_.jpg',
+  brand:'VAYODHA',
+  title:'Hair Treatment Kit – 3-in-1 Combo',
+  desc:'Anti Dandruff & Hair Fall Shampoo (300ml) + Leave-In Conditioner ',
+  price:899,
+  was:1599,
+  off:44,
+  rating:4.5,
+  reviews:284,
+  badge:'44% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4g1MMQS',
+  flipkart:'https://www.flipkart.com/vayodha-hair-care-combo-shampoo-300-ml-oil-mask-100-g-conditioner-ml-09/p/itm3ae6b564f79a8?'
+},
+ {
+  id:12,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/51aoyWyoU2L._SL1080_.jpg',
+  brand:'CRAVILLA',
+  title:'Black Seed Oil Hair Shampoo',
+  desc:'For Hair Fall Control | For Dry and Frizzy Hair Control Hair Shampoo | For Men & Women - 300ml',
+  price:189,
+  was:599,
+  off:68,
+  rating:4.8,
+  reviews:31,
+  badge:'68% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4ohlwjK',
+  flipkart:'https://www.flipkart.com/cravila-hair-nourish-shampoo-red-onion-black-seed-oil-formula-300ml/p/itm24640f96a59fe?'
+},
 
   // PERFUMES
-  {
-    id:13, cat:'perfumes', emoji:'🌸',
-    brand:'Fogg', title:'Floral Burst EDP',
-    desc:'Vibrant floral bouquet of rose, jasmine & white musk. Long-lasting.',
-    price:799, was:1299, off:38, rating:4.8, reviews:4100, badge:'38% OFF', isNew:false
-  },
-  {
-    id:14, cat:'perfumes', emoji:'👑',
-    brand:'Davidoff', title:'Cool Water Luxury EDP',
-    desc:'Sophisticated woody aquatic fragrance for the modern woman.',
-    price:2499, was:3999, off:37, rating:4.9, reviews:890, badge:'37% OFF', isNew:true
-  },
-  {
-    id:15, cat:'perfumes', emoji:'🌿',
-    brand:'Engage', title:'Soft Breeze Body Mist',
-    desc:'Light refreshing mist with notes of green tea and citrus blossom.',
-    price:299, was:449, off:33, rating:4.5, reviews:2780, badge:'33% OFF', isNew:false
-  },
+ {
+  id:13,
+  cat:'perfumes',
+  img:'https://m.media-amazon.com/images/I/61qiWP6EkEL._SL1500_.jpg',
+  brand:'DENVER',
+  title:'Hamilton Perfume EDP',
+  desc:'Long Lasting Perfume Body Scent For Men, Fresh, Aerosol',
+  price:429,
+  was:699,
+  off:39,
+  rating:4.2,
+  reviews:2641,
+  badge:'39% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4e8K0qs',
+  flipkart:'https://www.flipkart.com/denver-hamilton-perfume-edp-premium-strong-long-lasting-eau-de-parfum-100-ml/p/itm512afb48dba01?'
+},
+ {
+  id:14,
+  cat:'perfumes',
+  img:'https://m.media-amazon.com/images/I/61T1Aq0x45L._SL1500_.jpg',
+  brand:'ENVY',
+  title:'Eminence Perfume',
+  desc:'ENVY Eminence Perfume - 100 ML|Long Lasting Perfume For Men',
+  price:409,
+  was:649,
+  off:36,
+  rating:4.6,
+  reviews:27,
+  badge:'36% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4eq0KuC',
+  flipkart:'https://www.flipkart.com/envy-eminence-perfume-100-ml/p/itmbfd99049b3db5?'
+},
+ {
+  id:15,
+  cat:'perfumes',
+  img:'https://m.media-amazon.com/images/I/31DfBJQY6XL.jpg',
+  brand:'FOGG',
+  title:'FOGG ONE BODYSPRAY ',
+  desc:'CHAMPION +WINNER 2400ML Body Spray - For Men (240 ml, Pack of 2)',
+  price:258,
+  was:550,
+  off:46,
+  rating:4.3,
+  reviews:618,
+  badge:'46% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4vqiETM',
+  flipkart:'https://www.flipkart.com/fogg-one-winner-deodorant-long-lasting-perfume-body-spray-men/p/itm64185e63c97fd?'
+},
 
-  // NAIL CARE
   {
-    id:16, cat:'nailcare', emoji:'💅',
-    brand:'OPI', title:'Infinite Shine Nail Polish',
-    desc:'Gel-like shine without UV lamp. Up to 11 days of wear.',
-    price:699, was:999, off:30, rating:4.8, reviews:3210, badge:'30% OFF', isNew:false
-  },
+  id:16,
+  cat:'perfumes',
+  img:'https://m.media-amazon.com/images/I/71Rg8NbuEyL._SL1500_.jpg',
+  brand:'KAMASUTRA',
+  title:'KamaSutra Men Spark Deodorant Spray',
+  desc:'Fresh Long-Lasting Aroma | 150ml Each (Pack of 3)',
+  price:359,
+  was:460,
+  off:22,
+  rating:4.5,
+  reviews:55,
+  badge:'22% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4uOtLWI',
+  flipkart:'https://www.flipkart.com/kamasutra-3-spark-body-spray-men-women/p/itm3e18fd081039d?'
+},
   {
-    id:17, cat:'nailcare', emoji:'🎀',
-    brand:'SUGAR', title:'Pro Nail Art Kit',
-    desc:'16-piece kit with dotting tools, stamping plates & nail art brushes.',
-    price:499, was:899, off:44, rating:4.7, reviews:1650, badge:'44% OFF', isNew:true
-  },
+  id:17,
+  cat:'perfumes',
+  img:'https://rukminim1.flixcart.com/image/1440/1440/xif0q/shopsy-perfume/l/3/q/100-classic-black-eau-de-parfum-villain-men-original-imagwsyugu3tthwd.jpeg?q=90',
+  brand:'VILLAIN',
+  title:'Villain Perfume For Men 100 Ml',
+  desc:'Eau De Parfum - Premium Long Lasting Fragrance Spray',
+  price:349,
+  was:799,
+  off:56,
+  rating:3.8,
+  reviews:25495,
+  badge:'56% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4e95iEy',
+  flipkart:'https://www.flipkart.com/villain-classic-perfume-long-lasting-edp-bold-woody-fragrance-eau-de-parfum-100-ml/p/itma0c7cfe361467?'
+},
   {
-    id:18, cat:'nailcare', emoji:'🍃',
-    brand:'Cutex', title:'Nourishing Nail Remover',
-    desc:'Acetone-free formula with Vitamin E that conditions while removing.',
-    price:149, was:249, off:40, rating:4.6, reviews:4500, badge:'40% OFF', isNew:false
-  },
+  id:18,
+  cat:'perfumes',
+  img:'https://m.media-amazon.com/images/I/615ovi+7udL._SL1000_.jpg',
+  brand:'WILD STONE',
+  title:'Hydra Energy Eau De Perfume ',
+  desc:' Perfume for Men, 100ml',
+  price:357,
+  was:799,
+  off:55,
+  rating:4.3,
+  reviews:52462,
+  badge:'55% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4xe0R3O',
+  flipkart:'https://www.flipkart.com/wild-stone-hydra-energy-eau-de-parfum-100-ml/p/itm7c728badcb9d7?'
+},
 
-  // BATH & BODY
+ {
+  id:19,
+  cat:'perfumes',
+  img:'https://m.media-amazon.com/images/I/51eezHMhczL._SL1080_.jpg',
+  brand:'ENGAGE',
+  title:'Engage Yin Eau De Parfum for Man 50ml',
+  desc:'Fresh Bergamot Patchouli|Long Lasting Perfume|Perfume for Man',
+  price:415,
+  was:449,
+  off:8,
+  rating:4.1,
+  reviews:1722,
+  badge:'8% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4ucy6BT',
+  flipkart:'https://www.flipkart.com/engage-yin-men-perfume-spicy-fragrance-scent-ideal-gift-men-skin-friendly-eau-de-parfum-50-ml/p/itm1bc26ae557c25?'
+},
+ {
+  id:20,
+  cat:'perfumes',
+  img:'https://m.media-amazon.com/images/I/71iYB3wKOYL._SL1500_.jpg',
+  brand:'WHISKY',
+  title:'Beardo Whisky Smoke Eau De Parfum Men Spicy',
+  desc:'Woody - Oudh Perfume For Men Long Lasting, Date Night Fragrance ',
+  price:531,
+  was:1200,
+  off:56,
+  rating:4.1,
+  reviews:23189,
+  badge:'56% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4vuj9w5',
+  flipkart:'https://www.flipkart.com/beardo-whisky-smoke-bourbon-perfume-edp-oriental-woody-leathery-strong-long-lasting-eau-de-parfum-100-ml/p/itm9370df8567bd4?'
+},
   {
-    id:19, cat:'bathbody', emoji:'🛁',
-    brand:'The Body Shop', title:'British Rose Body Wash',
-    desc:'Creamy lather enriched with real rose petals for silky smooth skin.',
-    price:799, was:1299, off:38, rating:4.9, reviews:5800, badge:'38% OFF', isNew:false
-  },
-  {
-    id:20, cat:'bathbody', emoji:'🧼',
-    brand:'Dove', title:'Shea Butter Soap Set (6pc)',
-    desc:'Moisturising beauty bars with ¼ moisturising cream & shea butter.',
-    price:349, was:549, off:36, rating:4.7, reviews:8200, badge:'36% OFF', isNew:false
-  },
-  {
-    id:21, cat:'bathbody', emoji:'🌼',
-    brand:'Vaseline', title:'Deep Moisture Body Lotion',
-    desc:'48-hour moisture with micro-droplets of Vaseline jelly. Non-greasy.',
-    price:399, was:649, off:38, rating:4.8, reviews:9100, badge:'38% OFF', isNew:true
-  },
-  {
-    id:22, cat:'bathbody', emoji:'✨',
-    brand:'St. Ives', title:'Apricot Glow Body Scrub',
-    desc:'Exfoliating scrub with 100% natural walnut shell powder & apricot.',
-    price:449, was:699, off:36, rating:4.6, reviews:3400, badge:'36% OFF', isNew:false
-  },
+  id:21,
+  cat:'perfumes',
+  img:'https://m.media-amazon.com/images/I/61MenJthqVL._SL1500_.jpg',
+  brand:'ANIMAL',
+  title:'ANIMAL Eau De Parfum for Men',
+  desc:'Oud, Warm Spice, Smokey Leather, Rose | Body Spray for Man ',
+  price:449,
+  was:499,
+  off:10,
+  rating:5,
+  reviews:18,
+  badge:'10% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4oeIesL',
+  flipkart:'https://www.flipkart.com/urbangabru-animal-eau-de-parfum-men-oud-leather-spicy-long-lasting-edp-40-ml/p/itmdb4eaee02592a?'
+},
+ {
+  id:22,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/51ghusJ1sUL._SL1080_.jpg',
+  brand:'SMARTDROPS',
+  title:'Hair Wax Cream Based Hair Styling ',
+  desc:'Wax for Men Strong Hold Hair Styling Wax with Matte Look',
+  price:145,
+  was:299,
+  off:52,
+  rating:3.6,
+  reviews:18,
+  badge:'52% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4axgOIF',
+  flipkart:'https://www.flipkart.com/smartdrops-hair-wax-anti-dandruff-cream-men/p/itm694fef8f4b744?'
+},
+ {
+  id:23,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/51+heZS5PjL._SL1080_.jpg',
+  brand:'MANCODE',
+  title:'Mancode Hair Serum for Men',
+  desc:'Instant Shine & Smoothness Regular Use for Dry & Wet Hair Gives Frizz Free Soft & Silky Hair - 100ml',
+  price:210,
+  was:349,
+  off:40,
+  rating:4.2,
+  reviews:2406,
+  badge:'40% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/3RIOZH5',
+  flipkart:'https://www.flipkart.com/mancode-hair-serum-smooth-hair-attractive-shine-nourish-improve-texture-100ml/p/itm5dd44eaa00c57?'
+},
+ {
+  id:24,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/61tPd5wrUYL._SL1500_.jpg',
+  brand:'KHADI NATURAL',
+  title:'khadi natural herbal Shikakai Shampoo',
+  desc:'Suitable For Dry & Frizzy Hair | Sls & Paraben Free Anti Dandruff Hair Cleanser Shampoo ',
+  price:525,
+  was:1299,
+  off:60,
+  rating:4.2,
+  reviews:300,
+  badge:'60% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4uX9Gh8',
+  flipkart:'https://www.flipkart.com/khadi-natural-herbal-shikakai-shampoo-1-litre-paraben-free/p/itmfhth95wpjhgqu?'
+},
+ {
+  id:25,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/71kTieLXrjL._SL1080_.jpg',
+  brand:'HAIR PURE',
+  title:'Hair Pure Curly Hair Shampoo 250ml ',
+  desc:'Sulphate & Paraben Free | Jojoba Oil & Cocoa Butter Infused | Deep Moisturizing ',
+  price:359,
+  was:449,
+  off:20,
+  rating:4.9,
+  reviews:24,
+  badge:'20% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4o8CjoN',
+  flipkart:'https://www.flipkart.com/hair-pure-curly-shampoo-infused-jojoba-oil-cocoa-butter-deep-moisture/p/itm2a44debb32783?'
+},
+ {
+  id:26,
+  cat:'haircare',
+  img:'https://m.media-amazon.com/images/I/51xJI4ob9hL._SL1080_.jpg',
+  brand:'ORGATRE',
+  title:'ORGATRE Total Curls Shampoo - 250ml',
+  desc:'Rice Water & Argan Oil | Defines & Nourishes Curly Hair ',
+  price:222,
+  was:294,
+  off:24,
+  rating:4.2,
+  reviews:889,
+  badge:'24% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4uOvN9i',
+  flipkart:'https://www.flipkart.com/orgatre-total-curls-shampoo-men-women-natural-ingredients/p/itmec846594016ba?'
+},
+ {
+  id:27,
+  cat:'skincare',
+  img:'https://m.media-amazon.com/images/I/51vxEucuTGL._SL1000_.jpg',
+  brand:'LAKME',
+  title:'Lakmé Sunscreen - SPF 50 PA+++ 9',
+  desc:'Water Light|For Oily & Combination Skin| Non-sticky | For All Skin Types, For UVA/B Protection',
+  price:249,
+  was:625,
+  off:60,
+  rating:4.2,
+  reviews:61910,
+  badge:'40% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4e1VNXz',
+  flipkart:'https://www.flipkart.com/lakm-sunscreen-spf-50-pa-9-5-sun-expert-gel-light/p/itm0b132842c02dd?'
+},
+ {
+  id:28,
+  cat:'skincare',
+  img:'https://m.media-amazon.com/images/I/71mhfbsVVIL._SL1500_.jpg',
+  brand:'WOW',
+  title:'WOW Skin Science MEN OAT EXTRACT',
+  desc:'SALICYLIC ACID Anti-Acne Face Wash | Targets Acne & Prevents Breakouts | SalicShield™ Technology',
+  price:242,
+  was:269,
+  off:10,
+  rating:3.6,
+  reviews:857,
+  badge:'10% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4fpAgdR',
+  flipkart:'https://www.flipkart.com/wow-skin-science-men-korean-ginseng-kojic-acid-detan-gel-reduces-tan-dark-spots-ginsengclear-technology-gentle-exfoliation-no-sulphates-parabens-silicones-100ml-face-wash/p/itm686bf163eb6a1?'
+},
+ {
+  id:29,
+  cat:'skincare',
+  img:'https://m.media-amazon.com/images/I/71M33O0-KyL._SL1500_.jpg',
+  brand:'MUUCHSTAC',
+  title:'Muuchstac Ocean Face Wash',
+  desc:'Anti-Acne/Pimple, Oil Control & Skin Brightening Cleanser – with Niacinamide',
+  price:220,
+  was:598,
+  off:63,
+  rating:4.2,
+  reviews:20237,
+  badge:'40% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4g3SUIq',
+  flipkart:'https://www.flipkart.com/muuchstac-ocean-men-anti-acne-pimple-skin-brightening-all-types-face-wash/p/itm465bda6157fa0?'
+},
+ {
+  id:30,
+  cat:'skincare',
+  img:'https://rukminim1.flixcart.com/image/1440/1440/xif0q/face-wash/z/k/t/200-de-tan-facewash-for-men-tan-removal-oil-control-coffee-aloe-original-imahjngukyhwsq98.jpeg?q=90',
+  brand:'BEARDO',
+  title:'BEARDO DeTan Face Wash for Men',
+  desc:'Glycolic Acid,Niacinamide & Coffee | Helps to Reduce Tan,Reduce Dark Sports',
+  price:299,
+  was:450,
+  off:34,
+  rating:4.2,
+  reviews:6773,
+  badge:'34% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4oez3s3',
+  flipkart:'https://www.flipkart.com/beardo-de-tan-glycolic-latic-acid-niacinamide-coffee-tan-removal-exfoliates-men-face-wash/p/itmdfd86a899397e?'
+},
+ {
+  id:31,
+  cat:'skincare',
+  img:'https://m.media-amazon.com/images/I/51wAFxb+U-L._SL1100_.jpg',
+  brand:'MCAFFEINE',
+  title:'mCaffeine Coffee Tan & Dead Skin Removal Face Scrub',
+  desc:'Exfoliating & Brightening Scrub|Blackhead Remover,Whitehead Remover,Detan Pack',
+  price:183,
+  was:229,
+  off:20,
+  rating:4.2,
+  reviews:11299,
+  badge:'20% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4ulHaVh',
+  flipkart:'https://www.flipkart.com/mcaffeine-men-women-skin-brightening-de-tan-remove-blackheads-coffee-face-scrub/p/itm34e0034ceab5b?'
+},
+{
+  id:32,
+  cat:'makeup',
+  img:'https://m.media-amazon.com/images/I/61Ys8pmoRWL._SL1500_.jpg',
+  brand:'MARS',
+  title:'MARS Fabulash Volumizing Mascara',
+  desc:'Up to 18 Hours Stay | Waterproof with Intense Jet Black Color (12ml) (Black)',
+  price:209,
+  was:229,
+  off:9,
+  rating:4.2,
+  reviews:8588,
+  badge:'9% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4ob0YZX',
+  flipkart:'https://www.flipkart.com/mars-ultra-curl-long-lasting-fabulash-mascara-12-ml/p/itm8a189fc69b40a?'
+},
+{
+  id:33,
+  cat:'makeup',
+  img:'https://m.media-amazon.com/images/I/61nK0exQnqL._SL1500_.jpg',
+  brand:'RENEE VERY',
+  title:'RENEE Very Matte Lipstick',
+  desc:'Full Coverage, Long Lasting & Weightless, Easy Glide Formula With Velvety Finish',
+  price:169,
+  was:199,
+  off:15,
+  rating:3.8,
+  reviews:1843,
+  badge:'15% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4uhvYcg',
+  flipkart:'https://www.flipkart.com/renee-very-matte-lipstick/p/itm3c025718b1ae5?'
+},
+{
+  id:34,
+  cat:'makeup',
+  img:'https://m.media-amazon.com/images/I/61TlqQ5iz7L._SL1500_.jpg',
+  brand:'COLORS QUEEN',
+  title:'Colors Queen Nail Care',
+  desc:'15ml | Quick Drying, Long Lasting & Chip Resisting Formula ',
+  price:279,
+  was:399,
+  off:30,
+  rating:4.2,
+  reviews:11,
+  badge:'30% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4fqK737',
+  flipkart:'https://www.flipkart.com/colors-queen-vitamin-e-base-coat-nail-care/p/itm6466e299bd80a?'
+},
+{
+  id:35,
+  cat:'makeup',
+  img:'https://m.media-amazon.com/images/I/51ViupXk21L.jpg',
+  brand:'CRENTILA',
+  title:'10-in-1 Manicure Kit',
+  desc:'tainless Steel Nail Clipper Set for Men & Women | Grooming Tools',
+  price:125,
+  was:849,
+  off:85,
+  rating:4.1,
+  reviews:938,
+  badge:'85% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/3QpCdg8',
+  flipkart:'https://www.flipkart.com/wynyc-10-in-1-manicure-set-nail-clippers-kit-high-carbon-steel-leather-case/p/itm9df69b4197f35?'
+},
+{
+  id:36,
+  cat:'makeup',
+  img:'https://m.media-amazon.com/images/I/61H4sUzOQFL._SL1500_.jpg',
+  brand:'BETFIELD',
+  title:'Batfield 3 Pairs Magnetic False Eyelashes',
+  desc:'Reusable Fake Eyelashes with Eyeliner and Tweezer - Artificial Eye Lashes',
+  price:299,
+  was:999,
+  off:70,
+  rating:3.9,
+  reviews:970,
+  badge:'70% OFF',
+  isNew:false,
+  amazon:'https://amzn.to/4uUe0h5',
+  flipkart:'https://www.flipkart.com/batfield-3d-natural-artificial-false-eyelashes-reusable-magnetic-eyelashes-women/p/itm170bd9114e51f?'
+},
 ];
 
 // ─── RENDER ───────────────────────────────────────────────
@@ -596,7 +1174,7 @@ function renderProducts(cat) {
   grid.innerHTML = list.map((p, i) => `
     <div class="card" style="animation-delay:${i * 0.05}s" data-id="${p.id}">
       <div class="card-img-wrap">
-        <span class="product-emoji">${p.emoji}</span>
+       <img src="${p.img}" alt="${p.title}" class="product-img" loading="lazy">
         <span class="badge-sale">${p.badge}</span>
         ${p.isNew ? '<span class="badge-new">NEW</span>' : ''}
         
@@ -618,8 +1196,13 @@ function renderProducts(cat) {
         <div class="card-actions">
           
           <div class="btn-row">
-            <button class="btn btn-amz">🛍️ <span class="btn-lbl">Amazon</span></button>
-            <button class="btn btn-flip">🔷 <span class="btn-lbl">Flipkart</span></button>
+           <a href="${p.amazon}" target="_blank" class="btn btn-amz">
+  🛍️ <span class="btn-lbl">Amazon</span>
+</a>
+
+<a href="${p.flipkart}" target="_blank" class="btn btn-flip">
+  🔷 <span class="btn-lbl">Flipkart</span>
+</a>
           </div>
         </div>
       </div>
