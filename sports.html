@@ -7,10 +7,85 @@
 <title>Sports & Fitness – MarketWorld | Gear, Equipment & Best Deals</title>
 
 <meta name="description" content="Explore Sports & Fitness collection on MarketWorld featuring sports gear, fitness equipment, and the best online deals and discounts." />
-
+<link rel="canonical" href="https://marketworld.me/sports.html">
+<meta name="title" content="Best Sports & Fitness Deals – Football, Gym, Cricket Gear | MarketWorld">
+<meta name="keywords" content="sports gear, fitness equipment, football shoes, cricket bat, gym equipment, online sports deals India">
+<meta name="robots" content="index, follow">
+<meta name="author" content="MarketWorld">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "MarketWorld",
+  "description": "Best sports and fitness deals online",
+  "url": "https://marketworld.me"
+}
+</script>
 <style>
+
+  footer a {
+  text-decoration: none;
+  color: inherit;
+}
+  .ft-brand {
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #ff3d00;
+}
+
+body {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* headings ko readable banao */
+h1 { font-size: 3rem !important; }
+h2 { font-size: 2.2rem !important; }
+h3 { font-size: 1.6rem !important; }
+
+/* product text */
+.card-title {
+  font-size: 1.1rem !important;
+  font-weight: 700;
+}
+
+.card-desc {
+  font-size: 0.95rem !important;
+}
+
+.card-cat-tag {
+  font-size: 0.85rem !important;
+}
+
+.price-now {
+  font-size: 1.6rem !important;
+}
+
+/* buttons */
+.cbtn {
+  font-size: 1rem !important;
+  padding: 10px 14px;
+}
+
+/* badges (important fix) */
+.badge-off,
+.badge-trend {
+  font-size: 0.8rem !important;
+  padding: 6px 12px;
+}
+
+/* small text too small na ho */
+.cd-lbl,
+.hs-lbl {
+  font-size: 0.75rem;
+}
 :root {
   --bg:       #080a0e;
   --bg2:      #0d1017;
@@ -43,7 +118,6 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Barlow', sans-serif;
   background: var(--bg);
@@ -52,6 +126,11 @@ body {
   overflow-x: hidden;
 }
 
+.card-title { font-size: 16px; }
+.card-desc { font-size: 13px; }
+.card-cat-tag { font-size: 11px; }
+.price-now { font-size: 24px; }
+.cbtn { font-size: 13px; }
 /* ── SCANLINE TEXTURE ── */
 body::before {
   content: '';
@@ -331,14 +410,24 @@ nav {
   display: flex; gap: 10px; flex-wrap: wrap;
 }
 .cat-btn {
-  display: flex; align-items: center; gap: 8px;
-  padding: 10px 20px; border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 16px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  border-radius: 50px;
   border: 1px solid var(--border2);
   background: var(--surface);
   color: var(--sub);
-  font-family: 'Barlow', sans-serif; font-size: 13.5px; font-weight: 600;
-  cursor: pointer; transition: all var(--trans); white-space: nowrap;
-  letter-spacing: .2px;
+
+  cursor: pointer;
+  transition: all var(--trans);
+  white-space: nowrap;
 }
 .cat-btn:hover { color: var(--text); transform: translateY(-2px); }
 .cat-btn .cat-emoji { font-size: 15px; }
@@ -392,16 +481,26 @@ nav {
 .card[data-cat="shoes"]:hover     { border-color: rgba(255,230,0,.4);  box-shadow: 0 8px 40px rgba(255,230,0,.15),  0 0 0 1px rgba(255,230,0,.08); }
 
 .card-img {
-  height: 200px; position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, #0e1118, #161c28);
 }
-.card-emoji {
-  font-size: 88px; transition: transform var(--trans);
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,.6));
-  user-select: none;
+
+.card-img-main {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
-.card:hover .card-emoji { transform: scale(1.15); }
+
+.card:hover .card-img-main {
+  transform: scale(1.1);
+}
 
 .badge-off {
   position: absolute; top: 12px; left: 12px;
@@ -465,11 +564,21 @@ nav {
 .card-actions { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
 .btn-row { display: flex; gap: 6px; }
 .cbtn {
-  flex: 1; border: none; border-radius: 50px;
-  font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700;
-  padding: 8px 8px; cursor: pointer; transition: all var(--trans);
-  display: flex; align-items: center; justify-content: center; gap: 4px;
+  flex: 1;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 8px;
+  cursor: pointer;
+  transition: all var(--trans);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   letter-spacing: .2px;
+  text-decoration: none;  /* 👈 add this */
 }
 .cbtn-cart {
   background: rgba(255,45,85,.12); color: var(--red);
@@ -535,6 +644,8 @@ footer .ft-copy { opacity: .45; font-size: 12px; margin-top: 8px; }
   .flash-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   .hero { padding: 50px 5vw 40px; min-height: auto; }
 }
+
+
 </style>
 </head>
 <body>
@@ -564,7 +675,7 @@ footer .ft-copy { opacity: .45; font-size: 12px; margin-top: 8px; }
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">🔥 Limited Time Flash Sale</div>
-    <h1>Best Sports<span>&amp; Fitness</span>Deals</h1>
+   <h1>Best Sports <span>& Fitness</span> Deals</h1>
     <p class="hero-sub">Gear up for greatness. Premium sports equipment, gym essentials &amp; gaming gear at jaw-dropping prices.</p>
     <div class="hero-btns">
       <button class="hero-cta primary" onclick="document.querySelector('.cats-section').scrollIntoView({behavior:'smooth'})">Shop Now ↓</button>
@@ -653,18 +764,7 @@ footer .ft-copy { opacity: .45; font-size: 12px; margin-top: 8px; }
   <div class="cd-msg">🔥 Flash sale is live! <strong>Don't miss the best sports deals of the season.</strong> Prices reset at midnight.</div>
 </div>
 
-<!-- ── CATEGORY BUTTONS ── -->
-<section class="cats-section">
-  <div class="cats">
-    <button class="cat-btn active" data-cat="all"><span class="cat-emoji">🌟</span> All</button>
-    <button class="cat-btn" data-cat="football"><span class="cat-emoji">⚽</span> Football</button>
-    <button class="cat-btn" data-cat="cricket"><span class="cat-emoji">🏏</span> Cricket</button>
-    <button class="cat-btn" data-cat="basketball"><span class="cat-emoji">🏀</span> Basketball</button>
-    <button class="cat-btn" data-cat="fitness"><span class="cat-emoji">🏋</span> Fitness</button>
-    <button class="cat-btn" data-cat="gaming"><span class="cat-emoji">🎮</span> Gaming</button>
-    <button class="cat-btn" data-cat="shoes"><span class="cat-emoji">👟</span> Sports Shoes</button>
-  </div>
-</section>
+
 
 <!-- ── PRODUCTS ── -->
 <section class="products-section">
@@ -677,8 +777,15 @@ footer .ft-copy { opacity: .45; font-size: 12px; margin-top: 8px; }
 
 <!-- ── FOOTER ── -->
 <footer>
-  <span class="ft-brand">MarketWorld</span>
-  <div>Sports &amp; Fitness | Beauty | Fashion | Electronics | Gaming</div>
+ <a href="index.html" class="ft-brand">MarketWorld</a>
+
+<div>
+  <a href="sports.html">Sports &amp; Fitness</a> |
+  <a href="beauty.html">Beauty</a> |
+  <a href="fashion.html">Fashion</a> |
+  <a href="electronic.html">Electronics</a> |
+  <a href="home-kitchen.html">Home-kitchen</a>
+</div>
   <div class="ft-copy">© 2025 MarketWorld. All rights reserved. Built for Champions. ⚡</div>
 </footer>
 
@@ -686,44 +793,414 @@ footer .ft-copy { opacity: .45; font-size: 12px; margin-top: 8px; }
 // ── PRODUCT DATA ──────────────────────────────────────────
 const products = [
   // FOOTBALL
-  { id:1,  cat:'football',   emoji:'👟', brand:'Nike',      title:'Mercurial Football Boots',    desc:'Firm-ground cleats with explosive speed plate and NikeSkin upper.',      price:2499, was:4999, off:50, rating:4.8, reviews:3420, badge:'50% OFF', trend:true,  best:false },
-  { id:2,  cat:'football',   emoji:'🥅', brand:'Adidas',    title:'Tiro 21 Football Kit',        desc:'Full jersey + shorts combo. Moisture-wicking AEROREADY fabric.',          price:1299, was:2499, off:48, rating:4.7, reviews:2180, badge:'48% OFF', trend:false, best:true  },
-  { id:3,  cat:'football',   emoji:'🧤', brand:'Puma',      title:'Pro Goalkeeper Gloves',       desc:'Latex palm with 4mm contact grip. Ideal for all weather play.',           price:799,  was:1499, off:47, rating:4.6, reviews:980,  badge:'47% OFF', trend:false, best:false },
-
+{
+  id: 1,
+  cat: 'football',
+  brand: 'NIVIA',
+  title: 'Nivia Storm White Moulded Football',
+  desc: 'Football with Ball Pump Football - Size: 5 (Pack of 1, White)',
+  price: 399,
+  was: 928,
+  off: 57,
+  rating: 4.1,
+  reviews: 380982,
+  badge: '57% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/81pgKnRou9L._SL1500_.jpg',
+  amazon: 'https://amzn.to/49I8tlb',
+  flipkart: 'https://www.flipkart.com/nivia-storm-pump-football-size-5/p/itm296400f9b2d73?'
+}, 
+{
+  id: 2,
+  cat: 'gaming',
+  brand: 'JASPO',
+  title: '26" inches Skateboard',
+  desc: 'Beginners Boys & Girls (6 Years & Above, Skate-Board, Vinyl, Black)',
+  price: 775,
+  was: 3498,
+  off: 78,
+  rating: 3.8,
+  reviews: 1148,
+  badge: '78% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/81ogbrdtaQL._SL1500_.jpg',
+  amazon: 'https://amzn.to/49GcR4i',
+  flipkart: 'https://www.flipkart.com/jaspo-power-kids-26-inches-beginners-boys-girls-skate-board-vinyl-26-inch-x-6-skateboard/p/itm07dd6dccd080f?'
+},  
+{
+  id: 3,
+  cat: 'fitness',
+  brand: 'JASPO',
+  title: ' Kids Protective Gear Set',
+  desc: 'Knee Pads, Elbow Pads & Wrist Guards for Skating, Cycling',
+  price: 649,
+  was: 1199,
+  off: 46,
+  rating: 3.7,
+  reviews: 6860,
+  badge: '46% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/81wT1fjigeL._SL1500_.jpg',
+  amazon: 'https://amzn.to/3Qok4PS',
+  flipkart: 'https://www.flipkart.com/jaspo-tyro-protective-gear-set-kids-helmet-knee-elbow-wrist-guards-6-14yrs-skating-kit/p/itm6002929d4cc31?'
+}, 
   // CRICKET
-  { id:4,  cat:'cricket',    emoji:'🏏', brand:'SG',        title:'VS 319 Cricket Bat',          desc:'English willow Grade 1 | Short handle | 7–9 grains | Ideal for power hitting.', price:3999, was:7499, off:47, rating:4.9, reviews:5610, badge:'47% OFF', trend:true,  best:true  },
-  { id:5,  cat:'cricket',    emoji:'🎯', brand:'Kookaburra', title:'Turf Cricket Ball',          desc:'Premium red leather 4-piece cricket ball. BCCI approved quality.',          price:449,  was:699,  off:36, rating:4.7, reviews:3200, badge:'36% OFF', trend:false, best:false },
-  { id:6,  cat:'cricket',    emoji:'🧤', brand:'GM',        title:'Icon DXM Batting Gloves',     desc:'Full leather fingers with reinforced foam palm protection.',                price:899,  was:1499, off:40, rating:4.8, reviews:1870, badge:'40% OFF', trend:false, best:true  },
-
+{
+  id: 4,
+  cat: 'fitness',
+  brand: 'LYCAN',
+  title: '3Ft Unfilled Boxing Bag',
+  desc: 'Heavy Boxing Bag with Steel Chain & Hand wrap',
+  price: 671,
+  was: 899,
+  off: 25,
+  rating: 4.1,
+  reviews: 6124,
+  badge: '25% OFF',
+  trend: true,
+  best: false,
+  image: 'https://rukminim2.flixcart.com/image/1440/1440/xif0q/punching-bag/9/d/o/2-feet-2ft-unfilled-heavy-black-boxing-bag-with-steel-chain-hand-original-imahg89pwdmtehvk.jpeg?q=90',
+  amazon: 'https://amzn.to/4e37PQt',
+  flipkart: 'https://www.flipkart.com/lycan-unfilled-heavy-premium-srf-chian-hand-wrap-fitness-punching-hanging-bag/p/itmdb249b0334741?'
+},   
+{
+  id: 5,
+  cat: 'fitness',
+  brand: 'FITBOX',
+  title: ' Adjustable Dumbbell (20 kg)',
+  desc: 'Button Shapped Weight Plates & Dumbbell Rods for Home Gym',
+  price: 799,
+  was: 2485,
+  off: 68,
+  rating: 3.8,
+  reviews: 5331,
+  badge: '68% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/51N3s-tnEAL._SL1001_.jpg',
+  amazon: 'https://amzn.to/4esdXDh',
+  flipkart: 'https://www.flipkart.com/sahib-traders-3-23-convertible-barbell-home-gym-set-kit-workout-adjustable-dumbbell/p/itm183b3b9f14b60?'
+}, 
+{
+  id: 6,
+  cat: 'fitness',
+  brand: 'LAVISH HANDICRAFT',
+  title: 'Yoga Mat ',
+  desc: 'Anti-Slip/Skid/Split Yoga Mat for Home, Outdoor, Gym Workout and Flooring Fitness',
+  price: 199,
+  was: 999,
+  off: 80,
+  rating: 3.7,
+  reviews: 765,
+  badge: '80% OFF',
+  trend: true,
+  best: false,
+  image: 'https://rukminim2.flixcart.com/image/1440/1440/xif0q/sport-mat/c/k/9/eva-anti-slip-home-gym-exercise-workout-fitness-for-men-women-original-imahgzyfznhb54zj.jpeg?q=90',
+  amazon: 'https://amzn.to/4o9PkhT',
+  flipkart: 'https://www.flipkart.com/justifit-eva-anti-slip-home-gym-exercise-workout-fitness-men-women-kids-green-4-mm-yoga-mat/p/itm287bc20bbd479?'
+}, 
   // BASKETBALL
-  { id:7,  cat:'basketball', emoji:'👟', brand:'Jordan',    title:'Air Jordan Basketball Shoes', desc:'Mid-top ankle support with Zoom Air cushioning for court dominance.',      price:5999, was:9999, off:40, rating:4.9, reviews:6700, badge:'40% OFF', trend:true,  best:true  },
-  { id:8,  cat:'basketball', emoji:'🏀', brand:'Spalding',  title:'NBA Official Basketball',     desc:'Composite leather with nylon-wound butyl rubber bladder. Size 7.',        price:1499, was:2299, off:35, rating:4.7, reviews:4100, badge:'35% OFF', trend:false, best:false },
-  { id:9,  cat:'basketball', emoji:'👕', brand:'NBA',       title:'Brooklyn Nets Game Jersey',   desc:'Official Swingman jersey with screened graphics and Dri-FIT fabric.',     price:1799, was:2999, off:40, rating:4.6, reviews:2340, badge:'40% OFF', trend:true,  best:false },
-
+{
+  id: 7,
+  cat: 'fitness',
+  brand: 'DSFIT',
+  title: 'Stretching Resistance Band',
+  desc: 'Full Body Workout | Toning Tube | Gym Exercise Equipment ',
+  price: 199,
+  was: 499,
+  off: 60,
+  rating: 4.2,
+  reviews: 20,
+  badge: '60% OFF',
+  trend: true,
+  best: false,
+  image: 'https://rukminim2.flixcart.com/image/1440/1440/xif0q/resistance-tube/c/f/b/exercise-stretching-resistance-band-set-for-men-women-workout-original-imahk8avzrz2fnkn.jpeg?q=90',
+  amazon: 'https://amzn.to/4e8ITHp',
+  flipkart: 'https://www.flipkart.com/dsfit-exercise-stretching-resistance-band-set-men-women-workout-tube/p/itmf7e397f881bb1?'
+},  
+{
+  id: 8,
+  cat: 'fitness',
+  brand: 'PRO365',
+  title: 'Double Spring Steel Tummy Trimmer',
+  desc: 'Better Design Flat Pedal For Extra Support/Sit Up Equipment/Abs Exerciser',
+  price: 472,
+  was: 841,
+  off: 41,
+  rating: 4.1,
+  reviews: 21515,
+  badge: '50% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/612J-gmd-bL._SL1272_.jpg',
+  amazon: 'https://amzn.to/4dW3yQg',
+  flipkart: 'https://www.flipkart.com/pro365-double-spring-steel-tummy-trimmer-fat-burning-weight-loss-exercises-red-ab-exerciser/p/itmec8d908e48898?'
+},  
+{
+  id: 9,
+  cat: 'fitness',
+  brand: 'XYNO',
+  title: 'Adjustable Hand & Finger Gripper Combo',
+  desc: 'Resistance Grip Strength Trainer & Finger Exerciser | Forearm, Wrist & Hand Workout Tool',
+  price: 277,
+  was: 799,
+  off: 65,
+  rating: 3.8,
+  reviews: 467,
+  badge: '50% OFF',
+  trend: true,
+  best: false,
+  image: 'https://rukminim2.flixcart.com/image/1440/1440/xif0q/kit/d/k/e/finger-exerciser-and-counter-gripper-exerciser-hand-grip-fitness-original-imah3t9wrzgmfp8z.jpeg?q=90',
+  amazon: 'https://amzn.to/3S6RMd6',
+  flipkart: 'https://www.flipkart.com/boldfire-finger-strengthener-hand-gripper-forearm-exerciser-hand-fitness-accessory-kit/p/itm01e8801b13957?'
+}, 
   // FITNESS
-  { id:10, cat:'fitness',    emoji:'🏋', brand:'Boldfit',   title:'Adjustable Dumbbell Set 20kg',desc:'Chrome-plated steel with knurled grip. Adjustable from 2–20 kg per side.',price:2999, was:5499, off:45, rating:4.8, reviews:8940, badge:'45% OFF', trend:true,  best:true  },
-  { id:11, cat:'fitness',    emoji:'💪', brand:'Fitelo',    title:'Resistance Bands Set (5pc)',  desc:'Heavy-duty latex loop bands from 5–50 lbs. Ideal for home workouts.',      price:499,  was:999,  off:50, rating:4.7, reviews:12500,badge:'50% OFF', trend:false, best:true  },
-  { id:12, cat:'fitness',    emoji:'🧘', brand:'Strauss',   title:'Anti-Slip TPE Yoga Mat 6mm',  desc:'Extra-thick eco TPE foam with carrying strap. 183×61 cm.',                price:699,  was:1299, off:46, rating:4.9, reviews:19800,badge:'46% OFF', trend:false, best:true  },
-  { id:13, cat:'fitness',    emoji:'🏃', brand:'PowerMax',  title:'MFT-410 Motorized Treadmill', desc:'3.5 HP peak motor, 16 preset programs, auto incline, 120 kg capacity.',    price:24999,was:44999,off:44, rating:4.6, reviews:3120, badge:'44% OFF', trend:true,  best:false },
-  { id:14, cat:'fitness',    emoji:'🥤', brand:'Myprotein', title:'Pro Protein Shaker 600ml',    desc:'BPA-free tritan bottle with blender ball. Leak-proof flip lid.',            price:299,  was:549,  off:45, rating:4.8, reviews:22000,badge:'45% OFF', trend:false, best:false },
-
+{
+  id: 10,
+  cat: 'fitness',
+  brand: 'FITKIT',
+  title: 'Reach AB 110 Upright Air Bike',
+  desc: 'Adjustable Resistance with Cushioned Seat | Max User Weight 110 Kg ',
+  price: 5999,
+  was: 12999,
+  off: 50,
+  rating: 4.2,
+  reviews: 2354,
+  badge: '50% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/51zTkxtU2PL._SL1100_.jpg',
+  amazon: 'https://amzn.to/4esXpLm',
+  flipkart: 'https://www.flipkart.com/fitkit-2-in-1-air-bike-moving-static-exercise-cycle-max-user-120kg-home-use-dual-action-stationary/p/itm6b74a5c700cab?'
+},  
+{
+  id: 11,
+  cat: 'fitness',
+  brand: 'FITARC',
+  title: 'Rope Cable Attachment',
+  desc: '27 Inch Tricep Rope for Cable Machine Attachment, Tricep Pull Down Attachment',
+  price: 299,
+  was: 1099,
+  off: 73,
+  rating: 4.2,
+  reviews: 370,
+  badge: '73% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/61rfph0LZaL._SL1500_.jpg',
+  amazon: 'https://amzn.to/4upJg6D',
+  flipkart: 'https://www.flipkart.com/usi-universal-catr-cable-attachment-tricep-rope-machine-gym-lat-pulldown/p/itm2f1794f40a918?'
+},  
+{
+  id: 12,
+  cat: 'cricket',
+  brand: 'SNAGA',
+  title: 'Cricket Helmet ',
+  desc: 'Size: Medium | for Men & Boys | Steel Grill | Adjustable Back Support Strap',
+  price: 999,
+  was: 1599,
+  off: 38,
+  rating: 3.8,
+  reviews: 330,
+  badge: '38% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/61-JY04BaQL._SL1500_.jpg',
+  amazon: 'https://amzn.to/49GDiGX',
+  flipkart: 'https://www.flipkart.com/snaga-eco-cricket-helmet-boys-size-large/p/itm53886128a30c6?'
+},  
+{
+  id: 13,
+  cat: 'gaming',
+  brand: 'JAGER SMITH',
+  title: 'Aluminium Badminton Racquet',
+  desc: 'Tempered Steel Shaft & Featherlite 2 (Pack of 3) Feather Shuttles&Full Cover',
+  price: 599,
+  was: 1499,
+  off: 60,
+  rating: 4.3,
+  reviews: 35171,
+  badge: '60% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/81p52d1cgvL._SL1500_.jpg',
+  amazon: 'https://amzn.to/4odFxax',
+  flipkart: 'https://www.flipkart.com/jager-smith-pb-1000-combo-featherlite-2-shuttle-badminton-kit/p/itme6ee9db770d7a?'
+},  
+{
+  id: 14,
+  cat: 'cricket',
+  brand: 'SLOVIC',
+  title: 'Cricket Bat [90 x 10.5 CM] ',
+  desc: 'Full Size Tennis Bat for Cricket | Cricket Bat-Ball for All (Above 14 Years) ',
+  price: 299,
+  was: 549,
+  off: 46,
+  rating: 4.2,
+  reviews: 662,
+  badge: '46% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/6164TY9DCtL._SL1500_.jpg',
+  amazon: 'https://amzn.to/4e7h5TP',
+  flipkart: 'https://www.flipkart.com/lycan-monster-pvc-full-size-heavy-duty-pvc-plastic-cricket-bat-15-yrs/p/itm7edbd8ca270b7?'
+}, 
   // GAMING
-  { id:15, cat:'gaming',     emoji:'⌨️', brand:'Redragon',  title:'K552 Mechanical Keyboard',   desc:'TKL layout, red switches, blue LED backlit, compact gaming design.',        price:1999, was:3499, off:43, rating:4.8, reviews:7200, badge:'43% OFF', trend:true,  best:false },
-  { id:16, cat:'gaming',     emoji:'🖱️', brand:'Logitech',  title:'G102 Lightsync Gaming Mouse', desc:'200–8000 DPI, 6 programmable buttons, 16.8M RGB lighting.',               price:999,  was:1799, off:44, rating:4.9, reviews:14300,badge:'44% OFF', trend:false, best:true  },
-  { id:17, cat:'gaming',     emoji:'🎧', brand:'HyperX',    title:'Cloud Stinger RGB Headset',   desc:'50mm drivers, immersive 7.1 surround, noise-cancelling mic, 280g.',        price:2499, was:4299, off:42, rating:4.8, reviews:9800, badge:'42% OFF', trend:true,  best:true  },
-
+{
+  id: 15,
+  cat: 'fitness',
+  brand: 'MUSCLETECH',
+  title: 'Platinum Creatine Micronized Powder ',
+  desc: '83 Servings, Citrus Blast | Improves Strength, Power & Muscle Recovery',
+  price: 899,
+  was: 1399,
+  off: 36,
+  rating: 4.3,
+  reviews: 13268,
+  badge: '36% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/61q8UcV9o8L._SL1200_.jpg',
+  amazon: 'https://amzn.to/3RJ6gzX',
+  flipkart: 'https://www.flipkart.com/muscletech-platinum-creatine-monohydrate-micronized-powder-3-g-per-serving/p/itm3036b749b081f?'
+},  
+{
+  id: 16,
+  cat: 'gaming',
+  brand: 'JASPO URBAN',
+  title: 'Rider Plus Cycling Helmet',
+  desc: 'djustable Spin Dial (Upto 5cm) | Detachable Visor | Quick-Release Buckle',
+  price: 798,
+  was: 1599,
+  off: 50,
+  rating: 4.2,
+  reviews: 20,
+  badge: '50% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/71Rf3v7l0uL._SL1500_.jpg',
+  amazon: 'https://amzn.to/3Qudg3b',
+  flipkart: 'https://www.flipkart.com/jaspo-robust-cycling-helmet-detahcable-visor-adjustable-53-58cm-smart-airflow-helmet/p/itm01570c66612f5?'
+},  
+{
+  id: 17,
+  cat: 'gaming',
+  brand: 'ENCASIFY',
+  title: 'Table Tennis Table Cover',
+  desc: ' Flat & Folding Tables - All Weather Condition 2 in1 (Indoor/Outdoor) Cover – Dust & Water Resistant',
+  price: 1249,
+  was: 2499,
+  off: 50,
+  rating: 4.2,
+  reviews: 30,
+  badge: '50% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/51nu+qm1AML._SL1500_.jpg',
+  amazon: 'https://amzn.to/3Sq6nQV',
+  flipkart: 'https://www.flipkart.com/encasify-table-tennis-cover-fits-flat-folding-tables-perfect-fit-9x5-free-size/p/itmaa29a39a1afef?'
+}, 
   // SHOES
-  { id:18, cat:'shoes',      emoji:'🏃', brand:'Nike',      title:'React Infinity Run FK 3',     desc:'FlyKnit upper with React foam midsole for all-day cushioned running.',      price:6499, was:10999,off:41, rating:4.9, reviews:8700, badge:'41% OFF', trend:true,  best:true  },
-  { id:19, cat:'shoes',      emoji:'👟', brand:'Adidas',    title:'Forum Low Sneakers',          desc:'Iconic leather upper with ankle strap and serrated 3-Stripes detail.',     price:4499, was:6999, off:36, rating:4.7, reviews:5400, badge:'36% OFF', trend:false, best:false },
-  { id:20, cat:'shoes',      emoji:'💨', brand:'Puma',      title:'Hybrid Fuego Training Shoes', desc:'IGNITE foam + energy web outsole. Excellent grip for HIIT &amp; CrossFit.', price:3299, was:5499, off:40, rating:4.8, reviews:3980, badge:'40% OFF', trend:true,  best:false },
-  { id:21, cat:'shoes',      emoji:'🌟', brand:'New Balance',title:'Fresh Foam 880 v13',         desc:'Premium dual-density Fresh Foam midsole for long-distance comfort.',        price:7999, was:11999,off:33, rating:4.9, reviews:6120, badge:'33% OFF', trend:false, best:true  },
-];
+{
+  id: 18,
+  cat: 'gaming',
+  brand: 'TRIUMPH',
+  title: ' Mesh Volleyball Net',
+  desc: 'radion RVN0 vollyball nylon net black Volleyball Net (Black)',
+  price: 297,
+  was: 335,
+  off: 11,
+  rating: 3.9,
+  reviews: 34,
+  badge: '50% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/61o62O7NclL._SL1100_.jpg',
+  amazon: 'https://amzn.to/4e6CUTh',
+  flipkart: 'https://www.flipkart.com/radion-rvn0-vollyball-nylon-net-black-volleyball/p/itme5470103d508a?'
+},  
+{
+  id: 19,
+  cat: 'fitness',
+  brand: 'SERVEUTTAM',
+  title: 'Neoprene Elbow Support',
+  desc: '(1 Pc)- Elbow Brace For Men Women Workout Elbow Compression Sleeves For Tendonitis Pain',
+  price: 169,
+  was: 269,
+  off: 37,
+  rating: 4.1,
+  reviews: 978,
+  badge: '37% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/41Chfs6z3hL.jpg',
+  amazon: 'https://amzn.to/43Tgro8',
+  flipkart: 'https://www.flipkart.com/gymwar-elbow-support-gym-brace-men-women-workout/p/itmdc05130e63651?'
+},  
+{
+  id: 20,
+  cat: 'fitness',
+  brand: 'BOLDFIT',
+  title: 'Gym Gloves for Men Workout',
+  desc: 'Unisex Hand Gloves for Gym for Men & Women with Wrist Support ',
+  price: 314,
+  was: 799,
+  off: 62,
+  rating: 4.2,
+  reviews: 5602,
+  badge: '62% OFF',
+  trend: true,
+  best: false,
+  image: 'https://rukminim2.flixcart.com/image/1440/1440/xif0q/sport-glove/v/c/c/both-the-hands-xl-gym-gloves-for-men-gym-gloves-with-wrist-original-imahgv3wrhcsw3sn.jpeg?q=90',
+  amazon: 'https://amzn.to/43l5ITf',
+  flipkart: 'https://www.flipkart.com/boldfit-gym-gloves-men-wrist-support-hand-glove-women-fitness/p/itmeb7d3509b54c1?'
+},  
+{
+  id: 21,
+  cat: 'gaming',
+  brand: 'VIRKEY',
+  title: 'Skating Shoes',
+  desc: 'Adjustable Inline Roller Skates for Boys Kids&Girls, 7 to 14 Years Unisex Outdoor Skating Shoes Roller',
+  price: 887,
+  was: 4999,
+  off: 82,
+  rating: 3.8,
+  reviews: 6376,
+  badge: '82% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/715jLgDo-vL._SL1500_.jpg',
+  amazon: 'https://amzn.to/3PYIY8B',
+  flipkart: 'https://www.flipkart.com/speedyzone-skating-shoes-adjustable-size-led-wheels-kids-boys-girls-in-line-adults-6-uk-9/p/itmaf7f8a80e948e?'
+}, 
+{
+  id: 22,
+  cat: 'basketball',
+  brand: 'GENERIC',
+  title: '36 cm Basketball Ring',
+  desc: 'Heavy-Duty Basketball Hoop for Ball Size 6 | Indoor & Outdoor Play',
+  price: 449,
+  was: 878,
+  off: 49,
+  rating: 4,
+  reviews: 101,
+  badge: '49% OFF',
+  trend: true,
+  best: false,
+  image: 'https://m.media-amazon.com/images/I/51yaV5fDnfL.jpg',
+  amazon: 'https://amzn.to/43OZds2',
+  flipkart: 'https://www.flipkart.com/elk-power-basketball-ring/p/itm7a994f716681c?'
+}
+ ];
 
 // ── RENDER ────────────────────────────────────────────────
 const grid    = document.getElementById('product-grid');
 const heading = document.getElementById('prod-heading');
 const countEl = document.getElementById('prod-count');
-const catBtns = document.querySelectorAll('.cat-btn');
+
 let cartCount = 0;
 
 const catLabels = {
@@ -744,7 +1221,7 @@ function renderProducts(cat) {
   grid.innerHTML = list.map((p, i) => `
     <div class="card" data-cat="${p.cat}" style="animation-delay:${i*.05}s">
       <div class="card-img">
-        <span class="card-emoji">${p.emoji}</span>
+<img class="card-img-main" src="${p.image}" alt="${p.title}">
         <span class="badge-off">${p.badge}</span>
         ${p.trend ? '<span class="badge-trend">🔥 TRENDING</span>' : p.best ? '<span class="badge-trend badge-best">⭐ BEST SELLER</span>' : ''}
        
@@ -764,13 +1241,14 @@ function renderProducts(cat) {
           <span class="price-save">${p.off}% off</span>
         </div>
         <div class="card-actions">
-          <div class="btn-row">
-          
-         
-          </div>
-          <div class="btn-row">
-            <button class="cbtn cbtn-amz">🛍️ Amazon</button>
-            <button class="cbtn cbtn-flip">🔷 Flipkart</button>
+        
+           <a class="cbtn cbtn-amz" href="${p.amazon}" target="_blank">
+🛍️ Amazon
+</a>
+
+<a class="cbtn cbtn-flip" href="${p.flipkart}" target="_blank">
+🔷 Flipkart
+</a>
           </div>
         </div>
       </div>
@@ -778,20 +1256,6 @@ function renderProducts(cat) {
   `).join('');
 }
 
-
-
-
-function filterCat(cat) {
-  catBtns.forEach(b => b.classList.remove('active'));
-  const target = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
-  if (target) target.classList.add('active');
-  renderProducts(cat);
-  document.querySelector('.products-section').scrollIntoView({ behavior: 'smooth' });
-}
-
-catBtns.forEach(btn => {
-  btn.addEventListener('click', () => filterCat(btn.dataset.cat));
-});
 
 // ── COUNTDOWN ─────────────────────────────────────────────
 let total = 8 * 3600 + 42 * 60 + 17;
@@ -806,8 +1270,10 @@ setInterval(() => {
   document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
 }, 1000);
 
+
 // ── INIT ──────────────────────────────────────────────────
 renderProducts('all');
 </script>
+
 </body>
 </html>
