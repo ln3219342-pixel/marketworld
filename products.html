@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Redirecting...</title>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const cat = params.get("cat");
+
+if(cat === "electronics"){
+    window.location.href = "/electronic.html";
+}
+else if(cat === "fashion"){
+    window.location.href = "/fashion.html";
+}
+else if(cat === "beauty"){
+    window.location.href = "/beauty.html";
+}
+else if(cat === "sports"){
+    window.location.href = "/sports.html";
+}
+else if(cat === "home-kitchen"){
+    window.location.href = "/home-kitchen.html";
+}
+else{
+    window.location.href = "/";
+}
+</script>
+
+</head>
+<body>
+
+<h2>Redirecting...</h2>
+
+</body>
+</html>
