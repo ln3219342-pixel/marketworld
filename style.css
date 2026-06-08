@@ -1687,3 +1687,61 @@ img{
     padding: 10px;
   }
 }
+.social-links{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.social-link{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  color:#fff;
+  transition:0.3s;
+}
+
+/* LinkedIn */
+.social-link:nth-child(1){
+  background:#0A66C2;
+}
+
+/* YouTube */
+.social-link:nth-child(2){
+  background:#FF0000;
+}
+
+/* Instagram */
+.social-link:nth-child(3){
+  background:radial-gradient(circle at 30% 30%, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+}
+
+.social-link:hover{
+  transform:scale(1.1);
+  opacity:0.9;
+}.social-link{
+  color:#fff;
+  border:2px solid transparent;
+  transition:0.3s;
+}
+
+.social-link:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 12px rgba(255,255,255,0.3);
+}
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+body{
+  padding-top: 80px;
+}
