@@ -9,7 +9,10 @@
 <meta name="description" content="Explore Beauty Collection on MarketWorld featuring skincare, makeup, and trending beauty products with the best online deals and discounts." />
 <link rel="canonical" href="https://marketworld.me/beauty.html">
 <meta name="robots" content="index, follow">
-
+<meta property="og:title" content="Beauty Collection – MarketWorld">
+<meta property="og:description" content="Explore skincare, makeup, perfumes and beauty deals online.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marketworld.me/beauty.html">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
@@ -20,6 +23,8 @@
  "description":"Beauty, skincare, makeup and perfume products."
 }
 </script>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root {
     --rose:      #e8547a;
@@ -95,14 +100,6 @@
   }
   .nav-links a:hover { color: var(--rose); }
   .nav-links a.active { color: var(--rose); }
-  .nav-cart {
-    background: linear-gradient(135deg, var(--rose), var(--plum));
-    color: #fff; border: none; border-radius: 50px;
-    padding: 8px 20px; font-size: 13px; font-weight: 600;
-    cursor: pointer; transition: all var(--trans);
-    box-shadow: 0 4px 14px rgba(232,84,122,.3);
-  }
-  .nav-cart:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,84,122,.4); }
 
   /* ─── HERO HEADER ─────────────────────────────────────── */
   .hero {
@@ -154,8 +151,20 @@
 
 
   /* ─── CATEGORY BUTTONS ────────────────────────────────── */
-  .cats-wrap { padding: 36px 5vw 0; }
-  .cats {
+.cats-wrap{
+  position: sticky;
+  top: 64px;
+  z-index: 99;
+
+  padding: 14px 5vw;
+  
+  background: rgba(253,249,247,.92);
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid var(--border);
+
+  box-shadow: 0 4px 18px rgba(0,0,0,.05);
+}  .cats {
     display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
   }
   .cat-btn {
@@ -335,6 +344,49 @@
   .btn-flip:hover { background: var(--plum); color: #fff; border-color: var(--plum); transform: translateY(-1px); }
 
   /* ─── FOOTER ──────────────────────────────────────────── */
+  .social-footer{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:22px;
+  flex-wrap:wrap;
+}
+
+.social-icon{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff !important;
+  text-decoration:none;
+  font-size:20px;
+  transition:.35s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+
+.social-icon:hover{
+  transform:translateY(-5px) scale(1.08);
+}
+
+.youtube{
+  background:linear-gradient(135deg,#ff0000,#c40000);
+}
+
+.instagram{
+  background:linear-gradient(
+    135deg,
+    #f58529,
+    #dd2a7b,
+    #8134af,
+    #515bd4
+  );
+}
+
+.linkedin{
+  background:linear-gradient(135deg,#0077b5,#004471);
+}
   footer {
     background: linear-gradient(135deg, #1a0d12, #2a1020);
     color: rgba(255,255,255,.6); text-align: center;
@@ -411,15 +463,85 @@ footer a:hover{
   }
 
   /* ─── RESPONSIVE ──────────────────────────────────────── */
-  @media (max-width: 600px) {
-    .nav-links { display: none; }
-    .hero { padding: 48px 5vw 40px; }
-    .hero-stats { gap: 24px; }
-    .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
-    .card-img-wrap { height: 160px; }
-    .card-img-wrap .product-emoji { font-size: 66px; }
-    .btn-row .btn { font-size: 11px; padding: 8px 6px; }
+ @media (max-width: 600px) {
+
+  nav{
+    padding:0 3vw;
+    height:auto;
+    min-height:64px;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    gap:10px;
+    padding-top:10px;
+    padding-bottom:10px;
   }
+
+  .nav-brand{
+    width:100%;
+  }
+
+  .nav-links{
+    display:flex;
+    width:100%;
+    gap:12px;
+    overflow-x:auto;
+    white-space:nowrap;
+    padding-bottom:4px;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+  }
+
+  .nav-links::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-links a{
+    font-size:13px;
+    padding:7px 12px;
+    background:rgba(232,84,122,.08);
+    border-radius:30px;
+    flex-shrink:0;
+  }
+
+  .hero{
+    padding:48px 5vw 40px;
+  }
+
+  .hero-stats{
+    gap:24px;
+  }
+
+  .cats-wrap{
+  top:92px;
+}
+
+  .cats{
+    overflow-x:auto;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    scrollbar-width:none;
+  }
+
+  .cats::-webkit-scrollbar{
+    display:none;
+  }
+
+  .grid{
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+    gap:14px;
+  }
+
+  .card-img-wrap{
+    height:160px;
+  }
+
+  .btn-row .btn{
+    font-size:11px;
+    padding:8px 6px;
+  }
+}
 </style>
 </head>
 <body>
@@ -442,7 +564,7 @@ footer a:hover{
 
 <!-- ─── HERO ────────────────────────────────────────────── -->
 <section class="hero">
-  <div class="hero-badge">✨ New Season Collection 2025</div>
+  <div class="hero-badge">✨ New Season Collection 2026</div>
   <h1>Beauty Collection</h1>
   <p>Discover premium beauty essentials curated for every skin type, every mood, and every occasion.</p>
   <div class="hero-stats">
@@ -496,7 +618,9 @@ footer a:hover{
       Explore premium skincare, makeup, haircare,
       and perfume collections at MarketWorld.
     </p>
-
+<p style="margin-top:15px;font-size:12px;opacity:.7;">
+Some links on this page are affiliate links. We may earn a commission at no extra cost to you.
+</p>
     <div class="footer-links">
       <span>Makeup</span>
       <span>Skincare</span>
@@ -510,6 +634,30 @@ footer a:hover{
   <a href="fashion.html">Fashion</a> |
   <a href="electronic.html">Electronics</a> |
   <a href="home-kitchen.html">Home & Kitchen</a>
+</div>
+ <div class="social-footer">
+
+  <a href="https://www.youtube.com/@Marketworld.me1"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="social-icon youtube">
+     <i class="fab fa-youtube"></i>
+  </a>
+
+  <a href="https://www.instagram.com/marketworld91?igsh=enN0NXlkenlxOGt2"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="social-icon instagram">
+     <i class="fab fa-instagram"></i>
+  </a>
+
+  <a href="https://www.linkedin.com/in/aryan-bairwa-9a3748390/"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="social-icon linkedin">
+     <i class="fab fa-linkedin-in"></i>
+  </a>
+
 </div>
   <div style="margin-top:8px; opacity:.45; font-size:12px;">
     © 2025 MarketWorld. All rights reserved.
@@ -560,7 +708,7 @@ const products = [
   id:3,
   cat:'makeup',
   img:'https://rukminim1.flixcart.com/image/1440/1440/xif0q/makeup-kit/d/z/9/party-proof-makeup-bundle-matte-primer-to-fixer-spray-coslane-original-imahn74prfhdyqfv.jpeg?q=90',
-  brand:'GELATO BAEUTY',
+  brand:'GELATO BEAUTY',
   title:'coslane Party Proof Makeup Bundle',
   desc:'BB Foundation & CC Cream, Primer, & Makeup Fixer (Setting Spray) - Ideal for Face Makeup - Complete Makeup',
   price:288,
@@ -1029,7 +1177,7 @@ const products = [
   img:'https://rukminim1.flixcart.com/image/1440/1440/xif0q/face-wash/z/k/t/200-de-tan-facewash-for-men-tan-removal-oil-control-coffee-aloe-original-imahjngukyhwsq98.jpeg?q=90',
   brand:'BEARDO',
   title:'BEARDO DeTan Face Wash for Men',
-  desc:'Glycolic Acid,Niacinamide & Coffee | Helps to Reduce Tan,Reduce Dark Sports',
+  desc:'Glycolic Acid,Niacinamide & Coffee | Helps to Reduce Tan,Reduce Dark Spots',
   price:299,
   was:450,
   off:34,
@@ -1114,7 +1262,7 @@ const products = [
   img:'https://m.media-amazon.com/images/I/51ViupXk21L.jpg',
   brand:'CRENTILA',
   title:'10-in-1 Manicure Kit',
-  desc:'tainless Steel Nail Clipper Set for Men & Women | Grooming Tools',
+  desc:'stainless Steel Nail Clipper Set for Men & Women | Grooming Tools',
   price:125,
   was:849,
   off:85,
@@ -1129,7 +1277,7 @@ const products = [
   id:36,
   cat:'makeup',
   img:'https://m.media-amazon.com/images/I/61H4sUzOQFL._SL1500_.jpg',
-  brand:'BETFIELD',
+  brand:'BATFIELD',
   title:'Batfield 3 Pairs Magnetic False Eyelashes',
   desc:'Reusable Fake Eyelashes with Eyeliner and Tweezer - Artificial Eye Lashes',
   price:299,
@@ -1154,10 +1302,6 @@ const catLabels = {
   haircare:'💇 Haircare', perfumes:'🌸 Perfumes',
   nailcare:'💅 Nail Care', bathbody:'🛁 Bath & Body'
 };
-
-let cartCount = 0;
-const cartBtn = document.querySelector('.nav-cart');
-
 
 
 function renderProducts(cat) {
@@ -1195,11 +1339,10 @@ function renderProducts(cat) {
         <div class="card-actions">
           
           <div class="btn-row">
-          <a href="${p.amazon}" target="_blank" class="btn btn-amz">
-  Amazon
+<a href="${p.amazon}" target="_blank" rel="noopener noreferrer" class="btn btn-amz">  Amazon
 </a>
 
-<a href="${p.flipkart}" target="_blank" class="btn btn-flip">
+<a href="${p.flipkart}" target="_blank" rel="noopener noreferrer" class="btn btn-flip">
   Flipkart
 </a>
           </div>
@@ -1207,13 +1350,6 @@ function renderProducts(cat) {
       </div>
     </div>
   `).join('');
-
-  // wishlist toggle
-  grid.querySelectorAll('.wishlist-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.textContent = btn.textContent === '🤍' ? '❤️' : '🤍';
-    });
-  });
 }
 
 
