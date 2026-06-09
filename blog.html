@@ -4,10 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Blog – MarketWorld | Trending Products, Reviews & Best Deals</title>
-
+<title>MarketWorld Blog | Best Product Reviews, Deals & Buying Guides 2026</title>
+<link rel="icon" href="/favicon.png?v=2" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<meta name="description" content="Explore MarketWorld Blog for best product reviews, latest deals, buying guides and trending gadgets in India. Updated 2026 shopping tips and offers." />
+<link rel="canonical" href="https://marketworld.me/blog">
+<meta name="keywords" content="product reviews, best gadgets, amazon deals, flipkart offers, buying guides, tech blog">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MarketWorld Blog">
+<meta name="twitter:description" content="Trending products, reviews & best deals in India">
+<meta name="twitter:image" content="https://marketworld.me/preview.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "MarketWorld",
+  "url": "https://marketworld.me",
+  "description": "Product reviews, deals and buying guides",
+  "publisher": {
+    "@type": "Organization",
+    "name": "MarketWorld"
+  }
+}
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Open Graph -->
+<meta property="og:title" content="MarketWorld Blog">
+<meta property="og:description" content="Trending products, reviews & best deals in India">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marketworld.me/blog">
+<meta property="og:image" content="https://marketworld.me/preview.jpg">
 <style>
 :root {
   --bg-void: #050508;
@@ -988,29 +1017,183 @@ section { padding: 80px 5%; }
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
+/* =========================
+   MOBILE RESPONSIVE FIX
+========================= */
 @media (max-width: 1024px) {
-  .layout-main { grid-template-columns: 1fr; }
-  .sidebar { display: grid; grid-template-columns: repeat(2, 1fr); }
-  .footer-top { grid-template-columns: repeat(2, 1fr); }
-  .featured-card { grid-template-columns: 1fr; }
-  .featured-img-wrap { min-height: 260px; }
+  .layout-main {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featured-card {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-img-wrap {
+    min-height: 260px;
+  }
 }
+
 @media (max-width: 768px) {
-  .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
-  .hero-stats { gap: 24px; }
-  .review-card { grid-template-columns: 1fr; }
-  .review-actions { flex-direction: row; justify-content: flex-start; }
-  .newsletter-form { flex-direction: column; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-  .sidebar { grid-template-columns: 1fr; }
+
+  /* NAVBAR */
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    top: 70px;
+    width: 100%;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .mobile-menu a {
+    font-size: 16px;
+    padding: 12px 0;
+    display: block;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  /* HERO */
+  .hero {
+    padding: 100px 5% 60px;
+    min-height: auto;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* SEARCH */
+  .hero-search {
+    width: 100%;
+  }
+
+  /* ARTICLES */
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .article-img-wrap {
+    height: 180px;
+  }
+
+  /* FEATURED */
+  .featured-content {
+    padding: 24px 18px;
+  }
+
+  .featured-title {
+    font-size: 20px;
+  }
+
+  /* REVIEW BUTTONS */
+  .review-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  /* NEWSLETTER */
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-input {
+    width: 100%;
+  }
+
+  /* FOOTER */
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  /* BUTTON TOUCH */
+  .btn,
+  .cat-btn,
+  .read-more-link {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-stats {
+    gap: 10px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width: 480px) {
-  .footer-top { grid-template-columns: 1fr; }
-  .hero-stats { flex-direction: column; gap: 16px; }
-  .articles-grid { grid-template-columns: 1fr; }
+  .btn {
+    font-size: 11px !important;
+    padding: 6px 10px !important;
+  }
+}
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 12px 3% !important;
+  }
+
+  .nav-actions {
+    gap: 8px;
+    align-items: center;
+  }
+
+  .nav-actions .btn {
+    padding: 7px 12px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 120px;
+  }
+
+  .nav-search-btn {
+    width: 34px;
+    height: 34px;
+  }
 }
 </style>
 </head>
@@ -1027,10 +1210,10 @@ section { padding: 80px 5%; }
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="#">Reviews</a></li>
-    <li><a href="#">Deals</a></li>
-    <li><a href="#">Guides</a></li>
-    <li><a href="#">Tech</a></li>
+    <li><a href="electronic.html">Electronic</a></li>
+    <li><a href="fashion.html">Fashion</a></li>
+    <li><a href="beauty.html">Beauty</a></li>
+    <li><a href="sports.html">Sports</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
   <div class="nav-actions">
@@ -1044,10 +1227,10 @@ section { padding: 80px 5%; }
 <div class="mobile-menu" id="mobileMenu">
   <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="#">Reviews</a></li>
-    <li><a href="#">Deals</a></li>
-    <li><a href="#">Buying Guides</a></li>
-    <li><a href="#">Tech Gadgets</a></li>
+    <li><a href="electronic.html">Electronic</a></li>
+    <li><a href="fashion.html">Fashion</a></li>
+    <li><a href="beauty.html">Beauty</a></li>
+    <li><a href="sports.html">Sports</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
 </div>
@@ -1061,10 +1244,8 @@ section { padding: 80px 5%; }
   <div class="hero-orb hero-orb-3"></div>
   <div class="hero-content">
     <div class="hero-badge">✦ India's #1 Shopping Blog</div>
-    <h1 class="hero-title">
-      Market World<br>
-      <span class="line2">Blog</span>
-    </h1>
+   <h1>Best Product Reviews, Deals & Buying Guides in India – MarketWorld Blog</h1>
+
     <p class="hero-sub">Discover trending products, expert shopping guides, in-depth reviews, and the best online deals — all in one place.</p>
     <div class="hero-search">
       <input type="text" placeholder="Search articles, reviews, deals..." />
@@ -1132,16 +1313,13 @@ section { padding: 80px 5%; }
       <h2 class="section-title">Blog Categories</h2>
     </div>
     <div class="categories-grid fade-in">
-      <a href="electronic.html" class="cat-btn active"><span class="cat-icon">💻</span>Tech Gadgets<span class="cat-count">(48)</span></a>
-      <a href="home-kitchen.html" class="cat-btn"><span class="cat-icon">🏠</span>Home-Kitchen<span class="cat-count">(35)</span></a>
+      <a href="electronic.html" class="cat-btn active"><span class="cat-icon">💻</span>Electronic<span class="cat-count">(48)</span></a>
+      <a href="home-kitchen.html" class="cat-btn"><span class="cat-icon">🏠</span>Home & Kitchen<span class="cat-count">(35)</span></a>
       <a href="beauty.html" class="cat-btn"><span class="cat-icon">💄</span>Beauty<span class="cat-count">(27)</span></a>
       <a href="fashion.html" class="cat-btn"><span class="cat-icon">👗</span>Fashion<span class="cat-count">(41)</span></a>
-      <a href="sports.html" class="cat-btn"><span class="cat-icon">🎮</span>Gaming<span class="cat-count">(33)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">📱</span>Smart Devices<span class="cat-count">(52)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">🟠</span>Amazon Deals<span class="cat-count">(86)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">🔵</span>Flipkart Offers<span class="cat-count">(74)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">📖</span>Buying Guides<span class="cat-count">(60)</span></a>
-      <a href="#" class="cat-btn"><span class="cat-icon">⭐</span>Product Reviews<span class="cat-count">(95)</span></a>
+      <a href="sports.html" class="cat-btn"><span class="cat-icon">🎮</span>Sports<span class="cat-count">(33)</span></a>
+      <a href="https://amzn.to/4xg3pi2" class="cat-btn"><span class="cat-icon">🟠</span>Amazon Deals<span class="cat-count">(86)</span></a>
+      <a href="https://www.flipkart.com/#" class="cat-btn"><span class="cat-icon">🔵</span>Flipkart Offers<span class="cat-count">(74)</span></a>
     </div>
   </div>
 </section>
@@ -1165,7 +1343,7 @@ section { padding: 80px 5%; }
 <div class="article-card fade-in">
 
   <div class="article-img-wrap">
-    <img src="https://m.media-amazon.com/images/I/61wdIp45PqL._SL1440_.jpg" class="article-img">
+    <img src="https://m.media-amazon.com/images/I/61wdIp45PqL._SL1440_.jpg" class="article-img" loading="lazy" alt="Boult Astra earbuds review">
 
     <div class="article-img-overlay"></div>
   </div>
@@ -1194,7 +1372,8 @@ section { padding: 80px 5%; }
 
       <a href="https://amzn.to/42r7EsX"
          class="read-more-link"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer sponsored">
          Buy Now →
       </a>
 
@@ -1210,7 +1389,7 @@ section { padding: 80px 5%; }
   <div class="article-img-wrap">
 
     <img src="https://m.media-amazon.com/images/I/71tl8pu4fKL._SL1500_.jpg"
-         class="article-img">
+         class="article-img"  loading="lazy" alt="samsung galaxy S25 review">
 
     <div class="article-img-overlay"></div>
 
@@ -1240,7 +1419,8 @@ section { padding: 80px 5%; }
 
       <a href="https://amzn.to/4eG1dcX"
          class="read-more-link"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer sponsored">
 
          Buy Now →
 
@@ -1257,7 +1437,7 @@ section { padding: 80px 5%; }
   <div class="article-img-wrap">
 
     <img src="https://m.media-amazon.com/images/I/71IGrF1UHTL._SL1500_.jpg"
-         class="article-img">
+         class="article-img"  loading="lazy"  alt="fastrack astor smart watch review">
 
     <div class="article-img-overlay"></div>
 
@@ -1287,7 +1467,8 @@ section { padding: 80px 5%; }
 
       <a href="https://amzn.to/49qg6fQ"
          class="read-more-link"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer sponsored">
 
          Buy Now →
 
@@ -1304,7 +1485,7 @@ section { padding: 80px 5%; }
   <div class="article-img-wrap">
 
     <img src="https://m.media-amazon.com/images/I/51sVuyIolqL._SL1200_.jpg"
-         class="article-img">
+         class="article-img" loading="lazy" alt="ptrom power bank review">
 
     <div class="article-img-overlay"></div>
 
@@ -1334,7 +1515,8 @@ section { padding: 80px 5%; }
 
       <a href="https://amzn.to/4vfVNuf"
          class="read-more-link"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer sponsored">
 
          Buy Now →
 
@@ -1351,7 +1533,7 @@ section { padding: 80px 5%; }
   <div class="article-img-wrap">
 
     <img src="https://m.media-amazon.com/images/I/51Yc2pnODbL._SL1000_.jpg"
-         class="article-img">
+         class="article-img" loading="lazy" alt="tp link bluetooth review">
 
     <div class="article-img-overlay"></div>
 
@@ -1381,7 +1563,8 @@ section { padding: 80px 5%; }
 
       <a href="https://amzn.to/3RwRmfT"
          class="read-more-link"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer sponsored">
 
          Buy Now →
 
@@ -1398,7 +1581,7 @@ section { padding: 80px 5%; }
   <div class="article-img-wrap">
 
     <img src="https://m.media-amazon.com/images/I/61GPF4Cs+LL._SL1200_.jpg"
-         class="article-img">
+         class="article-img" loading="lazy" alt="stealth black joystick review">
 
     <div class="article-img-overlay"></div>
 
@@ -1428,7 +1611,8 @@ section { padding: 80px 5%; }
 
       <a href="https://amzn.to/3S4iRxr"
          class="read-more-link"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer sponsored">
 
          Buy Now →
 
@@ -1449,54 +1633,7 @@ section { padding: 80px 5%; }
       <!-- SIDEBAR -->
       <aside class="sidebar">
 
-        <!-- Trending Searches -->
-        <div class="sidebar-card fade-in">
-          <div class="sidebar-title">🔥 Trending Searches</div>
-          <div>
-            <span class="trending-tag">boAt earbuds</span>
-            <span class="trending-tag">realme watch</span>
-            <span class="trending-tag">air purifier</span>
-            <span class="trending-tag">gaming chair</span>
-            <span class="trending-tag">laptop stand</span>
-            <span class="trending-tag">smart bulb</span>
-            <span class="trending-tag">protein powder</span>
-            <span class="trending-tag">USB-C hub</span>
-            <span class="trending-tag">robot vacuum</span>
-          </div>
-        </div>
-
-        <!-- Recent Posts -->
-        <div class="sidebar-card fade-in">
-          <div class="sidebar-title">📰 Recent Posts</div>
-          <div class="sidebar-post">
-            <div class="img-placeholder sidebar-post-img" style="font-size:22px;">🔋</div>
-            <div>
-              <div class="sidebar-post-title">Best Power Banks for Travel 2026</div>
-              <div class="sidebar-post-date">May 22, 2026</div>
-            </div>
-          </div>
-          <div class="sidebar-post">
-            <div class="img-placeholder sidebar-post-img" style="font-size:22px;">👟</div>
-            <div>
-              <div class="sidebar-post-title">Nike vs Adidas Running Shoes — Full Review</div>
-              <div class="sidebar-post-date">May 20, 2026</div>
-            </div>
-          </div>
-          <div class="sidebar-post">
-            <div class="img-placeholder sidebar-post-img" style="font-size:22px;">💡</div>
-            <div>
-              <div class="sidebar-post-title">Best Smart Home Devices for Beginners</div>
-              <div class="sidebar-post-date">May 17, 2026</div>
-            </div>
-          </div>
-          <div class="sidebar-post">
-            <div class="img-placeholder sidebar-post-img" style="font-size:22px;">📷</div>
-            <div>
-              <div class="sidebar-post-title">Top Action Cameras Under ₹10,000</div>
-              <div class="sidebar-post-date">May 14, 2026</div>
-            </div>
-          </div>
-        </div>
+    
 
         <!-- Top Deals -->
         <div class="sidebar-card fade-in">
@@ -1559,135 +1696,6 @@ section { padding: 80px 5%; }
 
 <div class="section-divider"></div>
 
-<!-- REVIEWS SECTION -->
-<section class="reviews-section">
-  <div style="max-width:1400px;margin:0 auto;">
-    <div class="section-header fade-in">
-      <div class="section-label">⭐ Honest Reviews</div>
-      <h2 class="section-title">Popular Product Reviews</h2>
-      <p class="section-sub">In-depth, unbiased reviews with real pros and cons</p>
-    </div>
-    <div class="reviews-grid">
-
-      <!-- Review 1 -->
-      <div class="review-card fade-in">
-        <div class="review-img-wrap">
-          <div class="img-placeholder" style="font-size:50px;background:linear-gradient(135deg,rgba(99,179,237,0.1),rgba(183,148,244,0.1));">🎧</div>
-        </div>
-        <div class="review-body">
-          <span class="tag tag-cyan" style="margin-bottom:10px;display:inline-block;">Tech Gadgets</span>
-          <div class="review-product-name">boAt Airdopes 141 – Wireless Earbuds</div>
-          <div class="review-rating">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
-            <span style="font-size:12px;color:var(--text-muted);margin-left:6px;">4.0 / 5 — 2,340 ratings</span>
-          </div>
-          <p class="review-summary">The boAt Airdopes 141 punch way above their price tag. Solid bass response, decent ANC, and a genuinely comfortable fit make these a top pick for budget buyers. Battery life of 42 hours total is best-in-class.</p>
-          <div class="pros-cons">
-            <div class="pros">
-              <h5>Pros</h5>
-              <ul>
-                <li>42hr total battery</li>
-                <li>Comfortable fit</li>
-                <li>Strong bass</li>
-              </ul>
-            </div>
-            <div class="cons">
-              <h5>Cons</h5>
-              <ul>
-                <li>Average mic quality</li>
-                <li>No multipoint</li>
-                <li>Plastic build</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="review-actions">
-          <a href="#" class="btn-amazon">🟠 Amazon</a>
-          <a href="#" class="btn-flipkart">🔵 Flipkart</a>
-        </div>
-      </div>
-
-      <!-- Review 2 -->
-      <div class="review-card fade-in">
-        <div class="review-img-wrap">
-          <div class="img-placeholder" style="font-size:50px;background:linear-gradient(135deg,rgba(246,173,85,0.1),rgba(104,211,145,0.1));">⌚</div>
-        </div>
-        <div class="review-body">
-          <span class="tag tag-purple" style="margin-bottom:10px;display:inline-block;">Smart Devices</span>
-          <div class="review-product-name">Realme Watch 3 Pro – GPS Smartwatch</div>
-          <div class="review-rating">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-            <span style="font-size:12px;color:var(--text-muted);margin-left:6px;">4.5 / 5 — 5,100 ratings</span>
-          </div>
-          <p class="review-summary">A feature-packed smartwatch at an unbelievable price. Built-in GPS, 100+ sport modes, SpO2 and heart rate monitoring, and a brilliant AMOLED display. The Realme Watch 3 Pro is the best smartwatch under ₹5000 in India right now.</p>
-          <div class="pros-cons">
-            <div class="pros">
-              <h5>Pros</h5>
-              <ul>
-                <li>Built-in GPS</li>
-                <li>AMOLED display</li>
-                <li>Excellent price</li>
-              </ul>
-            </div>
-            <div class="cons">
-              <h5>Cons</h5>
-              <ul>
-                <li>Short battery</li>
-                <li>No ECG sensor</li>
-                <li>Avg app support</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="review-actions">
-          <a href="#" class="btn-amazon">🟠 Amazon</a>
-          <a href="#" class="btn-flipkart">🔵 Flipkart</a>
-        </div>
-      </div>
-
-      <!-- Review 3 -->
-      <div class="review-card fade-in">
-        <div class="review-img-wrap">
-          <div class="img-placeholder" style="font-size:50px;background:linear-gradient(135deg,rgba(252,129,129,0.1),rgba(183,148,244,0.1));">🎮</div>
-        </div>
-        <div class="review-body">
-          <span class="tag tag-pink" style="margin-bottom:10px;display:inline-block;">Gaming</span>
-          <div class="review-product-name">Cosmic Byte CB-GK-17 – Mechanical Keyboard</div>
-          <div class="review-rating">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
-            <span style="font-size:12px;color:var(--text-muted);margin-left:6px;">4.1 / 5 — 3,800 ratings</span>
-          </div>
-          <p class="review-summary">For under ₹2000, this mechanical keyboard is a revelation. RGB per-key lighting, satisfying blue switches, and a solid aluminum body make this a legitimate gaming upgrade for budget-conscious PC players.</p>
-          <div class="pros-cons">
-            <div class="pros">
-              <h5>Pros</h5>
-              <ul>
-                <li>Per-key RGB</li>
-                <li>Solid build</li>
-                <li>Great typing feel</li>
-              </ul>
-            </div>
-            <div class="cons">
-              <h5>Cons</h5>
-              <ul>
-                <li>Loud switches</li>
-                <li>No wireless mode</li>
-                <li>Software bugs</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="review-actions">
-          <a href="#" class="btn-amazon">🟠 Amazon</a>
-          <a href="#" class="btn-flipkart">🔵 Flipkart</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
 
 <!-- SHOPPING TIPS -->
 <section class="tips-section">
@@ -1758,23 +1766,46 @@ section { padding: 80px 5%; }
         </div>
         <p class="footer-desc">India's trusted shopping blog for product reviews, buying guides, deals, and affiliate recommendations from Amazon and Flipkart.</p>
         <div class="social-links">
-          <a href="#" class="social-link" title="Twitter">𝕏</a>
-          <a href="#" class="social-link" title="Instagram">📸</a>
-          <a href="#" class="social-link" title="YouTube">▶</a>
-          <a href="#" class="social-link" title="Telegram">✈</a>
-          <a href="#" class="social-link" title="Facebook">f</a>
-        </div>
+
+  <a href="https://www.instagram.com/marketworld91?igsh=enN0NXlkenlxOGt2"
+     class="social-link"
+     target="_blank"
+     rel="noopener noreferrer"
+     title="Instagram"
+     style="background:linear-gradient(135deg,#ff0080,#ff4d4d,#ffcc00);color:white;">
+     📸
+  </a>
+
+  <a href="https://www.linkedin.com/in/aryan-bairwa-9a3748390/"
+     class="social-link"
+     target="_blank"
+     rel="noopener noreferrer"
+     title="LinkedIn"
+     style="background:linear-gradient(135deg,#0077b5,#00a0dc);color:white;">
+     in
+  </a>
+
+  <a href="https://www.youtube.com/@Marketworld.me1"
+     class="social-link"
+     target="_blank"
+     rel="noopener noreferrer"
+     title="YouTube"
+     style="background:linear-gradient(135deg,#ff0000,#ff4d4d);color:white;">
+     ▶
+  </a>
+
+</div>
       </div>
 
       <div>
         <div class="footer-col-title">Quick Links</div>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Product Reviews</a></li>
-          <li><a href="#">Buying Guides</a></li>
-          <li><a href="#">Tech Gadgets</a></li>
-          <li><a href="#">Amazon Deals</a></li>
-          <li><a href="#">Flipkart Offers</a></li>
+          <li><a href="electronic.html">Electronic</a></li>
+          <li><a href="fashion.html">Fashion</a></li>
+          <li><a href="home-kitchen.html">Home-kitchen</a></li>
+          <li><a href="beauty.html">Beauty</a></li>
+          <li><a href="sports.html">Sports</a></li>
         </ul>
       </div>
 
@@ -1783,10 +1814,9 @@ section { padding: 80px 5%; }
         <ul class="footer-links">
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="#">Advertise</a></li>
-          <li><a href="#">Write For Us</a></li>
-          <li><a href="#">Newsletter</a></li>
-          <li><a href="#">Sitemap</a></li>
+          <li><a href="help-center.html">Help center</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="sitemap.xml">Sitemap</a></li>
         </ul>
       </div>
 
@@ -1797,8 +1827,7 @@ section { padding: 80px 5%; }
           <li><a href="terms-and-condition.html">Terms of Service</a></li>
           <li><a href="cookie-policy.html">Cookie Policy</a></li>
           <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-          <li><a href="#">DMCA Policy</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
         </ul>
       </div>
     </div>

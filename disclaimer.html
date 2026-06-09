@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disclaimer – MarketWorld</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0d14;
+      --surface:   #111420;
+      --card:      #161a27;
+      --border:    #1f2438;
+      --accent1:   #6c63ff;
+      --accent2:   #a78bfa;
+      --accent3:   #38bdf8;
+      --text:      #e2e8f0;
+      --muted:     #8892a4;
+      --white:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11,13,20,.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.25rem;
+      background: linear-gradient(135deg, var(--accent1), var(--accent3));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: .04em;
+    }
+    .nav-tag {
+      font-size: .75rem; font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase; letter-spacing: .1em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 110px 2rem 90px;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%,  rgba(108,99,255,.22) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 35% at 80% 60%, rgba(56,189,248,.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(108,99,255,.15);
+      border: 1px solid rgba(108,99,255,.35);
+      border-radius: 2rem;
+      padding: .3rem 1rem;
+      font-size: .72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .12em;
+      color: var(--accent2);
+      margin-bottom: 1.6rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent1);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100%{opacity:1;transform:scale(1)}
+      50%{opacity:.4;transform:scale(.7)}
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent1) 0%, var(--accent3) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 480px; margin: 0 auto 2.4rem;
+      font-weight: 300;
+    }
+    .hero-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent3));
+      border-radius: 2px; margin: 0 auto;
+    }
+    .hero-meta {
+      margin-top: 2rem;
+      font-size: .8rem; color: var(--muted);
+      letter-spacing: .04em;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem 80px;
+    }
+
+    /* ── SECTION CARDS ── */
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.4rem;
+      position: relative;
+      transition: border-color .25s, box-shadow .25s, transform .25s;
+      overflow: hidden;
+    }
+    .section-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent3));
+      opacity: 0;
+      transition: opacity .25s;
+      border-radius: 16px 16px 0 0;
+    }
+    .section-card:hover {
+      border-color: rgba(108,99,255,.4);
+      box-shadow: 0 8px 32px rgba(108,99,255,.12);
+      transform: translateY(-2px);
+    }
+    .section-card:hover::before { opacity: 1; }
+
+    .card-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(108,99,255,.12);
+      border: 1px solid rgba(108,99,255,.2);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .section-card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--white);
+      margin-bottom: .75rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .section-card h2 .tag {
+      font-family: 'Inter', sans-serif;
+      font-size: .65rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--accent1);
+      background: rgba(108,99,255,.12);
+      border: 1px solid rgba(108,99,255,.25);
+      padding: .15rem .55rem;
+      border-radius: 4px;
+    }
+    .section-card p {
+      color: var(--muted);
+      font-size: .95rem;
+      font-weight: 400;
+    }
+    .section-card p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(108,99,255,.12) 0%, rgba(56,189,248,.08) 100%);
+      border: 1px solid rgba(108,99,255,.3);
+      border-radius: 16px;
+      padding: 2.2rem 2.2rem;
+      margin-bottom: 1.4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::after {
+      content: '';
+      position: absolute; bottom: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(56,189,248,.07);
+      pointer-events: none;
+    }
+    .contact-card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--white);
+      margin-bottom: .5rem;
+    }
+    .contact-card p { color: var(--muted); font-size: .95rem; margin-bottom: 1.4rem; }
+    .contact-email {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: .65rem 1.5rem;
+      font-size: .95rem; font-weight: 500;
+      color: var(--accent3);
+      text-decoration: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .contact-email:hover {
+      border-color: var(--accent3);
+      box-shadow: 0 0 18px rgba(56,189,248,.18);
+    }
+    .contact-email::before { content: '✉'; font-size: 1rem; }
+
+    /* ── NOTICE BANNER ── */
+    .notice {
+      display: flex; align-items: flex-start; gap: .9rem;
+      background: rgba(167,139,250,.07);
+      border: 1px solid rgba(167,139,250,.2);
+      border-radius: 12px;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 2.5rem;
+      font-size: .88rem; color: var(--muted);
+    }
+    .notice-icon { font-size: 1rem; margin-top: .1rem; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.4rem;
+      background: linear-gradient(135deg, var(--accent1), var(--accent3));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: .5rem;
+    }
+    .footer-copy {
+      font-size: .82rem; color: var(--muted);
+      margin-bottom: .35rem;
+    }
+    .footer-links {
+      display: flex; gap: 1.5rem; justify-content: center;
+      flex-wrap: wrap; margin-top: .8rem;
+    }
+    .footer-links a {
+      font-size: .8rem; color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--accent2); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .section-card { padding: 1.4rem 1.3rem; }
+      .hero { padding: 80px 1.2rem 60px; }
+      nav { padding: 0 1.2rem; }
+      main { padding: 0 1rem 60px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="logo">MarketWorld</span>
+    <span class="nav-tag">Legal</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Legal Notice</div>
+    <h1>Disclaimer –<br/><span>MarketWorld</span></h1>
+    <p class="hero-sub">Transparency and trust are important to us.</p>
+    <div class="hero-divider"></div>
+    <p class="hero-meta">Last updated: June 2026 &nbsp;·&nbsp; Effective immediately</p>
+  </section>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- Notice Banner -->
+    <div class="notice">
+      <span class="notice-icon">ℹ️</span>
+      <p>By using MarketWorld, you agree to the terms outlined on this page. Please read each section carefully. If you have questions, feel free to reach out via the contact section below.</p>
+    </div>
+
+    <!-- 1. Website Disclaimer -->
+    <div class="section-card">
+      <div class="card-icon">🌐</div>
+      <h2>Website Disclaimer <span class="tag">General</span></h2>
+      <p>The information published on <strong>MarketWorld</strong> is intended solely for <strong>general informational and educational purposes</strong>. Nothing on this website should be construed as professional advice — financial, legal, medical, or otherwise. Always seek qualified professional guidance before making decisions based on information found here.</p>
+    </div>
+
+    <!-- 2. Affiliate Disclaimer -->
+    <div class="section-card">
+      <div class="card-icon">🔗</div>
+      <h2>Affiliate Disclaimer <span class="tag">Earnings</span></h2>
+      <p>MarketWorld participates in affiliate marketing programmes. We may earn a <strong>small commission</strong> when you click certain product links and make a purchase — for example, through platforms such as <strong>Amazon</strong> and <strong>Flipkart</strong>. This comes at <strong>absolutely no additional cost to you</strong>. Affiliate relationships never influence our editorial integrity or product recommendations.</p>
+    </div>
+
+    <!-- 3. Product & Pricing Disclaimer -->
+    <div class="section-card">
+      <div class="card-icon">🏷️</div>
+      <h2>Product &amp; Pricing Disclaimer <span class="tag">Prices</span></h2>
+      <p>Product <strong>prices, availability, specifications, and promotional offers</strong> displayed on MarketWorld are subject to change at any time without prior notice. We strongly recommend verifying the current price and availability directly on the retailer's website before completing any purchase. MarketWorld is not liable for discrepancies between listed and actual prices.</p>
+    </div>
+
+    <!-- 4. External Links Disclaimer -->
+    <div class="section-card">
+      <div class="card-icon">↗️</div>
+      <h2>External Links Disclaimer <span class="tag">Third-Party</span></h2>
+      <p>MarketWorld may contain links to <strong>third-party websites and services</strong> for your convenience. These links do not constitute an endorsement or approval of any product, service, or opinion. We have no control over the content, privacy practices, or terms of external sites, and are <strong>not responsible</strong> for any loss or damage that may arise from your use of them.</p>
+    </div>
+
+    <!-- 5. Accuracy of Information -->
+    <div class="section-card">
+      <div class="card-icon">✅</div>
+      <h2>Accuracy of Information <span class="tag">Reliability</span></h2>
+      <p>We make every reasonable effort to ensure that all information on MarketWorld is <strong>accurate, current, and reliable</strong>. However, we make no warranties or guarantees — express or implied — regarding the completeness, accuracy, or fitness for a particular purpose of any content. Information may become outdated, and users are encouraged to independently verify anything before relying on it.</p>
+    </div>
+
+    <!-- 6. Contact -->
+    <div class="contact-card">
+      <h2>📬 Contact Us</h2>
+      <p>Have a question about this disclaimer, a partnership inquiry, or anything else? Our team is happy to help.</p>
+      <a href="mailto:support@marketworld.com" class="contact-email">support@marketworld.com</a>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">MarketWorld</div>
+    <p class="footer-copy">© 2026 MarketWorld. All rights reserved.</p>
+    <p class="footer-copy" style="font-size:.76rem;">This page was last reviewed in June 2026.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Disclaimer</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
