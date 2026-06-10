@@ -881,5 +881,73 @@
             });
         });
     </script>
+    <!-- Back to Top Button -->
+<button id="backToTopBtn" class="back-to-top">↑</button>
+
+<style>
+:root{
+  --btn-color: #ffb13d; /* 🔥 yaha apna theme color change kar sakta hai */
+}
+
+/* Button Style */
+.back-to-top{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--btn-color), #ff7aa2);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  box-shadow: 0 0 15px var(--btn-color),
+              0 0 30px rgba(255, 61, 127, 0.6);
+
+  transition: 0.3s ease;
+}
+
+/* Hover Glow + Lift */
+.back-to-top:hover{
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px var(--btn-color),
+              0 0 50px rgba(255, 61, 127, 0.8);
+}
+
+/* Show Class */
+.back-to-top.show{
+  display: flex;
+}
+
+/* Click animation feel */
+.back-to-top:active{
+  transform: scale(0.95);
+}
+</style>
+
+<script>
+const backBtn = document.getElementById("backToTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backBtn.classList.add("show");
+  } else {
+    backBtn.classList.remove("show");
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+</script>
 </body>
 </html>

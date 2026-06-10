@@ -5,12 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Electronics – MarketWorld | Best Gadgets & Deals</title>
-
+<link rel="icon" href="/favicon.png?v=2" type="image/png">
+<meta name="keywords" content="electronics online, gadgets, smartphones, earbuds, laptops, smart watch, electronics deals, MarketWorld">
 <meta name="description" content="Explore Electronics on MarketWorld featuring the latest gadgets, smartphones, accessories, and best online deals and discounts from top brands." />
 <link rel="canonical" href="https://marketworld.me/electronic.html">
+<meta name="author" content="MarketWorld">
 <meta name="robots" content="index, follow">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<meta property="og:title" content="Electronics – MarketWorld | Best Gadgets & Deals">
+<meta property="og:description" content="Shop the latest electronics, gadgets, laptops, smartphones and accessories with amazing deals.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marketworld.me/electronic.html">
+<meta property="og:image" content="https://marketworld.me/images/electronics-banner.jpg">
 
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Electronics – MarketWorld">
+<meta name="twitter:description" content="Best electronics deals and gadgets online.">
+<meta name="twitter:image" content="https://marketworld.me/images/electronics-banner.jpg">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"CollectionPage",
+ "name":"Electronics - MarketWorld",
+ "url":"https://marketworld.me/electronic.html",
+ "description":"Best electronics products, gadgets and deals online."
+}
+</script>
+<meta name="keywords" content="electronics online shopping, gadgets, smartphones, laptops, earbuds, smart watches, electronics deals India, MarketWorld electronics">
 <style>
   *, *::before, *::after {
     box-sizing: border-box;
@@ -18,7 +40,31 @@
     padding: 0;
   }
 
-  :root {
+  .footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:18px 0;
+}
+
+.footer-links a{
+  padding:8px 14px;
+  background:var(--surface2);
+  border:1px solid var(--border2);
+  border-radius:8px;
+  text-decoration:none;
+  color:var(--text2);
+  font-size:0.8rem;
+  transition:all .3s ease;
+}
+
+.footer-links a:hover{
+  color:#fff;
+  border-color:var(--accent);
+  background:rgba(108,99,255,.12);
+}
+    :root {
     --bg: #0a0b0f;
     --surface: #111318;
     --surface2: #181b23;
@@ -262,7 +308,19 @@
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
     gap: 20px;
   }
+@media (max-width:768px){
 
+  .product-grid{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:10px;
+  }
+
+  .main-content{
+    padding-left:10px;
+    padding-right:10px;
+  }
+}
   /* ───── PRODUCT CARD ───── */
   .product-card {
     background: var(--surface);
@@ -457,36 +515,158 @@
   .product-card:nth-child(12) { animation-delay: .6s; }
 
   /* ───── RESPONSIVE ───── */
-  @media (max-width: 640px) {
-    .nav-search { display: none; }
-    .hero-inner { flex-direction: column; }
-    .hero-text h1 { font-size: 1.8rem; }
-  }
-  @media (max-width: 480px) {
-    .btn { font-size: 0.72rem; padding: 8px 6px; }
+  .mobile-menu{
+  display:none;
+}
+
+@media (max-width:768px){
+
+  .nav-search{
+    display:none;
   }
 
+  .nav-actions{
+    display:none;
+  }
 
+  .mobile-menu{
+    display:block;
+    margin-left:auto;
+    position:relative;
+  }
+
+  .menu-toggle{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:10px;
+    background:var(--surface2);
+    color:#fff;
+    font-size:22px;
+    cursor:pointer;
+  }
+
+  .mobile-dropdown{
+    display:none;
+    position:absolute;
+    right:0;
+    top:50px;
+    min-width:190px;
+    background:var(--surface);
+    border:1px solid var(--border2);
+    border-radius:12px;
+    overflow:hidden;
+    z-index:9999;
+  }
+
+  .mobile-dropdown a{
+    display:block;
+    padding:12px 15px;
+    color:var(--text2);
+    text-decoration:none;
+    border-bottom:1px solid var(--border);
+  }
+
+  .mobile-dropdown a:hover{
+    background:var(--surface2);
+    color:#fff;
+  }
+
+  .mobile-dropdown.show{
+    display:block;
+  }
+
+  .logo-text{
+    font-size:1rem;
+  }
+}
   
+
+
+
+  @media (max-width:768px){
+
+  .hero{
+    padding:30px 15px;
+  }
+
+  .hero-inner{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+  .hero-text{
+    width:100%;
+  }
+
+  .hero-text h1{
+    font-size:1.8rem;
+    line-height:1.2;
+  }
+
+  .hero-text p{
+    font-size:0.9rem;
+    max-width:100%;
+  }
+
+  .hero-stats{
+    gap:15px;
+    margin-top:20px;
+  }
+
+  .hero-stat strong{
+    font-size:1.2rem;
+  }
+
+  .hero-badges{
+    width:100%;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+  }
+
+  .hero-badge{
+    font-size:0.7rem;
+    padding:5px 10px;
+  }
+}
 </style>
 </head>
 <body>
 
-<!-- ───── NAVBAR ───── -->
 <nav class="navbar">
   <div class="nav-inner">
-    <a href="#" class="logo">
+
+    <a href="index.html" class="logo">
       <div class="logo-icon">⚡</div>
       <span class="logo-text">MarketWorld</span>
     </a>
+
     <div class="nav-search">
       <span class="search-icon">🔍</span>
       <input type="text" placeholder="Search electronics, brands & more…">
     </div>
+
     <div class="nav-actions">
+      <a href="fashion.html" class="nav-btn">Fashion</a>
+      <a href="home-kitchen.html" class="nav-btn">Home & Kitchen</a>
+      <a href="beauty.html" class="nav-btn">Beauty</a>
+      <a href="sports.html" class="nav-btn">Sports</a>
       <a href="login.html" class="nav-btn">👤 Log In</a>
-      
     </div>
+
+    <div class="mobile-menu">
+      <button class="menu-toggle" onclick="toggleMenu()">⋮</button>
+
+      <div class="mobile-dropdown" id="mobileDropdown">
+        <a href="fashion.html">Fashion</a>
+        <a href="home-kitchen.html">Home & Kitchen</a>
+        <a href="beauty.html">Beauty</a>
+        <a href="sports.html">Sports</a>
+        <a href="login.html">👤 Log In</a>
+      </div>
+    </div>
+
   </div>
 </nav>
 
@@ -546,9 +726,68 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Market<span>World</span></div>
-   <p>
-© 2025 MarketWorld. Explore the latest and best electronics products at MarketWorld.
-</p>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </div>
+<div class="social-links">
+  <a href="https://www.linkedin.com/in/aryan-bairwa-9a3748390/" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+
+  <a href="https://www.instagram.com/marketworld91?igsh=enN0NXlkenlxOGt2" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <a href="https://www.youtube.com/@Marketworld.me1" target="_blank" aria-label="YouTube">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+<style>
+.social-links{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:20px 0;
+}
+
+.social-links a{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:var(--surface2);
+  border:1px solid var(--border2);
+  color:var(--text2);
+  text-decoration:none;
+  transition:all .3s ease;
+}
+
+.social-links a:hover{
+  color:#fff;
+  border-color:var(--accent);
+  background:rgba(108,99,255,.12);
+  transform:translateY(-2px);
+}
+
+.social-links i{
+  font-size:18px;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <p>
+      © 2025 MarketWorld. Explore the latest electronics products, gadgets,
+      smartphones, laptops and technology deals online.
+    </p>
   </div>
 </footer>
 
@@ -785,6 +1024,11 @@ const products = [
   }
 ];
 
+
+function toggleMenu() {
+  document.getElementById("mobileDropdown")
+    .classList.toggle("show");
+}
 // ─── STATE ───
 let currentCat = 'all';
 let wishlistCount = 0;
@@ -899,6 +1143,74 @@ function openLink(event, url) {
 }
 // ─── INIT ───
 renderGrid(products);
+</script>
+<!-- Back to Top Button -->
+<button id="backToTopBtn" class="back-to-top">↑</button>
+
+<style>
+:root{
+  --btn-color: #3dfff5; /* 🔥 yaha apna theme color change kar sakta hai */
+}
+
+/* Button Style */
+.back-to-top{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--btn-color), #ff7aa2);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  box-shadow: 0 0 15px var(--btn-color),
+              0 0 30px rgba(255, 61, 127, 0.6);
+
+  transition: 0.3s ease;
+}
+
+/* Hover Glow + Lift */
+.back-to-top:hover{
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px var(--btn-color),
+              0 0 50px rgba(255, 61, 127, 0.8);
+}
+
+/* Show Class */
+.back-to-top.show{
+  display: flex;
+}
+
+/* Click animation feel */
+.back-to-top:active{
+  transform: scale(0.95);
+}
+</style>
+
+<script>
+const backBtn = document.getElementById("backToTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backBtn.classList.add("show");
+  } else {
+    backBtn.classList.remove("show");
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
 </script>
 </body>
 </html>

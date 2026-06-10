@@ -81,6 +81,31 @@
         }
     </script>
     <style>
+        .back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  background: #ff6600;
+  transform: translateY(-3px);
+}
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'DM Sans', sans-serif; background: #060a18; color: #d1d5db; overflow-x: hidden; }
 
@@ -531,7 +556,9 @@
             </div>
         </div>
     </footer>
-
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <iconify-icon icon="lucide:arrow-up" class="text-xl"></iconify-icon>
+</button>
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -597,6 +624,24 @@
                 }
             });
         });
+        const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTop.style.display = "flex";
+  } else {
+    backToTop.style.display = "none";
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
     </script>
+    
 </body>
 </html>
