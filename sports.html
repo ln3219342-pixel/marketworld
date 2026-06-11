@@ -5,13 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sports & Fitness – MarketWorld | Gear, Equipment & Best Deals</title>
-
+<link rel="icon" href="/favicon.png?v=2" type="image/png">
 <meta name="description" content="Explore Sports & Fitness collection on MarketWorld featuring sports gear, fitness equipment, and the best online deals and discounts." />
 <link rel="canonical" href="https://marketworld.me/sports.html">
 <meta name="title" content="Best Sports & Fitness Deals – Football, Gym, Cricket Gear | MarketWorld">
 <meta name="keywords" content="sports gear, fitness equipment, football shoes, cricket bat, gym equipment, online sports deals India">
 <meta name="robots" content="index, follow">
 <meta name="author" content="MarketWorld">
+<meta property="og:title" content="Best Sports & Fitness Deals – MarketWorld">
+<meta property="og:description" content="Top discounts on football, cricket, gym & gaming gear in India.">
+<meta property="og:url" content="https://marketworld.me/sports.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://marketworld.me/images/sports-banner.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sports & Fitness Deals – MarketWorld">
+<meta name="twitter:description" content="Best offers on sports & fitness products in India.">
+<meta name="twitter:image" content="https://marketworld.me/images/sports-banner.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
@@ -23,7 +32,23 @@
 }
 </script>
 <style>
+.social-links{
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
 
+.social-links a{
+  color: var(--sub);
+  text-decoration: none;
+  margin: 0 6px;
+  transition: 0.3s ease;
+}
+
+.social-links a:hover{
+  color: var(--red);
+  text-shadow: 0 0 10px var(--red-glow);
+}
   footer a {
   text-decoration: none;
   color: inherit;
@@ -778,7 +803,13 @@ footer .ft-copy { opacity: .45; font-size: 12px; margin-top: 8px; }
 <!-- ── FOOTER ── -->
 <footer>
  <a href="index.html" class="ft-brand">MarketWorld</a>
-
+<div class="social-links">
+  <a href="https://www.instagram.com/marketworld91?igsh=enN0NXlkenlxOGt2" target="_blank" aria-label="Instagram">Instagram</a>
+  |
+  <a href="https://www.linkedin.com/in/aryan-bairwa-9a3748390/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+  |
+  <a href="https://www.youtube.com/@Marketworld.me1" target="_blank" aria-label="YouTube">YouTube</a>
+</div>
 <div>
   <a href="sports.html">Sports &amp; Fitness</a> |
   <a href="beauty.html">Beauty</a> |
@@ -1274,6 +1305,73 @@ setInterval(() => {
 // ── INIT ──────────────────────────────────────────────────
 renderProducts('all');
 </script>
+<!-- Back to Top Button -->
+<button id="backToTopBtn" class="back-to-top">↑</button>
 
+<style>
+:root{
+  --btn-color: #ff3d3d; /* 🔥 yaha apna theme color change kar sakta hai */
+}
+
+/* Button Style */
+.back-to-top{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--btn-color), #ff7aa2);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  box-shadow: 0 0 15px var(--btn-color),
+              0 0 30px rgba(255, 61, 127, 0.6);
+
+  transition: 0.3s ease;
+}
+
+/* Hover Glow + Lift */
+.back-to-top:hover{
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px var(--btn-color),
+              0 0 50px rgba(255, 61, 127, 0.8);
+}
+
+/* Show Class */
+.back-to-top.show{
+  display: flex;
+}
+
+/* Click animation feel */
+.back-to-top:active{
+  transform: scale(0.95);
+}
+</style>
+
+<script>
+const backBtn = document.getElementById("backToTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backBtn.classList.add("show");
+  } else {
+    backBtn.classList.remove("show");
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+</script>
 </body>
 </html>

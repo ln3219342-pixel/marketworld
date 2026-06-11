@@ -5,12 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Fashion Collection – MarketWorld | Clothing, Style & Best Deals</title>
-
-<meta name="description" content="Explore Fashion Collection on MarketWorld featuring trendy clothing, accessories, and style products with the best online deals and discounts." />
+<link rel="icon" href="/favicon.png?v=2" type="image/png">
+<meta name="description" content="Buy fashion products online in India at MarketWorld. Explore men's clothing, women's fashion, kids wear, shoes, sunglasses, ethnic wear, sarees and accessories with the latest deals and discounts." />
 <link rel="canonical" href="https://marketworld.me/fashion.html">
 <meta name="robots" content="index, follow">
+<meta property="og:title" content="Fashion Collection - MarketWorld">
+<meta property="og:description" content="Best fashion deals on clothing, shoes, sarees, sunglasses and accessories.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marketworld.me/fashion.html">
+<meta property="og:image" content="https://marketworld.me/favicon.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fashion Collection - MarketWorld">
+<meta name="twitter:description" content="Latest fashion products and best online deals.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"CollectionPage",
+ "name":"Fashion Collection",
+ "url":"https://marketworld.me/fashion.html",
+ "description":"Fashion products, clothing, shoes, sunglasses and accessories."
+}
+</script>
 <style>
   :root {
     --bg: #f8f7f5;
@@ -491,6 +507,7 @@
 
 <!-- ─── NAVBAR ──────────────────────────────────── -->
 <nav>
+  
   <div class="nav-inner">
     <a class="brand" href="index.html">Market<span>World</span></a>
     <ul class="nav-links">
@@ -498,7 +515,8 @@
       <li><a href="fashion.html" class="active">👕 Fashion</a></li>
       <li><a href="electronic.html">Electronics</a></li>
       <li><a href="beauty.html">Beauty</a></li>
-      <li><a href="offers.html">Offers</a></li>
+      <li><a href="sports.html">Sports</a></li>
+       <li><a href="home-kitchen.html">Home & kitchen</a></li>
     </ul>
     <div class="nav-actions">
       
@@ -561,10 +579,75 @@
 </div>
 
 <!-- ─── FOOTER ───────────────────────────────────── -->
-<footer>
-  <p>© 2025 <strong>MarketWorld</strong> · Premium Fashion Shopping · Made with ❤️ in India</p>
-</footer>
+  <footer class="footer">
+  
+  <div class="social-links">
+    <a href="https://www.instagram.com/marketworld91?igsh=enN0NXlkenlxOGt2" target="_blank">
+      📸 Instagram
+    </a>
 
+    <a href="https://www.linkedin.com/in/aryan-bairwa-9a3748390/" target="_blank">
+      💼 LinkedIn
+    </a>
+
+    <a href="https://www.youtube.com/@Marketworld.me1" target="_blank">
+      ▶️ YouTube
+    </a>
+  </div>
+
+<style>
+.footer{
+  background:#1a1a1a;
+  color:rgba(255,255,255,0.75);
+  text-align:center;
+  padding:30px 20px;
+  font-size:0.9rem;
+}
+
+.social-links{
+  margin:18px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.social-links a{
+  text-decoration:none;
+  color:#fff;
+  padding:10px 16px;
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:30px;
+  transition:0.3s ease;
+}
+
+.social-links a:hover{
+  background:#c9493a;
+  border-color:#c9493a;
+  transform:translateY(-3px);
+}
+
+@media(max-width:600px){
+  .social-links{
+    gap:10px;
+  }
+
+  .social-links a{
+    width:100%;
+    max-width:220px;
+  }
+}
+</style>
+<p>
+MarketWorld is an affiliate shopping platform helping users discover
+fashion, electronics, beauty products and exclusive online deals.
+</p>
+
+<p>
+© 2026 MarketWorld. All Rights Reserved.
+</p>
+</footer>
 <script>
 const products = [
   // ── MEN ──
@@ -1030,7 +1113,9 @@ function renderCard(p) {
     <div class="card-badge ${p.badgeClass||''}">${p.badge}</div>
     
     <div class="card-img">
-      <img src="${p.img}" alt="${p.brand} ${p.title}" loading="lazy">
+<img src="${p.img}"
+alt="Buy ${p.brand} ${p.title} Online at Best Price"
+loading="lazy">
     </div>
     <div class="card-body">
       <div class="card-brand">${p.brand}</div>
@@ -1099,6 +1184,74 @@ document.addEventListener('click', e => {
 
 // Initial render
 filterProducts('all');
+</script>
+<!-- Back to Top Button -->
+<button id="backToTopBtn" class="back-to-top">↑</button>
+
+<style>
+:root{
+  --btn-color: #ff3d3d; /* 🔥 yaha apna theme color change kar sakta hai */
+}
+
+/* Button Style */
+.back-to-top{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--btn-color), #ff7aa2);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  box-shadow: 0 0 15px var(--btn-color),
+              0 0 30px rgba(255, 61, 127, 0.6);
+
+  transition: 0.3s ease;
+}
+
+/* Hover Glow + Lift */
+.back-to-top:hover{
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px var(--btn-color),
+              0 0 50px rgba(255, 61, 127, 0.8);
+}
+
+/* Show Class */
+.back-to-top.show{
+  display: flex;
+}
+
+/* Click animation feel */
+.back-to-top:active{
+  transform: scale(0.95);
+}
+</style>
+
+<script>
+const backBtn = document.getElementById("backToTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backBtn.classList.add("show");
+  } else {
+    backBtn.classList.remove("show");
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
 </script>
 </body>
 </html>

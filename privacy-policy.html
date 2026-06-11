@@ -5,12 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Privacy Policy – MarketWorld</title>
-
-<meta name="description" content="Read MarketWorld Privacy Policy to understand how we collect, use, and protect your personal information while using our website and services." />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" href="/favicon.png?v=2" type="image/png">
+<meta name="description" content="Read MarketWorld Privacy Policy to understand how we collect, use, store, and protect your personal data. Transparent, secure, and GDPR-compliant practices." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Privacy Policy – MarketWorld" />
+<meta name="twitter:description" content="Understand how we collect, use, and protect your data at MarketWorld." />
+<meta name="twitter:image" content="https://marketworld.me/images/privacy-og.jpg" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="MarketWorld" />
+<meta property="og:title" content="Privacy Policy – MarketWorld" />
+<meta property="og:description" content="Learn how MarketWorld protects your data and privacy with transparent policies." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://marketworld.me/privacy-policy.html" />
+<meta property="og:image" content="https://marketworld.me/images/privacy-og.jpg" />
+<link rel="canonical" href="https://marketworld.me/privacy-policy.html" />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy – MarketWorld",
+  "description": "MarketWorld Privacy Policy explaining data collection, usage, cookies, and user rights.",
+  "url": "https://marketworld.me/privacy-policy.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "MarketWorld"
+  }
+}
+</script>
 <style>
+  .social-links{
+  display:flex;
+  gap:12px;
+  list-style:none;
+  padding:0;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+
+.social-links a{
+  display:inline-block;
+  padding:8px 12px;
+  border:1px solid #1e2d47;
+  border-radius:8px;
+  color:#c4cfe8;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+  background:#111827;
+}
+
+.social-links a:hover{
+  color:#f5a623;
+  border-color:#f5a623;
+  transform:translateY(-3px);
+}
   :root {
     --navy:       #0b0f1a;
     --navy-mid:   #111827;
@@ -654,6 +704,11 @@
 <footer>
   <div class="inner">
     <p class="copy">© 2026 <strong>MarketWorld</strong>. All rights reserved.</p>
+    <ul class="social-links">
+  <li><a href="https://www.youtube.com/@Marketworld.me1" target="_blank">YouTube</a></li>
+  <li><a href="https://www.instagram.com/marketworld91?igsh=enN0NXlkenlxOGt2" target="_blank">Instagram</a></li>
+  <li><a href="https://www.linkedin.com/in/aryan-bairwa-9a3748390/" target="_blank">LinkedIn</a></li>
+</ul>
     <ul class="links">
       <li><a href="terms-and-conditions.html">Terms of Service</a></li>
       <li><a href="privacy-policy.html">Privacy Policy</a></li>
@@ -676,5 +731,79 @@
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
+<!-- Back to Top Button -->
+<button id="backToTopBtn" class="back-to-top">↑</button>
+
+<style>
+:root{
+  --btn-color: #ffc23d; /* 🔥 yaha apna theme color change kar sakta hai */
+}
+
+/* Button Style */
+.back-to-top{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--btn-color), #ff7aa2);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  box-shadow: 0 0 15px var(--btn-color),
+              0 0 30px rgba(255, 61, 126, 0.726);
+
+  transition: 0.3s ease;
+}
+
+/* Hover Glow + Lift */
+.back-to-top:hover{
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px var(--btn-color),
+              0 0 50px rgba(255, 61, 127, 0.8);
+}
+
+/* Show Class */
+.back-to-top.show{
+  display: flex;
+}
+
+/* Click animation feel */
+.back-to-top:active{
+  transform: scale(0.95);
+}
+</style>
+
+<script>
+const backBtn = document.getElementById("backToTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backBtn.classList.add("show");
+  } else {
+    backBtn.classList.remove("show");
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+document.querySelectorAll('.social-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    console.log("Opening:", a.href);
+  });
+});
+</script>
+
 </body>
 </html>
