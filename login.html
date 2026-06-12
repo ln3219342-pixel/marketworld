@@ -407,39 +407,61 @@ input[type=password],input[type=text]{padding-right:38px}
 // Go to: console.firebase.google.com → Project Settings → Your apps → SDK setup
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
-  getAuth, onAuthStateChanged,
-  signInWithEmailAndPassword, createUserWithEmailAndPassword,
-  signInWithPopup, GoogleAuthProvider,
-  sendPasswordResetEmail, signOut, updateProfile
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  sendPasswordResetEmail,
+  signOut,
+  updateProfile,
+  setPersistence,
+  browserLocalPersistence,
+  browserSessionPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
+// 🔥 Firebase config (replace with your real keys)
 const firebaseConfig = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID"
+  apiKey: "AIzaSyCJOwemdpVk2Tkt8_1GHmVCgMjwsGP0h1M",
+  authDomain: "marketworld-6f705.firebaseapp.com",
+  projectId: "marketworld-6f705",
+  storageBucket: "marketworld-6f705.firebasestorage.app",
+  messagingSenderId: "210817038456",
+  appId: "1:210817038456:web:42a2a98fbd7cf771d1158d",
+  measurementId: "G-KZQ3GV0123"
 };
 
-const app      = initializeApp(firebaseConfig);
-const auth     = getAuth(app);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Google login provider
 const provider = new GoogleAuthProvider();
 
 // ─── Tab state ────────────────────────────────────────────────────────────────
 let currentTab = 'login';
+
 window.switchTab = (tab) => {
   currentTab = tab;
-  document.querySelectorAll('.tab').forEach((t,i)=>{
-    t.classList.toggle('active', (tab==='login'&&i===0)||(tab==='signup'&&i===1));
+
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.remove('active');
   });
+
+  if (tab === 'login') document.querySelectorAll('.tab')[0].classList.add('active');
+  if (tab === 'signup') document.querySelectorAll('.tab')[1].classList.add('active');
+
   const isSignup = tab === 'signup';
-  document.getElementById('name-field').style.display  = isSignup ? 'block' : 'none';
-  document.getElementById('login-extras').style.display= isSignup ? 'none'  : 'flex';
-  document.getElementById('auth-btn').textContent      = isSignup ? 'Sign up' : 'Log In';
-  document.getElementById('alt-link').innerHTML        = isSignup
+
+  document.getElementById('name-field').style.display = isSignup ? 'block' : 'none';
+  document.getElementById('login-extras').style.display = isSignup ? 'none' : 'flex';
+  document.getElementById('auth-btn').textContent = isSignup ? 'Sign up' : 'Log In';
+
+  document.getElementById('alt-link').innerHTML = isSignup
     ? 'Already have an account? <a href="#" onclick="switchTab(\'login\');return false">Log in →</a>'
     : 'No account? <a href="#" onclick="switchTab(\'signup\');return false">Create one free →</a>';
+
   clearErrors();
 };
 
@@ -449,19 +471,34 @@ window.handleAuth = async () => {
   const btn   = document.getElementById('auth-btn');
   const email = document.getElementById('inp-email').value.trim();
   const pw    = document.getElementById('inp-pw').value;
+const rememberEl = document.getElementById("chk-remember");
+const remember = rememberEl ? rememberEl.checked : false;
   const name  = document.getElementById('inp-name').value.trim();
   btn.disabled = true;
   btn.textContent = currentTab === 'login' ? 'Signing in…' : 'Creating account…';
   try {
     if (currentTab === 'login') {
-      const remember = document.getElementById('chk-remember').checked;
-      // persistence could be set here via setPersistence
+
+if (remember) {
+  await setPersistence(auth, browserLocalPersistence);
+} else {
+  await setPersistence(auth, browserSessionPersistence);
+}      // persistence could be set here via setPersistence
       await signInWithEmailAndPassword(auth, email, pw);
       toast('ok','Signed in!','Welcome back to MarketWorld.');
     } else {
       const cred = await createUserWithEmailAndPassword(auth, email, pw);
-      if (name) await updateProfile(cred.user, { displayName: name });
-      toast('ok','Account created!','Welcome to MarketWorld — let\'s trade.');
+
+if (name) {
+  await updateProfile(cred.user, { displayName: name });
+}
+
+await auth.currentUser.reload();
+document.getElementById('inp-email').value = email;
+switchTab('login');
+btn.disabled = false;
+btn.textContent = 'Log In';
+toast('ok','Account created!','Welcome to MarketWorld — let\'s trade.');
     }
   } catch(e) {
     btn.disabled = false;
@@ -601,15 +638,14 @@ window.toast = (type, title, msg='', duration=4000) => {
 
 // ─── Firebase error map ───────────────────────────────────────────────────────
 function firebaseError(code) {
-  const firebaseConfig = {
-  apiKey: "AIzaSyCJOwemdpVk2Tkt8_1GHmVCgMjwsGP0h1M",
-  authDomain: "marketworld-6f705.firebaseapp.com",
-  projectId: "marketworld-6f705",
-  storageBucket: "marketworld-6f705.firebasestorage.app",
-  messagingSenderId: "210817038456",
-  appId: "1:210817038456:web:42a2a98fbd7cf771d1158d",
-  measurementId: "G-KZQ3GV0123"
-};
+  const map = {
+    "auth/user-not-found": "No account found with this email.",
+    "auth/wrong-password": "Incorrect password.",
+    "auth/email-already-in-use": "Email already registered.",
+    "auth/invalid-email": "Invalid email address.",
+    "auth/weak-password": "Password should be at least 6 characters.",
+    "auth/popup-closed-by-user": "Popup closed before completion."
+  };
 
   return map[code] || `Something went wrong (${code})`;
 }
